@@ -18,6 +18,8 @@ Instead of paying or setting up another complicated system, I thought it would b
 **Disclaimer**: views are my own (some dating from my PhD years which might be different today). 
 So, many outdated information and I'm sure it contains some mis-interpretations and exaggerations.
 
+To minimize this website being found, I added a `robots.txt` file, edited the `head.html` in the theme to include a new `<meta>` tag, and am not using the *master* branch on github anymore.
+
 ## About me
 
 + [Personal page with links](https://jmonlong.github.io/).
