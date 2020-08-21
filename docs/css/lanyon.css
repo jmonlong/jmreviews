@@ -503,13 +503,25 @@ a.pagination-item:hover {
 .theme-base-0d .sidebar,
 .theme-base-0d .sidebar-toggle:active,
 .theme-base-0d #sidebar-checkbox:checked ~ .sidebar-toggle {
-  background-color: #6a9fb5;
+  background-color: #3C5688;
 }
 .theme-base-0d .container a,
 .theme-base-0d .sidebar-toggle,
 .theme-base-0d .related-posts li a:hover {
-  color: #6a9fb5;
+  color: #3C5688;
 }
+
+.theme-base-0d .homelinks:hover{
+    /* background-color: #f5f5f5; */
+    background-color: #3C5688;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.theme-base-0d .homelinks{
+    border: 1px solid #3C5688;
+}
+
 
 /* Magenta */
 .theme-base-0e .sidebar,
