@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Minimizers, CNV burden, and ref-guided scaffolding &middot; My Reviews
+    
+  </title>
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113785126-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', "UA-113785126-1");
+  </script>
+  
+  
+  <link rel="stylesheet" href="../../../../css/poole.css">
+  <link rel="stylesheet" href="../../../../css/syntax.css">
+  <link rel="stylesheet" href="../../../../css/lanyon.css">
+  <link rel="stylesheet" href="../../../../css/github.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="../../../../fa/css/font-awesome.min.css">
+  
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../../assets/R-icon.png">
+  <link rel="shortcut icon" href="../../../../assets/R-icon.png">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../atom.xml">
+</head>
+
+  
+  <body>
+
+    
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A place to review papers I read. Views are my own.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item " href="../../../../">Home</a>
+    <a class="sidebar-nav-item " href="../../../../post">Posts</a>
+
+    
+    
+      
+        <a class="sidebar-nav-item " href="../../../../genome-assembly/">Genome Assembly</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../genome-graphs/">Genome Graphs</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../structural-variation/">Structural Variation</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../structural-variation-impact/">Structural Variation Impact</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../structural-variation-mechanisms-of-formation/">Structural Variation Mechanisms of Formation</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../structural-variation-methods/">Structural Variation Methods</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../structural-variation-and-repeats/">Structural Variation and Repeats</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../whole-genome-sequencing/">Whole-Genome Sequencing</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../glossary/">Glossary</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../about/">About</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+    
+  </nav>
+
+  <div class="sidebar-item">
+  </div>
+  
+  <div class="sidebar-item">
+    <div><a href="../../../../index.xml"><i class="fa fa-rss-square" aria-hidden="true"></i> RSS</a></div>
+    <div><a href="https://twitter.com/JMonlong"><i class="fa fa-twitter" aria-hidden="true"></i> @JMonlong</a></div>
+    <p>&copy; 2020 Jean Monlong. All rights reserved.</p>
+  </div>
+</div>
+
+
+    
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="../../../../" title="Home">My Reviews</a>
+            <small>Views are my own</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+
+
+<div class="post">
+  <h1 class="post-title">Minimizers, CNV burden, and ref-guided scaffolding</h1>
+  <span class="post-date">Feb 12 2019
+  
+  
+  
+  
+  
+  <a href='../../../../tags/literature/' class='label'>literature</a>
+  
+  
+  
+  </span>
+  
+
+
+<p>I accumulated a huge number of articles in Feedly and I don’t know what to do about them.
+One thing I decided to try was to go over them quickly and write down what I want to remember.
+I don’t think I will read these kind of posts again but maybe it will help me remember or eventually find the reference again.</p>
+<div id="minimizer-indexes" class="section level3">
+<h3>Minimizer indexes</h3>
+<p>I would like to understand better minimizer indexes as they seem to be more and more important in the field.
+A <a href="https://www.biorxiv.org/content/10.1101/546309v1?rss=1">recent preprint</a> introduces the three ways to index kmers:</p>
+<ol style="list-style-type: decimal">
+<li>index fixed-size words in sets (e.g. Bloom filters)</li>
+<li>full-text index (e.g. FM-indexes)</li>
+<li>generic associative indexes (~hash tables).</li>
+</ol>
+<p>With Bloom filters we can test if a kmers is probably in a set or if it is not.
+So there can be false-positives but no false-negatives.
+It requires much less memory than a more naive indexation.
+A Bloom filter is basically a bit array and some hash functions that map to the bit array.
+To add an element it is passed to each hash function and the resulting bits turned on.
+To test if an element is in the Bloom filter we can just use the hash functions again and test if all the bits are on.
+When this occurs by chance, it’s a false-positive.
+Elements cannot be removed from a Bloom filter.
+Query time is constant.</p>
+<p>FM-indexes uses Burrows-Wheeler transform to compress a text while still allowing fast substring search.
+The name comes from <em>Full-text index in Minute space</em>.
+Query time as well as space is sublinear.</p>
+<p>Another approach is described in a <a href="https://genomeinformatics.github.io/mashmap/">post from Adam Phillipy</a>.
+He describes an approach for <em>approximate</em> mapping which might be better suited than traditional approaches when mapping long reads with higher error rates.
+The basic idea is to extract a kmer from a string, for example the smallest according to an defined order.
+In practice a window slides over a long string/reads and saves the minimizers in each window.
+The minimizers are used to quickly find hits in the genome.
+They can also be used to estimate the identity of the read alignment, avoiding a costly realignment step.
+<a href="https://github.com/lh3/minimap2">Minimap2</a>, developed by Heng Li, is also using minimizer indexes to find seeds for its seed-chain-align strategy.</p>
+</div>
+<div id="phenome-wide-burden-of-copy-number-variation-in-uk-biobank" class="section level3">
+<h3>Phenome-wide burden of copy number variation in UK Biobank</h3>
+<p><a href="https://www.biorxiv.org/content/10.1101/545996v1?rss=1">bioRxiv</a></p>
+<p>CNVs genotyped from arrays across almost 500M individuals using PennCNV.
+The average size of the ~300K CNVs was 226 kbp.
+Because individuals in the cohort are relatively healthy (enrolled at age 40-69), they used this data to create a CNV intolerance score similar to the CNV pLI from the ExAC project.
+They describe in more details associations with coronary artery disease and body mas index, including some in intergenic regions.</p>
+</div>
+<div id="fast-and-accurate-reference-guided-scaffolding-of-draft-genomes" class="section level3">
+<h3>Fast and accurate reference-guided scaffolding of draft genomes</h3>
+<p><a href="https://www.biorxiv.org/content/10.1101/519637v1">bioRxiv</a></p>
+<p>From the Schatz lab, RaGOO that uses minimap2 alignment to a reference to produce chromosome-level scaffold quickly.
+It also identifies structural variants and can correct for apparent chimeric contigs.
+The algorithm is basically three steps:</p>
+<ol style="list-style-type: decimal">
+<li>aligning with minimap</li>
+<li>clustering contigs</li>
+<li>ordering and orienting contigs.</li>
+</ol>
+<p>Chimeric contigs can be inter-chromosomal or intra-chromosomal.
+Large portions of an intra-chromosomal chimeric contigs will map uniquely to at least two distinct reference chromosomes.
+A similar approach is used for intra-chromosomal chimeric contigs, using a user-defined maximum distance (default is 2 Mbp).
+<a href="https://github.com/malonge/RaGOO">RaGOO</a> is written in Python.</p>
+</div>
+
+</div>
+
+      </div>
+    </div>
+
+    
+    
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src="../../../../assets/highlight.min.js"></script>
+    <script src="../../../../assets/r.min.js"></script>
+    
+    <script>
+      hljs.configure({languages: ['r']});
+      hljs.initHighlightingOnLoad();
+    </script>
+
+    <script src="//yihui.name/js/math-code.js"></script>
+    <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
+  </body>
+</html>
+

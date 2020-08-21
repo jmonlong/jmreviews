@@ -1,0 +1,70 @@
+---
+date: 2017-08-20
+title: Misc
+tags: ['literature']
+output: blogdown::html_page
+---
+
+
+
+<div id="misc" class="section level2">
+<h2>Misc</h2>
+<div id="cancer-chromatin-loop-and-svs" class="section level3">
+<h3>Cancer, chromatin loop and SVs</h3>
+<p>Chromatin loop anchor points (LAPs) as sites of regulatory importance but also genomic fragility.
+They harbour an excess of SV breakpoints in cancers, are prone to double strand breaks in somatic cells, and are bound by DNA repair complex proteins.</p>
+<p><a href="http://www.biorxiv.org/content/early/2017/07/21/166934">Kaiser &amp; Semple bioRxiv 2017</a></p>
+</div>
+<div id="te-suppression-in-cancer" class="section level3">
+<h3>TE suppression in cancer</h3>
+<p>TE suppression proposed as a mechanism for immune escape in acute myeloid leukaemia (AML) and myelodysplastic syndrome (MDS).
+TE are less expressed in high-risk vs low-risk, or in resistant cancers.
+Too much TE expressed would cause interferon signaling and cancer cell killing.</p>
+<p><a href="https://www.nature.com/articles/s41598-017-07356-9">Colombo et al Sci. Reports 2017</a></p>
+</div>
+</div>
+<div id="r" class="section level2">
+<h2>R</h2>
+<div id="hugo-and-blogdown" class="section level3">
+<h3>Hugo and Blogdown</h3>
+<p>I’m hearing more and more about <a href="https://gohugo.io/">Hugo</a> website and <a href="https://bookdown.org/yihui/blogdown/">Blogdown</a> seems to be the R package to build and manage one.</p>
+<p>Why is Hugo better than Jekyll ?</p>
+<ul>
+<li>Faster apparently.</li>
+<li>Easier workflow, less things to install.</li>
+<li>Templates a much cooler.</li>
+<li>Seamless integration of RMarkdown (through Blogdown).</li>
+</ul>
+<p>Blogdown was written by the same person who wrote knitr (Yihui Xie).
+He also wrote <a href="https://github.com/rstudio/bookdown">bookdown</a> and works at RStudio.</p>
+<ul>
+<li><a href="https://talesofr.wordpress.com/2017/08/18/starting-a-rmarkdown-blog-with-bookdown-hugo-github/">How to set up Hugo + Blogdown on GitHub Pages</a></li>
+</ul>
+</div>
+<div id="dplyr-tricks" class="section level3">
+<h3>dplyr tricks</h3>
+<p>Using <code>enquo</code> to enquote a variable and <code>!!</code> to unquote it.
+<a href="https://www.enchufa2.es/archives/programming-with-dplyr-by-using-dplyr.html">For example</a>:</p>
+<pre class="r"><code>starwars_mean &lt;- function(var) {
+  var &lt;- enquo(var)
+  starwars %&gt;%
+    group_by(!!var) %&gt;%
+    summarise(mean_height = mean(height, na.rm = TRUE),
+            mean_mass = mean(mass, na.rm = TRUE),
+            count = n())
+}
+
+starwars_mean(homeworld)</code></pre>
+</div>
+<div id="mix-multiple-graphs-with-ggplot2" class="section level3">
+<h3>Mix multiple graphs with ggplot2</h3>
+<p>Using the ggpubr functions, multi graphs panels can be produced, with aligned axis if needed.</p>
+<p><a href="http://www.sthda.com/english/wiki/ggplot2-easy-way-to-mix-multiple-graphs-on-the-same-page">Tutorial</a></p>
+</div>
+<div id="joy-plots" class="section level3">
+<h3>Joy Plots</h3>
+<p>Joy plots are several density curves horizontally aligned and overlapping each other slightly.
+It’s a cool way to visualize progression or gradually different profiles.
+<a href="http://mran.microsoft.com/web/packages/ggjoy/vignettes/gallery.html">Some examples</a> and a <a href="https://github.com/clauswilke/ggjoy">R package</a>.</p>
+</div>
+</div>

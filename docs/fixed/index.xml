@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fixeds on </title>
+    <link>/fixed/</link>
+    <description>Recent content in Fixeds on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/fixed/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Genome Assembly</title>
+      <link>/genome-assembly/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/genome-assembly/</guid>
+      <description>Human de novo assembly One technology Hybrid approach combining technologies Telomere to telomere assemblies  Sequencing of one individual to improve reference genome Assembly Short read sequencing Assessing the quality of a de novo assembly  Bibliography   Human de novo assembly One technology  Hybrid approach combining technologies In order to construct a de novo assembly a Korean human genome, Seo et al. (2016) used Pacbio (101x), BioNano (97x+108x), Illumina (72x), 10X linked-reads (30x) and BAC libraries.</description>
+    </item>
+    
+    <item>
+      <title>Genome Graphs</title>
+      <link>/genome-graphs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/genome-graphs/</guid>
+      <description>Types of graphs Read alignment Indexing  Variant calling Evaluation  Polymorphic regions Haplotype modeling Reference bias Annotation in the graph Linearization of a genome graph Graph from de novo assemblies Tools vg HISAT2 Seven Bridges BayesTyper Paragraph Others  Bibliography   Paten et al. (2017) wrote a review on genome graphs covering a large number of topics. Marschall et al. (2018) review the emergent field of computational pan-genomics.</description>
+    </item>
+    
+    <item>
+      <title>Structural Variation</title>
+      <link>/structural-variation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/structural-variation/</guid>
+      <description>Introduction - Importance of Structural Variation Different SV types Copy Number Variation Deletions and insertions Tandem repeats  Inversions Transchromosomal SVs Complex SVs Somatic SVs Germline SVs  SV hotspots  Bibliography   Introduction - Importance of Structural Variation With our current knowledge about genomic variation, the human genome has ceased to exist as a defined entity and is instead becoming a fluid continuum (Dear 2009).
+5% of the genome is known to display CNVs, i.</description>
+    </item>
+    
+    <item>
+      <title>Structural Variation Impact</title>
+      <link>/structural-variation-impact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/structural-variation-impact/</guid>
+      <description>Gene expression Micro RNAs Genes with recurrent CNV Enhancer hijacking  Association studies and LD Inversions  Cancer Pan-Cancer patterns Arm-level aberrations Focal sCNVs  Gene fusion Enhancer hijacking Relation with epigenetics Mobile element insertion  Epilepsy Congenital Heart Disease Asthma Other diseases Loss of chromosome Y and diseases Bibliography   Gene expression Coding regions of 800-1800 known genes are subject to variation in copy number (Sharp, Cheng, and Eichler 2006).</description>
+    </item>
+    
+    <item>
+      <title>Structural Variation Mechanisms of Formation</title>
+      <link>/structural-variation-mechanisms-of-formation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/structural-variation-mechanisms-of-formation/</guid>
+      <description>Non-Allelic Homologous Recombination (NAHR) NAHR substrates  Replication slippage Non-Homologous End-Joining (NHEJ) Fork Stalling and Template switching / Micro-homology-Mediated Break-induced Replication Chromothripsis Somatic mutation De novo germline mutation Bibliography   The mechanism of formation of a SV is often estimated from the breakpoint sequence (Mills et al. 2011). A high proportion of CNVs (71%/90% of deletions/duplications) exhibited breakpoint (micro)homology, and some non-template insertion in a minority of deletions (16%).</description>
+    </item>
+    
+    <item>
+      <title>Structural Variation Methods</title>
+      <link>/structural-variation-methods/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/structural-variation-methods/</guid>
+      <description>Cytogenetic techniques Array-CGH technology Circular binary segmentation Shifting Level Model  SNP-array Next-generation sequencing Read-Depth (RD) RD in one sample Case vs Control  RD in several samples Methods for repeat-rich regions PEM and Split-reads Assembly approach SV genotypers Others Benchmark Misc Mapping algorithm effect Comparing SV calls In Silico validation Visualization   Bibliography   Different technologies and methods have been used over the years to detect structural variation.</description>
+    </item>
+    
+    <item>
+      <title>Structural Variation and Repeats</title>
+      <link>/structural-variation-and-repeats/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/structural-variation-and-repeats/</guid>
+      <description>Segmental duplications Centromeric/telomeric regions Euchromatic variants DNA satellites Transposable elements In cancers  Bibliography   De and Michor (2011) found an enrichment of somatic CNV breakpoints in simple repeats, Alu and CR1.
+Segmental duplications Segmental duplications are genomic regions ranging from 1-400 Kbp present in multiple locations and sharing a high level (&amp;gt;90%) of sequence identity (Sharp, Cheng, and Eichler 2006). Some blocks are duplicated in the same chromosome while others locate in non-homologous chromosomes.</description>
+    </item>
+    
+    <item>
+      <title>Whole-Genome Sequencing</title>
+      <link>/whole-genome-sequencing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/whole-genome-sequencing/</guid>
+      <description>Bias characterization GC bias Repeats Correction  Bibliography   Bias characterization GC bias Benjamini and Speed (2012) described thoroughly the bias in read coverage due to GC content of a region. They showed that GC-rich and GC-poor regions tend to have a reduced read coverage and that it might be due to a decreased efficiency of the DNA amplification. Moreover they observed different strength in different samples, highlighting the sample-specific aspect of GC bias.</description>
+    </item>
+    
+    <item>
+      <title>Glossary</title>
+      <link>/glossary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/glossary/</guid>
+      <description>aCGH Admixture vs stratification Aggregation APOE Astrocyte Ataxia ATP Attributable fraction Autoimmune diseases Banding Cell Chronic disease Cre-Lox recombination Cri du Chat syndrome Crohn’s disease Cytokine DNA denaturation Down syndrome Ectopic Endophenotype Endonuclease Edwards syndrome Epilepsy Equal probability sampling Fragile X syndrome Gallbladder Gene conversion Hardy-Weinberg Equilibrium Hazard ratio Heritability Heteroplasmy Heterozygote advantage Hybridization Huntington disease Inbreeding coefficient Incidence/prevalence Kidney Kinase Leigh Symdrome Linkage analysis Liver Mather’s law Meiosis Methyltransferase Mitochondria Mitosis Normality test, excess kurtosis and skewness Pancreas PCR, RT-PCR, qRT-PCR Penetrance Plasmid Prostate Psoriasis Rett Syndrome Rhabdoid tumor Rheumatoid arthritis Ribo-Seq Sensitivity, specificity, precision, recall Stroma Wahlund effect Williams-Beuren Syndrome Wright–Fisher model X-inactivation X-linked inheritance   aCGH Stands for array Comparative Genomic Hybridization.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>About this website I started writing down information about the papers I read in this “website” form at the beginning of my PhD. I thought it would be easier to organize multiple topics and links. It’s also more pleasant to write markdown than LaTeX (the other option I was considering). Another benefit of markdown is that I can easily make an ebook version to review on an e-ink reader.</description>
+    </item>
+    
+  </channel>
+</rss>

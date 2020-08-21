@@ -1,0 +1,159 @@
+---
+date: 2019-12-08
+title: "Japanese reference genome, inversion GWAS, deCODE SVs"
+tags: ['literature']
+bibliography: [../../static/library-small.bib]
+link-citations: true
+output: blogdown::html_page
+---
+
+## JG1 Japanese reference genome from 3 de novo assemblies
+
+@Takayama2019 sequenced 3 Japanese individuals using high depth PacBio, Bionano and short read sequencing to create a better reference genome for the Japanese population, JG1.
+They made a meta-assembly, merging the 3 de novo assemblies and, when possible, picked the major allele across the 3 individuals.
+They show that JG1 reduces the number of variants, including the number of false positives, while still detecting important disease-causing SNVs.
+
+They wanted to fix two problems:
+
+- The rare variants in the reference genomes.
+- The fact that Asian haplotypes are present in only 4.3% of the reference genome Asian.
+
+They also used sequence-tagged site (STS) markers to place the contigs to chromosomes.
+Those come from sequence and [radiation hybrid maps](https://en.wikipedia.org/wiki/Radiation_hybrid_mapping) (basically cut the chromosomes in pieces, separate them, test the presence of markers and approximate the distance between markers based on how often they co-occur).
+
+Asssembly facts:
+
+- Falcon assembler on ~120X PacBio.
+- BioNano >150X
+- Pilon polished with ~55X Illumina reads.
+- N50: 86 Mbp, 60 Mbp, 58 Mbp.
+- ~3.1 Gbp
+- 85K STS markers to anchor contigs to chromosomes.
+- Some manual steps to fix sex chromosomes, mitochondiral genome, or the gap lengths.
+
+To modify their meta-assembly with the major allele they called SNVs and SVs using minimap2+paftools and created the final sequence using `bcftools consensus`.
+
+Using HapMap samples, JG1 haplotypes cluster with Asian and Japanese individuals.
+Many of the variants (relative to hg19) had allele frequency 1 in a cohort of 3.5K Japanese individuals.
+This represent 98% of the "Japanese-fixed" variant found in this cohort.
+
+For SVs, they showed that the distribution was good and that the read coverage was "flatter" when using JG1.
+I don't really understand their coverage analysis. 
+It looks like they called SVs from short-reads using hg38 and JG1 but then it's not clear which SVs were used to compared the coverage. Both? GRCh38 on JG1?
+
+They provide the JG1 reference sequence and chain files for lift over [on their website](https://jmorp.megabank.tohoku.ac.jp/201911/downloads#sequence).
+They have also lifted over the GATK resource bundles.
+
+The made the chromosome drawing using [NCBI Genome Decoration Page](https://www.ncbi.nlm.nih.gov/genome/tools/gdp).
+
+To read from their reference list:
+
+- Dewey et al proposed a modified version of the reference genome that includes the major allele for different populations.
+
+## Association study of 21 inversions
+
+@Gonzalez2019 imputed the presence of inversions in >400K Europeans individuals (UK Biobank) and performed association tests against 25 obesity-related traits.
+Seven inversions were associated with multiple diseases.
+Some inversions could be disrupting TADs.
+
+From the intro:
+
+- A common inversion in 8p23.1 has been linked to obesity, autism, neuroticism.
+- Inversion at 17q21.31 was associated with Alzheimer, Parkinson diseases, heart failure.
+
+The inversions:
+
+- 3 spanned multiple genes: .45-4 Mbp flanked by SD.
+- 5 intragenic from 0.7-5 Kbp.
+- 13 intergenic from 0.7-90 Kbp.
+
+The associations found in the UK Biobank were further validated in two other datasets.
+
+They found a case were both the non-inverted allele of 8p23.1 is also associated with different diseases (diabetes, hypertension, asthma).
+
+In many of the significant associations, none of the SNPs located within the inverted region were associated with the phenotype.
+
+To further investigate the functional effect of the inversions, they imputed the genotype of samples with expression data (GTEx).
+They found significant differences in gene expression.
+
+They also compared the location of the inversions with tissue-specific genes and their TADs. 
+
+They performed a mediation analysis and found that Obesity mediates the association with diabetes and hypertension.
+
+To read next: 
+
+- Giner-Delgado, C. et al. Evolutionary and functional impact of common polymorphic inversions in the human genome. Nat. Commun. 10, 4222 (2019).
+
+## Long-read sequencing of 1,817 Icelanders to analyze structural variation
+
+@Beyter2019 discovered SVs using long-read sequencing in almost 2K Icelanders and imputed their presence in 166K Icelanders from SNP arrays.
+They performed association tests with the phenotype available and notably found a 14 Kbp deletion that overlaps the first exon of PCSK9 and correlates with lower LDL cholesterol levels.
+
+- 1,817 Icelanders, including 369 trios.
+- 14.7X ONT sequencing, N50 ~15 Kbp.
+- SVs detected with Sniffles and refined with short-reads using [SViper](https://github.com/smehringer/SViper).
+- Validated using raw signal using [SquiggleSVFilter](https://github.com/DecodeGenetics/nanopolish/tree/squigglesv).
+- median of 23K autosomal SVs per individual (~50/50 insertions/deletions).
+
+SV catalog: 
+
+- 68K SVs after merging.
+- 48K SVs as high-confidence, meaning that they could be imputed from SNP arrays.
+
+Discoveries:
+- Coding SVs are more rare.
+- Large SVs are more rare.
+
+They compared GWAS catalogs with their SVs and found 30 SVs impacting coding exons that are plausible causal variants.
+They also performed a GWAS using phenotypes from their cohort and found a rare 14 Kbp deletion that overlaps the first exon of PCSK9 and correlates with lower LDL cholesterol levels.
+
+The SVs were merged based on the reciprocal overlap (using the strange insertion projection technique). 
+They built a graph with SVs as linked nodes if they overlap.
+Treating the problem as a corrupted clique problem, they identified cliques to represent the minimum number of edge additions or removal.
+The representative most frequent SV in term of site and size was picked for each clique.
+
+They performed association testing using BOLT-LMM.
+
+The SV catalog will be available when the paper is published.
+
+
+## GraphTyper2
+
+@Eggertsson2019 improved their variant genotyper to integrate structural variants. 
+They show that it can genotype SNVs, indels and SVs from short-read data in large-scale datasets.
+
+They used the syndip dataset, long-read sequencing and variant segregation in families to assess the quality of the predicted genotypes.
+They genotyped 50K Icelanders.
+
+The approach is very similar to BayesTyper: SVs are discovered with methods likes Manta, then genotyped.
+Many of the input SVs might be errors but it's not a big problem because the genotyper can figure out if the variant is supported or not by mapped reads.
+It is incredible that BayesTyper was not mentioned in the paper (or cited).
+
+- Deletions, insertions, inversions, duplications.
+- Add just the sequence around the breakpoint (up to 152 bp), not the full allele.
+- Sliding window approach from a BAM file, now 1.2 Mbp long.
+- Syndip results: recall ~0.7/0.5 for DEL/INS; FDR ~0.2.
+- 83 CPU hours per sample on average.
+
+One limitation of this breakpoint-centric approach is that some informative reads might be discarded. 
+In practice it might not make a big difference. 
+I don't know how many unique insertions >300 bp exists in the population.
+
+They actually use two models to genotype SVs, one centered around the breakpoint alignment and the other on coverage.
+The prediction with the highest genotype quality is returned.
+
+Like Paragraph, they only compared the genotypes to methods that discover (sometimes then genotype) SVs.
+When comparing to Delly then didn't compare it on insertions although it can genotype insertions.
+However their evaluation criterion was more stringent that what we use.
+It's based on the distance between the true and predicted breakpoints, using ~20 bp as a typical cut-off.
+
+They compared the performance while using only SVs discovered in short-reads or when including SVs found in long-read sequencing studies.
+They found that the latter performs better.
+
+They merge the calls using their own tool, called [svimmer](https://github.com/DecodeGenetics/svimmer), which keeps the information they want and only sites information.
+SVs are grouped based on type, location (<200bp breakpoint diff), size (<100bp diff).
+The most common SV in the group is picked as representative.
+
+They genotyped 500K SVs, including 80K high-confidence SVs.
+I'm not sure what they mean by high-confidence.
+Maybe it's just a genotyping quality threshold.

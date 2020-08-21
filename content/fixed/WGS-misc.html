@@ -1,0 +1,60 @@
+---
+sidebar: true
+title: Whole-Genome Sequencing
+bibliography: [../../static/library-small.bib]
+link-citations: true
+weight: 5
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#bias-characterization">Bias characterization</a><ul>
+<li><a href="#gc-bias">GC bias</a></li>
+<li><a href="#repeats">Repeats</a></li>
+<li><a href="#correction">Correction</a></li>
+</ul></li>
+<li><a href="#bibliography">Bibliography</a></li>
+</ul>
+</div>
+
+<div id="bias-characterization" class="section level1">
+<h1>Bias characterization</h1>
+<div id="gc-bias" class="section level2">
+<h2>GC bias</h2>
+<p><span class="citation">Benjamini and Speed (<a href="#ref-Benjamini2012" role="doc-biblioref">2012</a>)</span> described thoroughly the <strong>bias in read coverage</strong> due to <strong>GC content</strong> of a region.
+They showed that <strong>GC-rich and GC-poor regions</strong> tend to have a <strong>reduced read coverage</strong> and that it might be due to a decreased efficiency of the DNA amplification.
+Moreover they observed different strength in different samples, highlighting the <strong>sample-specific</strong> aspect of GC bias.</p>
+<p><span class="citation">Talevich et al. (<a href="#ref-Talevich2014" role="doc-biblioref">2014</a>)</span> also mentioned an effect of GC content on <em>hybridization</em> and attributed differences in the bias strength across samples to different DNA quality and hybridization efficiency.</p>
+</div>
+<div id="repeats" class="section level2">
+<h2>Repeats</h2>
+<p>Repetitiveness of genomic regions affect directly read mapping and might decrease the amount of reads mapped with good quality.
+There could also be an effect during <strong>library preparation</strong>, when <strong>Cot-1 DNA</strong> is used to block repetitive DNA <span class="citation">(Talevich et al. <a href="#ref-Talevich2014" role="doc-biblioref">2014</a>)</span>.
+This could explain how repeat-based bias could change from sample to sample.</p>
+</div>
+<div id="correction" class="section level2">
+<h2>Correction</h2>
+<p><span class="citation">Cheung et al. (<a href="#ref-Cheung2011" role="doc-biblioref">2011</a>)</span> proposed a method, <em>BEADS</em> to correct sequencing bias. <span class="citation">Hashimoto, Edwards, and Gifford (<a href="#ref-Hashimoto2014" role="doc-biblioref">2014</a>)</span> too.</p>
+</div>
+</div>
+<div id="bibliography" class="section level1 unnumbered">
+<h1>Bibliography</h1>
+<div id="refs" class="references">
+<div id="ref-Benjamini2012">
+<p>Benjamini, Yuval, and Terence P. Speed. 2012. “Summarizing and Correcting the GC Content Bias in High-Throughput Sequencing.” <em>Nucleic Acids Research</em>. <a href="https://doi.org/10.1093/nar/gks001">https://doi.org/10.1093/nar/gks001</a>.</p>
+</div>
+<div id="ref-Cheung2011">
+<p>Cheung, Ming Sin, Thomas A. Down, Isabel Latorre, and Julie Ahringer. 2011. “Systematic Bias in High-Throughput Sequencing Data and Its Correction by BEADS.” <em>Nucleic Acids Research</em>. <a href="https://doi.org/10.1093/nar/gkr425">https://doi.org/10.1093/nar/gkr425</a>.</p>
+</div>
+<div id="ref-Hashimoto2014">
+<p>Hashimoto, Tatsunori B, Matthew D Edwards, and David K Gifford. 2014. “Universal Count Correction for High-Throughput Sequencing.” <em>PLoS Computational Biology</em>. <a href="https://doi.org/10.1371/journal.pcbi.1003494">https://doi.org/10.1371/journal.pcbi.1003494</a>.</p>
+</div>
+<div id="ref-Talevich2014">
+<p>Talevich, Eric, A Hunter Shain, Thomas Botton, and Boris C Bastian. 2014. “CNVkit: Copy Number Detection and Visualization for Targeted Sequencing Using Off-Target Reads.” <em>bioRxiv</em>. <a href="https://doi.org/10.1101/010876">https://doi.org/10.1101/010876</a>.</p>
+</div>
+</div>
+</div>

@@ -1,0 +1,85 @@
+---
+date: 2016-06-18
+title: SV, gene expression, cancer types, Alu insertions.
+tags: ['literature']
+output: blogdown::html_page
+---
+
+## The impact of structural variation on human gene expression
+
+by Chiang et al, [biorXiv 2016](http://biorxiv.org/content/early/2016/06/09/055962?rss=1%2522).
+
+The group from Ira Hall and the GTEx consortium investigated how much SVs affect gene expression and put it in context with existing SNV eQTLs work. 
+The jointly analyze the effect of SNVs, indels and SVs across 13 tissues in 147 individuals. 
+Their main results are:
+
++ SVs look like the causal variants of **3.3-7% of eQTLs**. Much more than predicted before and a large enrichment considering their genomic scarcity.
++ **88%** of the putative causal SVs are **non-coding**, but enriched in enhancer and regulatory regions.
++ 49 SVs are predicted to be causal of known GWAS hits.
++ **30% of common SV-eQTLs** are **not well tagged** by flanking SNPs
+
+## Classification of cancers based on copy number variation landscapes
+
+by Zhang et al, [*BBA* 2016](http://www.ncbi.nlm.nih.gov/pubmed/27266344?dopt=Abstract).
+
+They built a classifier taking as input CNVs of 23K genes and **classifying six cancer types**. 
+They reached **0.75 accuracy with only 19 genes**. 
+For classification, they used the Dagging algorithm, which chunks the data and feed them to a base classifier. 
+Then the consensus over the chunks is used as final classification. 
+The accuracy represents the proportion correctly classified samples. 
+In figure 1 we see how the accuracy increases rapidly with the number of features to then plateau around 75%. 
+Some cancer types are more accurately classified.
+
+The 19 genes are: RPS15, IL17RC, CUL2, SMPD3, MIR4703, CDKN2A, RFFL, CTBP2, MMD2, SEMA6A, ZFPM1, CDC25A, ZMYND11, KBTBD6, CELF5, EGFR, PIGL, ZNF503-AS1, RBFOX1.
+
+The introduction has some interesting sentences:
+
+> One study based on SNP microarray data from 2500 individuals with no known disease showed that a CNV that is at least 100 kb is approximately harbored by 65% to 80% of individuals
+
+> [...] copy number variants (CNV) that could alter the diploid status of particular locus of the genome.
+
+One thing I didn't know about the **relation between stress and CNV**. 
+Under stress (e.g. hypoxia) repair of broken replication may switch from homologous recombination to non-homologous repair.
+
+### Further readings
+
+From the introduction:
+
++ [Human Copy Number Variation and Complex Genetic Disease](http://www.annualreviews.org.proxy3.library.mcgill.ca/doi/abs/10.1146/annurev-genet-102209-163544) (review from E. Eichler).
++ [Population Analysis of Large Copy Number Variants and Hotspots of Human Genetic Disease](http://www.ncbi.nlm.nih.gov/pubmed/19166990) (SNP-array across 2500 healthy individuals).
+
+## Discovery and characterization of Alu repeat sequences via precise local read assembly
+
+by Wildschutte et al, [*Nucleic Acids Res.* 2015](http://www.ncbi.nlm.nih.gov/pubmed/26503250).
+
+Jeff Kidd's group built on existing approaches to **detect Alu insertion** and attempted to **assemble the full allelic sequence**. 
+*ME-insertion supporting reads* are assembled using a classic *overlap-layout-consensus* strategy. 
+**Low-coverage WGS** from 53 samples (Human Genome Diversity Project) was **pooled**. 
+They also devised a *genotyping experiment* of their assembled insertion and validated through PCR. 
+Briefly, reads are remapped to both the reference and mutated region and mapping used to estimate genotype likelihoods. 
+With their assembled sequences they could *observe and quantify* **premature insertion** and **5' truncation**. 
+**Some** variable Alu seem to arise **from non-retrotransposition mechanisms**.
+
+One of the **challenge** with short-read data seems to be **colocation of reference and non-reference repeats**. 
+For example, prediction within 500 bp were removed in this study. 
+Later they estimate from simulation that they might miss half of the insertions because of this criteria, consistent with the number from Chaisson et al.
+
+*Breakpoint determination seems tricky*. 
+They had to use a series of (old) programs to align, orient, realign the assembled sequence. 
+
+They used *PacBio from CHM1 to validate the assembly*. 
+In fact they ran their analysis on short-read data for the haploid cell line. 
+It's not exactly the same as their pooled analysis but the best they could do.
+
+Interesting facts:
+
++ AluY subfamilies is still mobile, especially AluYa5 and AluYb8.
++ Active Alus contains a RNA Pol III promoter that mobilizes L1 machinery.
++ Same as L1, inserted Alu are flanked by target site duplication and a poly-A tail.
+
+They cite a few modern methods that uses split-read, soft-clipped and unmapped reads to detect repeat insertion: 
+
+- [RetroSeq](http://www.ncbi.nlm.nih.gov/pubmed/23233656)
+- [alu-detect](http://www.ncbi.nlm.nih.gov/pubmed/23921633)
+- [Tea](http://www.ncbi.nlm.nih.gov/pubmed/22745252)
+- [Mobster](http://www.ncbi.nlm.nih.gov/pubmed/25348035).

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Cool tools, &#39;machine-learning&#39;, and a population-specific reference genome &middot; My Reviews
+    
+  </title>
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113785126-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', "UA-113785126-1");
+  </script>
+  
+  
+  <link rel="stylesheet" href="../../../../css/poole.css">
+  <link rel="stylesheet" href="../../../../css/syntax.css">
+  <link rel="stylesheet" href="../../../../css/lanyon.css">
+  <link rel="stylesheet" href="../../../../css/github.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="../../../../fa/css/font-awesome.min.css">
+  
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../../assets/R-icon.png">
+  <link rel="shortcut icon" href="../../../../assets/R-icon.png">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../atom.xml">
+</head>
+
+  
+  <body>
+
+    
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A place to review papers I read. Views are my own.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item " href="../../../../">Home</a>
+    <a class="sidebar-nav-item " href="../../../../post">Posts</a>
+
+    
+    
+      
+        <a class="sidebar-nav-item " href="../../../../genome-assembly/">Genome Assembly</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../genome-graphs/">Genome Graphs</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../structural-variation/">Structural Variation</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../structural-variation-impact/">Structural Variation Impact</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../structural-variation-mechanisms-of-formation/">Structural Variation Mechanisms of Formation</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../structural-variation-methods/">Structural Variation Methods</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../structural-variation-and-repeats/">Structural Variation and Repeats</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../whole-genome-sequencing/">Whole-Genome Sequencing</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../glossary/">Glossary</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../about/">About</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+    
+  </nav>
+
+  <div class="sidebar-item">
+  </div>
+  
+  <div class="sidebar-item">
+    <div><a href="../../../../index.xml"><i class="fa fa-rss-square" aria-hidden="true"></i> RSS</a></div>
+    <div><a href="https://twitter.com/JMonlong"><i class="fa fa-twitter" aria-hidden="true"></i> @JMonlong</a></div>
+    <p>&copy; 2020 Jean Monlong. All rights reserved.</p>
+  </div>
+</div>
+
+
+    
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="../../../../" title="Home">My Reviews</a>
+            <small>Views are my own</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+
+
+<div class="post">
+  <h1 class="post-title">Cool tools, &#39;machine-learning&#39;, and a population-specific reference genome</h1>
+  <span class="post-date">Jul 22 2018
+  
+  
+  
+  
+  
+  <a href='../../../../tags/literature/' class='label'>literature</a>
+  
+  
+  
+  </span>
+  
+
+
+<p>I accumulated a huge number of articles in Feedly and I don’t know what to do about them.
+One thing I decided to try was to go over them quickly and write down what I want to remember.
+I don’t think I will read these kind of posts again but maybe it will help me remember or eventually find the reference again.</p>
+<p><strong>genomeview - an extensible python-based genomics visualization engine</strong> (<a href="https://www.biorxiv.org/content/early/2018/06/26/355636">bioRxiv</a>, <a href="http://genomeview.readthedocs.io/en/latest/">docs</a>).
+<code>genomeview</code> implements a genomic visualization for python.
+It can creates SVG file representing genomics annotation (transcripts/tracks) and reads (short/long) of a region.
+This package nicely complement the bioinformatics python environment.
+I like that it integrates with jupyter notebooks or could be used for interactive applications.
+Among my projects, this could be integrated to my local SV assembler by showing the alignment of reads on the newly assembled sequence versus the reference sequence.</p>
+<p><strong>EnsembleCNV: An ensemble machine learning algorithm to identify and genotype copy number variation using SNP array data</strong>.
+In <a href="https://www.biorxiv.org/content/early/2018/06/27/356667">their preprint</a> the ensemble results from three methods are described: PennCNV, QuantiSNP and iPattern.
+Part of the ensemble feature, CNV regions are derived from the calls from different methods and samples (using a network analysis and cliques finding), and then (re-)genotyped.
+The machine learning part seems to be during the genotyping where a <em>local likelihood model is trained on both LRR and BAF</em>.
+Hum reading the methods quickly it seems like the <em>“machine learning”</em> is just Gaussian mixture modeling and this types of things…</p>
+<p><strong>RBV: Read balance validator, a tool for prioritising copy number variations in germline conditions</strong>.
+Because BAF information is <em>underutilised</em>, RBV package (<a href="https://github.com/whitneywhitford/RBV">python</a>) model BAF to validate or prioritize CNVs.
+Here “prioritize” is in term of quality, not functional impact.</p>
+<p><strong>The Qatar genome: a population-specific tool for precision medicine in the Middle East</strong> (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4927697/">Hum Genome Var 2016</a>).
+1,161 Qataris were sequenced (~100 WGS and ~1,300 WES) and used to create a population-specific rederence that improved coverage and reduced the number of variants called.
+The benefit of this reference varied in across ancestries.
+One benefit of modifying the reference is that less variants needs to be interpreted and that those that are considered are likely rare variants.
+Interesting: to liftover their genome they used ProgressiveCactus alignment and HalTools.
+It’s a bit strange how they computed the benefit of their reference in term of coverage, showing the sum of the bases mapped (overall or at modified bases).
+Of note these numbers are shown in bar plots that don’t start at 0.
+They observed a 23% depth improvement at variant sites when mapping to their new reference.</p>
+<p><strong>GenomicScores: seamless access to genomewide position-specific scores from R and Bioconductor</strong> (<a href="https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/bty311/4987140">article</a>, <a href="https://bioconductor.org/packages/GenomicScores">Bioconductor</a>).
+This R package simplify the utilization of position scores such as conservation.
+Essentially two functions <code>score</code>/<code>gscore</code> can efficiently retrieve a summary statistic (e.g. mean) of scores in a genomic region.</p>
+<p><strong>BioVR: a platform for virtual reality assisted biological data integration and visualization</strong> (<a href="https://www.biorxiv.org/content/early/2018/04/25/307769">bioRxiv</a>).
+A virtual reality tool to manipulate DNA/RNA/protein structure using an Oculus Rift and hand detection.
+More of a proof-of-concept than a completely usable/useful tool but cool!</p>
+<p><strong><a href="https://www.nature.com/articles/s41576-018-0018-x">The personal and clinical utility of polygenic risk scores</a></strong>. A Nature Reviews Genetics lead by Eric Topol that looks interesting.</p>
+
+</div>
+
+      </div>
+    </div>
+
+    
+    
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src="../../../../assets/highlight.min.js"></script>
+    <script src="../../../../assets/r.min.js"></script>
+    
+    <script>
+      hljs.configure({languages: ['r']});
+      hljs.initHighlightingOnLoad();
+    </script>
+
+    <script src="//yihui.name/js/math-code.js"></script>
+    <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
+  </body>
+</html>
+

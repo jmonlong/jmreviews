@@ -1,0 +1,257 @@
+---
+title: Epilepsy
+date: 2017-04-02
+tags: ['literature']
+output: blogdown::html_page
+---
+
+## Duplication hotspots, rare genomic disorders, and common disease
+
+by Mefford et al, [Current Opinion in Genetics and Development 2009](http://www.ncbi.nlm.nih.gov/pubmed/19477115).
+
+**Segmental duplications sensitize ~10% of the genome** to recurrent microdeletions and microduplications.
+Mefford et al **review** the association of these **recurrent events with diseases**.
+A subset of these hotspots plays an important role in **austism, schizphrenia, and epilepsy**.
+In general, the hotspots are characterized by a **stretch of unique sequence** (50 kb-10 Mb) **flanked by large** (>10 kb), highly **homologous** (>95%) **segmental duplications**.
+This context provides substrate for **NAHR**.
+
+More than 15% of mental retardation syndromes seem to involve micro-deletion/duplications.
+Many are non-recurrent and doesn't involve NAHR.
+However, recurrent *de novo* microdeletions in 17q21.31 were observed in aCGH screens, but not in controls.
+This particular hotspots is interesting because an *inversion of ~900 kb* with frequency 20% in Europeans, seem to be a *prerequisite* for the microdeletion.
+They also found other similar microdeletions in *15q24*, *16p11.2-p12.2*, *10q22-q23*.
+In these studies *recurrent usually means just a few cases*, i.e. frequencies ~1-2%.
+
+**Three hotspots** are enriched in **multiple neuropsychiatric diseases**: *16p11.2*, *1q21.1* and *15q13.3*
+
+## Genome-Wide Copy Number Variation in Epilepsy: Novel Susceptibility Loci in Idiopathic Generalized and Focal Epilepsies
+
+by Mefford et al, [PLoS Genetics 2010](http://www.ncbi.nlm.nih.gov/pubmed/20502679).
+
+Epilepsy has a **prevalence ~1%** and a **lifetime incidence up to 3%**. 
+Using *custom aCGH* in **517 individual** with mixed types of epilepsy, they found one or more **rare genic CNVs in 8.9%** of them.
+In addition, 2.9% of the patients carry deletions at genomic hotspots: **15q11.2, 15q13.3 or 16p13.11**.
+
+Individuals had idiopathic generalized epilepsy (IGE), benign epilepsy with centrotemporal spikes, and other types of idiopathic seizure disorders.
+The custom aCGH had a higher probe density around 107 regions of the genome flanked by large highly homologous duplications.
+The CNVs found in the 8.9% of the probands were not found in any of their 2493 controls.
+The **majority are deletions** (69%). 
+The size range from 13 kb to 15.9 Mb, with an average of 1.2 Mb.
+
+3.9% of the probands had CNVs at known rearrangement hotspots.
+2.9% have deletions that are either known pathogenic or significantly enriched in the epilepsy cohort.
+Most of the affected probands had IGE, these CNVs actually account for 3.3% of IGE patients.
+
+Looking at non-hotspots CNVs, they found **maximum two patients with the same gene affected**, most of the CNVs being unique to the proband.
+Two of these genes are likely important: *CNTNAP2* and *AUTS2*.
+Although, 5 individuals had 2 rare genic CNVs, it's not clear how different they are from the rest in term of phenotype.
+
+## Rare copy number variants are an important cause of epileptic encephalopathies
+
+by Mefford et al, [Annals of Neurology 2011](http://www.ncbi.nlm.nih.gov/pubmed/22190369).
+
+Here, **315 patients** with EE were screened using *aCGH*.
+They found **rare CNVs in 7.9%** of the patients, half of them being clearly or likely pathogenic.
+Some were *de novo*.
+They also found some patients with CNVs in the **known "hotspots"**.
+Apparently their results "illuminate several novel candidates genes", but their attempts at getting more support failed (no mutations when resequencing).
+Also with this low sample size and CNV recurrence, I can't help but wonder how many such rare CNV would be there by chance.
+
+**Epileptic encephalopathies** are the most devastating group of epilepsy.
+
+CNVs were filtered like this:
+
++ >5 probes
++ overlap RefSeq genes
++ not entirely within segmental duplication
++ not overlapping (>50%) with their 4,519 controls (=rare).
+
+All events were also visually inspected in a genome browser.
+Some rare CNVS were validated with another array.
+They also did some targeted Sanger sequencing.
+
+Again **deletions** in known **epilepsy genes**, or **de novo**, were considered **pathogenic**.
+*De novo* duplications were considered likely pathogenic, same as CNVs >1Mb.
+
+Known epilepsy genes: *CDKL5*, *UBE3A*, *CNTNAP2*.
+
+In the discussion, they mentioned a **significant excess of large deletions** in their cohort compared to controls.
+2.2% of their patients have a deletion larger than 1 Mb while only 0.3% in the controls.
+
+The controls came from two independent studies, not using exactly the same arrays...
+
+Many gene stories fillers but nothing really convincing to support the results of their screen.
+
+"Context matters" gem:
+
+> Interestingly, our patient was also obsese.
+
+## Clinical Significance of Rare Copy Number Variations in Epilepsy
+
+by Striano et al, [Archives of Neurology 2012](http://archneur.jamanetwork.com/article.aspx?doi=10.1001/archneurol.2011.1999)
+
+Defining *rare* CNV as not seen in DGV, they found similar number of CNVs in epilepsy patients and controls but they were significantly larger and affecting more genes.
+For example CNVs larger than 1 Mb and CNVs more than 10 genes were more frequent in epilepsy patients.
+
+## Copy number variation plays an important role in clinical epilepsy
+
+by Olson et al, [Annals or Neurology 2014](http://www.ncbi.nlm.nih.gov/pubmed/24811917).
+
+In a more **clinical** setting, 805 patients with epilepsy were screened using aCGH arrays.
+CNVs were observed in 323 patients.
+The epilepsy phenotype was **explained by a CNV** in at least **5%** of the cases.
+As usual, some CNVs located in the genomic "hotspots".
+
+It seems like they kept **any CNV** larger than 18 kb.
+They didn't mention filtering out common CNVs or CNVs found in controls or healthy individuals.
+For some patients they screened the parent to assess the mode inheritance.
+They did find some *de novo* CNVs.
+
+They found overlapping CNVs in the **Xp22.3** but **without controls** I'm not completely convinced that it is relevant.
+Moreover, looking more into this recurrent locations, there was no distinction between patients with deletion or duplication, and no evidence of epilepsy in relatives carrying the CNV.
+
+They used the set of known epilepsy genes and genomic hotspots to classify CNVs as pathogenic.
+They also performed a **pathway analysis**, that nicely pointed at neurodevelopment, synaptic transmission, ion channels. 
+
+
+## Structural genomic variation in childhood epilepsies with complex phenotypes
+
+by Helbig et al, [ELHG 2014](http://www.ncbi.nlm.nih.gov/pubmed/24281369).
+
+Rare CNVs, sometimes *de novo*, were found in patients with unclassified epilepsies and complex phenotypes.
+In this study, 222 patients were screened using aCGH/SNP-array for CNVs larger than 100 kb.
+88 rare CNVs in 71 patients (31.9%) were discovered.
+18 of these were considered **pathogenic**, and 15 **likely pathogenic**.
+Out of the 55 CNVs of unknown significance the **deletion/duplication ratio was ~1:2**.
+11 were *de novo* out the 42 that could be assessed, including all four variants larger than 3 Mb.
+No novel recurrent CNVs larger than 100 kb were detected.
+
+Patients were recruited in three centers.
+One center used aCGH and the other two SNP-arrays.
+
+They looked for CNV:
+
+1. larger than 100 kb.
+2. overlapping a known gene.
+3. either:
+	+ not overlapping a benign CNV (from DGV) (=rare).
+	+ overlapping known pathogenic CNV.
+
+They classified the CNVs as:
+
++ **pathogenic** if *de novo* deletion or known associated with epilepsy.
++ **likely pahotgenic** if *de novo* duplication or inherited CNVs larger than 1 Mb.
++ **unknown significance** otherwise.
+
+Less interesting findings:
+
++ Some CNVs located in known hot-spot regions (see refs) and were considered pathogenic (*so not following their previous definition...*).
++ Patients with dysmorphic features had a higher CNV burden, mostly due to CNVs of unknown significance and likely pathogenic.
+
+To go further:
+
++ CNVs in epilepsy: [Genome-wide copy number variation in epilepsy: novel susceptibility loci in idiopathic generalized and focal epilepsies. Mefford et al, 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2873910/).
++ CNVs in epilepsy: [Rare deletions at 16p13.11 predispose to a diverse spectrum of sporadic epilepsy syndromes. Heinzen et al, 2010](https://www.ncbi.nlm.nih.gov/pubmed/20398883).
++ CNV hotspots: [Duplication hotspots, rare genomic disorders, and common disease. Mefford and Eichler, 2009](https://www.ncbi.nlm.nih.gov/pubmed/19477115).
+
+## Copy number variant analysis from exome data in 349 patients with epileptic encephalopathy.
+
+by Mefford et al (Epi4K consortium), [Annals of Neurology, 2015](http://www.ncbi.nlm.nih.gov/pubmed/26068938).
+
+**Exome sequencing** of 349 trios with **epileptic encephalopathy** identified **18** *de novo* CNVs in 17 patients (**4.8%**). 
+10 of these are likely pathogenic.
+
+CNV calling was performed by **CoNIFER pipeline**.
+Exome-reads were mapped to exons (+- 300 bp) using mrsFAST.
+30 SVD components were removed to reduce technical bias.
+They also **filtered** the segments called based on the number of consecutive bins and signal strength.
+They **excluded CNVs** with 50% or more overlapping **repetitive or duplicated regions**.
+CNV calls were **manually curated** (*whatever that means...no supplementary info...only good ol' 32 pages of tables in PDF...*).
+Finally, they filtered out CNVs observed in **more than 1% of controls** (aCGH/WES).
+
+The *de novo* CNVs and some of the larger inherited ones were **validated** by "oligonucleiotide" (*again no supplementary information*) and SNP-array.
+A *de novo* CNV was considered **pathogenic** if previously associated to epilepsy or neuro-disorders.
+
+I'm not sure about what/how they did their validation.
+It seems that they first took 43 probands and tried to validate all the calls.
+There, 53 of 80 (**66%**) inherited CNVs and 5 of 21 (**24%**) *de novo* CNVs were **confirmed**.
+But then they also confirmed 18 *de novo* in 17 patients.
+
+The confirmed *de novo* CNVs ranged from 94 kb to 16 Mb, and 1 to 163 genes.
+10 patients had a pathogenic *de novo* CNV.
+Some *de novo* CNVs overlapped known **EE genes**: *SCN1A*, *SCN2A* and *GABRB3*.
+
+They had previously studied *de novo* **SNV** in more or less the same cohort, and they compared the affected genes.
+Some overlapped...
+
+
+## Analysis of rare copy number variation in absence epilepsies
+
+by Addis et al, [Neurology Genetics 2016](http://www.ncbi.nlm.nih.gov/pubmed/27123475).
+
+They looked at CNVs in **144 children** with **absence epilepsy** using SNP-arrays.
+**11%** of the patients had a **rare CNVs** that disrupt genes associated with neuronal development and function.
+They also found some patients with CNVs in the **known "hotspots"**.
+
+They selected CNVs following those criteria:
+
++ \>12 supporting probes and >20 kb
++ Not overlapping (>90%) DGV CNVs with frequency > 0.1% (=rare).
++ CNV overlapping at least one exon.
+
+The **pathogenicity** was based on the gene content, size, frequency and overlap with relevant genes (epilepsy and other neuro-diseases).
+They don't detail their criteria more...
+
+CNVs were validated by real-time quantitative PCR.
+
+Apparently, **cell adhesion** is a mechanism that is thought to contribute to epileptogenesis.
+
+
+## CENet
+
+[Information gathered here](https://biotechnologyfocus.ca/public-private-partnership-to-seek-personalized-treatment-approach-for-drug-resistant-epilepsy/)
+
++ *Personalized Medicine in the Treatment of Epilepsy*
++ **Identify variants** that predispose for **epilepsy**.
++ **Identify variants** that predicts **drug response**.
++ 20 anti-epileptic drugs, effective in ~70% of patients.
++ ID associated with higher resistance.
++ ID in 25% of the patients.
++ Particularly problematic in children.
+
+The goal is to identify genetic changes that predispose people to epilepsy and changes that predict response to different anti-epileptic drugs.
+
+> Although there are over 20 different anti-epileptic drugs available today, these drugs are ineffective in about one third of patients. Epilepsy is particularly problematic in children since uncontrolled seizures in the developing brain largely contribute to cognitive decline. Managing epilepsy associated with intellectual disability is especially challenging since these symptoms are associated with a high rate of resistance to anti-epileptic drugs.
+
+ASHG 2014 abstract:
+
+> Epilepsy is a common complex neurological disorder characterized by recurrent episodes of paroxysmal abnormal electrical discharges in the brain (seizure). In 65% of epileptic individuals seizures occur without detectable lesion in the brain. Intellectual disability (ID) is observed in ~25% of epileptic individuals. Although treatment is effective in the majority of cases, more than 30% of patients are resistant to anti-epileptic drugs (AEDs). In this project, we hypothesize that pharmaco-resistant epilepsies (PRE) have different etiologies than other epilepsy syndromes associated with the same clinical manifestations, and posit that genetic factors can be used to predict response to AEDs. In 2013, we united Canadian clinicians and investigators to create the Canadian Epilepsy Network (CENet). In order to identify highly penetrant genetic variants that can predict resistance to AEDs, we will conduct whole genome sequencing (WGS) on 1000 epileptic individuals with extremes of response to AED treatment, including 200 multiplex families, as well as 200 epileptic trios (patient + both parents) with severe epilepsy and ID. Based on our previous studies in patients with ID or autism spectrum disorders, we expect a high rate of de novo mutation for epilepsies associated with these co-morbidities. Potentially causative genes/variants will be validated in additional epilepsy samples available through our large collaborative network with similar but complementary projects in the US (Epi4K - 4,000 epilepsy genomes) and Europe (EpiPGX). We will also assess the clinical utility of whole genome sequencing as a diagnostic test for epilepsy in a prospective cohort of 600 epileptic individuals. So far, pre-screening of 36 known genes for epileptic encephalopathy (EE) in 95 patients led us to identify 11 causative mutations in total (11.6%). At the end of the project, we expect to identify 50 novel genes causing severe forms of epilepsy and PRE. Using this catalog of gene variants, we will develop and validate a diagnostic resource (PRE-GENE) to implement WGS as the gold-standard diagnostic test for PRE in clinical practice.
+
+## Animal Models of Epilepsy
+
+by Kandratovicius et al. [Neuropsychaitric Dis Treat. 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4164293/)
+
+Some models replicate **symptomatic epilepsies**, i.e. where the epilepsy is a symptom of an underlying problem, such as an injury, an infection, a congenital brain malformation, a tumour, or a metabolic disorder
+
+A few other are genetic models of absence seizure but the genetic part is more used for convenience than for investigating the genetic factors.
+
+- Epilepsy Vs Chronic epilepsy. Are chronic just more recurrent ?
+- **Chemoconvulsant** used on mice models to induce chronic epilepsy. Expensive.
+- **Electrical stimulation** are useful to study brain damage and after effects but are not cell specific and also expensive.
+- Kindling seems to be another form of electrical stimulation.
+- Young mice can also be exposed to 30 min of **hot air** (40C) which leads to convulsions. Same with **hypoxia**.
+- Fluid Percussion Injury is a machine to induce **physical brain trauma** to mice.
+- Audiogenic rats where acoustic stimulation triggers seizure. Useful but not really a genetic model.
+- **Monogenic mouse** models of abscence epilepsy. Some **rat** models are polygenic and more realistic (e.g. responding to drugs).
+- They also mention *lethargic, tottering, leaner, and stargazer* mouse models.
+
+## EpilepsyGene resource
+
+[Ran et al (NAR 2015)](http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC4384015)
+
+- Analyzed more than 1000 publications.
+- Contains information for **499 genes amd 3931 variants** (mostly SNVs).
+- Variants annotated and scored by the number of tools predicting a **deleterious effect**.
+- *154 high-confidence genes* with score $$\ge10$$.
+- Four co-expression modules from BrainSpan (RNA-seq of brain development).
+

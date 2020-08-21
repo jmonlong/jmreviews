@@ -1,0 +1,274 @@
+---
+date: 2017-09-23
+title: Genome graphs
+tags: ['literature']
+output: blogdown::html_page
+---
+
+## Why genome graphs ?
+
+- Better genome reference.
+	- Higher mapping rate in the presence of variation.
+	- Less "biased" toward the fixed linear European reference genome.
+	- Easier to update. No more major version.
+- Better annotation for non-SNV variants.
+	- More general and intuitive.
+	- Only one way to place indels.
+	- Complex variants involving several canonical types.
+- Improved variant calling.
+	- Integrating known variants. Would be useful for SVs with breakpoint resolution.
+	- In highly polymorphic regions.
+
+## Challenges
+
+- Map efficiently reads to graph.
+- Predict the sequence of the allele(s).
+- Detect new variation.
+- Project annotation to graph.
+
+### Drawbacks
+
+- Difficult to integrate CNVs or SVs with imprecise breakpoints.
+
+### Other ideas
+
+- Use haplotype information for better mapping.
+- Phasing from graph-wide estimation.
+- To represent/use a de novo assembly without the need linearize it.
+- To analyze different types of variants together.
+
+## Types of graphs
+
+- A-Bruijn graphs. [Used for MSA](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC525693/)
+- Cactus graph: every edge is in at most one cycle.
+
+## Tools
+
+- [vg toolbox](https://github.com/vgteam/vg).
+- [Other tools from the vg team](https://github.com/vgteam). E.g. sequenceTubeMap.
+- [HISAT2](https://ccb.jhu.edu/software/hisat2/index.shtml), graph-based alignment of next generation sequencing reads to a population of genomes.
+
+## Talks
+
+- [Variation reference graphs and the variation graph toolkit vg](https://www.slideshare.net/GenomeRef/variation-reference-graphs-and-the-variation-graph-toolkit-vg)
+- [Slides: Resequencing against a human whole genome variation graph (vg)](https://docs.google.com/presentation/d/1bbl2zY4qWQ0yYBHhoVuXb79HdgajRotIUa_VEn3kTpI/edit#slide=id.p)
+- [Video: The Human Genome Variation Map Graph Bake-Off](https://www.youtube.com/watch?v=BdaFFOD50og)
+
+## Tweets
+
+- [A workflow for 1001 genomes project](https://twitter.com/PlantEvolution/status/932983550818816000)
+
+## Papers
+
+### Cactus: Algorithms for genome multiple sequence alignment
+
+[Paten, Genome Research 2011](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3166836/)
+
+The new **Cactus alignment program** is introduced.
+It allows for **alignment of multiple genomes using a Cactus graph representation**.
+Cactus graphs are particularly good at representing/embedding large rearrangements and copy number variation.
+
+**Needs more reading.**
+
+### Improved genome inference in the MHC using a population reference graph
+
+[Dilthey, Nature Genetics 2015](https://www.pubmedcentral.nih.gov/articles/PMC4449272)
+
+They introduced the concept of a **population reference graph** integrating known variants and multiple "alternate" reference sequences.
+
+They used this approach on the MHC region of chromosome 6.
+This is the famously polymorphic HLA region.
+They build the graph with 8 alternate reference haplotypes, known HLA alleles, and ~90K SNPs.
+
+In this proof of concept, they show that the genome inference is improved.
+
+Their workflow to build the graph:
+
+1. Multiple sequence alignment of reference sequences.
+1. Collapse MSA into graph if sequence identity.
+1. Add SNPs where possible.
+
+Then to infer the allele of each sample:
+
+1. HMM from kmer counts to infer the best path in graph.
+1. Build a chromotype from the best paths.
+1. Use variant caller on chromotype to find new variants.
+1. Add new variants to chromotype.
+
+In their comparison they found a gain in regions with paralogous.
+The inclusion of variants called from the chromotype didn't improve the performance much, most likely because this regions has been extensively studied and genotyped.
+
+The graph approach makes use of a greater proportion of the reads, hence analyzing more of the region.
+
+They also compared the chromotypes derived from different approach do Moleculo long reads.
+They showed that the graph-based chromotypes are more similar, although Platypus looks very good also.
+It had more perfectly aligned reads, but also more of the very badly aligned.
+
+Although only 1% of the genome could gain from such approach, they mention other regions of high diversity:
+
+- KIR region
+- Olfactory gene clusters
+- Inversion on 17q21.31
+
+Limitations:
+
+- Kmer approach not suited for low-complexity regions.
+- HMM doesn't integrate long range haplotype information.
+
+### Canonical, stable, general mapping using context schemes
+
+[Novak, Bioinformatics 2015](https://www.pubmedcentral.nih.gov/articles/PMC4757953/)
+
+### Building a pan-genome reference for a population
+
+[Nguyen, J Comput Biol 2015](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4424974/)
+
+An extension of the Cactus program to a set of closely related genomes.
+The goal is to align genomes together and find the best ordering of the homology blocks that best represent the underlying genome.
+The results is a representation of the pan-genome of the population, particularly useful for visualization, variant description and potentially read mapping.
+
+### Genome Graphs
+
+[Novak, bioRxiv 2017](https://doi.org/10.1101/101378)
+
+Several genome graphs structures are compared and shown to be superior to linear representations when mapping reads.
+
+They tested 5 regions of the human genome: the major histocompatibility complex (MHC), the killer cell immunoglobulin-like receptors (LRC_KIR) region, the spinal muscular atrophy (SMA) locus, and the BRCA1 and BRCA2 genes.
+
+Genome graphs improves the amount of read mapped but especially the amount of perfect mapping.
+
+### Coordinates and intervals in graph-based reference genomes
+
+[Rand, BMC bioinformatics 2017](https://www.pubmedcentral.nih.gov/articles/PMC5437615)
+
+Different strategies to define coordinates and intervals in a graph are presented.
+The goal is to find a good way to annotate genome graphs.
+
+For coordinates we would want:
+
+- *spatiality*: nearby bases have similar coordinates.
+- *readability*: concise and interpretable.
+- *monotonicity*: increment along the genome.
+- *backward compatibility*: supports updates somewhere else.
+
+They propose two offset-based coordinate systems.
+One way is to hierarchically partition the graph by choosing main regions and alternate loci as baseline for the offsets.
+This is backward compatible but there is no spatiality.
+The other way, sequential partitioning, is to divide the main path every time there is a fork.
+
+For naming regions we would want:
+
+- *vertical spatiality*: are two regions variants of each other.
+- *horizontal spatiality*: are two regions close.
+- *monotonicity*: which region comes first.
+
+Finally they propose two ways to represent intervals in the graph:
+
+- *single-path* intervals contains the start, end and information about the path in the graph.
+- *multipath* intervals uses either a *critical* subpaths (where the path must go through) or a *fuzzy* path (central path and threshold).
+
+### A graph extension of the positional Burrows-Wheeler transform and its applications
+
+[Novak, Algorithms Mol Biol 2017](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5505026/)
+
+A generalization of the PBWT (positional BWT) to genome graph is introduced, called gPBWT.
+It's a compressible representation of haplotypes in a graph that can be efficiently queried.
+They conclude that the haplotype information could be incorporated into graph-based read mappers.
+
+### Modelling haplotypes with respect to reference cohort variation graphs
+
+[Rosen, Bioinformatics 2017](https://www.ncbi.nlm.nih.gov/pubmed/28881971)
+
+Continuing on the haplotype representation from Novak 2017, they model recombination and haplotypes variation in the population.
+
+### Genome graphs and the evolution of genome inference
+
+[Paten, Genome Research 2017](https://www.pubmedcentral.nih.gov/articles/PMC5411762)
+
+### Comparative Annotation Toolkit (CAT) - simultaneous clade and personal genome annotation
+
+[Fiddes, bioRxiv 2017](https://www.biorxiv.org/content/early/2017/12/08/231118.full.pdf+html)
+
+A toolkit to compare assemblies and genomes.
+It uses Cactus graphs and Augustus under the hood to respectively align and annotate the assemblies.
+
+### Sequence variation aware genome references and read mapping with the variation graph toolkit
+
+[Garrison, bioRxiv 2017](https://www.biorxiv.org/content/early/2017/12/15/234856)
+
+Paper presenting the **vg** toolkit that provides ways to **create/edit variation graphs** and perform **read mapping** and **variant calling** on it.
+**vg scales to** large genome like **the human genome**.
+Contrary to existing approaches, vg doesn't use or need an initial linear reference to build and use the graph.
+A vg graph can be created from a linear reference + VCF, or from a set of sequences to align to each other.
+New variant can be added easily.
+
+A variation graph is a set of nodes, edges and paths.
+Nodes can be traversed in two direction, the second representing the reverse complement of the first.
+
+For alignment, vg uses a classic **seed-extend** through indexes.
+The main difference is that it uses **two representations** for the two steps.
+The super-maximal exact match (**SMEM**) seed identification is performed from the **indexed** xg graph using the GCSA2 library.
+For paired reads, the seeds for both reads are searched at the same time and SMEMs that match the distance are preferred.
+The best SMEMs are chosen using the ML though a Markov model.
+Secondary seeds are retrieved by iteratively masking the best paths.
+For each seed the subgraph is retrieved and converted into a directed acyclic graph (**DAG**) to perform the full read alignment.
+
+vg was **compared to bwa mem** on simulated and real read from a Ashkenazi Jewish male genome.
+In regions with **no variants**, vg performed slightly **worse** **but** gave a **better** performance in **regions with variants**.
+This superiority was stronger for single ends as the paired end information helped figure out the correct mapping in many cases.
+On real reads, vg mapped a similar number of reads but with better quality, especially more perfect matches.
+
+More impressively, the **coverage at known indel location** (from GIAB annotation) was **much more balanced** with vg and independent of the variant size.
+
+The other application uses graphs built from genome alignments of different yeast strains.
+Again they show that reads map better in the vg graph than the reference from another strain.
+Even removing the relevant strain from the graph showed good mapping performance.
+I'm just a bit surprised that aligning to the relevant strain only is much better than the graph with several strains (including the relevant strain).
+
+Among the future developments:
+
+- Improving **mapping** and **variant calling** algorithms, e.g. using long range **haplotype** information.
+- **Allele-specific** expression, benefiting from unbiased mapping.
+- **Splice-aware** RNAseq mapping.
+- Integration of **structural variants**.
+
+Other comments:
+
+- vg uses a bidirected DNA sequence graph structure.
+- Variant callers that use information of known variant: FreeBayes and GATK HaplotypeCaller (1000GP).
+- vg is multithreaded C++11. It uses protobuf to represent graphs.
+- They introduce a protobuf alignment format: **GAM**  for Graph Alignment Map.
+- `xg` is a **succinct representation of a vg graph**, more memory and time efficient, used for read mapping and other operations.
+- How is the **distance** measure defined ? It's used during read mapping. They mention the use of nearby paths.
+- Some reads were mapped at different locations using linear vs graph approaches. Many of them because of repeats such as satellite DNA.
+- GraphTyper is mentioned in the discussion. It's quite different as it only realigns locally reads into a graph.
+
+## SNV caller that uses known variants/haplotypes
+
+### FreeBayes
+
+- By Erik Garrison.
+- [GitHub](https://github.com/ekg/freebayes)
+- [arXiv](https://arxiv.org/abs/1207.3907)
+
+> Bayesian statistical framework which is capable of modeling multiallelic loci in sets of individuals with non-uniform copy number.
+
+> FreeBayes is haplotype-based, in the sense that it calls variants based on the literal sequences of reads aligned to a particular target, not their precise alignment.  
+
+- Should be used in a population of samples.
+- Finds the most-likely combination of genotype in the population.
+- Haplotype is short-range haplotype (max 10s of bp).
+
+### GATK Haplotype Caller
+
+*From [GATK documentation](https://software.broadinstitute.org/gatk/best-practices/workflow?id=11145).*
+
+> The HaplotypeCaller is capable of calling SNPs and indels simultaneously via local de-novo assembly of haplotypes in an active region. In other words, whenever the program encounters a region showing signs of variation, it discards the existing mapping information and completely reassembles the reads in that region. This allows the HaplotypeCaller to be more accurate when calling regions that are traditionally difficult to call, for example when they contain different types of variants close to each other. It also makes the HaplotypeCaller much better at calling indels than position-based callers like UnifiedGenotyper.
+
+[How it works](https://gatkforums.broadinstitute.org/gatk/discussion/4148/hc-overview-how-the-haplotypecaller-works):
+
+1. Define active regions, i.e. with sign of variation. Using a per-bp activity score.
+1. Re-assemble reads to list possible haplotypes.
+1. Align reads to each haplotype to derive per-read haplotype likelihoods. Using a HMM alignment.
+1. Assign sample genotypes.
+

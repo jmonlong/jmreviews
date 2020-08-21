@@ -1,0 +1,104 @@
+---
+date: 2018-03-31
+title: SV-eQTLs in GTEx data from WGS
+slug: chiang-sveqtl-2017
+tags: ['literature']
+output: blogdown::html_page
+---
+
+
+
+<p>This is a review of “<em>The impact of structural variation on human gene expression</em>” (<a href="http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC5406250">Chiang Nat Gen 2017</a>) from the Hall lab.</p>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>Using <strong>deep WGS</strong> from 147 individuals in <strong>GTEx</strong> they called <strong>SVs and eQTLs</strong> across 13 tissues (RNA-seq).
+For the first time they could investigate the contribution of small SVs in gene expression changes, comparing it with SNVs and indels.
+They estimated that <strong>3.5-6.8% of eQTLs are caused by SVs</strong> and that SVs tend to have a larger effect size.
+Most causal SVs were <strong>non-coding</strong> and were <strong>enriched</strong> in or close to <strong>regulatory regions</strong>.
+They also detected an enrichment of rare SVs close to genes with outlier expressions, suggesting that rare SVs could have a high-impact on gene expression.</p>
+</div>
+<div id="methods" class="section level2">
+<h2>Methods</h2>
+<ul>
+<li>WGS ~50x
+<ol style="list-style-type: decimal">
+<li>SpeedSeq pipeline: BWA-MEM + LUMPY.</li>
+<li>SVtyper to genotype the population.</li>
+<li>Genome STRiP to detect additional CNVs.</li>
+<li>QC included: homogeneous number across samples, similar frequency distribution, array-based intensity rank-sum (IRS) statistics.</li>
+</ol></li>
+<li>RNA-seq from GTEx across 13 tissues.</li>
+<li>eQTL detection with FastQTL
+<ol style="list-style-type: decimal">
+<li>SV-only for SVs with MAF&gt;.05 and 1 Mbp cis window.</li>
+<li>SNV/indels/SV joint-calling</li>
+</ol></li>
+<li>Causal variant in eGene
+<ol style="list-style-type: decimal">
+<li>Highest P-value.</li>
+<li>CAVIAR (signal magnitude and direction + LD structure).</li>
+<li>Heritability of the top SV vs 1000 top SNVs using a linear mixed model.</li>
+</ol></li>
+<li>Causal non-coding SV characterization.
+<ul>
+<li>Grouping the SV-eQTLs by “causality score” (CAVIAR + heritability).</li>
+<li>Overlap with regulatory region: TSS, enhancers, gene 3’ end, TAD.</li>
+<li>Sometimes adds 10 Kbp flanks to annotation.</li>
+</ul></li>
+<li>GWAS comparison
+<ol style="list-style-type: decimal">
+<li>Subset of high-confidence GWAS SNVs.</li>
+<li>Overlap with lead eQTL from joint analysis.</li>
+<li>Subset where SV was the lead eQTL.</li>
+</ol></li>
+<li>Rare SVs effect
+<ol style="list-style-type: decimal">
+<li>Identify gene expression outliers.</li>
+<li>Identify rare SVs (at most two individuals).</li>
+<li>Test enrichment in gene body + 5 Kbp.</li>
+</ol></li>
+</ul>
+</div>
+<div id="results" class="section level2">
+<h2>Results</h2>
+<ul>
+<li>SV catalog: deletions (50.7%), duplications (15.0%), multiallelic CNVs (mCNVs; 6.5%), reference mobile-element insertions (rMEIs; 8.7%), inversions (0.2%) and breakends (BND; 18.9%).</li>
+<li><strong>11% of SV-eQTLs were exonic</strong> in the SV-only analysis, the majority of which followed the expected gene change.</li>
+<li>The joint eQTL calling identified 23.5K eQTLs: 85.55 SNVs, 10.9% indels, <em>3.5% SVs</em>.</li>
+<li><strong>3.5%</strong> of eQTLs were the identified as <strong>causal by CAVIAR</strong>.</li>
+<li>In <strong>6.8%</strong> of eQTLs, the <strong>heritability</strong> of gene expression due to the top SV was higher that the one due to the additive effect of the 1K top SNVs.</li>
+<li>The median effect size on gene expression was 1.3 times larger for SVs than SNVs and indels.</li>
+</ul>
+<p>The most <strong>causal SV-eQTLs were enriched in</strong> mCNVs and duplications, exons (from the eGene), enhancers, TFBS, 10 Kbp upstream or downstream of the eGenes (TSS or 3’ end).</p>
+<p><strong>Only 58.2%</strong> of common autosomal <strong>SVs were in strong LD</strong> (r-squared&gt;0.8) with a SNV or indel in the WGS data.
+To further stress the value of WGS and SVs, they estimated that only 3.8% of common CNVs were detectable on the Omni 2.5 SNP-array platform.</p>
+<p>While rare variants were in general 1.2-fold <strong>enriched in gene body (+-5 Kbp)</strong>, the enrichment was much stronger for <strong>rare SVs</strong> (<strong>16.1-fold</strong>).
+Rare SVs close to expression outliers were significantly larger and duplications more frequent.
+Around 80% of these SVs were CNVs altering gene dosage; ~11% were non-coding CNVs; A few were complex SVs.</p>
+</div>
+<div id="for-future-inspiration" class="section level2">
+<h2>For future inspiration</h2>
+<ul>
+<li>What is this <strong>IRS</strong> (intensity rank-sum) statistics that they use as validation? Is it just how concordant the calls are with array signal. If so, isn’t it validating only large CNVs?</li>
+<li>How does BEDtools shuffle regions?</li>
+</ul>
+</div>
+<div id="clever-analysis" class="section level2">
+<h2>Clever analysis</h2>
+<p>Comparing the direction of the gene expression changes per SV class (exonic or not) to suggest that they are indeed causal.</p>
+</div>
+<div id="questions" class="section level2">
+<h2>Questions</h2>
+<ul>
+<li>Not sure I understand Fig 3a completely. If the x-axis represent classes of SVs based on the quantile of the causality score, shouldn’t all the decile classes have the same number of SVs (y-axis)? And shouldn’t they be one fifth of the first bar that represent the 0-0.5 quantile?</li>
+<li>They show that the MAF is similar in SNVs, indels and SVs. Shouldn’t it be driven by the variant size? Wouldn’t we expect large deletions to be less frequent than SNVs in general?</li>
+</ul>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<ul>
+<li>The SVs paper from the 1000GP (Sudmant et al 2015) had tested SNV-SV eQTLs in lymphoblastoid cell lines and found 54 eQTLs (0.56%) with a lead SV-eQTL.</li>
+<li><a href="http://www.cbrc.kaust.edu.sa/dendb/">Dragon ENhancers database (DENdb)</a>.</li>
+<li><a href="http://archive.gersteinlab.org/funseq2.1.0_data/">FunSeq</a> from the Gerstein lab (see Fu et al. FunSeq2 Genome Biol 2014).</li>
+</ul>
+</div>

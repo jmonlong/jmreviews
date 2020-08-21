@@ -1,0 +1,108 @@
+---
+date: 2017-02-05
+title: Microsatellite Instability
+tags: ['literature']
+output: blogdown::html_page
+---
+
+Microsatellites are a type of STRs with repeat units of 1-6 bp.
+Microsatellite instability is an indicator of larger genome instability and an important prognostic factor in several cancers (e.g. colorectal).
+MSI is actually a marker of favorable prognosis.
+It's a form of hypermutation caused by defective DNA mismatch repair (MMR). 
+For example, through inactivation of *MLH1*, *MSH2* or *MSH3* genes.
+For this reason, MSI is also characterized by high rates of single-nucleotide-substitution (SNS) mutations.
+Usually, electrophoresis is used to estimate the size of five to 7 MS markers in tumor/normal design.
+
+Mononucleotides repeats are believed to be the most sensitive and specific for detecting MSI.
+
+Here are a few methods that try to detect MSI from sequencing data.
+
+## MSIsensor
+
+[Niu et al. (Bioinformatics 2013)](https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btt755)
+
+MSIsensor estimated the length distribution of MS sites in both normal and tumor and test for significant differences. 
+The workflow is as follows:
+
+1. Scan the reference for homopolymers of minimum total length of 5 bp and maximum unit length of 5 bp.
+2. Extract all the reads around these sites (+/- 2 Kbp).
+3. Count reads with khmer supporting every possible repeat length.
+4. Each site is tested for a difference in these khmer read counts between normal/tumor (with multiple-test correction).
+
+From this I assume they can only analyze accurately MS shorter than the repeat length. 
+The advantage compared to STR detection method is that it skips the actual genotyping steps and directly compare the normal/tumor. 
+This is both clever and ease the downstream analysis. 
+
++ They test their approach with exome data.
++ C++ program available on [GitHub](https://github.com/ding-lab/msisensor).
+
+## PI/PD in RNA-seq
+
+[Lu et al. (PLOS One 2013)](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0063056)
+
+Their approach relies on indels in MS in genes expressed.
+
+1. Extract or create MS annotation.
+1. Detect indels with DINDEL .
+1. Filter out dbSNP entries and select indels in MS.
+1. Compute the proportion of MS insertion over insertions (PI) and same for deletions (PD)
+1. Compute the MSI-seq as PI/PD
+
+Focusing on coding sequences, they found significant differences between MSI samples and Hapmap, but not between MSS samples and Hapmap.
+Deletions are also slightly smaller in MSI than the rest.
+
+Then they show that their MSI-seq estimate nicely discriminates between MSI ans MSS samples.
+
+They is no tool to automatically run the protocol but it should be easy to implement.
+
+## mSINGS
+
+[Salipante et al. (Clinical Chemistry 2014)](http://clinchem.aaccjnls.org/content/60/9/1192.long)
+
+1. Indels called with VarScan.
+1. Identification of MS marker loci that show length variation in known MSI samples.
+1. Compute a baseline for each site using control samples (MSI-negative).
+1. Compute mean and SD of the number of alleles (with at least 5% of reads) in each locus.
+1. If more than (mean+3xSD) the locus is classified *unstable*.
+1. If more than 20% of the markers are *unstable* the sample is concluded MSI.
+
++ They tested their approach on exome data and targeted gene panel sequencing.
++ The MS markers are available in the supplement.
++ Mix of bash and python available on [Bitbucket](https://bitbucket.org/uwlabmed/msings).
++ Not very convincing. E.g. Figures without axis legends.
+
+Gem about using a the mean + 3 SD threshold:
+
+> This metric provides a statistical framework for evaluating the stability or instability of any particular marker.
+
+## MSIseq
+
+[Huang et al. (Scientific Reports 2015)](http://www.nature.com/articles/srep13321)
+
+MSIseq takes a machine learning approach to classify a sample as MSI or MSS from the SNV/indel variant calls.
+The inputs for the model were mutation rates for SNVs or indels, in or outside annotated STRs and the cancer type.
+They tried logistic regression, decision tree, random forest and naive bayes.
+The four approaches gave very good accuracy (~98%) with experimental MSS/MSI classification.
+Interestingly the decision tree used only one predictor, the number of indels in annotated repeats.
+This means that we could simply use one threshold on this indel rate and be fine (i.e. no need for a fancy machine learning approach).
+Meaning that we could summarize their R package by `ifelse(indelRateSTR > 0.395, "MSI", "MSS")`.
+Actually their package also implement the training of the machine learning, which could be very useful if only specific regions are accessible (targeted sequencing).
+
+The R package is available through [CRAN](https://cran.r-project.org/web/packages/MSIseq/index.html).
+
+## MSIplus
+
+[Hempelmann et al. (Journal of Molecular Diagnostics 2015)](http://jmd.amjpathol.org/article/S1525-1578(15)00153-1/fulltext)
+
+MSIplus simultaneously detects MSI and variants in mutational hotspots of colorectal cancers (KRAS, NRAS, BRAF).
+They use amplicon sequencing to ensure high sequencing coverage at the loci of interest, or for a cost-effective way to test many samples.
+
+VarScan to detect SNVs and indels, mSINGS to determine MSI status.
+They use a set of blood samples as baseline for mSINGS.
+
+Because they use existing bioinfo tools, the value of this works lies in the loci and their amplification before sequencing.
+
+## To go further
+
+Read on how MSI is a marker of favorable prognosis. 
+For example from [this study](https://www.ncbi.nlm.nih.gov/pubmed/23235802?dopt=Abstract&holding=npg) and references.

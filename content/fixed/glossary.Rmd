@@ -1,0 +1,402 @@
+---
+sidebar: true
+title: Glossary
+weight: 9
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+# aCGH
+
+Stands for **array Comparative Genomic Hybridization**.
+Compares the ploidy of *two* samples.
+The samples are labeled with different fluorophores, DNA denatured and hybridized to the array.
+Most recent version can detect *CNV down to 10 Kbp*.
+
+# Admixture vs stratification
+
+Stratification is when there are several distinct groups within a population. Each sub-population can be considered as an homogeneous population, i.e. with same allele frequency within sub-population.
+
+Admixture is when individuals are the results of two or more populations mixing. Here the allele frequency will depend on the mixture of ancestry in each individual.
+
+# Aggregation
+
+Aggregation looks for a potential aggregation of a phenotype in families, in order to support a genetic contribution.
+It uses the relative risk ratio which is the probability that related individuals share the phenotype divided by the phenotype prevalence in the general population.
+
+# APOE
+
+One of the first and strongest association between a gene and Alzheimer's Disease.
+
+Two mutations gives rise to three major alleles (E2, E3, E4).
+
+# Astrocyte
+
+# Ataxia
+
+Lack of movement coordination.
+
+# ATP
+
+Adenosine triphospate: molecular energy.
+
+# Attributable fraction
+
+Assesses the genetic effect relative to the disease prevalence.
+It's the proportion of disease caused by having at least one disease variant.
+
+$$ AF=\frac{K-f_0}{K}=1-\frac{P(Y=1\|no~risk~allele)}{P(Y=1)} $$
+
+# Autoimmune diseases
+
+Disease due to abnormal immune response to a normal body part.
+
+Examples: lupus, celiac disease, IBD, MS, rheumatoid arthritis.
+
+# Banding
+
+G-banding, or Giemse banding, stains condensed DNA in metaphase chromosomes.
+More condensed regions (heterochromatin, AT-rich, gene-poor) appear darker than less condensed regions (GC-rich, gene-rich).
+
+Other banding techniques exists: R-banding (reverse G), Q-banding (similar to G), C-banding (centromere), T-banding (telomere)
+
+# Cell
+
+1. Term coined by Robert Hooke in his Micrographia because it reminded him of the cells of monks.
+1. Anton van Leeuwenhoek observes living cells and calls them *animalcules*.
+1. Schleiden and Schwann say that *All life is composed of one or more cells* and *cell is a basic unit of life*.
+1. Robert Remak adds *All cells come from other cells*.
+
+> Cells consist of cytoplasm enclosed within a membrane, which contains many biomolecules such as proteins and nucleic acids.
+
+A human has around 37.2 trillions cells. A red blood cell or a T-cell is around 7 micro meter.
+
+# Chronic disease
+
+A disease or condition that is **long-lasting**. E.g. arthritis, asthma, cancer, diabetes, HIV. The opposite is *acute*.
+
+# Cre-Lox recombination
+
+A site-specific recombinase technology **to create deletions, insertions, translocations and inversion**. The *Cre recombinase* recombines a pair of short target sequences (*Lox* sequences). By controlling the activity of the *Cre* enzyme, the DNA modification can be targeted to certain cell types or triggered by specific stimuli.
+
+[Wikipedia](https://en.wikipedia.org/wiki/Cre-Lox_recombinatio)
+
+# Cri du Chat syndrome
+
+Rare genetic disorder caused by a **chromosome 5p deletion**.
+Named after the characteristic cry of affected children.
+
+# Crohn's disease
+
+A type of **inflammatory bowel disease** caused by a combination of environmental, immune and bacterial factors in genetically susceptible individuals. No medication or surgery can cure Crohn's disease.
+
+Approximately 60% of patients with Crohn's disease suffer from colonic involvement.
+
+# Cytokine
+
+Small proteins important for cell signaling, that is to change the behavior of surrounding cells when released. They are particularly important in the immune system.
+
+The difference with hormones seems to be that cytokines are produced by many cells and at different concentrations.
+
+# DNA denaturation
+
+Makes the DNA single stranded.
+
+# Down syndrome
+
+Genetic disorder caused by the presence of an extra copy of chromosome 21 and characterized by developmental delay, characteristic facial features and moderate intellectual disabilities.
+It's one of the most common chromosome abnormalities, occurring in ~1 in 1,000 babies.
+
+# Ectopic
+
+In an abnormal place or position. E.g. ectopic expression.
+
+# Endophenotype
+
+# Endonuclease
+
+Enzymes that cleave the phospodiester bond in a polynucleotide chain.
+Opens up DNA.
+
+# Edwards syndrome
+
+Trisomy 18: small baby/head/jaw, severe intellectual disabilities, heart defects. 1/5,000 births, low survival.
+
+# Epilepsy
+
+Epilepsy is characterized by **seizures**. Some can can be the results of brain injury, stroke, brain tumor, ... Others have a genetic basis.
+
+Different types:
+
++ **Refractory** epilepsy: drug-resistant epilepsy.
++ **Generalized**/idiopathic/primary generalized: generalized (in the brain) seizures with no apparent causes.
++ **Absence** epilepsy: a subtype of generalized epilepsy, where the seizure is a brief loss and return of consciousness.
++ **Focal**/partial epilepsy: seizure in child/teens, mostly during sleep, where the partial motor seizures.
++ Epileptic **encephalopathy**: epilepsy with severe cognitive and behavioral disturbances.
+
+# Equal probability sampling
+
+# Fragile X syndrome
+
+Genetic disorder characterized by the expansion of a CGG tandem repeat in the 5' UTR of the *FMR1* gene (chr X).
+The expansion results in lower production of FMR1 protein, which is involved in neuron connection.
+Normal: 5-20 units; pathogenic: >200 units.
+
+No cure.
+
+# Gallbladder
+
+Small pear-shaped organ underneath the liver that stores the bile and release it for digestion.
+
+# Gene conversion
+
+When a DNA sequence is replaced (or converted) by an homologous sequence, for example another allele or a paralog.
+
+# Hardy-Weinberg Equilibrium
+
+Assumptions under which the genotype frequencies can be estimated from the allele frequency.
+
+# Hazard ratio
+
+The ratio of the hazard rates.
+The hazard rate is the limit of the number of events per individual at risk in a period of time shrinking to 0.
+It represents the magnitude of distance between the Kaplan–Meier plots.
+Derived from regression models such as Cox proportional hazard models.
+
+# Heritability
+
+Overall genetic effect of a quantitative trait. 
+It is defined as the proportion of the total variability in the phenotype explained by variation in all the loci underlying the trait.
+
+# Heteroplasmy
+
+Presence of more than one type of organellar genome (e.g. mitochondrial DNA or plastid DNA). For example having some mitochondria with a mutationa and others without, in a cell. This is important for mitochondrial diseases.
+
+# Heterozygote advantage
+
+For example, a variant in the hemoglobin gene is responsible for sickle cell disease but protects against the malaria parasite.
+
+# Hybridization
+
+The binding of one strand of DNA to its complementary strand in the DNA double-helix (aka hybridization) is sensitive to even single-base mismatches when the hybrid region is short or if specialized mismatch detection proteins are present.
+
+# Huntington disease
+
+The expansion of a CAG tandem repeat in the coding region of the Huntington gene (HTT) can lead to an increased rate of neuronal decay in the brain and elsewhere.
+
+The longer the STR the earlier the age of onset and the faster progression.
+
+The symptoms include declining physical abilities and cognitive functions.
+
+# Inbreeding coefficient
+
+The probability that the same allele is transmitted from both parents.
+
+A simple formula to estimate the inbreeding coefficient is \\(1-\frac{O}{E}\\) where *O* is the observed number of heterozygotes and *E* the expected under HWE.
+
+# Incidence/prevalence
+
+The **incidence** is the probability of occurrence of a medical condition, sometimes expressed as a number of cases during a period. The **prevalence** represents the proportion of the population affected at a given time.
+
+The incidence is more informative of the disease etiology, while the prevalence tells us more about the burden of the disease on society.
+
+# Kidney
+
+Kidneys are two bean-shaped organs that contains ~1M nephrons.
+Each nephron alters the blood plasma using four mechanisms: filtration, reabsorprion, secretion and excretion.
+It's filtering and adjusting the levels of different compounds in blood, filtering some and either transforming them or excreting them.
+
+# Kinase
+
+Enzyme that catalyzes phosphorylation, a process that can activate/deactivate enzymes.
+
+# Leigh Symdrome
+
+A rare inherited neurometabolic disorder that affects the central nervous system.
+20-25% are caused by mutation in the mitochondria DNA.
+Most affected children die before 10.
+
+# Linkage analysis
+
+Using marker data and the traits across a pedigree, linkage analysis estimated how far is the disease gene from markers.
+
+# Liver
+
+His functions include: detoxification of metabolite, protein synthesis, production of biochemicals for digestion.
+
+It is a accessory digestive gland.
+
+# Mather's law
+
+Describes the relationship between recombination rate and the distribution of crossovers.
+
+$$ \theta = \frac{1-P_0}{2} $$
+
+where \\(P_0\\) is the probability of zero crossovers and theta is the recombination rate between two loci (probability that a recombination occurs).
+
+# Meiosis
+
+Cell divides with recombination during gametogenesis.
+[Wikipedia](https://en.wikipedia.org/wiki/Meiosis)
+
+![Meiosis is not a cycle](/Meiosis_diagram.jpg)
+
+# Methyltransferase
+
+**Enzyme that methylates**, i.e. adds a methyl group (CH3). E.g. Histone methyltransferases, DNA/RNA methyltransferases (DNMT1-3).
+
+# Mitochondria
+
+Power-houses of the cell. 
+They use oxidative phosphorylation to generate energy (ATP adenosine triphosphate).
+
+Mature mammalian red blood cells don't have mitochondria.
+Liver cells can have more than 2000.
+
+# Mitosis
+
+Cell divides after DNA replication.
+
+- **S phase** Synthesis phase where the DNA is duplicated.
+- **Gaps** when the cell grows. Before and after S phase.
+- **Prophase** Chromatin condenses, we can see chromosomes.
+- **M-phase** with metaphase and anaphase where the chromosome line up and then break up.
+
+![Mitosis in animal cell](/Animal_cell_cycle-en.svg)
+
+- Sister chromatids are attached at the centromere.
+- Kinetochore is attached to the centromere and drive chr segregation.
+- Centrosomes define metaphase plane and each side of the cell.
+
+# Normality test, excess kurtosis and skewness
+
+Kurtosis measures the "tailedness" of a distribution. 
+The kurtosis of a normal distribution is 3, hence the excess kurtosis (kurtosis minus 3) is used to compare with the normal distribution.
+
+- High kurtosis: "peaky" with long tails.
+- Low kurtosis: "flat-topped" with small to no tails. E.g. uniform distribution.
+
+Skewness measure the asymmetry of a distribution.
+
+- Negative skew: long left tail, mean to the left of the center of the curve.
+- Positive skew: long right tail, mean to the right of the center of the curve.
+
+
+# Pancreas
+
+A digestive and endocrine gland.
+It produces several hormones (e.g. insulin, glucagon) and digestive enzymes.
+
+# PCR, RT-PCR, qRT-PCR
+
+**PCR** is used for amplification or genetic testing. 
+The presence of a variant can be tested with gels. 
+PCR cycles through:
+
+1. **Denaturation**: dsDNA into ssDNA using heat.
+1. **Annealing**: primers align to ssDNA.
+1. **Elongation** of the primers by DNA polymerase.
+
+Note: GC-rich fragment are more difficult to denaturate because more stable and creating secondary structures.
+
+Reverse transcription PCR (**RT-PCR**) is the same but on RNA.
+A first steps converts RNA into cDNA by the reverse transcriptase.
+Then the same steps as PCR are performed.
+
+**qPCR** or **RT-qPCR** allows for quantification of the amount of DNA/RNA. 
+An additional step in the PCR cycle adds fluorescent labels binding to dsDNA.
+The fluorescence is monitored cycle after cycle.
+
+# Penetrance
+
+The probability of observing a phenotype from a specific genotype.
+
+Reduced penetrance occurs when the probability of disease is lower than 1 when it is one for Mendelian models.
+
+# Plasmid
+
+A **small DNA molecule**, separated from chromosomal DNA, that can replicate independently.
+**Common in bacteria**, sometimes seen in archaea and eukaryotes, they often *carry additional genes useful under certain situations*.
+They are **small (1-200 Kbp)** but the same plasmid can be present in many copies in the same cell.
+
+[Wikipedia](https://en.wikipedia.org/wiki/Plasmid)
+
+![Chromosomes and plasmids](/Plasmid.png)
+
+# Prostate
+
+A gland of the male reproductive system in most mammals that secretes a slightly alkaline fluid contributing to the semen.
+
+# Psoriasis
+
+Disease characterized by patches of abnormal skin, typically red, itchy and scaly.
+It's thought to be genetic triggered by environmental factors
+
+Sometimes classified as auto-immune disease but more through the inflammation.
+
+No cure.
+
+# Rett Syndrome
+
+Genetic brain disorder with extremely early onset (6-18 months). 
+Symptoms include problems with language, coordination, and repetitive movements.
+It is caused mostly by *de novo* mutation in the MECP2 gene.
+It affects only girls as boy carrying mutations die in utero or shortly after birth.
+
+# Rhabdoid tumor
+
+Aggressive malignant tumor that occurs in children. *rhabdoid* means "rod-like", used to describe striated muscle-like appearance.
+
+# Rheumatoid arthritis
+
+Autoimmune disease that affects the joints, most commonly of the wrist and hands.
+
+No cure.
+
+# Ribo-Seq
+
+Sequencing of ribosome-protected RNA fragments which informs about the translation rate rather than the transcription rate (RNA-seq).
+
+# Sensitivity, specificity, precision, recall
+
+- **Sensitivity** or **Recall** `TP/(TP+FN)`
+- **Specificity** `TN/(TN+FP)`
+- **Precision** `TP/(TP+FP)`
+- **False-Discovery Rate** `FP/(TP+FP)`
+- **Accuracy** `(TP+TN)/(P+N)`
+
+F1 score is `2 / (1/precision + 1/recall)`.
+
+# Stroma
+
+Supporting tissue that forms the framework/matrix of an organ, as opposed to the functioning part.
+
+# Wahlund effect
+
+LOH or deficit in heterozygotes caused by population substructure (stratification, admixture and/or inbreeding).
+
+# Williams-Beuren Syndrome
+
+Facial dysmorphies, intellectual disability and outgoing personality, almost exclusively caused by deletions at 7q11.23.
+Teeth and heart problems are also common.
+
+# Wright–Fisher model
+
+This model of genetic drift assumes non-overlapping generations and random selection of alleles for the next generation.
+
+# X-inactivation
+
+In females, one copy of the chromosome X is silenced to ensure identical dosage as in a male.
+In general, we assume that each copy is active in 50% of the cells bu there have been cases of X-inactivation skewing.
+
+Xist is a long non-coding RNA coat the chromosome to inactivate which is then compacted into heterochromatin, preventing gene expression.
+
+# X-linked inheritance
+
+X-linked dominant is less common than X-linked recessive.
+Fragile X syndrome is a X-linked dominant disorder.
+
+X-linked recessive traits affect more commonly males than females. 
+Haemophilia is an example of X-linked recessive disorder.
+Even in cases of mosaic X inactivation, a subset of defective cells is not always enough to create a phenotype, or they are outgrown by other cells.

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Whole-Genome Sequencing &middot; My Reviews
+    
+  </title>
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113785126-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', "UA-113785126-1");
+  </script>
+  
+  
+  <link rel="stylesheet" href="../css/poole.css">
+  <link rel="stylesheet" href="../css/syntax.css">
+  <link rel="stylesheet" href="../css/lanyon.css">
+  <link rel="stylesheet" href="../css/github.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="../fa/css/font-awesome.min.css">
+  
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/R-icon.png">
+  <link rel="shortcut icon" href="../assets/R-icon.png">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="../atom.xml">
+</head>
+
+  
+  <body>
+
+    
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A place to review papers I read. Views are my own.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item " href="../">Home</a>
+    <a class="sidebar-nav-item " href="../post">Posts</a>
+
+    
+    
+      
+        <a class="sidebar-nav-item " href="../genome-assembly/">Genome Assembly</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../genome-graphs/">Genome Graphs</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../structural-variation/">Structural Variation</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../structural-variation-impact/">Structural Variation Impact</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../structural-variation-mechanisms-of-formation/">Structural Variation Mechanisms of Formation</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../structural-variation-methods/">Structural Variation Methods</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../structural-variation-and-repeats/">Structural Variation and Repeats</a>
+      
+    
+      
+        <a class="sidebar-nav-item  active " href="../whole-genome-sequencing/">Whole-Genome Sequencing</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../glossary/">Glossary</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../about/">About</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+    
+  </nav>
+
+  <div class="sidebar-item">
+  </div>
+  
+  <div class="sidebar-item">
+    <div><a href="../index.xml"><i class="fa fa-rss-square" aria-hidden="true"></i> RSS</a></div>
+    <div><a href="https://twitter.com/JMonlong"><i class="fa fa-twitter" aria-hidden="true"></i> @JMonlong</a></div>
+    <p>&copy; 2020 Jean Monlong. All rights reserved.</p>
+  </div>
+</div>
+
+
+    
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="../" title="Home">My Reviews</a>
+            <small>Views are my own</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+
+
+<div class="page">
+  <h1 class="page-title">Whole-Genome Sequencing</h1>
+  
+
+<div id="TOC">
+<ul>
+<li><a href="#bias-characterization">Bias characterization</a><ul>
+<li><a href="#gc-bias">GC bias</a></li>
+<li><a href="#repeats">Repeats</a></li>
+<li><a href="#correction">Correction</a></li>
+</ul></li>
+<li><a href="#bibliography">Bibliography</a></li>
+</ul>
+</div>
+
+<div id="bias-characterization" class="section level1">
+<h1>Bias characterization</h1>
+<div id="gc-bias" class="section level2">
+<h2>GC bias</h2>
+<p><span class="citation">Benjamini and Speed (<a href="#ref-Benjamini2012" role="doc-biblioref">2012</a>)</span> described thoroughly the <strong>bias in read coverage</strong> due to <strong>GC content</strong> of a region.
+They showed that <strong>GC-rich and GC-poor regions</strong> tend to have a <strong>reduced read coverage</strong> and that it might be due to a decreased efficiency of the DNA amplification.
+Moreover they observed different strength in different samples, highlighting the <strong>sample-specific</strong> aspect of GC bias.</p>
+<p><span class="citation">Talevich et al. (<a href="#ref-Talevich2014" role="doc-biblioref">2014</a>)</span> also mentioned an effect of GC content on <em>hybridization</em> and attributed differences in the bias strength across samples to different DNA quality and hybridization efficiency.</p>
+</div>
+<div id="repeats" class="section level2">
+<h2>Repeats</h2>
+<p>Repetitiveness of genomic regions affect directly read mapping and might decrease the amount of reads mapped with good quality.
+There could also be an effect during <strong>library preparation</strong>, when <strong>Cot-1 DNA</strong> is used to block repetitive DNA <span class="citation">(Talevich et al. <a href="#ref-Talevich2014" role="doc-biblioref">2014</a>)</span>.
+This could explain how repeat-based bias could change from sample to sample.</p>
+</div>
+<div id="correction" class="section level2">
+<h2>Correction</h2>
+<p><span class="citation">Cheung et al. (<a href="#ref-Cheung2011" role="doc-biblioref">2011</a>)</span> proposed a method, <em>BEADS</em> to correct sequencing bias. <span class="citation">Hashimoto, Edwards, and Gifford (<a href="#ref-Hashimoto2014" role="doc-biblioref">2014</a>)</span> too.</p>
+</div>
+</div>
+<div id="bibliography" class="section level1 unnumbered">
+<h1>Bibliography</h1>
+<div id="refs" class="references">
+<div id="ref-Benjamini2012">
+<p>Benjamini, Yuval, and Terence P. Speed. 2012. “Summarizing and Correcting the GC Content Bias in High-Throughput Sequencing.” <em>Nucleic Acids Research</em>. <a href="https://doi.org/10.1093/nar/gks001">https://doi.org/10.1093/nar/gks001</a>.</p>
+</div>
+<div id="ref-Cheung2011">
+<p>Cheung, Ming Sin, Thomas A. Down, Isabel Latorre, and Julie Ahringer. 2011. “Systematic Bias in High-Throughput Sequencing Data and Its Correction by BEADS.” <em>Nucleic Acids Research</em>. <a href="https://doi.org/10.1093/nar/gkr425">https://doi.org/10.1093/nar/gkr425</a>.</p>
+</div>
+<div id="ref-Hashimoto2014">
+<p>Hashimoto, Tatsunori B, Matthew D Edwards, and David K Gifford. 2014. “Universal Count Correction for High-Throughput Sequencing.” <em>PLoS Computational Biology</em>. <a href="https://doi.org/10.1371/journal.pcbi.1003494">https://doi.org/10.1371/journal.pcbi.1003494</a>.</p>
+</div>
+<div id="ref-Talevich2014">
+<p>Talevich, Eric, A Hunter Shain, Thomas Botton, and Boris C Bastian. 2014. “CNVkit: Copy Number Detection and Visualization for Targeted Sequencing Using Off-Target Reads.” <em>bioRxiv</em>. <a href="https://doi.org/10.1101/010876">https://doi.org/10.1101/010876</a>.</p>
+</div>
+</div>
+</div>
+
+</div>
+
+      </div>
+    </div>
+
+    
+    
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src="../assets/highlight.min.js"></script>
+    <script src="../assets/r.min.js"></script>
+    
+    <script>
+      hljs.configure({languages: ['r']});
+      hljs.initHighlightingOnLoad();
+    </script>
+
+    <script src="//yihui.name/js/math-code.js"></script>
+    <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
+  </body>
+</html>
+

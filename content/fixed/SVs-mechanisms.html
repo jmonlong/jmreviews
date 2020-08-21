@@ -1,0 +1,230 @@
+---
+sidebar: true
+title: Structural Variation Mechanisms of Formation
+bibliography: [../../static/library-small.bib]
+link-citations: true
+weight: 5
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#non-allelic-homologous-recombination-nahr">Non-Allelic Homologous Recombination (NAHR)</a><ul>
+<li><a href="#nahr-substrates">NAHR substrates</a></li>
+</ul></li>
+<li><a href="#replication-slippage">Replication slippage</a></li>
+<li><a href="#non-homologous-end-joining-nhej">Non-Homologous End-Joining (NHEJ)</a></li>
+<li><a href="#fork-stalling-and-template-switching-micro-homology-mediated-break-induced-replication">Fork Stalling and Template switching / Micro-homology-Mediated Break-induced Replication</a></li>
+<li><a href="#chromothripsis">Chromothripsis</a></li>
+<li><a href="#somatic-mutation">Somatic mutation</a></li>
+<li><a href="#de-novo-germline-mutation">De novo germline mutation</a></li>
+<li><a href="#bibliography">Bibliography</a></li>
+</ul>
+</div>
+
+<p>The mechanism of formation of a SV is often <strong>estimated from the breakpoint sequence</strong> <span class="citation">(Mills et al. <a href="#ref-Mills2011" role="doc-biblioref">2011</a>)</span>.
+A high proportion of CNVs (71%/90% of deletions/duplications) exhibited breakpoint <strong>(micro)homology</strong>, and some non-template insertion in a minority of deletions (16%).
+In this study, <strong>Non-Homologous Recombination</strong> and <strong>Mobile Element Insertion</strong> were the major mechanisms of deletions and duplication.
+They cite <em>VNTR near centromeres</em>, NAHR near telomeres and recombination hotspots or segmental duplications.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Mechanism</th>
+<th>Description</th>
+<th>When ?</th>
+<th>Frequency</th>
+<th>SV type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NAHR</td>
+<td>Confused recombination</td>
+<td>Meiosis &gt;&gt; Mitosis</td>
+<td>?</td>
+<td>Del/Dup/Inv</td>
+</tr>
+<tr class="even">
+<td>NHEJ</td>
+<td>DNA breaks repaired on the spot</td>
+<td>Anytime DNA breaks</td>
+<td>?</td>
+<td>Del/Ins</td>
+</tr>
+<tr class="odd">
+<td>MMEJ</td>
+<td>DNA breaks repaired with nearby MH</td>
+<td>Anytime DNA breaks</td>
+<td>?</td>
+<td>Del</td>
+</tr>
+<tr class="even">
+<td>SAER</td>
+<td>DNA breaks repaired with nearby repeats</td>
+<td>Anytime DNA breaks</td>
+<td>?</td>
+<td>Del</td>
+</tr>
+<tr class="odd">
+<td>FoSTeS/MMBR</td>
+<td>Replication fork jumping</td>
+<td>Replication</td>
+<td>?</td>
+<td>Del/Dup (Inv?)</td>
+</tr>
+<tr class="even">
+<td>Chromothripsis</td>
+<td>Shattered DNA repaired</td>
+<td>Cancer</td>
+<td>?</td>
+<td>Complex</td>
+</tr>
+</tbody>
+</table>
+<div id="non-allelic-homologous-recombination-nahr" class="section level1">
+<h1>Non-Allelic Homologous Recombination (NAHR)</h1>
+<p><img src="/nahr-cartoon-natrev-mcb.png" /></p>
+<p>Because of the presence of repeats, <strong>homologous recombination between non-allelic sequences</strong> causes deletions and duplications <span class="citation">(Raphael <a href="#ref-Raphael2012" role="doc-biblioref">2012</a>)</span>.
+Approximately 23% of the SVs detected in 1000 genomes resulted from NAHR <span class="citation">(Mills et al. <a href="#ref-Mills2011" role="doc-biblioref">2011</a>)</span>.
+In another study, 47% of the characterized events corresponded to NAHR <span class="citation">(Kidd et al. <a href="#ref-Kidd2008" role="doc-biblioref">2008</a>)</span>.
+This number is likely an under-estimation.
+NAHR-caused SVs are characterized by sequence homology around the breakpoints <span class="citation">(Raphael <a href="#ref-Raphael2012" role="doc-biblioref">2012</a>)</span>.
+There are numerous substrates for NAHR with the transposons and repeats in the human genome.</p>
+<p>NAHR occurs <strong>during meiosis but also mitosis</strong>.
+<a href="http://www.pnas.org/content/104/15/6099.full">Flores et al.</a> used a specially-designed PCR experiment to detect somatic inversions in blood samples.
+They had selected three recurrent NAHR-mediated inversions.
+They noticed that somatic inversions occur frequently, and are more abundant in adults suggesting that it occurred not only during the embryo development.
+A more compelling example is the case of a patient mosaic for two abnormal cell lines: one with the deletion and one with the duplication (<a href="http://onlinelibrary.wiley.com/doi/10.1002/ajmg.a.31697/full">Dempsey et al 2007</a>).
+The locus in question has several low copy repeats and frequently experiencing NAHR.
+Because meiotic recombination cannot explain the presence of both allele in the patient, they propose that it was a mitotic event during embryogenesis.
+It could be something else, e.g. meiotic duplication followed by mitotic deletion.
+In a study of deletions associated neurofibromatosis type 1 (NF1), <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2276354/">Steinmann et al.</a> found a new type of deletions that almost all somatic and hence proposed to have arisen from mitotic NAHR.</p>
+<p>There seems to be more deletions than duplication among NAHR-mediated CNVs.
+The fact that intra-chromatid NAHR leads to deletions but not duplications could explain why we observe more deletions.
+<span class="citation">Fu et al. (<a href="#ref-Fu2010" role="doc-biblioref">2010</a>)</span> found 70% of deletions for NAHR-mediated CNVs but 50% for VNTR-mediated variants.</p>
+<p>Intra-chromosomatid NAHR can create inversions in the presence of inverted templates.
+When occurring between different chromatids, an acentric fragment and a isodicentric chromosome are created.
+For example, a 500 kbp inversion in the Haemophilia Factor VIII gene is mediated by NAHR.
+The inversion accounts for nearly half of all severe cases of hemophilia A.
+Interestingly <a href="https://www.ncbi.nlm.nih.gov/pubmed/7981669">it originates in male germ cells</a> as the pairing with the other X in female seems to avoid the NAHR.</p>
+<p>Of note, gene conversion can also result from NAHR.
+It is not creating a SV but rather inserts mutations into a paralogous gene.
+For example, CYP21A/B in <a href="https://en.wikipedia.org/wiki/Congenital_adrenal_hyperplasia#Genetics">congenital adrenal hyperplasia</a>.</p>
+<div id="nahr-substrates" class="section level2">
+<h2>NAHR substrates</h2>
+<p><strong>Segmental duplications</strong> seem to be the <strong>ultimate NAHR substrate</strong>, involved in many large-scale rearrangements <span class="citation">(Sharp, Cheng, and Eichler <a href="#ref-Sharp2006" role="doc-biblioref">2006</a>)</span>.
+Segmental duplications flank the majority of NAHR-mediated events in <span class="citation">Kidd et al. (<a href="#ref-Kidd2008" role="doc-biblioref">2008</a>)</span>.
+Tandem repeats and close-by paralog genes are also associated with regions of frequent CNV <span class="citation">(Sharp, Cheng, and Eichler <a href="#ref-Sharp2006" role="doc-biblioref">2006</a>)</span>.</p>
+<p>TEs are another substrate for NAHR.
+The <strong>majority of NAHR in recent human evolution involve L1 elements</strong>, as reviewed in <span class="citation">Bourque (<a href="#ref-Bourque2009" role="doc-biblioref">2009</a>)</span>.
+For example, 73 human-specific L1-associated deletion removed around 450 Kbp of the human genome <span class="citation">(Han and Boeke <a href="#ref-Han2004" role="doc-biblioref">2004</a>)</span>.
+Alu and L1 represented at least 44% of <em>inversions</em> between human and chimpanzee genomes.
+<strong>Early primate evolution rearrangements</strong> are associated with <strong>Alu</strong> elements though.
+One third of human segmental duplications terminate within Alu repeats.</p>
+</div>
+</div>
+<div id="replication-slippage" class="section level1">
+<h1>Replication slippage</h1>
+<p>The presence of simple repeats (e.g. STRs) can cause the formation of hairpin on the lagging strand during replication.
+If it cannot be resolved the DNA polymerase can dissociate and continue after the hairpin leading to a deletion.</p>
+<p>There can also be backward and forward slippage during replication that leads to expansion and shrinkage of STRs.</p>
+<p>What about the duplications ?</p>
+</div>
+<div id="non-homologous-end-joining-nhej" class="section level1">
+<h1>Non-Homologous End-Joining (NHEJ)</h1>
+<p><img src="/endjoining-cartoon.png" /></p>
+<p>NHEJ is caused by <strong>(near-)random double stranded DNA breaks that are aberrantly repaired</strong>.
+They involve little to no sequence similarity at the breakpoints.
+Exposure to external <strong>DNA damaging agents</strong> (e.g. <em>ultra-violet radiations or chemotherapy drugs</em>) can cause DNA breaks <span class="citation">(Raphael <a href="#ref-Raphael2012" role="doc-biblioref">2012</a>)</span>.</p>
+<p>Micro-homologies (e.g. 2-25bp similarity) are sometimes present at the breakpoints <span class="citation">(Raphael <a href="#ref-Raphael2012" role="doc-biblioref">2012</a>)</span>.</p>
+<p>What about MMEJ, TMEJ?</p>
+</div>
+<div id="fork-stalling-and-template-switching-micro-homology-mediated-break-induced-replication" class="section level1">
+<h1>Fork Stalling and Template switching / Micro-homology-Mediated Break-induced Replication</h1>
+<p><img src="/fostes-cartoon.jpg" /></p>
+<p>Fork Stalling and Template Switching (FoSTeS) happens on <strong>stalling replication fork</strong> when lagging <strong>strand disengages and invades another nearby replication fork</strong> sharing micro-homology <span class="citation">(Hart and O’Driscoll <a href="#ref-Hart2013" role="doc-biblioref">2013</a>)</span>.
+Depending on the position of the other fork, FoSTeS creates <em>deletion, duplication, inversion or translocation</em>.
+The creation of deletion/duplication versus translocation seem to depend of the final replication fork.</p>
+</div>
+<div id="chromothripsis" class="section level1">
+<h1>Chromothripsis</h1>
+<p>CARTOON??</p>
+<p>During chromothripsis, a <strong>large genomic region is broken into pieces</strong> which are then <strong>stitched back together</strong>, often imperfectly.
+Chromothripsis is also called chromosome shattering.
+The numerous pieces are usually rearranged in disorder which creates complex variants.</p>
+</div>
+<div id="somatic-mutation" class="section level1">
+<h1>Somatic mutation</h1>
+<ul>
+<li>When is it happening ?</li>
+<li>What is the proportion of the different mechanisms ?</li>
+</ul>
+<p>Apparently it is well-known that <strong>immune cells undergo rearrangements and deletions at immunoglobulin loci</strong> through <strong>NHEJ</strong> <span class="citation">(Sharp, Cheng, and Eichler <a href="#ref-Sharp2006" role="doc-biblioref">2006</a>)</span>.
+Still results from array-based approaches suggest that somatic SV is not a widespread phenomenon.</p>
+<p>Two studies found discordant CNVs between twins and tissues <span class="citation">(Bruder et al. <a href="#ref-Bruder2008" role="doc-biblioref">2008</a>; Piotrowski et al. <a href="#ref-Piotrowski2008" role="doc-biblioref">2008</a>)</span>.</p>
+</div>
+<div id="de-novo-germline-mutation" class="section level1">
+<h1>De novo germline mutation</h1>
+<ul>
+<li>When is it happening ?</li>
+<li>What is the proportion of the different mechanisms ?</li>
+</ul>
+<p>In their method paper <span class="citation">Abyzov et al. (<a href="#ref-Abyzov2011" role="doc-biblioref">2011</a>)</span>, looked for <em>de novo</em> CNVs in two trio families.
+<strong>RD detection of <em>de novo</em> CNV is tricky</strong> because multi-allelic CNVs can resemble <em>de novo</em> patterns.
+Hence, multi-allelic loci are often filtered out <span class="citation">(Abyzov et al. <a href="#ref-Abyzov2011" role="doc-biblioref">2011</a>)</span>.
+The only potential <em>de novo</em> CNVs in <span class="citation">Abyzov et al. (<a href="#ref-Abyzov2011" role="doc-biblioref">2011</a>)</span> located in regions of short tandem repeats and are likely false calls.</p>
+<p><span class="citation">Kloosterman et al. (<a href="#ref-Kloosterman2015" role="doc-biblioref">2015</a>)</span> found a few de novo SVs in offsprings of 250 Dutch families, at a rate of <strong>0.16 per generation</strong> (SV <em>&gt; 20bp</em>).
+De novo SV distribution was not uniform: i.e. some samples had several de novo SVs, <strong>as if having one increased the likelihood of a second</strong>.
+An excess of de novo SVs also originated from paternal haplotypes, although without clear correlation with paternal age.
+SVs were predicted from whole genome sequencing using 11 different tools, and 41 (/601) validated.
+The <strong>rate of retrotransposition</strong> was estimated at <strong>1/43 per generation</strong>, in line with current estimates.
+From investigation of the breakpoints, <em>60% of de novo SVs involve non-homologous repair mechanism</em>.
+The rest involved NAHR (20%), mobile element insertion (15%), variable number of tandem repeats (7%).
+One complex SV involved three different regions.
+Six large de novo SV affected exonic regions.
+Of note, to be defined as de novo a SV had to be private, i.e. not seen in any other individual in the project.</p>
+</div>
+<div id="bibliography" class="section level1 unnumbered">
+<h1>Bibliography</h1>
+<div id="refs" class="references">
+<div id="ref-Abyzov2011">
+<p>Abyzov, Alexej, Alexander E. Urban, Michael Snyder, and Mark Gerstein. 2011. “CNVnator: An Approach to Discover, Genotype, and Characterize Typical and Atypical CNVs from Family and Population Genome Sequencing.” <em>Genome Research</em>. <a href="https://doi.org/10.1101/gr.114876.110">https://doi.org/10.1101/gr.114876.110</a>.</p>
+</div>
+<div id="ref-Bourque2009">
+<p>Bourque, Guillaume. 2009. “Transposable Elements in Gene Regulation and in the Evolution of Vertebrate Genomes.” <em>Current Opinion in Genetics &amp; Development</em>. <a href="https://doi.org/10.1016/j.gde.2009.10.013">https://doi.org/10.1016/j.gde.2009.10.013</a>.</p>
+</div>
+<div id="ref-Bruder2008">
+<p>Bruder, Carl E G, Arkadiusz Piotrowski, Antoinet a C J Gijsbers, Robin Andersson,..., and Jan P Dumanski. 2008. “Phenotypically Concordant and Discordant Monozygotic Twins Display Different DNA Copy-Number-Variation Profiles.” <em>American Journal of Human Genetics</em>. <a href="https://doi.org/10.1016/j.ajhg.2007.12.011">https://doi.org/10.1016/j.ajhg.2007.12.011</a>.</p>
+</div>
+<div id="ref-Fu2010">
+<p>Fu, Wenqing, Feng Zhang, Yi Wang, Xun Gu, and Li Jin. 2010. “Identification of Copy Number Variation Hotspots in Human Populations.” <em>American Journal of Human Genetics</em>. <a href="https://doi.org/10.1016/j.ajhg.2010.09.006">https://doi.org/10.1016/j.ajhg.2010.09.006</a>.</p>
+</div>
+<div id="ref-Han2004">
+<p>Han, Jeffrey S, and Jef D Boeke. 2004. “A Highly Active Synthetic Mammalian Retrotransposon.” <em>Nature</em>. <a href="https://doi.org/10.1038/nature02535">https://doi.org/10.1038/nature02535</a>.</p>
+</div>
+<div id="ref-Hart2013">
+<p>Hart, Lesley, and Mark O’Driscoll. 2013. “Causes and Consequences of Structural Genomic Alterations in the Human Genome.” In. <a href="https://doi.org/10.1002/9780470015902.a0024976">https://doi.org/10.1002/9780470015902.a0024976</a>.</p>
+</div>
+<div id="ref-Kidd2008">
+<p>Kidd, Jeffrey M, Gregory M Cooper, William F Donahue, Hillary S Hayden,..., and Evan E Eichler. 2008. “Mapping and Sequencing of Structural Variation from Eight Human Genomes.” <em>Nature</em>.</p>
+</div>
+<div id="ref-Kloosterman2015">
+<p>Kloosterman, Wigard P, Laurent C Francioli, Fereydoun Hormozdiari, Tobias Marschall,..., and Victor Guryev. 2015. “Characteristics of de Novo Structural Changes in the Human Genome.” <em>Genome Research</em>. <a href="https://doi.org/10.1101/gr.185041.114">https://doi.org/10.1101/gr.185041.114</a>.</p>
+</div>
+<div id="ref-Mills2011">
+<p>Mills, Ryan E., Klaudia Walter, Chip Stewart, Robert E. Handsaker,..., and Jan O. Korbel. 2011. “Mapping Copy Number Variation by Population-Scale Genome Sequencing.” <em>Nature</em>. <a href="https://doi.org/10.1038/nature09708">https://doi.org/10.1038/nature09708</a>.</p>
+</div>
+<div id="ref-Piotrowski2008">
+<p>Piotrowski, Arkadiusz, Carl E. G. Bruder, Robin Andersson, Teresita Diaz De Ståhl,..., and Jan P. Dumanski. 2008. “Somatic Mosaicism for Copy Number Variation in Differentiated Human Tissues.” <em>Human Mutation</em>. <a href="https://doi.org/10.1002/humu.20815">https://doi.org/10.1002/humu.20815</a>.</p>
+</div>
+<div id="ref-Raphael2012">
+<p>Raphael, Benjamin J. 2012. “Chapter 6: Structural Variation and Medical Genomics.” <em>PLoS Computational Biology</em>. <a href="https://doi.org/10.1371/journal.pcbi.1002821">https://doi.org/10.1371/journal.pcbi.1002821</a>.</p>
+</div>
+<div id="ref-Sharp2006">
+<p>Sharp, Andrew J., Ze Cheng, and Evan E. Eichler. 2006. “Structural Variation of the Human Genome.” <em>Annual Review of Genomics and Human Genetics</em>. <a href="https://doi.org/10.1146/annurev.genom.7.080505.115618">https://doi.org/10.1146/annurev.genom.7.080505.115618</a>.</p>
+</div>
+</div>
+</div>

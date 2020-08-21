@@ -1,0 +1,22 @@
+theme = "lanyon-hugo"
+baseURL = "/jmreviews/"
+languageCode = "en-us"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "\\.RData", "\\.gz$", "temp"]
+publishDir = "docs"
+canonifyurls = true
+relativeURLs = true
+GoogleAnalytics = "UA-113785126-1"
+paginate = 10
+
+[params]
+title = "My Reviews"
+author = "Jean Monlong"
+tagline = 'Views are my own'
+description = 'A place to review papers I read. Views are my own.'
+year = "2020 Jean Monlong"
+[params.github]
+url = "https://github.com/jmonlong"
+
+[permalinks]
+post = "/:year/:month/:day/:slug/"
+fixed = ":slug/"

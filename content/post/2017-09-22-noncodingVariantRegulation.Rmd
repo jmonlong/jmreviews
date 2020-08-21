@@ -1,0 +1,58 @@
+---
+date: 2017-09-22
+title: Lit Digest - Non-coding variants in regulatory regions
+tags: ['literature']
+output: blogdown::html_page
+---
+
+## Genome-wide analysis of noncoding regulatory mutations in cancer
+
+[Weinhold & Jacobsen et al., Nature Genetics 2014](https://www.ncbi.nlm.nih.gov/pubmed/25261935)
+
+- 863 tumors from TCGA and co.
+- Identify **recurrent non-coding variants in cancer**.
+- PLEKHS1, WDR74, SDHD had such variants in upstream regulatory elements.
+
+Promoter/enhancer have *similar rate of somatic mutation* as transcribed regions (~3 per Mb), and lower than intergenic (~6 per Mb), supporting the presence of functional variants.
+
+They used three approaches to identify functional ncSNV candidates:
+
+1. A **hotspot** analysis, aiming at cluster of variants within 50 bp of each other.
+1. A **regional recurrence** analysis, grouping the variants by regions and detecting recurrence compared to neighboring regions or the entire genome.
+1. A **TFBS** analysis, to find mutations that create/disrupts ETS binding sites. Apparently ETS plays a role in cancer.
+
+Many of the top hits were located in regulatory regions of known cancer genes (pv=3.4e-4).
+
+The most significant hotspot is in **TERT promoter** and consists of two recurrent mutations across 38 and 15 tumors, and **7 cancer types**.
+TERT tended to be **more expressed** in mutated samples.
+Fun fact: the C->T transitions create novel ETS binding sites.
+
+The second most significant hotspot in in **PLEKHS1 promoter**.
+Again two sites, with 11 and 12 mutations over 20 samples and **5 cancer types**.
+The gene's **expression was lower** in mutated samples.
+In bladder cancer, 40% of the samples carried one of these two mutations.
+Fun fact: also a C->T transition; each site is flanked by 10 bp palindromes.
+
+The regional recurrence identified enrichment in larger regions, grouping the variants by functional class (enhancer, promoter, 5' UTR, 3'UTR).
+They tested both **local enrichment**, comparing the mutation rate in neighboring regions, and **global enrichment**, comparing the mutation rate in the same functional class and with similar DNA replication timing.
+*I guess DNA replication timing affects the mutation rate ?*
+
+TERT was again the strongest hit.
+The second and third hits were the promoter and 5' UTR of **WDR74**.
+This gene had no coding mutation but 35 non-coding variants in a ~1 Kb region at the promoter region.
+No gene expression changes this time.
+Overall, 5% of the tumors had a mutation in this region.
+
+The TFBS approach intended to find mutation similar to the TERT examples, that either create or disrupt ETS binding sites.
+From a short list of candidates, they focused on **SDHD** which was also high in the regional recurrence list.
+In this case, C->T transitions disrupted a existing ETS binding sites, consistent with a **reduced expression** of the gene.
+The mutations occurred **exclusively in melanoma samples**.
+Because the variants were close enough to a coding region, they could use exome sequencing data to investigate more samples and even identified a third putative ETS site.
+They showed that around 10% of melanoma samples have such a mutation and provided further support that these sites regulate the gene's expression.
+Samples with SDHD mutation had a significantly shorter overall survival.
+
+**Interesting study**.
+I like how they used the strong/known association in TERT to generalize and identify other with weaker effect.
+It also showed the usefulness of performing **different analysis** to better narrow down the list of leads to follow.
+The way they **used orthogonal data** (RNA-seq, WES or Encode) to add support to the original findings was good too.
+The paper was pleasant to read as well, not too dense and not too jargon heavy.

@@ -1,0 +1,105 @@
+---
+title: Epilepsy genes candidates
+date: 2017-10-02
+tags: ['literature']
+output: blogdown::html_page
+---
+
+
+
+<p>We had a few candidate genes that could be affected by non-coding CNVs.
+We could try to recreate the deletions using CRISPR but we need to know the cell type to phenotype (and how/what to phenotype).
+I’ll try to find information from the various databases and from publication.</p>
+<p>Our collaborators can differentiate cells into <strong>glutamatergic</strong> neurons (as opposed to <em>GABA-ergic</em>).
+For the phenotype, we could monitor the gene expression levels.
+It’s an intermediate phenotype but could be convincing enough.
+Otherwise, Knut mentioned <em>“neural network effects such as Ca++ flux”</em>.</p>
+<div id="candidate-genes" class="section level2">
+<h2>Candidate genes</h2>
+<ul>
+<li>SZT2, DNM1, MRS2, KCTD7, ST3GAL3, CELSR1, CACNA1A for the CNVs in unique regions.</li>
+<li>SERPINI1, SCN2A, SCN1A, CPA6, BRAF, WWOX, MMP27, N6AMT1, MYO3A, HCN1, SCN5A, CLN6, EPM2A, FAM63B for the CNV in unique regions.</li>
+</ul>
+</div>
+<div id="glutamatergic" class="section level2">
+<h2>Glutamatergic?</h2>
+<p>Simply means “related to glutamate”.
+Ok, that was easy, next…</p>
+<p><em>Glutamate?</em> <strong>Glutamate</strong> or glutamic acid is an amino acid.
+In our case I think we are more interested in its role as a neurotransmitter.
+The <strong>most abundant neurotransmitter</strong> (90% of human brain connections).
+Glutamate binds and activates receptors (AMPA, kainate, NMDA) that in turn open membrane channels that let ions pass through.</p>
+<p>In <strong>some diseases an excess of glutamate</strong> can lead to cell death when its transporters are not effectively removing it from the extracellular space.
+This type of glutamate excess has been observed in strokes, autism, ID, AD and <strong>epilepsy</strong>.</p>
+<p>In epilepsy, an epileptic phenotype could be recreated though micro-injection of glutamate.
+It caused a <strong>depolarization</strong> that can become stronger with some kind of feedback loop.</p>
+</div>
+<div id="kctd7" class="section level2">
+<h2>KCTD7</h2>
+<p>Two brothers with a severe form of <strong>epilepsy</strong> showed the <strong>excess of glutamine</strong> (<a href="https://www.ncbi.nlm.nih.gov/pubmed/27742667">ref.</a>).
+From exome sequencing they found a frame-shift mutation in KCTD7 and performed some experiments in animal models.</p>
+<blockquote>
+<p>[…] KCTD7 has an impact on K+ fluxes, neurotransmitter synthesis and neuronal function, and that malfunction of the encoded protein may lead to progressive myoclonus epilepsy.</p>
+</blockquote>
+<p>The non-coding CNV we found was located downstream of the gene in an active and conserved region.
+It overlaps an eQTL associated with the gene’s expression.</p>
+</div>
+<div id="szt2" class="section level2">
+<h2>SZT2</h2>
+<p>Also called “Transcript increased in <strong>glutamate</strong> resistance” because it was <em>“upregulated in resistance to oxidative glutamate toxicity”</em> (<a href="https://www.ncbi.nlm.nih.gov/pubmed/20045724">ref.</a>).</p>
+<blockquote>
+<p>[…] oxidative glutamate toxicity and excitotoxicity are plausible mechanisms underlying epileptogenesis caused by SZT2 mutations.</p>
+</blockquote>
+<p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3769928/">Ref</a></p>
+<p>The non-coding CNV we found was located downstream of the gene, overlapping a DNase site associated with the gene.</p>
+</div>
+<div id="hcn1" class="section level2">
+<h2>HCN1</h2>
+<blockquote>
+<p>HCN1 channels selectively regulate glutamatergic synaptic release.</p>
+</blockquote>
+<blockquote>
+<p>HCN channels inhibit glutamate synaptic release by suppressing the activity of low threshold voltage-gated T- (CaV3.2) type Ca2+ channels</p>
+</blockquote>
+<blockquote>
+<p>HCN1 channels are predominantly located at glutamatergic synaptic terminals</p>
+</blockquote>
+<p>from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3068302/">Ref</a></p>
+<p>Also glutamate levels affect HCN1 trafficking (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2863223/">ref.</a>)</p>
+<p>The non-coding CNV was an intronic deletion.
+Not confirmed but with a clear coverage drop.
+It overlaps an eQTL.</p>
+</div>
+<div id="cacna1a" class="section level2">
+<h2>CACNA1A</h2>
+<p>Not much except it seems like an important epilepsy gene that may involve glutamatergic neurons and other types of mechanisms.
+Pathways from ByoSystems: Glutamatergic synapse (but also GABAergic synapse).</p>
+</div>
+<div id="scn1a" class="section level2">
+<h2>SCN1A</h2>
+<p>Dravet syndrome.</p>
+</div>
+<div id="cpa6" class="section level2">
+<h2>CPA6</h2>
+<p>Knockdown lead to downregulation of glutamate transporters (<a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152905">ref.</a>).</p>
+</div>
+<div id="epm2a" class="section level2">
+<h2>EPM2A</h2>
+<p>Something about EPM2A- mice and how active-caspase-3 appears only in glutamatergic neurons (<a href="https://molecularbrain.biomedcentral.com/articles/10.1186/1756-6606-7-7">ref.</a>).</p>
+<blockquote>
+<p>[…] homeostasis of glutamate transporter GLT-1, called EAAT2 (Excitatory AminoAcid Transporter 2) in humans, is affected in mouse primary astrocytes lacking either EPM2A or EPM2B genes.</p>
+</blockquote>
+<p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5472677/">Ref</a></p>
+</div>
+<div id="n6amt1" class="section level2">
+<h2>N6AMT1</h2>
+<p>Something about Glutamine Methyltransferase but not related to the neurotransmitter I think.</p>
+</div>
+<div id="mrs2-st3gal3-celsr1-serpini1-scn2a-braf-wwox-mmp27-myo3a-scn5a-cln6-fam63b" class="section level2">
+<h2>MRS2, ST3GAL3, CELSR1, SERPINI1, SCN2A, BRAF, WWOX, MMP27, MYO3A, SCN5A, CLN6, FAM63B</h2>
+<p>Nothing much.</p>
+</div>
+<div id="dnm1" class="section level2">
+<h2>DNM1</h2>
+<p><a href="http://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1005347">Asinof et al.</a> says the epilepsy phenotype comes from GABA neurons and other phenotypes (ID) from glutamatergic neurons.</p>
+</div>

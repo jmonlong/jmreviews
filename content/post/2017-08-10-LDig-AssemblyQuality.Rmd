@@ -1,0 +1,70 @@
+---
+date: 2017-08-10
+title: Testing the quality of an assembly
+tags: ['literature']
+output: blogdown::html_page
+---
+
+
+## Mapping reads
+
+### Coverage analysis
+
+Regions with unusual coverage might be mis-assembled ([Nagarajan & Pop][nagarajan]).
+
+Coverage is too high -> collapse of a repeat.
+Coverage is too low -> incorrect join.
+
+### Calling SNPs
+
+- An excess of SNPs might be a sign of mis-assemblies.
+- If assembling an haploid genome, there should not be any SNPs.
+
+In [Steinberg et al][steinberg], ~80K SNVs were found when aligning reads to their haploid assembly.
+80% of those overlapped repeat regions.
+34 regions (49 Mb) had a high SNV density (per Kbp, >2 SD deviation).
+They state that because these regions are duplicated, these SNVs likely come from paralogs.
+They also mapped the reads to the reference genome and found ~100K heterozygous SNVs.
+This also supports the hypothesis of paralogs and repeat sequences confusing the variant calling.
+So not due to mis-assembly ?
+
+### Tools
+
+> AMOSvalidate statistically analyzes mate-pair orientations and separations, repeat content, depth-of-coverage, correlated polymorphisms in the read alignments, and read alignment breakpoints to identify structurally suspicious regions of the assembly. The suspicious regions identified by individual metrics are then clustered and combined to identify (with high confidence) regions that are mis-assembled.
+
+## Using BAC ends
+
+If I understand correctly the end sequences of a BAC clones are sequenced, maybe with Sanger sequencing (500 bp).
+The BAC clone is also "fingerprinted" to estimate the insert-size.
+So it's some kind of super-mate pair information as the BAC can range from 80-350 Kbp and 500 bp flanks are sequenced.
+The BAC ends are used to validate, order and join contigs (e.g. from finished BAC sequence).
+
+Discordant orientation or size of the BAC ends mapped to the assembly identify mis-assembled regions.
+
+[Steinberg et al][steinberg] used BAC ends to identify regions with potential deletions or insertions in the assembly.
+
+## Using long reads
+
+[Steinberg et al][steinberg] used Pacbio reads to assess the quality of the assembly. Specifically they looked for regions with:
+
+- low-coverage.
+- "cliffs", i.e. abrupt drop in coverage.
+- inversions.
+
+## Using a reference genome
+
+[][ass2] used COMPASS to compute three metrics from the alignment to a reference genome:
+
+- validity: the fraction of aligned assembly
+- multiplicity: "ratio of the length of alignable assembled sequence to covered sequence on the reference; higher multiplicity implies expansion of repeats in the assembly, lower multiplicity implies repeat collapse"
+- parsimony: multiplicity divided by validity, i.e. size of the assembly divided by the aligned reference.
+
+![](http://media.springernature.com/lw785/springer-static/image/art%3A10.1186%2F2047-217X-2-10/MediaObjects/13742_2013_Article_29_Fig7_HTML.jpg)
+
+## Others
+
+Other approaches include comparison with transcriptome data or reference sequence of closely related organisms ([Nagarajan & Pop 2013][nagarajan])
+
+[steinberg]: http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=PMC4248323 "Single haplotype assembly of the human genome from a hydatidiform mole Karyn"
+[nagarajan]: http://www.ncbi.nlm.nih.gov/pubmed/23358380 "Sequence assembly demystified"
+[ass2]: https://gigascience.biomedcentral.com/articles/10.1186/2047-217X-2-10

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Genome Assembly &middot; My Reviews
+    
+  </title>
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113785126-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', "UA-113785126-1");
+  </script>
+  
+  
+  <link rel="stylesheet" href="../css/poole.css">
+  <link rel="stylesheet" href="../css/syntax.css">
+  <link rel="stylesheet" href="../css/lanyon.css">
+  <link rel="stylesheet" href="../css/github.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="../fa/css/font-awesome.min.css">
+  
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/R-icon.png">
+  <link rel="shortcut icon" href="../assets/R-icon.png">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="../atom.xml">
+</head>
+
+  
+  <body>
+
+    
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A place to review papers I read. Views are my own.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item " href="../">Home</a>
+    <a class="sidebar-nav-item " href="../post">Posts</a>
+
+    
+    
+      
+        <a class="sidebar-nav-item  active " href="../genome-assembly/">Genome Assembly</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../genome-graphs/">Genome Graphs</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../structural-variation/">Structural Variation</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../structural-variation-impact/">Structural Variation Impact</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../structural-variation-mechanisms-of-formation/">Structural Variation Mechanisms of Formation</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../structural-variation-methods/">Structural Variation Methods</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../structural-variation-and-repeats/">Structural Variation and Repeats</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../whole-genome-sequencing/">Whole-Genome Sequencing</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../glossary/">Glossary</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../about/">About</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+    
+  </nav>
+
+  <div class="sidebar-item">
+  </div>
+  
+  <div class="sidebar-item">
+    <div><a href="../index.xml"><i class="fa fa-rss-square" aria-hidden="true"></i> RSS</a></div>
+    <div><a href="https://twitter.com/JMonlong"><i class="fa fa-twitter" aria-hidden="true"></i> @JMonlong</a></div>
+    <p>&copy; 2020 Jean Monlong. All rights reserved.</p>
+  </div>
+</div>
+
+
+    
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="../" title="Home">My Reviews</a>
+            <small>Views are my own</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+
+
+<div class="page">
+  <h1 class="page-title">Genome Assembly</h1>
+  
+
+<div id="TOC">
+<ul>
+<li><a href="#human-de-novo-assembly">Human <em>de novo</em> assembly</a><ul>
+<li><a href="#one-technology">One technology</a></li>
+<li><a href="#hybrid-approach-combining-technologies">Hybrid approach combining technologies</a></li>
+<li><a href="#telomere-to-telomere-assemblies">Telomere to telomere assemblies</a></li>
+</ul></li>
+<li><a href="#sequencing-of-one-individual-to-improve-reference-genome">Sequencing of one individual to improve reference genome</a><ul>
+<li><a href="#assembly">Assembly</a></li>
+<li><a href="#short-read-sequencing">Short read sequencing</a></li>
+<li><a href="#assessing-the-quality-of-a-de-novo-assembly">Assessing the quality of a <em>de novo</em> assembly</a></li>
+</ul></li>
+<li><a href="#bibliography">Bibliography</a></li>
+</ul>
+</div>
+
+<div id="human-de-novo-assembly" class="section level1">
+<h1>Human <em>de novo</em> assembly</h1>
+<div id="one-technology" class="section level2">
+<h2>One technology</h2>
+</div>
+<div id="hybrid-approach-combining-technologies" class="section level2">
+<h2>Hybrid approach combining technologies</h2>
+<p>In order to construct a <em>de novo</em> assembly a Korean human genome, <span class="citation">Seo et al. (<a href="#ref-Seo2016" role="doc-biblioref">2016</a>)</span> used Pacbio (101x), BioNano (97x+108x), Illumina (72x), 10X linked-reads (30x) and BAC libraries.
+They achieved a contig N50 of 17.9 Mb and a scaffold N50 of 44.8 Mb.
+Of note, they managed to close 105 and extends 72 out of the 190 euchromatic gaps in the reference genome.
+Using the short, long, linked and BAC sequences, they phased the genome with the final phased block having a N50 of 11.6 Mb.
+With their assembly they identified 18,120 SVs, many which had never been reported but are observed in the Asian population.
+They then aligned raw reads from the 1000GP and other Asian WGS samples to investigate the frequency of the insertions of new unique sequence (not TE I guess).
+~800 were found in all the ancestral groups and concluded to be fixed (and should be included in the reference genome.
+400 insertions showed polymorphic frequency and 76 were Asian-specific.
+<code>It's strange that they don't use some primate genomes to assess the ancestral state of these regions: it might well be deletion in the rest of the population rather than insertion, especially when flanked by duplications.</code></p>
+<p>In <span class="citation">Maretty et al. (<a href="#ref-Maretty2017" role="doc-biblioref">2017</a>)</span>, 50 Danish trios were sequenced and <em>de novo</em> assembled.
+A mixture of short-reads and mate-pairs library totaled ~78x depth per genome.
+They used Allpaths-LG assembler and obtained a median N50 of ~21 Mbp.
+They were happy with the quality of their assembly:</p>
+<blockquote>
+<p>We conclude that the contiguity of our assemblies is similar to the long-read assembly and second only to the reference genome and the de novo assembly of a hydatidiform haploid mole</p>
+</blockquote>
+<p>Variant calling was performed by aligning reads on the reference genome to produce SNVs/indels candidates and on the assembled genome to produce non-SNV candidates.
+The candidates variants were pooled together and genotyped by BayesTyper which uses khmers from raw reads and a variant graphs.
+They found viral integration, SNVs, indels and SVs, many of which were novel compared to 1KGP and dbSNP.
+They further re-genotyped NA12878 for their variants and found more than 8 thousands of the novel SVs there.
+Using their trios they showed that the rate of <em>de novo</em> mutation is correlated with paternal age, as was shown before.
+They continue with a detailed analysis of the MHC region.
+Finally they show that their data can be used to improve imputation and GWAS.</p>
+<ul>
+<li><p>Single haplotype assembly of the human genome from a hydatidiform mole</p></li>
+<li><p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4248323/">Genome Research 2014</a></p></li>
+<li><p>100x Illumina, BAC.</p></li>
+<li><p>Reference-guided assembly.</p></li>
+<li><p>Comparison with other assemblies.</p></li>
+<li><p>Repeat content, gene annotation.</p></li>
+<li><p>Risk alleles.</p></li>
+<li><p>Segmental duplication, comparison with GCRh37.</p></li>
+<li><p>Assembly quality: het SNV, BAC ends, Pacbio reads.</p></li>
+<li><p>Assembly and diploid architecture of an individual human genome via single-molecule technologies</p></li>
+<li><p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4646949/">Nature Methods 2015</a></p></li>
+<li><p>CEPH12878 Illumina assembly improved with PacBio and Bionano.</p></li>
+<li><p>Assembly quality.</p></li>
+<li><p>SNV detection and phasing.</p></li>
+<li><p>Comparison with hg19: large variants.</p></li>
+<li><p>Complex variants, e.g. SVs and tandem repeats.</p></li>
+</ul>
+</div>
+<div id="telomere-to-telomere-assemblies" class="section level2">
+<h2>Telomere to telomere assemblies</h2>
+<p><span class="citation">Miga et al. (<a href="#ref-Miga2020" role="doc-biblioref">2020</a>)</span> assembled the haploid hydatidiform mole CHM13 using multiple technologies, including ultra-long read nanopore sequencing.
+The Canu assembly combined ~40x of ultra-long nanopore reads and ~70x of PacBio reads.
+The assembly was polished using multiple technology from longest to shortest: Nanopore, Pacbio, linked-read Illumina.
+The final accuracy was, on average, 99.99%
+Their assembly is better than GRCh38 in term of contiguity: 75Mb vs 56Mb contig NG50.
+The most impressive feat is their manual assembly of chromosome X’s centromere.
+Chromosome X was chosen because of the quality of the original assembly, its well-known centromere structure, and its importance for traits and Mendelian diseases.
+For the two segmental duplications resolved manually, they simply identified ultra-long reads spanning the repeats.
+For the centromere they first identified a catalog of variants (SVs and SNVs) that could differentiates the different higher-order repeats.
+Using these “signposts”, long reads could be tiled and later used for polishing.
+It’s the same approach as what they used for chromosome Y earlier <span class="citation">(Jain et al. <a href="#ref-Jain2018a" role="doc-biblioref">2018</a>)</span>.
+The nanopore sequencing was also used to look at methylation patterns, including a drop of methylation in a short region in multiple centromeres.
+Of note, their assembly leads to more balanced deletion/insertion ratio when used as reference, while GRCh38 is biased toward more insertions (pointing at a deletion bias in the reference genome).</p>
+</div>
+</div>
+<div id="sequencing-of-one-individual-to-improve-reference-genome" class="section level1">
+<h1>Sequencing of one individual to improve reference genome</h1>
+<div id="assembly" class="section level2">
+<h2>Assembly</h2>
+<p><span class="citation">Takayama et al. (<a href="#ref-Takayama2019" role="doc-biblioref">2019</a>)</span> sequenced 3 Japanese individuals using high depth PacBio, Bionano and short read sequencing to create a better reference genome for the Japanese population, JG1.
+They made a meta-assembly, merging the 3 de novo assemblies and, when possible, picked the major allele across the 3 individuals.
+They show that JG1 reduces the number of variants, including the number of false positives, while still detecting important disease-causing SNVs.</p>
+</div>
+<div id="short-read-sequencing" class="section level2">
+<h2>Short read sequencing</h2>
+<ul>
+<li><p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4927697/">The Qatar genome: a population-specific tool for precision medicine in the Middle East</a></p></li>
+<li><p>Haplotype-resolved genome sequencing of a Gujarati Indian individual</p></li>
+<li><p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3116788/">Nature Biotech 2011</a></p></li>
+<li><p>Sequencing of haploid subsets 2.4x, Illumina 15x.</p></li>
+<li><p>SNV calling and phasing.</p></li>
+<li><p>Comparison with HapMap.</p></li>
+<li><p>Phasing of some deletions and a few inversions.</p></li>
+<li><p>Anchor contigs from published assemblies.</p></li>
+<li><p>Example of compound heterozygosity.</p></li>
+<li><p>The diploid genome sequence of an Asian individual</p></li>
+<li><p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2716080/">Nature 2009</a></p></li>
+<li><p>Han Chinese, Illumina 36x.</p></li>
+<li><p>Alignment and assembly.</p></li>
+<li><p>SNV, indels, SV.</p></li>
+<li><p>Novel variants by comparing with 1KGP and dbSNP.</p></li>
+<li><p>SNV quality assessment.</p></li>
+<li><p>Compare SNPs with other individual genomes (Venter, Watson).</p></li>
+<li><p>Ancestral allele of indels.</p></li>
+<li><p>Assembled unmapped reads to find YH-specific sequences.</p></li>
+<li><p>Phasing and haplotypes.</p></li>
+<li><p>Ancestry analysis with HapMap.</p></li>
+<li><p>Disease risk variants.</p></li>
+<li><p>Sequencing and analysis of an Irish human genome</p></li>
+<li><p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2965383/">Genome Biology 2010</a></p></li>
+<li><p>Illumina 11x.</p></li>
+<li><p>SNV, indels.</p></li>
+<li><p>Novel variants by comparing with dbSNP.</p></li>
+<li><p>SNV calling quality control.</p></li>
+<li><p>Novel SNVs in LD with disease-associated variants. Examples and impact prediction.</p></li>
+<li><p>Gene duplication under positive selection.</p></li>
+<li><p>Population genetics: PCA, Y chr subgroup, mtDNA haplogroup.</p></li>
+<li><p>Test imputation quality.</p></li>
+<li><p>Haplotype for SNV calling</p></li>
+</ul>
+</div>
+<div id="assessing-the-quality-of-a-de-novo-assembly" class="section level2">
+<h2>Assessing the quality of a <em>de novo</em> assembly</h2>
+<ul>
+<li>Contiguity: contig N50, scaffold N50.</li>
+<li>Concordance between assembly and BAC end sequences <span class="citation">(Seo et al. <a href="#ref-Seo2016" role="doc-biblioref">2016</a>)</span>.</li>
+</ul>
+</div>
+</div>
+<div id="bibliography" class="section level1 unnumbered">
+<h1>Bibliography</h1>
+<div id="refs" class="references">
+<div id="ref-Jain2018a">
+<p>Jain, Miten, Hugh E Olsen, Daniel J Turner, David Stoddart,..., and Karen H Miga. 2018. “Linear Assembly of a Human Centromere on the Y Chromosome.” <em>Nature Biotechnology</em>. <a href="https://doi.org/10.1038/nbt.4109">https://doi.org/10.1038/nbt.4109</a>.</p>
+</div>
+<div id="ref-Maretty2017">
+<p>Maretty, Lasse, Jacob Malte Jensen, Bent Petersen, Jonas Andreas Sibbesen,..., and Mikkel Heide Schierup. 2017. “Sequencing and de Novo Assembly of 150 Genomes from Denmark as a Population Reference.” <em>Nature</em>. <a href="https://doi.org/10.1038/nature23264">https://doi.org/10.1038/nature23264</a>.</p>
+</div>
+<div id="ref-Miga2020">
+<p>Miga, Karen H., Sergey Koren, Arang Rhie, Mitchell R. Vollger,..., and Adam M. Phillippy. 2020. “Telomere-to-Telomere Assembly of a Complete Human X Chromosome.” <em>Nature</em>. <a href="https://doi.org/10.1038/s41586-020-2547-7">https://doi.org/10.1038/s41586-020-2547-7</a>.</p>
+</div>
+<div id="ref-Seo2016">
+<p>Seo, Jeong Sun, Arang Rhie, Junsoo Kim, Sangjin Lee,..., and Changhoon Kim. 2016. “De Novo Assembly and Phasing of a Korean Human Genome.” <em>Nature</em>. <a href="https://doi.org/10.1038/nature20098">https://doi.org/10.1038/nature20098</a>.</p>
+</div>
+<div id="ref-Takayama2019">
+<p>Takayama, Jun, Shu Tadaka, Kenji Yano, Fumiki Katsuoka,..., and Gen Tamiya. 2019. “Construction and Integration of Three de Novo Japanese Human Genome Assemblies Toward a Population-Specific Reference.” <em>bioRxiv</em>. <a href="https://doi.org/10.1101/861658">https://doi.org/10.1101/861658</a>.</p>
+</div>
+</div>
+</div>
+
+</div>
+
+      </div>
+    </div>
+
+    
+    
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src="../assets/highlight.min.js"></script>
+    <script src="../assets/r.min.js"></script>
+    
+    <script>
+      hljs.configure({languages: ['r']});
+      hljs.initHighlightingOnLoad();
+    </script>
+
+    <script src="//yihui.name/js/math-code.js"></script>
+    <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
+  </body>
+</html>
+

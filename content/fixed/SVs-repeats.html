@@ -1,0 +1,219 @@
+---
+sidebar: true
+title: Structural Variation and Repeats
+bibliography: [../../static/library-small.bib]
+link-citations: true
+weight: 5
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#segmental-duplications">Segmental duplications</a></li>
+<li><a href="#centromerictelomeric-regions">Centromeric/telomeric regions</a></li>
+<li><a href="#euchromatic-variants">Euchromatic variants</a></li>
+<li><a href="#dna-satellites">DNA satellites</a></li>
+<li><a href="#transposable-elements">Transposable elements</a><ul>
+<li><a href="#in-cancers">In cancers</a></li>
+</ul></li>
+<li><a href="#bibliography">Bibliography</a></li>
+</ul>
+</div>
+
+<p><span class="citation">De and Michor (<a href="#ref-De2011a" role="doc-biblioref">2011</a>)</span> found an enrichment of somatic CNV breakpoints in simple repeats, Alu and CR1.</p>
+<div id="segmental-duplications" class="section level1">
+<h1>Segmental duplications</h1>
+<p>Segmental duplications are genomic regions ranging from <em>1-400 Kbp</em> present in multiple locations and sharing a <strong>high level (<em>&gt;90%</em>) of sequence identity</strong> <span class="citation">(Sharp, Cheng, and Eichler <a href="#ref-Sharp2006" role="doc-biblioref">2006</a>)</span>.
+Some blocks are duplicated in the same chromosome while others locate in non-homologous chromosomes.
+They tend to <strong>cluster around centromeres</strong> and to a lower extent in sub-telomeric regions.
+The mechanism responsible for this distribution remains poorly understood.</p>
+<p>Segmental duplications seem to be involved in the formation of many large scale genomic rearrangements likely through <strong>NAHR</strong> resulting in deletions, duplications or inversions <span class="citation">(Sharp, Cheng, and Eichler <a href="#ref-Sharp2006" role="doc-biblioref">2006</a>)</span>.
+They are clearly associated with sites of polymorphic rearrangements.
+Segmental duplication are <strong>hot-spots of chromosomal rearrangements</strong> both in polymorphism and between species <span class="citation">(Sharp, Cheng, and Eichler <a href="#ref-Sharp2006" role="doc-biblioref">2006</a>)</span>.
+Segmental duplication is also the most important predictor of assembly gap location.</p>
+<p>When <span class="citation">Cooper, Nickerson, and Eichler (<a href="#ref-Cooper2007" role="doc-biblioref">2007</a>)</span> looked at the distribution of CNVs in the human genome, they also observed the strong enrichment in segmental duplications.
+They focused on large (<em>&gt;1</em>Kbp) CNVs and investigated their density in 1-Mb bins.
+CNVs location also correlated with exons and mobile elements (e.g. Alu).
+They found a more striking effect with young SDs.
+CNVs in SD are enriched for genes involved in <em>sensory response, immune response, cell adhesion and structural proteins</em>.</p>
+<p>More than half of all nucleotides annotated to be within SD overlap with CNVs <span class="citation">(Cooper, Nickerson, and Eichler <a href="#ref-Cooper2007" role="doc-biblioref">2007</a>)</span>.
+Duplicated regions of the genome are enriched 4-10 fold for CNV <span class="citation">(Cooper, Nickerson, and Eichler <a href="#ref-Cooper2007" role="doc-biblioref">2007</a>)</span>.
+~80 of the duplicated genes between two individuals correspond mostly to segmental duplications <span class="citation">(Alkan et al. <a href="#ref-Alkan2009" role="doc-biblioref">2009</a>)</span>.</p>
+<p>Regions composed of numerous high-copy segmental duplication are the <strong>most challenging regions</strong> in normal genomes.
+They contain frequent and often complex SV.</p>
+<p>Recent segmental duplications have been caused by Alu-mediated NAHR.
+Others occurs in DNA regions with decreased helix stability or increased DNA flexibility <span class="citation">(Sharp, Cheng, and Eichler <a href="#ref-Sharp2006" role="doc-biblioref">2006</a>)</span>.
+In <span class="citation">Zarrei et al. (<a href="#ref-Zarrei2015" role="doc-biblioref">2015</a>)</span> 45-60% of nucleotides of segmental duplications overlap a CNV.</p>
+</div>
+<div id="centromerictelomeric-regions" class="section level1">
+<h1>Centromeric/telomeric regions</h1>
+<ul>
+<li>What is known about centel variation in normal genomes ?</li>
+<li>Are there more de novo CNV/SV near centromere/telomere ?</li>
+</ul>
+<p>While developing <em>DELLY</em>, <span class="citation">Rausch et al. (<a href="#ref-Rausch2012" role="doc-biblioref">2012</a>)</span> noticed an <strong>accumulation of putative SV calls in centromeric and telomeric regions</strong>.</p>
+<p>Centromere controls chromosome segregation during cell division <span class="citation">(Aldrup-MacDonald and Sullivan <a href="#ref-Aldrup-MacDonald2014" role="doc-biblioref">2014</a>)</span>.
+Surprisingly, DNA sequences in centromeres differs between and within organisms, although the protein component of centromeres (centromere proteins CENPs) are shared among species.
+In human, repetitive <strong>alpha satellite DNA</strong> defines the centromere <span class="citation">(Aldrup-MacDonald and Sullivan <a href="#ref-Aldrup-MacDonald2014" role="doc-biblioref">2014</a>)</span>.
+Centromere identity is specified by epigenetic mechanisms <span class="citation">(Aldrup-MacDonald and Sullivan <a href="#ref-Aldrup-MacDonald2014" role="doc-biblioref">2014</a>)</span>.</p>
+<p>Physical and genetic maps of centromere regions were built using pulsed-field gel electrophoresis <span class="citation">(Aldrup-MacDonald and Sullivan <a href="#ref-Aldrup-MacDonald2014" role="doc-biblioref">2014</a>)</span>.
+Sequencing approaches are more challenging and require in silico and high-stringency BAC clone screening.</p>
+<p>A high proportion of segmental duplications have accumulated in pericentric regions <span class="citation">(Aldrup-MacDonald and Sullivan <a href="#ref-Aldrup-MacDonald2014" role="doc-biblioref">2014</a>)</span>.
+<span class="citation">Nguyen, Webber, and Ponting (<a href="#ref-Nguyen2006" role="doc-biblioref">2006</a>)</span> found a <strong>significant over-representation of CNVs within 2 Mb of telomeres and centromeres</strong>, based on both aCGH and sequencing calls.</p>
+<p>Telomere localizes at the physical ends of linear eukaryotic chromosomes and maintains their stability and integrity <span class="citation">(Bolzán <a href="#ref-Bolzan2012" role="doc-biblioref">2012</a>)</span>.
+In vertebrates, <strong>telomeres are composed of <em>(TTAGGG)n</em> repeats</strong> which can localize at the terminal regions of chromosomes or at intra-chromosomal sites (interstitial telomeric sequences or ITSs).
+ITSs are present at centromeric regions or between the centromere and the telomere.</p>
+</div>
+<div id="euchromatic-variants" class="section level1">
+<h1>Euchromatic variants</h1>
+<p><strong>Cytogenetically visible aberrations</strong> occurring at appreciable frequencies are termed euchromatic variant.
+Euchromatin is defined as genomic regions with lightly packed chromatin, <strong>highly concentrated in genes and often under active transcription</strong>.
+These large euchromatic variants are to be interpreted with cautious because they do involve a large amount of genic material but are also often normally segregating in the population.
+Euchromatic variant seem to be the extreme end of CNV distribution.
+Although in euchromatin, they locate clearly near pericentromeric regions.</p>
+</div>
+<div id="dna-satellites" class="section level1">
+<h1>DNA satellites</h1>
+<ul>
+<li>How is it detected usually ?</li>
+<li>How variable are they in normal genomes ? In cancer ?</li>
+<li>What is their size distribution ? How does this vary according to the distance to genes ?</li>
+</ul>
+<p>Satellite DNA are <strong>tandem repeated sequences</strong> accounting for <em>10-15% of all human repetitive sequence</em>.
+The repeat unit (from 1 to hundreds bp) is repeated either in the same (direct repeats) or opposite (inverted repeats) orientation <span class="citation">(Rich, Ogryzko, and Pirozhkova <a href="#ref-Rich2014" role="doc-biblioref">2014</a>)</span>.
+Inverted repeats are rare.
+Satellite DNA <strong>preferably locates in telomeric and centromeric regions</strong>.
+They can be divided in four classes according to the unit repeat size : <strong>microsatellites (less than 10bp), minisatellites (10-60 bp), (midi)satellites (hundreds bp), macrosatellites (thousands bp)</strong>.</p>
+<p>Microsatellites can also be called simple sequence repeats (SSR) or short tandem repeats (STR).
+They are highly instable, hence good genetic markers.
+Hereditary nonpolyposis colorectal cancer (HNPCC), also known as Lynch syndrome, is a common autosomal dominant syndrome characterized by microsatellite instability (MSI).</p>
+<p>The majority of minisatellites are GC-rich.
+It contains the hyper-mutable repeats which are flanked by double strand breaks hot spots and show high rate of meiotic instability.
+Minisatellites are used in forensic for DNA fingerprinting.</p>
+<p>Little is known about of the midisatellites.
+They are mostly located in telomeric or centromeric regions and represented by \(\), \(\) and \(\)-satellites.
+For example, alpha-satellite repeats (ASR), in centromeres, play an important role in chromosome segregation.</p>
+<p><strong>Alpha satellites</strong> have emerged as a paradigm for understanding the genomic organization of tandem DNA <span class="citation">(Warburton et al. <a href="#ref-Warburton2008" role="doc-biblioref">2008</a>)</span>.
+Their repeat unit consists of <em>171 bp monomers</em>, found in large highly homologous arrays at the centromeres of all human chromosomes.
+It is though that the majority of alpha satellite DNA remains unassembled and is represented by megabase sized centromeric gaps <span class="citation">(Warburton et al. <a href="#ref-Warburton2008" role="doc-biblioref">2008</a>)</span>.
+<strong>Human centromeres</strong> are located at repetitive alpha satellite DNA arrays <span class="citation">(Aldrup-MacDonald and Sullivan <a href="#ref-Aldrup-MacDonald2014" role="doc-biblioref">2014</a>)</span>.
+They compose around 5% of the human genome.
+Alpha satellite compose the sequence of most primate centromeres.
+An alpha satellite array can span from 250 to 5,000 kb <span class="citation">(Aldrup-MacDonald and Sullivan <a href="#ref-Aldrup-MacDonald2014" role="doc-biblioref">2014</a>)</span>.
+Some arrays are composed of higher order repeat units (HORs).
+Variation within the alpha satellite is common and complex.
+Outside of the higher order arrays, monomers are randomly arranged and span the region between homogeneous array and the chromosome arm <span class="citation">(Aldrup-MacDonald and Sullivan <a href="#ref-Aldrup-MacDonald2014" role="doc-biblioref">2014</a>)</span>.
+Alpha satellite arrays tend to be <em>chromosome-specific</em>.
+Experiments showed that alpha satellites were the minimal sequence necessary for centromere function; and HOR alpha satellites are a substrate for de novo centromere assembly <span class="citation">(Aldrup-MacDonald and Sullivan <a href="#ref-Aldrup-MacDonald2014" role="doc-biblioref">2014</a>)</span>.</p>
+<p><strong>Satellites II and III</strong> are the most abundant tandem repeats in the human genome after alpha satellites <span class="citation">(Warburton et al. <a href="#ref-Warburton2008" role="doc-biblioref">2008</a>)</span>.
+Satellite III is composed of pentameric sequence <em>GAATGn</em> (and reversed <em>CATTCn</em>).
+The size of these tandem repeats can reach 100 kb.
+Satellite II is based on highly diverged arrays of <em>GAATG</em> <span class="citation">(Warburton et al. <a href="#ref-Warburton2008" role="doc-biblioref">2008</a>)</span>.
+These two satellites families are found in the pericentromeric regions of many human chromosomes, as well as heterochomatic blocks.</p>
+<p><strong>Centromeric Repeats (CER)</strong> are based on a 48 bp repeat and also found in some centromeric regions.</p>
+<p>Gamma satellites (GSAT) are highly diverged relatively GC rich ~200 bp tandem repeat.</p>
+<p>Macrosatellites repeats (MSR) can contain ORF.</p>
+<p>In cancer <em>Breaking of satellites’ silence</em> is a <strong>paradigm in cancerogenesis</strong><span class="citation">(Rich, Ogryzko, and Pirozhkova <a href="#ref-Rich2014" role="doc-biblioref">2014</a>)</span>.
+In cancer satellites are hypomethylated and are thought to induce peri-centromeric instability.
+This might explain the observed over-expression of satellite repeats in tumors.</p>
+<p>For example, <span class="citation">Ting et al. (<a href="#ref-Ting2011" role="doc-biblioref">2011</a>)</span> observed a <strong>40-fold increase in pericentromeric satellites expression in pancreatic ductal adenocarcinomas</strong>.
+Alpha satellites were the most abundant, HSATII highly specific to cancer.
+The satellite expression also <em>correlated with L1 expression</em>.
+The hypothesis is an alteration of the silencing mechanisms of these repeats.</p>
+</div>
+<div id="transposable-elements" class="section level1">
+<h1>Transposable elements</h1>
+<ul>
+<li>What types of transposable elements get activated in cancer ?</li>
+<li>Which TEs are known substrate for NAHR ?</li>
+<li>Any inactive transposons causing SVs ?</li>
+<li>Where does the different families come from ? Virus only ?</li>
+</ul>
+<p>Large SVs caused by TE insertion Interested in disease-causing CNVs with non-recurrent breakpoints, <span class="citation">Vogt et al. (<a href="#ref-Vogt2014" role="doc-biblioref">2014</a>)</span> noticed some SVA insertions in some of the breakpoints.
+These insertions could not be validated using classic PCR approaches, they had to use a more complex experiment to deal with the GC-rich sequence of the breakpoint.
+Moreover, these insertions seems to be postzygotic somatic events.</p>
+<div id="in-cancers" class="section level2">
+<h2>In cancers</h2>
+<p>L1 retro-transposition is a <strong>common phenomenon</strong> in some cancer, e.g. <strong>epithelial tumors</strong>.
+However the assumption is that they become active once the cancer is initiated, thanks to derepression in the tumor tissue.
+Hence they are not believed to initiate tumorigenesis but could contribute to the tumor progression and metastasis.</p>
+<p><span class="citation">Tubio et al. (<a href="#ref-Tubio2014" role="doc-biblioref">2014</a>)</span> performed a survey of <strong>somatic L1 activity across 12 cancer types</strong>, focusing on the <strong>transduction</strong> of flanking sequences.
+Around 50% of the tumors had at least one somatic L1 insertion.
+Somatic retro-transposition was <strong>most frequent in colon cancer (93%) and lung cancer (75%)</strong>.
+They found that 24% of events presented 3’ transduction, <strong>half</strong> of which were <strong>orphan transduction</strong> (no L1 sequence inserted).
+The size of the transduction was typically less than 1 kb but some were up to 12 kb.
+They identified 72 of <strong>‘hot’ L1 sources</strong> that contributed to more than 95% of the somatic insertions.
+Most of these were not known to be hot and are likely intact L1 with <strong>low frequency in human populations</strong>.
+Four hot L1 produced 50% of all the transducted insertions.
+In the tumors, these hot L1 tended to be <strong>hypomethylated</strong>.
+They even observed <strong>sequential retro-transposition</strong> where a L1 jumps somewhere, then jumps again (then jumps again), taking with it part of the second (and third) region as transducted sequence.
+This opens up new ways for a L1 insertion to bring regulation changes in a new insertion: it could jump once, grab a regulatory region, jump again and activate another region.
+Still, they found no insertion with functional potential. For example, none of the genes with insertion were disregulated, nor expressing aberrant RNA.
+Most of the insertions located in gene-poor regions.
+Hence they concluded that the vast majority of somatic L1 insertion are <strong>passenger variants</strong>.</p>
+<p>In more recent study by <span class="citation">Scott et al. (<a href="#ref-Scott2016" role="doc-biblioref">2016</a>)</span>, a <strong>driver somatic L1 insertion</strong> in the APC gene contributed to the formation of <strong>colorectal cancer</strong> as the first of the classic two-hits mechanism.
+The patient had a subtype of colorectal cancer (MSS) which is <strong>known to start with the disruption of the APC gene</strong>.
+The insertion is located in the known mutation hotspot in exon 16 and there is a second hit (premature stop codon) in the other allele.
+Both variants were validated and confirmed to be somatic and on different alleles.
+They managed to identify the <strong>sources</strong> of this and other insertions and it ended up being <strong>heterozygous L1s absent from the reference genome</strong>.
+Using the 1000 Genomes project MEI dataset they show that these hot L1s are present in <strong>african-descent</strong> genomes.
+This suggest that the distribution of germline L1 across population might affect the risk to develop cancer (to a certain extent).
+Finally they show the the promoter regions was hypomethylated in both the normal and tumor, maybe because of a SNP in one CpG.
+In contrast to these hot L1s, other germline L1s were not expressed.</p>
+<p>Another example from Shukla et al (2013) shows a <strong>somatic L1 insertion associated with the upregulation of the ST18 gene in hepatocellular carcinoma</strong>.
+Apparently the insertion disrupted a repressor region in one of the gene’s intron.</p>
+</div>
+</div>
+<div id="bibliography" class="section level1 unnumbered">
+<h1>Bibliography</h1>
+<div id="refs" class="references">
+<div id="ref-Aldrup-MacDonald2014">
+<p>Aldrup-MacDonald, Megan E., and Beth a. Sullivan. 2014. “The Past, Present, and Future of Human Centromere Genomics.” <em>Genes</em>. <a href="https://doi.org/10.3390/genes5010033">https://doi.org/10.3390/genes5010033</a>.</p>
+</div>
+<div id="ref-Alkan2009">
+<p>Alkan, Can, Jeffrey M Kidd, Tomas Marques-Bonet, Gozde Aksay,..., and Evan E Eichler. 2009. “Personalized Copy Number and Segmental Duplication Maps Using Next-Generation Sequencing.” <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng.437">https://doi.org/10.1038/ng.437</a>.</p>
+</div>
+<div id="ref-Bolzan2012">
+<p>Bolzán, Alejandro D. 2012. “Chromosomal Aberrations Involving Telomeres and Interstitial Telomeric Sequences.” <em>Mutagenesis</em>. <a href="https://doi.org/10.1093/mutage/ger052">https://doi.org/10.1093/mutage/ger052</a>.</p>
+</div>
+<div id="ref-Cooper2007">
+<p>Cooper, Gregory M., Deborah A. Nickerson, and Evan E. Eichler. 2007. “Mutational and Selective Effects on Copy-Number Variants in the Human Genome.” <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng2054">https://doi.org/10.1038/ng2054</a>.</p>
+</div>
+<div id="ref-De2011a">
+<p>De, Subhajyoti, and Franziska Michor. 2011. “DNA Replication Timing and Long-Range DNA Interactions Predict Mutational Landscapes of Cancer Genomes.” <em>Nature Biotechnology</em>. <a href="https://doi.org/10.1038/nbt.2030">https://doi.org/10.1038/nbt.2030</a>.</p>
+</div>
+<div id="ref-Nguyen2006">
+<p>Nguyen, Duc-Quang, Caleb Webber, and Chris P Ponting. 2006. “Bias of Selection on Human Copy-Number Variants.” <em>PLoS Genetics</em>. <a href="https://doi.org/10.1371/journal.pgen.0020020">https://doi.org/10.1371/journal.pgen.0020020</a>.</p>
+</div>
+<div id="ref-Rausch2012">
+<p>Rausch, Tobias, Thomas Zichner, Andreas Schlattl, Adrian M Stütz,..., and Jan O Korbel. 2012. “DELLY: Structural Variant Discovery by Integrated Paired-End and Split-Read Analysis.” <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/bts378">https://doi.org/10.1093/bioinformatics/bts378</a>.</p>
+</div>
+<div id="ref-Rich2014">
+<p>Rich, J, V V Ogryzko, and I V Pirozhkova. 2014. “Satellite DNA and Related Diseases.” <em>Biopolymers and Cell</em>. <a href="https://doi.org/10.7124/bc.00089E">https://doi.org/10.7124/bc.00089E</a>.</p>
+</div>
+<div id="ref-Scott2016">
+<p>Scott, Emma C., Eugene J. Gardner, Ashiq Masood, Nelson T. Chuang,..., and Scott E. Devine. 2016. “A Hot L1 Retrotransposon Evades Somatic Repression and Initiates Human Colorectal Cancer.” <em>Genome Research</em>. <a href="https://doi.org/10.1101/gr.201814.115">https://doi.org/10.1101/gr.201814.115</a>.</p>
+</div>
+<div id="ref-Sharp2006">
+<p>Sharp, Andrew J., Ze Cheng, and Evan E. Eichler. 2006. “Structural Variation of the Human Genome.” <em>Annual Review of Genomics and Human Genetics</em>. <a href="https://doi.org/10.1146/annurev.genom.7.080505.115618">https://doi.org/10.1146/annurev.genom.7.080505.115618</a>.</p>
+</div>
+<div id="ref-Ting2011">
+<p>Ting, David T, Doron Lipson, Suchismita Paul, Brian W Brannigan,..., and Daniel A Haber. 2011. “Aberrant Overexpression of Satellite Repeats in Pancreatic and Other Epithelial Cancers.” <em>Science (New York, N.Y.)</em>. <a href="https://doi.org/10.1126/science.1200801">https://doi.org/10.1126/science.1200801</a>.</p>
+</div>
+<div id="ref-Tubio2014">
+<p>Tubio, Jose M. C. C., Yilong Li, Young Seok Ju, Inigo Martincorena,..., and Peter J. Campbell. 2014. “Extensive Transduction of Nonrepetitive DNA Mediated by L1 Retrotransposition in Cancer Genomes.” <em>Science</em>. <a href="https://doi.org/10.1126/science.1251343">https://doi.org/10.1126/science.1251343</a>.</p>
+</div>
+<div id="ref-Vogt2014">
+<p>Vogt, Julia, Kathrin Bengesser, Kathleen B. M. Claes, Katharina Wimmer,..., and Hildegard Kehrer-Sawatzki. 2014. “SVA Retrotransposon Insertion-Associated Deletion Represents a Novel Mutational Mechanism Underlying Large Genomic Copy Number Changes with Non-Recurrent Breakpoints.” <em>Genome Biology</em>. <a href="https://doi.org/10.1186/gb-2014-15-6-r80">https://doi.org/10.1186/gb-2014-15-6-r80</a>.</p>
+</div>
+<div id="ref-Warburton2008">
+<p>Warburton, Peter E, Dan Hasson, Flavia Guillem, Chloe Lescale,..., and Gyorgy Abrusan. 2008. “Analysis of the Largest Tandemly Repeated DNA Families in the Human Genome.” <em>BMC Genomics</em>. <a href="https://doi.org/10.1186/1471-2164-9-533">https://doi.org/10.1186/1471-2164-9-533</a>.</p>
+</div>
+<div id="ref-Zarrei2015">
+<p>Zarrei, Mehdi, Jeffrey R. Macdonald, Daniele Merico, and Stephen W. Scherer. 2015. “A Copy Number Variation Map of the Human Genome.” <em>Nature Reviews Genetics</em>. <a href="https://doi.org/10.1038/nrg3871">https://doi.org/10.1038/nrg3871</a>.</p>
+</div>
+</div>
+</div>
