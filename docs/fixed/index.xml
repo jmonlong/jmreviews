@@ -62,7 +62,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/structural-variation-methods/</guid>
-      <description>Cytogenetic techniques Array-CGH technology Circular binary segmentation Shifting Level Model  SNP-array Next-generation sequencing Read-Depth (RD) RD in one sample Case vs Control  RD in several samples Methods for repeat-rich regions PEM and Split-reads Assembly approach SV genotypers Others Benchmark Misc Mapping algorithm effect Comparing SV calls In Silico validation Visualization   Bibliography   Different technologies and methods have been used over the years to detect structural variation.</description>
+      <description>Cytogenetic techniques Array-CGH technology Circular binary segmentation Shifting Level Model  SNP-array Next-generation sequencing Read-Depth (RD) RD in one sample Case vs Control Choosing the optimal window size  RD in several samples Methods for repeat-rich regions PEM and Split-reads Assembly approach SV genotypers Others Benchmark Misc Mapping algorithm effect Comparing SV calls In Silico validation Visualization   Bibliography   Different technologies and methods have been used over the years to detect structural variation.</description>
     </item>
     
     <item>

@@ -122,12 +122,8 @@ They also corrected for GC bias using a LOESS-based smoothing technique.
 
 ---
 
-**Control-FREEC** aims at predicting copy number variation along with LOH [@Boeva2011;@Boeva2012].
-It corrects for GC bias and mappability and, in its second iteration, uses both the RD and allelic imbalance to call CNVs.
-Both germline and somatic variants can be called.
-For cancer, pairs are not necessary and the method can also estimate the stromal contamination or ploidy
-
-It provides a mappability track that can be used to exclude low-mappability regions.
+**Control-FREEC** can run on one sample although it is recommended to provide a control.
+More on the method [below](#controlfreec).
 
 ---
 
@@ -246,12 +242,27 @@ The threshold for the test is derived by mixing flowcells from normal and tumor 
 
 ---
 
-**Control-FREEC** [@Boeva2011;@Boeva2012] aim at predicting copy number variation along with LOH.
-It corrects for GC bias and mappability and, in its second iteration, uses both the RD and allelic imbalance to call CNVs.
-Both germline and somatic variants can be called.
-For cancer, pairs are not necessary and the method can also estimate the stromal contamination or ploidy
+###### {#controlfreec}
 
-It provides a mappability track that can be used to exclude low-mappability regions.
+**Control-FREEC** [@Boeva2011;@Boeva2012] aims at predicting copy number variation along with LOH.
+The read depth can be corrected for GC bias and mappability if a control sample is unavailable.
+For cancer, the method can also estimate the stromal contamination or ploidy.
+Both germline and somatic variants can be called.
+
+The read depth is computed in windows tiling the genome.
+The RD in the sample is normalized by dividing by the *expected read-depth*.
+If a control sample is provided, the *expected read-depth* is computed by fitting the RD of the sample vs control, forcing an intercept of 0 (cubic polynomial recommended).
+If not, the GC content is fitted using a cubic polynomial to provide an *expected read-depth*.
+A mappability track, either provided or as the proportion of Ns in the window, is used to scale the *expected read-depth*.
+Of note, centromeric/telomeric regions are excluded using a configurable distance threshold (default 50 kbp).
+The normalized RD is segmented using a lasso-based algorithm that is robust to outliers.
+The main parameter for the segmentation is the number of breakpoints and the tool will explore an increasing number of breakpoints, stopping once the residual sum of squares stops decreasing.
+
+In its latest version, it integrates allelic imbalance estimates.
+The B-allele frequency (BAF) of known SNPs is used for both segmentation and genotyping.
+First, the windows are segmented using the same lasso-based algorithm on the median BAF deviation from expectation (0.5).
+This new set of breakpoints is merged with the RD-based breakpoints.
+The copy number in each segment is based on the RD but the genotyping on the BAF (maximum likelihood using Gaussian mixture models).
 
 ---
 
@@ -276,6 +287,11 @@ It provides a mappability track that can be used to exclude low-mappability regi
 
 Interestingly the breakpoint are fine-tuned using local SV detection around the segmented calls with *CREST*.
 
+### Choosing the optimal window size
+
+Control-FREEC defines the optimal window size using the theoretical coefficient of variation in a window [@Boeva2011].
+This CV is computed from the total read count, assuming a Poisson distribution. 
+The authors suggest a CV from 0.05 and 0.1.
 
 
 ## RD in several samples
@@ -752,7 +768,7 @@ IS:Insert-size; Or:Orientation
 | 2010 | SVMerge [@Wong2010]                   | PL           | *de novo* local assembly                |               |                      |
 | 2010 | NovelSeq [@Hajirasouliha2010]         | PEM+Assembly |                                         |               |                      |
 | 2011 | JointSLM [@Magi2011]                  | RD           | HMM, Common SVs                         | Yes           | >~500bp              |
-| 2011 | Control-FREEC [@Boeva2011]            | RD+AI        | CNV and contamination                   | single, pair  |  NA                    |
+| 2011 | Control-FREEC [@Boeva2011]            | RD+BAF        | CNV and contamination                   | single, pair  |  NA                    |
 | 2011 | BIC-seq [@Xi2011]                     | RD           |                                         |               |                      |
 | 2011 | Genome STRIP [@Handsaker2011]         | PEM          | Population-based                        |               |                      |
 | 2011 | CNVnator [@Abyzov2011]                | RD           |                                         |               |                      |

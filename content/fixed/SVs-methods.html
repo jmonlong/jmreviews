@@ -22,6 +22,7 @@ output:
 <li><a href="#read-depth-rd">Read-Depth (RD)</a><ul>
 <li><a href="#rd-in-one-sample">RD in one sample</a></li>
 <li><a href="#case-vs-control">Case vs Control</a></li>
+<li><a href="#choosing-the-optimal-window-size">Choosing the optimal window size</a></li>
 </ul></li>
 <li><a href="#rd-in-several-samples">RD in several samples</a></li>
 <li><a href="#methods-for-repeat-rich-regions">Methods for repeat-rich regions</a></li>
@@ -131,11 +132,8 @@ Previous knowledge on the copy number state guided the parameter of the segmenta
 In the end, 6 out of 7 consecutive bins (5 Kbp) with a deviation exceeding 3 SD defined a CNV call.
 They also corrected for GC bias using a LOESS-based smoothing technique.</p>
 <hr />
-<p><strong>Control-FREEC</strong> aims at predicting copy number variation along with LOH <span class="citation">(Boeva et al. <a href="#ref-Boeva2011" role="doc-biblioref">2011</a>, <a href="#ref-Boeva2012" role="doc-biblioref">2012</a>)</span>.
-It corrects for GC bias and mappability and, in its second iteration, uses both the RD and allelic imbalance to call CNVs.
-Both germline and somatic variants can be called.
-For cancer, pairs are not necessary and the method can also estimate the stromal contamination or ploidy</p>
-<p>It provides a mappability track that can be used to exclude low-mappability regions.</p>
+<p><strong>Control-FREEC</strong> can run on one sample although it is recommended to provide a control.
+More on the method <a href="#controlfreec">below</a>.</p>
 <hr />
 <p><strong>CNVnator</strong> combines mean-shift approach with additional refinements as GC correction and multiple-bandwidth partitioning <span class="citation">(Abyzov et al. <a href="#ref-Abyzov2011" role="doc-biblioref">2011</a>)</span>.
 It rapidly (a few hours) analyze small bins (around 100bp) to detect CNVs from a wide range of sizes (hundreds to megabases in length).</p>
@@ -216,11 +214,25 @@ The threshold for the test is derived by mixing flowcells from normal and tumor 
 <p><strong>VarScan 2</strong> <span class="citation">(Koboldt et al. <a href="#ref-Koboldt2012" role="doc-biblioref">2012</a>)</span> apply log ratio approach to exome data, controlling carefully for similar sequencing of the normal and tumor sample(similar hybridization).</p>
 <p><strong>+++</strong></p>
 <hr />
-<p><strong>Control-FREEC</strong> <span class="citation">(Boeva et al. <a href="#ref-Boeva2011" role="doc-biblioref">2011</a>, <a href="#ref-Boeva2012" role="doc-biblioref">2012</a>)</span> aim at predicting copy number variation along with LOH.
-It corrects for GC bias and mappability and, in its second iteration, uses both the RD and allelic imbalance to call CNVs.
-Both germline and somatic variants can be called.
-For cancer, pairs are not necessary and the method can also estimate the stromal contamination or ploidy</p>
-<p>It provides a mappability track that can be used to exclude low-mappability regions.</p>
+<div id="controlfreec" class="section level6">
+<h6></h6>
+<p><strong>Control-FREEC</strong> <span class="citation">(Boeva et al. <a href="#ref-Boeva2011" role="doc-biblioref">2011</a>, <a href="#ref-Boeva2012" role="doc-biblioref">2012</a>)</span> aims at predicting copy number variation along with LOH.
+The read depth can be corrected for GC bias and mappability if a control sample is unavailable.
+For cancer, the method can also estimate the stromal contamination or ploidy.
+Both germline and somatic variants can be called.</p>
+<p>The read depth is computed in windows tiling the genome.
+The RD in the sample is normalized by dividing by the <em>expected read-depth</em>.
+If a control sample is provided, the <em>expected read-depth</em> is computed by fitting the RD of the sample vs control, forcing an intercept of 0 (cubic polynomial recommended).
+If not, the GC content is fitted using a cubic polynomial to provide an <em>expected read-depth</em>.
+A mappability track, either provided or as the proportion of Ns in the window, is used to scale the <em>expected read-depth</em>.
+Of note, centromeric/telomeric regions are excluded using a configurable distance threshold (default 50 kbp).
+The normalized RD is segmented using a lasso-based algorithm that is robust to outliers.
+The main parameter for the segmentation is the number of breakpoints and the tool will explore an increasing number of breakpoints, stopping once the residual sum of squares stops decreasing.</p>
+<p>In its latest version, it integrates allelic imbalance estimates.
+The B-allele frequency (BAF) of known SNPs is used for both segmentation and genotyping.
+First, the windows are segmented using the same lasso-based algorithm on the median BAF deviation from expectation (0.5).
+This new set of breakpoints is merged with the RD-based breakpoints.
+The copy number in each segment is based on the RD but the genotyping on the BAF (maximum likelihood using Gaussian mixture models).</p>
 <hr />
 <p><strong>CNAnorm</strong> <span class="citation">(Gusnanto et al. <a href="#ref-Gusnanto2012" role="doc-biblioref">2012</a>)</span> corrects for cancer genome size and tumour cell content to segment tumor/normal RD ratios.</p>
 <hr />
@@ -232,6 +244,13 @@ For cancer, pairs are not necessary and the method can also estimate the stromal
 <hr />
 <p><strong>CONSERTING</strong> <span class="citation">(Chen et al. <a href="#ref-Chen2015" role="doc-biblioref">2015</a>)</span> uses regression trees to segment the tumor/normal coverage ratio.</p>
 <p>Interestingly the breakpoint are fine-tuned using local SV detection around the segmented calls with <em>CREST</em>.</p>
+</div>
+</div>
+<div id="choosing-the-optimal-window-size" class="section level3">
+<h3>Choosing the optimal window size</h3>
+<p>Control-FREEC defines the optimal window size using the theoretical coefficient of variation in a window <span class="citation">(Boeva et al. <a href="#ref-Boeva2011" role="doc-biblioref">2011</a>)</span>.
+This CV is computed from the total read count, assuming a Poisson distribution.
+The authors suggest a CV from 0.05 and 0.1.</p>
 </div>
 </div>
 <div id="rd-in-several-samples" class="section level2">
@@ -653,7 +672,7 @@ Still, they limited the number of variant in any particular genomic region in or
 <tr class="odd">
 <td>2011</td>
 <td>Control-FREEC <span class="citation">(Boeva et al. <a href="#ref-Boeva2011" role="doc-biblioref">2011</a>)</span></td>
-<td>RD+AI</td>
+<td>RD+BAF</td>
 <td>CNV and contamination</td>
 <td>single, pair</td>
 <td>NA</td>
