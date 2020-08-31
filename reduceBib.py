@@ -1,4 +1,3 @@
-
 import argparse
 import re
 # import glob
@@ -18,7 +17,7 @@ parser.add_argument('mds', nargs='+',
                     help='the markdown files to scan')
 
 args = parser.parse_args()
-keepinfo = args.fields.split(',')
+keepinfo = args.fields.split(',') + ['jmreviews']
 tagre = re.compile(' *([a-z]+).*=.*')
 citere = re.compile('.*{([^,]+),')
 
@@ -106,8 +105,53 @@ class CitationList:
         outCon = open(outBib, 'w')
         for cit in self.cits:
             if cit.ref in citToWrite:
+                # new info about page citing it
+                cit.addInfo('jmreviews={'+','.join(citToWrite[cit.ref])+'}')
+                # write citation
                 cit.write(outCon)
         outCon.close()
+
+
+# transform a title into URL form
+def titleToUrl(title):
+    # transform special characters to spaces
+    for cc in ['(', ')', ',', '-', '\'', '"']:
+        title = title.replace(cc, ' ')
+    # lowercase and remove trailing spaces
+    title = title.lstrip().rstrip().lower()
+    # replace white spaces by one -
+    title = re.sub(r" +", '-', title)
+    return title
+
+
+# find the corresponding URL of a Rmd page
+def findUrl(rmd_file):
+    # read yaml header
+    info = {}
+    with open(rmd_file, 'r') as inf:
+        cpt = 0
+        for line in inf:
+            if '---' in line:
+                cpt += 1
+            if cpt == 2:
+                break
+            line = line.rstrip().split(':')
+            if len(line) > 1:
+                info[line[0]] = ':'.join(line[1:])
+    # if fixed/page, use title. Otherwise use slug or dates.
+    if 'content/fixed' in rmd_file:
+        return titleToUrl(info['title'])
+    else:
+        if 'date' in info:
+            pdate = info['date'].split('-')
+        else:
+            pdate = rmd_file.split('-')[:3]
+        if 'slug' in info:
+            ptitle = info['slug']
+        else:
+            ptitle = titleToUrl(info['title'])
+        return '{}/{}'.format('/'.join(pdate), ptitle)
+    return rmd_file
 
 
 # Read bibtex file
@@ -118,6 +162,7 @@ bl.parseBib(args.bib)
 mdre = re.compile('@([a-zA-Z0-9\-]+)')
 cits = {}
 for ff in args.mds:
+    ff_url = findUrl(ff)
     ffile = open(ff)
     for line in ffile:
         citline = mdre.findall(line)
@@ -127,7 +172,10 @@ for ff in args.mds:
         if(len(citlineU) > 0):
             for cl in citlineU:
                 if(cl not in cits):
-                    cits[cl] = True
+                    cits[cl] = [ff_url]
+                else:
+                    if ff_url not in cits[cl]:
+                        cits[cl].append(ff_url)
 
 # Write output bibbtex
-bl.writeCitations(args.out, cits.keys())
+bl.writeCitations(args.out, cits)
