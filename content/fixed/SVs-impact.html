@@ -1,7 +1,7 @@
 ---
 sidebar: true
 title: Structural Variation Impact
-bibliography: [../../static/library-small.bib]
+bibliography: [../../library-small.bib]
 link-citations: true
 weight: 5
 output:
@@ -16,6 +16,7 @@ output:
 <li><a href="#micro-rnas">Micro RNAs</a></li>
 <li><a href="#genes-with-recurrent-cnv">Genes with recurrent CNV</a></li>
 <li><a href="#enhancer-hijacking">Enhancer hijacking</a></li>
+<li><a href="#methylation-trigerring">Methylation trigerring</a></li>
 </ul></li>
 <li><a href="#association-studies-and-ld">Association studies and LD</a><ul>
 <li><a href="#inversions">Inversions</a></li>
@@ -27,7 +28,7 @@ output:
 </ul></li>
 <li><a href="#gene-fusion">Gene fusion</a></li>
 <li><a href="#enhancer-hijacking-1">Enhancer hijacking</a></li>
-<li><a href="#relation-with-epigenetics">Relation with epigenetics</a></li>
+<li><a href="#relation-with-epigenetic-marks">Relation with epigenetic marks</a></li>
 <li><a href="#mobile-element-insertion">Mobile element insertion</a></li>
 </ul></li>
 <li><a href="#epilepsy">Epilepsy</a></li>
@@ -89,12 +90,40 @@ Only 2229 protein-coding genes had an exon overlapping one of Genome STRiP 2.0 c
 <h2>Enhancer hijacking</h2>
 <p><strong>Enhancer hijacking</strong> happens when a regulatory region induces the <strong>ectopic expression</strong> of a gene it normally doesn’t regulate because of a <strong>CNV-mediated re-positioning</strong>.
 An elegant study described this mechanism in <em>human limb malformations</em> using CRISPR/Cas genome editing and conformation experiments <span class="citation">(Lupiáñez et al. <a href="#ref-Lupianez2015" role="doc-biblioref">2015</a>)</span>.
-In brief, three different phenotypes were caused by <strong>deletions</strong>, <strong>inversion</strong>/tandem duplication, or <strong>tandem duplications</strong>, that <strong>spanned the boundary of a TAD</strong>.
+In brief, three different phenotypes were caused by <strong>deletions</strong>, <strong>inversion</strong>/tandem duplication, or <strong>tandem duplications</strong>, that <strong>spanned the boundary of a topologically associated domains (TADs)</strong>.
 After showing that the TAD architecture was conserved in mice, these SVs were recreated in mice using genome editing.
 The ectopic expression of genes during limb development in mice was assessed by RNA-seq and in situ hybridization.
 Using 4C-seq again, the <em>ectopic interaction</em> were also visible in patient-derived fibroblasts.
 Investigating deeper the minimal region, genomic annotations and additional mice experiments helped identify 5 candidate enhancers potentially responsible for the normal and ectopic regulation.
 Finally, further genome editing confirmed that the <strong>breaking of the TAD boundary</strong> (and insulation region) <strong>was the crucial factor</strong> rather than the distance between enhancers and genes.</p>
+</div>
+<div id="methylation-trigerring" class="section level2">
+<h2>Methylation trigerring</h2>
+<p><strong>Transposon insertion can trigger silencing through methylation</strong>.
+One documented case was found by <a href="https://pubmed.ncbi.nlm.nih.gov/15269773/">Lippman et al. 2004</a> who showed in Arabidopsis that the gene for flowering time (FWA) was regulated to some extent by the methylation of nearby SINE-like TEs.
+Another older observation in mice found that de novo retroviral insertion inactivates genes through de novo methylation of surrounding regions (<a href="https://pubmed.ncbi.nlm.nih.gov/2989695/">Jahner &amp; Jaenisch 1985</a>.</p>
+<p>Focusing on evolutionary patterns, a study in Arabidopsis showed that fixed/old insertions tend to “lose” their methylation but polymorphic insertions don’t (<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2720190/">Hollister &amp; Gaut 2009</a>).
+Their results suggest negative selection against methylated insertions, potentially because of their effect on nearby genes.</p>
+<p><span class="citation">Rebollo et al. (<a href="#ref-Rebollo2011" role="doc-biblioref">2011</a>)</span> compared H3K9me3 profiles of embryonic cells in two strains of mice, focusing around common or polymorphic copies of threes TE families.
+In contrast to LINE or ETn/MusD, IAP copies tended to be more hypomethylated.
+For polymorphic IAP copies, only the strain with the copy was hypomethylated.
+<strong>The methylation decreased almost linearly up to 3 kbp from the insertion.</strong>
+They found that it <strong>rarely spread into genes</strong>, hinting at some mechanisms that could stop methylation spreading.
+Although the genome-wide analysis was performed on H3K9me3, they zoom in one insertion close to the B3galtl gene.
+This time looking at DNA methylation, they show <strong>a clear example</strong> where the empty sites is completely unmethylated while the strains with the inserted IAP show methylation spreading to the CpG island about half the time.
+<strong>The expression of this gene was indeed reduced</strong> in the strain with the IAP insertion.</p>
+<p>Studying this in mice, <span class="citation">Rebollo et al. (<a href="#ref-Rebollo2012" role="doc-biblioref">2012</a>)</span> showed <strong>active genes tend to be protected and that methylation spreading from a nearby TE is rare</strong>.
+They measured methylation at fixed endogenous retrovirus (ERV) copies as well as a few insertionally polymorphic copies.
+Overall they found that ERV copies near the TSS are more likely hypomethylated.
+They further interrogated the methylation at the gene promoter near methylated ERV copies to test if the methylation had spread.
+Only 1 out of 29 cases had a sign of methylation spreading (and they knew about it from <a href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1002301">a previous study</a>).
+They observe a similar pattern of “methylation vs TSS distance” between fixed and polymorphic copies.
+Part of the explanation lies in the action of H3K4me3 and CTCF, blocking the methylation spreading.</p>
+<p>In a recent preprint, <a href="https://www.biorxiv.org/content/10.1101/2020.06.16.154047v2">Wyler et al 2020</a> tested this model in <em>Brachypodium distachyon</em> (<a href="https://en.wikipedia.org/wiki/Brachypodium_distachyon">grass</a>).
+They used methylation and transcriptome profiling across 11 accessions.
+They found that methylation in only a few TE families leads to lower gene expression.
+However, they did find a few polymorphic insertions associated with gene expression changes across multiple accessions.
+Take-home message seems to be: <strong>not a large effect globally but some families/insertions can silence nearby genes</strong>.</p>
 </div>
 </div>
 <div id="association-studies-and-ld" class="section level1">
@@ -238,11 +267,10 @@ Here they didn’t look at enhancer amplification or balanced translocation (soo
 <p>These enhancer hijacking events are important because <strong>a single copy change usually can lead to large over-expression</strong>.
 In contrast dosage effect due to full-gene CNV are (supposedly) as strong as the amplification.</p>
 </div>
-<div id="relation-with-epigenetics" class="section level2">
-<h2>Relation with epigenetics</h2>
-<p>Somatic SVs can be associated with epigenetic changes.
-<strong>Transposon insertion can trigger silencing through methylation</strong> (FIND REF).</p>
-<p>On one hand, we would like to know if the epigenetic state of a genome affects the formation of somatic SVs.</p>
+<div id="relation-with-epigenetic-marks" class="section level2">
+<h2>Relation with epigenetic marks</h2>
+<p>Somatic SVs can be associated with epigenetic changes and vice versa.
+On one hand, we would like to know if the epigenetic state of a genome affects the formation of somatic SVs.</p>
 <p><span class="citation">De and Michor (<a href="#ref-De2011a" role="doc-biblioref">2011</a><a href="#ref-De2011a" role="doc-biblioref">a</a>)</span> found that <strong>G-quaduplex(G4) sequences are enriched in somatic CNV breakpoints</strong> (SNP-array, 26 cancer types).
 Moreover, these many sCNVs breakpoints shows abnormal hypomethylation of the G4 sequence.
 They found evidence of G4-mediated SV and proposed that G4 hypomethylation could drive tissue-specific mutational patterns in cancer.
@@ -499,6 +527,12 @@ Anyway they propose that LOY become one of the markers used for personalized med
 </div>
 <div id="ref-Raphael2012">
 <p>Raphael, Benjamin J. 2012. “Chapter 6: Structural Variation and Medical Genomics.” <em>PLoS Computational Biology</em>. <a href="https://doi.org/10.1371/journal.pcbi.1002821">https://doi.org/10.1371/journal.pcbi.1002821</a>.</p>
+</div>
+<div id="ref-Rebollo2011">
+<p>Rebollo, Rita, Mohammad M. Karimi, Misha Bilenky, Liane Gagnier,..., and Dixie L. Mager. 2011. “Retrotransposon-Induced Heterochromatin Spreading in the Mouse Revealed by Insertional Polymorphisms.” <em>PLoS Genetics</em>. <a href="https://doi.org/10.1371/journal.pgen.1002301">https://doi.org/10.1371/journal.pgen.1002301</a>.</p>
+</div>
+<div id="ref-Rebollo2012">
+<p>Rebollo, Rita, Katharine Miceli-Royer, Ying Zhang, Sharareh Farivar,..., and Dixie L Mager. 2012. “Epigenetic Interplay Between Mouse Endogenous Retroviruses and Host Genes.” <em>Genome Biology</em>. <a href="https://doi.org/10.1186/gb-2012-13-10-r89">https://doi.org/10.1186/gb-2012-13-10-r89</a>.</p>
 </div>
 <div id="ref-Rich2014">
 <p>Rich, J, V V Ogryzko, and I V Pirozhkova. 2014. “Satellite DNA and Related Diseases.” <em>Biopolymers and Cell</em>. <a href="https://doi.org/10.7124/bc.00089E">https://doi.org/10.7124/bc.00089E</a>.</p>

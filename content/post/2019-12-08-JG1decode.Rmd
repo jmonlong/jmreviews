@@ -2,7 +2,7 @@
 date: 2019-12-08
 title: "Japanese reference genome, inversion GWAS, deCODE SVs"
 tags: ['literature']
-bibliography: [../../static/library-small.bib]
+bibliography: [../../library-small.bib]
 link-citations: true
 output: blogdown::html_page
 ---

@@ -1,7 +1,7 @@
 ---
 sidebar: true
 title: Whole-Genome Sequencing
-bibliography: [../../static/library-small.bib]
+bibliography: [../../library-small.bib]
 link-citations: true
 weight: 5
 output:

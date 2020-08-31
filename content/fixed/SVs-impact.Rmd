@@ -1,7 +1,7 @@
 ---
 sidebar: true
 title: Structural Variation Impact
-bibliography: [../../static/library-small.bib]
+bibliography: [../../library-small.bib]
 link-citations: true
 weight: 5
 output:
@@ -65,12 +65,45 @@ Only 2229 protein-coding genes had an exon overlapping one of Genome STRiP 2.0 c
 
 **Enhancer hijacking** happens when a regulatory region induces the **ectopic expression** of a gene it normally doesn't regulate because of a **CNV-mediated re-positioning**.
 An elegant study described this mechanism in *human limb malformations* using CRISPR/Cas genome editing and conformation experiments [@Lupianez2015].
-In brief, three different phenotypes were caused by **deletions**, **inversion**/tandem duplication, or **tandem duplications**, that **spanned the boundary of a TAD**.
+In brief, three different phenotypes were caused by **deletions**, **inversion**/tandem duplication, or **tandem duplications**, that **spanned the boundary of a topologically associated domains (TADs)**.
 After showing that the TAD architecture was conserved in mice, these SVs were recreated in mice using genome editing. 
 The ectopic expression of genes during limb development in mice was assessed by RNA-seq and in situ hybridization.
 Using 4C-seq again, the *ectopic interaction* were also visible in patient-derived fibroblasts.
 Investigating deeper the minimal region, genomic annotations and additional mice experiments helped identify 5 candidate enhancers potentially responsible for the normal and ectopic regulation. 
 Finally, further genome editing confirmed that the **breaking of the TAD boundary** (and insulation region) **was the crucial factor** rather than the distance between enhancers and genes.
+
+## Methylation trigerring
+
+**Transposon insertion can trigger silencing through methylation**.
+One documented case was found by [Lippman et al. 2004](https://pubmed.ncbi.nlm.nih.gov/15269773/) who showed in Arabidopsis that the gene for flowering time (FWA) was regulated to some extent by the methylation of nearby SINE-like TEs.
+Another older observation in mice found that de novo retroviral insertion inactivates genes through de novo methylation of surrounding regions ([Jahner & Jaenisch 1985](https://pubmed.ncbi.nlm.nih.gov/2989695/).
+
+Focusing on evolutionary patterns, a study in Arabidopsis showed that fixed/old insertions tend to "lose" their methylation but polymorphic insertions don't ([Hollister & Gaut 2009](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2720190/)).
+Their results suggest negative selection against methylated insertions, potentially because of their effect on nearby genes.
+
+@Rebollo2011 compared H3K9me3 profiles of embryonic cells in two strains of mice, focusing around common or polymorphic copies of threes TE families.
+In contrast to LINE or ETn/MusD, IAP copies tended to be more hypomethylated. 
+For polymorphic IAP copies, only the strain with the copy was hypomethylated. 
+**The methylation decreased almost linearly up to 3 kbp from the insertion.**
+They found that it **rarely spread into genes**, hinting at some mechanisms that could stop methylation spreading.
+Although the genome-wide analysis was performed on H3K9me3, they zoom in one insertion close to the B3galtl gene.
+This time looking at DNA methylation, they show **a clear example** where the empty sites is completely unmethylated while the strains with the inserted IAP show methylation spreading to the CpG island about half the time.
+**The expression of this gene was indeed reduced** in the strain with the IAP insertion.
+
+Studying this in mice, @Rebollo2012 showed **active genes tend to be protected and that methylation spreading from a nearby TE is rare**.
+They measured methylation at fixed endogenous retrovirus (ERV) copies as well as a few insertionally polymorphic copies.
+Overall they found that ERV copies near the TSS are more likely hypomethylated.
+They further interrogated the methylation at the gene promoter near methylated ERV copies to test if the methylation had spread.
+Only 1 out of 29 cases had a sign of methylation spreading (and they knew about it from [a previous study](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1002301)).
+They observe a similar pattern of "methylation vs TSS distance" between fixed and polymorphic copies.
+Part of the explanation lies in the action of H3K4me3 and CTCF, blocking the methylation spreading.
+
+In a recent preprint, [Wyler et al 2020](https://www.biorxiv.org/content/10.1101/2020.06.16.154047v2) tested this model in *Brachypodium distachyon* ([grass](https://en.wikipedia.org/wiki/Brachypodium_distachyon)).
+They used methylation and transcriptome profiling across 11 accessions.
+They found that methylation in only a few TE families leads to lower gene expression.
+However, they did find a few polymorphic insertions associated with gene expression changes across multiple accessions.
+Take-home message seems to be: **not a large effect globally but some families/insertions can silence nearby genes**.
+
 
 # Association studies and LD
 
@@ -236,11 +269,9 @@ Here they didn't look at enhancer amplification or balanced translocation (soon 
 These enhancer hijacking events are important because **a single copy change usually can lead to large over-expression**.
 In contrast dosage effect due to full-gene CNV are (supposedly) as strong as the amplification.
 
-## Relation with epigenetics
+## Relation with epigenetic marks
 
-Somatic SVs can be associated with epigenetic changes.
-**Transposon insertion can trigger silencing through methylation** (FIND REF).
-
+Somatic SVs can be associated with epigenetic changes and vice versa.
 On one hand, we would like to know if the epigenetic state of a genome affects the formation of somatic SVs.
 
 @De2011a found that **G-quaduplex(G4) sequences are enriched in somatic CNV breakpoints** (SNP-array, 26 cancer types).

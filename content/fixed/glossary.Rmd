@@ -372,6 +372,11 @@ F1 score is `2 / (1/precision + 1/recall)`.
 
 Supporting tissue that forms the framework/matrix of an organ, as opposed to the functioning part.
 
+# Topologically associated domain (TAD)
+
+Megabase-scale regions where interaction is possible, e.g. between regulatory regions and genes, in mammalian genomes.
+TADs are separated by insulators such as CTCF or house-keeping genes that block interaction across adjacent TADs.
+
 # Wahlund effect
 
 LOH or deficit in heterozygotes caused by population substructure (stratification, admixture and/or inbreeding).

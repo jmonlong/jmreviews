@@ -1,15 +1,15 @@
 mdfiles := content/fixed/*.Rmd content/post/*.Rmd
 
-serve: static/library-small.bib
+serve: library-small.bib
 	Rscript -e 'blogdown::serve_site()'
 
 build: docs/index.html
 
-docs/index.html: $(mdfiles) static/library-small.bib
+docs/index.html: $(mdfiles) library-small.bib
 	Rscript -e 'blogdown::build_site()'
 
-static/library-small.bib: $(mdfiles) static/library.bib
-	python reduceBib.py -b static/library.bib -o static/library-small.bib $(mdfiles)
+library-small.bib: $(mdfiles) library.bib
+	python reduceBib.py -b library.bib -o library-small.bib $(mdfiles)
 
 epub: jmreviews-ebook.epub
 
@@ -19,4 +19,4 @@ jmreviews-ebook.epub: docs/index.html
 	rm title.txt
 
 clean:
-	rm -f static/library-small.bib jmreviews-ebook.epub title.txt
+	rm -f library-small.bib jmreviews-ebook.epub title.txt
