@@ -2,12 +2,14 @@
 sidebar: true
 title: Structural Variation and Repeats
 bibliography: [../../library-small.bib]
+csl: ../../my.csl
 link-citations: true
 weight: 5
 output:
   blogdown::html_page:
     toc: true
 ---
+
 
 @De2011a  found an enrichment of somatic CNV breakpoints in simple repeats, Alu and CR1.
 

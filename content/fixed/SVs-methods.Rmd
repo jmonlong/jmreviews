@@ -65,7 +65,7 @@ Concordance between the results of different methods is often weak, pushing seve
 
 
 
-# Next-generation sequencing
+# Short-read sequencing
 
 Compared to Array-CGH technologies, High-Throughput Sequencing allows for better breakpoints resolution, identification of a broader range of structural variant types and better estimation of larger Copy-Number Variation.
 It also has the potential to identify allele-specific structural variation.
@@ -904,6 +904,40 @@ Apparently distributed/implemented by [Base2Genomics](https://base2genomics.com/
 [SVPV](https://github.com/VCCRI/SVPV) (Structural Variant Prediction Viewer) visualizes alignments of paired-end reads around input SVs.
 Useful to inspect calls and compare multiple callsets with automated PDF creation.
 It creates a multi-panel figure showing depth, insert-size clustered pairs, soft clip presence.
+
+# Single-cell sequencing
+
+## From scRNA-seq
+
+[InferCNV](https://github.com/broadinstitute/inferCNV/wiki) compares expression of tumor cells across the genome to that of normal cells.
+The algorithm is as follow:
+
+1. genes expressed only in a few cells are removed
+2. depth normalization per cell, adjusting the total to match the median total.
+3. log(x+1) transformation
+4. for each gene, subtract the average across normal cells
+5. winsorize (e.g. force to be in [-3,3] range)
+6. smoothing using a running average weighted using a pyramidal scheme (default 101 window).
+7. center cell expression around 0
+8. for each gene, subtract the average across normal cells (again)
+9. revert log-transformation
+
+The CNVs are called at the cell level using HMM approaches.
+Either a 3 states version (loss, neutral, gain) or a more granular 6 states one.
+It's interesting how they use synthetic data (from the normal cells) as a baseline, to calibrate the HMM results a posteriori.
+Finally, the can annotate the CNV calls using a Bayesian Network (and MCMC), and remove calls with high posterior probability of being normal.
+
+Additionally, the modified expression profiles can be further de-noised, for example to clean up the visualization.
+One approach forced to 0 values matching the average + 3 SD of the normal cells.
+The values can be further cleaned up using median filtering, i.e. a rolling median approach.
+
+It looks like the subcluster identification is performed using hierarchical clustering.
+They also mention that other part of the analysis can benefit from subcluster partition, e.g. running the HMM per cluster.
+I thought the CNV calling was done at the cell level, I might be missing something.
+
+---
+
+[HoneyBadger](https://github.com/JEFworks/HoneyBADGER) **+++**
 
 # Bibliography
 

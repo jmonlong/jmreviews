@@ -203,7 +203,7 @@
 <li><a href="#shifting-level-model">Shifting Level Model</a></li>
 </ul></li>
 <li><a href="#snp-array">SNP-array</a></li>
-<li><a href="#next-generation-sequencing">Next-generation sequencing</a><ul>
+<li><a href="#short-read-sequencing">Short-read sequencing</a><ul>
 <li><a href="#read-depth-rd">Read-Depth (RD)</a><ul>
 <li><a href="#rd-in-one-sample">RD in one sample</a></li>
 <li><a href="#case-vs-control">Case vs Control</a></li>
@@ -222,6 +222,9 @@
 <li><a href="#in-silico-validation">In Silico validation</a></li>
 <li><a href="#visualization">Visualization</a></li>
 </ul></li>
+</ul></li>
+<li><a href="#single-cell-sequencing">Single-cell sequencing</a><ul>
+<li><a href="#from-scrna-seq">From scRNA-seq</a></li>
 </ul></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
@@ -273,8 +276,8 @@ One is the biological process and results from variation in DNA copy number whil
 Others are capable of dealing with complex signal in tumoral samples (ASCAT <span class="citation">(Van Loo et al. <a href="#ref-VanLoo2010" role="doc-biblioref">2010</a>)</span>, GAP <span class="citation">(Popova et al. <a href="#ref-Popova2009" role="doc-biblioref">2009</a>)</span>).</p>
 <p>Concordance between the results of different methods is often weak, pushing several studies to adopt an ensemble approach. In this approach, several (2-3 usually) methods are ran on the same SNP-array and discordant calls are filtered <span class="citation">(Walker and Scherer <a href="#ref-Walker2013" role="doc-biblioref">2013</a>)</span>.</p>
 </div>
-<div id="next-generation-sequencing" class="section level1">
-<h1>Next-generation sequencing</h1>
+<div id="short-read-sequencing" class="section level1">
+<h1>Short-read sequencing</h1>
 <p>Compared to Array-CGH technologies, High-Throughput Sequencing allows for better breakpoints resolution, identification of a broader range of structural variant types and better estimation of larger Copy-Number Variation.
 It also has the potential to identify allele-specific structural variation.</p>
 <div id="read-depth-rd" class="section level2">
@@ -1359,6 +1362,37 @@ Apparently distributed/implemented by <a href="https://base2genomics.com/">Base2
 Useful to inspect calls and compare multiple callsets with automated PDF creation.
 It creates a multi-panel figure showing depth, insert-size clustered pairs, soft clip presence.</p>
 </div>
+</div>
+</div>
+<div id="single-cell-sequencing" class="section level1">
+<h1>Single-cell sequencing</h1>
+<div id="from-scrna-seq" class="section level2">
+<h2>From scRNA-seq</h2>
+<p><a href="https://github.com/broadinstitute/inferCNV/wiki">InferCNV</a> compares expression of tumor cells across the genome to that of normal cells.
+The algorithm is as follow:</p>
+<ol style="list-style-type: decimal">
+<li>genes expressed only in a few cells are removed</li>
+<li>depth normalization per cell, adjusting the total to match the median total.</li>
+<li>log(x+1) transformation</li>
+<li>for each gene, subtract the average across normal cells</li>
+<li>winsorize (e.g. force to be in [-3,3] range)</li>
+<li>smoothing using a running average weighted using a pyramidal scheme (default 101 window).</li>
+<li>center cell expression around 0</li>
+<li>for each gene, subtract the average across normal cells (again)</li>
+<li>revert log-transformation</li>
+</ol>
+<p>The CNVs are called at the cell level using HMM approaches.
+Either a 3 states version (loss, neutral, gain) or a more granular 6 states one.
+It’s interesting how they use synthetic data (from the normal cells) as a baseline, to calibrate the HMM results a posteriori.
+Finally, the can annotate the CNV calls using a Bayesian Network (and MCMC), and remove calls with high posterior probability of being normal.</p>
+<p>Additionally, the modified expression profiles can be further de-noised, for example to clean up the visualization.
+One approach forced to 0 values matching the average + 3 SD of the normal cells.
+The values can be further cleaned up using median filtering, i.e. a rolling median approach.</p>
+<p>It looks like the subcluster identification is performed using hierarchical clustering.
+They also mention that other part of the analysis can benefit from subcluster partition, e.g. running the HMM per cluster.
+I thought the CNV calling was done at the cell level, I might be missing something.</p>
+<hr />
+<p><a href="https://github.com/JEFworks/HoneyBADGER">HoneyBadger</a> <strong>+++</strong></p>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered">
