@@ -372,6 +372,10 @@ F1 score is `2 / (1/precision + 1/recall)`.
 
 Supporting tissue that forms the framework/matrix of an organ, as opposed to the functioning part.
 
+# Syndrome
+
+Literally "running together". A collection of features or symptoms recognized together as a disorder.
+
 # Topologically associated domain (TAD)
 
 Megabase-scale regions where interaction is possible, e.g. between regulatory regions and genes, in mammalian genomes.

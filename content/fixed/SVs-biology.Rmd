@@ -14,6 +14,9 @@ output:
 
 With our current knowledge about genomic variation, *the* human genome has ceased to exist as a defined entity and is instead becoming a fluid continuum [@Dear2009].
 
+@Lee2010 mention that 1.28% of the nucleotide variation between the Craig Venter's genome and the reference genome is attributed to CNVs.
+In contrast, only 0.1% was due to SNVs.
+
 **5% of the genome** is known to display CNVs, i.e. more than SNVs.
 CNVs represent around 50 Mbp of difference per human genome [@Baker2012].
 The amount of the genome that have been seen hosting CNVs varies across studies.

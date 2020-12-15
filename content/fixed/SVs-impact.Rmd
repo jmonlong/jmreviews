@@ -105,6 +105,16 @@ However, they did find a few polymorphic insertions associated with gene express
 Take-home message seems to be: **not a large effect globally but some families/insertions can silence nearby genes**.
 
 
+# Large chromosomal aberrations
+
+Early milestones listed in @Lee2010:
+
+- 1959 Down syndrome/trisomy 21, Turner syndrome (45,X), Kleinfelter syndrome (47, XXY)
+- 1961 Partial trisomy Down syndrome
+- 1963 First inherited deletion syndrome: Cri-du-chat (5p-)
+
+Large CNVs that span multiple genes can cause 'contiguous gene syndromes' or genomic disorders ("old" ref in @Lee2010)
+
 # Association studies and LD
 
 One approach to test potential effect of common SVs with phenotypes uses **SNP in strong LD as markers**.
@@ -138,6 +148,10 @@ From @Gonzalez2019 introduction:
 Seven inversions were associated with multiple diseases.
 Some inversions could be disrupting TADs.
 
+An inversion in a parental chromosome may predispose to de novo CNVs [@Lee2010].
+For example the deletion in 17q21.31 results from an inversion common in Europeans.
+Other examples include Sotos syndrome or Williams-Beuren syndrome.
+These results suggest that parents are sometimes needed to fully understand the origin of CNVs.
 
 
 # Cancer
@@ -324,7 +338,19 @@ In contrast to these hot L1s, other germline L1s were not expressed.
 Another example from Shukla et al (2013) shows a **somatic L1 insertion associated with the upregulation of the ST18 gene in hepatocellular carcinoma**.
 Apparently the insertion disrupted a repressor region in one of the gene's intron.
 
-# Epilepsy
+# Neurological disorders
+
+De novo and inherited may contribute to the genetic vulnerability for conditions such as schizophrenia or autism [@Lee2010]
+
+Alzheimer and Parkinson's disease have been associated with changes in gene dosage resulting from alterations in copy number [@Magi2010].
+
+**Autism Spectrum Disorder** (ASD) is a neuro-developmental disorder characterized by social impairment, communication difficulties and restricted behavioral patterns.
+This largely genetic condition has been linked to DNA alterations (including CNVs) in neuronal genes, but these accounts for only 20% of the cases.
+The incidence of *de novo* CNVs in ASD family is significantly higher [@Ionita-Laza2009].
+
+Novel deletions/duplications >100 kb were present in **15% of schizophrenia cases**, 3 times mores than in controls [@Ionita-Laza2009] (FIND ORIGINAL REF).
+
+## Epilepsy
 
 Epilepsy has a **prevalence of ~1%** in the population, and a **lifetime incidence** up to **3%**.
 
@@ -401,8 +427,6 @@ In @Ionita-Laza2009, Table 1 mention common deletions in *GSTM1* associated with
 
 + How is association tested ? How many such studies have been performed ?
 
-Alzheimer and Parkinson's disease have been associated with changes in gene dosage resulting from alterations in copy number [@Magi2010].
-
 CNVs have been associated with autism, schizophrenia, Crohn's disease, rheumatoid arthritis, type 1 diabetes, obesity and numerous developmental diseases [@Zarrei2015].
 
 One of the first duplication associated with a disease was found by Lupski and colleagues [@Baker2012].
@@ -413,13 +437,6 @@ Both are mediated by NAHR.
 
 Williams-Beuren Syndrome is a mendelian disorder characterized by deletion at 7q11.23.
 DiGeorge/velocardiofacial syndrom is characterized by deletion of 22q11.2.
-
-
-**Autism Spectrum Disorder** (ASD) is a neuro-developmental disorder characterized by social impairment, communication difficulties and restricted behavioral patterns.
-This largely genetic condition has been linked to DNA alterations (including CNVs) in neuronal genes, but these accounts for only 20% of the cases.
-The incidence of *de novo* CNVs in ASD family is significantly higher [@Ionita-Laza2009].
-
-Novel deletions/duplications >100 kb were present in **15% of schizophrenia cases**, 3 times mores than in controls [@Ionita-Laza2009] (FIND ORIGINAL REF).
 
 ICF syndrome (Immunodeficiency, Centromeric instability and Facial anomalies) is characterized by an extension of pericentromeric satellites.
 Hypomethylation of these satellites is thought to be the cause for this instability on chromosome 1, 9 and 16 [@Jeanpierre1993].
@@ -432,6 +449,27 @@ Hereditary nonpolyposis colorectal cancer (HNPCC), also known as Lynch syndrome,
 
 **Genetic pleiotropy** might exists [@Ionita-Laza2009].
 For example, gains and losses in *CLL3L1* are associated with HIV or Rheumatoid Arthritis. Similar for *DEFB4* and Crohn disease and Psoriasis.
+
+Deletion of haplo-insufficient genes can lead to disease.
+For example, deletion of *LCE3B* and *LCE3C* is a risk factor for psoriasis [@Lee2010].
+
+@Lee2010 has a table listing examples of diseases associated with a SV, grouped by configuration. 
+Here is a subset:
+
+- Single gene
+    - recessive: Duchenne/Becker muscular distrophy (*DMD*)
+    - dominant: Sotos syndrome (*NSD1*)
+    - dosage: Early-onset Alzheimer disease (*APP*), 22q autism (*SHANK3*), Psoriasis (*LCE3C*/*LCE3B*), 
+    - position effect: Crohn disease (*IRGM*)
+    - multiallelic: Crohn disease predisposition (*DEFB4*), Parkinson disease (*SNCA*), HIV/AIDS susceptibility/Kawasaki disease susceptibility/rheumatoid arthritis predisposition (*CCL3L1*)
+- Multiple genes
+    - recurrent: Velo-cardio-facial syndrome/DiGeorge syndrome (22q11.2 deletion)
+    - non-recurrent: Potocki– Lupski syndrome [dup(17)(p11.2p11.2)]
+    - heterogeneous: Autism, Bipolar disorder, Schizophrenia, Age-related macular degeneration, Tetralogy of Fallot
+    - buffering or modifier effects: Spinal muscular atrophy (*SMN1*/*SMN2*)
+    - epigenetic effects: Silver–Russell syndrome (11p15 duplication)
+    - somatic mosaicism: Tuberous sclerosis (*TSC1*, *TSC2*)
+    - somatic instability: Li-Fraumeni syndrome
 
 # Loss of chromosome Y and diseases
 
