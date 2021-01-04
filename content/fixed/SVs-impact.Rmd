@@ -26,8 +26,8 @@ Copy number variants can affect the expression of genes **up to 100kb** away fro
 Finally, deletions can activate recessive allele through loss of heterozygosity.
 
 Variation in non-coding regions can also affect regulatory regions or chromatin structure around genes.
-For examples, non-coding CNVs have been associated with gene expression [@Stranger2007b] and can sometimes affect the expression of genes up to 100kb away from the variant [@Lower2009].
-In @Stranger2007b, *53%* of the CNVs influencing gene expression were located outside of the gene.
+For examples, non-coding CNVs have been associated with gene expression [@Stranger2007a] and can sometimes affect the expression of genes up to 100kb away from the variant [@Lower2009].
+In @Stranger2007a, *53%* of the CNVs influencing gene expression were located outside of the gene.
 When @Sudmant2015a described the SVs in the 1000GP, they called eQTLs in the lymphoblastoid cell lines from the Geuvadis project and found 54 eQTLs with a SV association (0.56%) and 166 SVs in LD with SNV/indels eQTLs.
 Most of these SV-eQTLs overlapped coding sequence but some were located in upstream regions.
 A more recent study using deep WGS investigated SV-eQTLs in multiple tissues from the GTEx dataset [@Chiang2017] (see [more detailed review post](/2018/03/31/SVeQTLinGTEx/)).
@@ -350,6 +350,8 @@ The incidence of *de novo* CNVs in ASD family is significantly higher [@Ionita-L
 
 Novel deletions/duplications >100 kb were present in **15% of schizophrenia cases**, 3 times mores than in controls [@Ionita-Laza2009] (FIND ORIGINAL REF).
 
+Reduced penetrance has been observed in some families, for example for inherited CNVs and autism [@Lee2010].
+
 ## Epilepsy
 
 Epilepsy has a **prevalence of ~1%** in the population, and a **lifetime incidence** up to **3%**.
@@ -470,6 +472,13 @@ Here is a subset:
     - epigenetic effects: Silver–Russell syndrome (11p15 duplication)
     - somatic mosaicism: Tuberous sclerosis (*TSC1*, *TSC2*)
     - somatic instability: Li-Fraumeni syndrome
+
+Some CNVs have a modifier (or buffer) effect: they are necessary but nor sufficient for a disease. 
+For example, 1q21.1 deletion and thrombocytopaenia absent radius (TAR) [@Lee2010].
+
+Sometimes the effect of CNVs are so variable that they "evade syndromic classification", for example for 1q21.1 deletions [@Lee2010].
+
+Epigenetic effects can also explain variable penetrance sometimes, like in Silver-Russell syndrome and (possibly) developmental verbal dyspraxia [@Lee2010].
 
 # Loss of chromosome Y and diseases
 
