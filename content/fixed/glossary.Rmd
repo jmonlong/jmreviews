@@ -31,6 +31,14 @@ One of the first and strongest association between a gene and Alzheimer's Diseas
 
 Two mutations gives rise to three major alleles (E2, E3, E4).
 
+# Atherosclerosis
+
+Disease were arteries narrow due to lesions and plaque build up, eventually causing coronary artery disease, stroke, peripheral artery disease or kidney problems.
+Lots of risk factors including abnormal cholesterol levels, high blood pressure, obesity.
+Number one cause of death or disability in the developed world
+
+[Wikipedia](https://en.wikipedia.org/wiki/Atherosclerosis)
+
 # Astrocyte
 
 # Ataxia

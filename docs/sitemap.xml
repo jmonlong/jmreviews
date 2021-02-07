@@ -43,6 +43,11 @@
   </url>
   
   <url>
+    <loc>/2020/12/16/svs/</loc>
+    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2019/12/08/japanese-reference-genome-inversion-gwas-decode-svs/</loc>
     <lastmod>2019-12-08T00:00:00+00:00</lastmod>
   </url>
@@ -154,7 +159,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-12-08T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -176,7 +181,7 @@
   
   <url>
     <loc>/tags/literature/</loc>
-    <lastmod>2019-12-08T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -188,7 +193,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-12-08T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

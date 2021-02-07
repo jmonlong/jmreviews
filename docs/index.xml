@@ -5,8 +5,8 @@
     <link>/</link>
     <language>en-us</language>
     <author>Jean Monlong</author>
-    <rights>(C) 2019</rights>
-    <updated>2019-12-08 00:00:00 &#43;0000 UTC</updated>
+    <rights>(C) 2020</rights>
+    <updated>2020-12-16 00:00:00 &#43;0000 UTC</updated>
 
     
       
@@ -27,6 +27,68 @@
     
       
     
+      
+    
+      
+        <item>
+          <title>SVs</title>
+          <link>/2020/12/16/svs/</link>
+          <pubDate>Wed, 16 Dec 2020 00:00:00 UTC</pubDate>
+          <author>Jean Monlong</author>
+          <guid>/2020/12/16/svs/</guid>
+          <description>
+
+
+&lt;div id=&#34;association-of-structural-variation-with-cardiometabolic-traits-in-finns&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Association of Structural Variation with Cardiometabolic Traits in Finns&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.biorxiv.org/content/10.1101/2020.12.13.422502v1&#34;&gt;bioRxiv&lt;/a&gt; from Ira Hall’s group.&lt;/p&gt;
+&lt;p&gt;From the intro:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Targeted analysis of known SVs across large cohorts associated &lt;em&gt;HP&lt;/em&gt; and &lt;em&gt;LPA&lt;/em&gt; with cholesterol levels&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This study:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;gt;20x WGS&lt;/li&gt;
+&lt;li&gt;SV calling
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hall-lab/svtools&#34;&gt;svtools&lt;/a&gt;: discovery with LUMPY, CNVnator, svtyper; then genotyping.&lt;/li&gt;
+&lt;li&gt;GenomeSTRiP and CNVnator for cohort-level CNVs.&lt;/li&gt;
+&lt;li&gt;55k DEL, 32k DUP, 187 INV, 3k MEI, 34k mCNV (, 4k BND).&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;~130K SVs across 4-5K Finnish individuals&lt;/li&gt;
+&lt;li&gt;35% overlap with 1KG and gnomAD&lt;/li&gt;
+&lt;li&gt;Advantage of the Finnish population: some rare variants enriched due to bottlenecks.&lt;/li&gt;
+&lt;li&gt;65K SVs tested for association with 116 traits&lt;/li&gt;
+&lt;li&gt;Association using raw values when possible, e.g. allele balence from LUMPY or raw decimal copy numbers from CNVnator.&lt;/li&gt;
+&lt;li&gt;WES and arrays for replication on 15K more individuals&lt;/li&gt;
+&lt;li&gt;31 hits at 15 loci
+&lt;ul&gt;
+&lt;li&gt;2 novel loci:
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;ALB&lt;/em&gt; promoter deletion: &lt;span class=&#34;math inline&#34;&gt;\(\nearrow\)&lt;/span&gt; serum albumin, &lt;span class=&#34;math inline&#34;&gt;\(\searrow\)&lt;/span&gt; cholesterol.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;PDPR&lt;/em&gt; multi-allelic CNV: pyruvate and alanine levels.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;The &lt;em&gt;PDPR&lt;/em&gt; CNV is in a complex region: flanked by segmental duplications and were two recurrent CNVs overlap.&lt;/li&gt;
+&lt;li&gt;5/6 replicated have stronger SNV hits&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;HP&lt;/em&gt; recurrent deletion associated with cholesterol and &lt;span class=&#34;math inline&#34;&gt;\(\nearrow\)&lt;/span&gt; glycoprotein.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Questions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What about rare variants? Any burden test attempts?&lt;/li&gt;
+&lt;li&gt;Did they consider using specialized tools to detect MEI? And to assess STR variation?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Glossary:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;cholesterol: essential lipid required to build and maintain membranes, and modulate membrane fluidity.&lt;/li&gt;
+&lt;li&gt;glycoprotein: protein with carbohydrates attached that are use, for example, for cell-cell interaction&lt;/li&gt;
+&lt;li&gt;albumin:&lt;/li&gt;
+&lt;li&gt;pyruvate:&lt;/li&gt;
+&lt;li&gt;alanine:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+        </item>
       
     
       

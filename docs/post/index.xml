@@ -6,10 +6,22 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 16 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>SVs</title>
+      <link>/2020/12/16/svs/</link>
+      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/12/16/svs/</guid>
+      <description>Association of Structural Variation with Cardiometabolic Traits in Finns bioRxiv from Ira Hall’s group.
+From the intro:
+ Targeted analysis of known SVs across large cohorts associated HP and LPA with cholesterol levels  This study:
+ &amp;gt;20x WGS SV calling  svtools: discovery with LUMPY, CNVnator, svtyper; then genotyping. GenomeSTRiP and CNVnator for cohort-level CNVs. 55k DEL, 32k DUP, 187 INV, 3k MEI, 34k mCNV (, 4k BND).  ~130K SVs across 4-5K Finnish individuals 35% overlap with 1KG and gnomAD Advantage of the Finnish population: some rare variants enriched due to bottlenecks.</description>
+    </item>
     
     <item>
       <title>Japanese reference genome, inversion GWAS, deCODE SVs</title>

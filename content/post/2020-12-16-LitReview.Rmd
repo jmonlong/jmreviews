@@ -1,0 +1,60 @@
+---
+date: 2020-12-16
+title: "SVs"
+tags: ['literature']
+bibliography: [../../library-small.bib]
+link-citations: true
+draft: true
+output: blogdown::html_page
+---
+
+## Association of Structural Variation with Cardiometabolic Traits in Finns
+
+[bioRxiv](https://www.biorxiv.org/content/10.1101/2020.12.13.422502v1) from Ira Hall's group.
+
+From the intro:
+
+- Targeted analysis of known SVs across large cohorts associated *HP* and *LPA* with cholesterol levels
+
+This study:
+
+- \>20x WGS
+- SV calling
+    - [svtools](https://github.com/hall-lab/svtools): discovery with LUMPY, CNVnator, svtyper; then genotyping.
+    - GenomeSTRiP and CNVnator for cohort-level CNVs.
+    - 55k DEL, 32k DUP, 187 INV, 3k MEI, 34k mCNV (, 4k BND).
+
+- ~130K SVs across 4-5K Finnish individuals
+- 35% overlap with 1KG and gnomAD
+- Advantage of the Finnish population: some rare variants enriched due to bottlenecks.
+- 65K SVs tested for association with 116 traits
+- Association using raw values when possible, e.g. allele balence from LUMPY or raw decimal copy numbers from CNVnator.
+- WES and arrays for replication on 15K more individuals
+- 31 hits at 15 loci
+    - 2 novel loci: 
+        - *ALB* promoter deletion: $\nearrow$ serum albumin, $\searrow$ cholesterol.
+        - *PDPR* multi-allelic CNV: pyruvate and alanine levels.
+- The *PDPR* CNV is in a complex region: flanked by segmental duplications and were two recurrent CNVs overlap.
+- 5/6 replicated have stronger SNV hits
+- *HP* recurrent deletion associated with cholesterol and $\nearrow$ glycoprotein.
+
+Questions:
+
+- What about rare variants? Any burden test attempts?
+- Did they consider using specialized tools to detect MEI? And to assess STR variation?
+
+Glossary:
+
+- cholesterol: essential lipid required to build and maintain membranes, and modulate membrane fluidity. 
+- glycoprotein: protein with carbohydrates attached that are use, for example, for cell-cell interaction
+- albumin:
+- pyruvate:
+- alanine:
+
+## Epigenomic differences in the human and chimpanzee genomes are associated with structural variation 
+
+[Genome Research 2020](https://genome.cshlp.org/content/early/2020/12/10/gr.263491.120.long)
+
+### Copy number variation (CNV) identification, interpretation, and database from Brazilian patients 
+
+[PubMed](https://pubmed.ncbi.nlm.nih.gov/33306777/)
