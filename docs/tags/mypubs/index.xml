@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mypubs on </title>
+    <title>mypubs on </title>
     <link>/tags/mypubs/</link>
-    <description>Recent content in Mypubs on </description>
+    <description>Recent content in mypubs on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Oct 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/mypubs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 23 Oct 2017 00:00:00 +0000</lastBuildDate><atom:link href="/tags/mypubs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Summary of our LOY paper</title>
       <link>/2017/10/23/summary-of-our-loy-paper/</link>

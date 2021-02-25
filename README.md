@@ -11,3 +11,21 @@ Instead of paying or setting up another complicated system, I thought it would b
 
 **Disclaimer**: views are my own (some dating from my PhD years which might be different today). 
 So, many outdated information and I'm sure it contains some mis-interpretations and exaggerations.
+
+## Installation
+
+To set up, the website I installed blogdown and hugo, in R:
+
+```r
+install.packages('blogdown')
+library('blogdown')
+install_hugo()
+```
+
+I added `options(blogdown.hugo.version = "0.81.0")` to the `.Rprofile` file in this repo.
+
+Then I installed pandoc and pandoc-citeproc:
+
+```sh
+sudo apt install pandoc pandoc-citeproc
+```

@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fixeds on </title>
     <link>/fixed/</link>
     <description>Recent content in Fixeds on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="/fixed/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="/fixed/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Genome Assembly</title>
       <link>/genome-assembly/</link>
@@ -39,12 +35,22 @@ Lee and Scherer (2010) mention that 1.</description>
     </item>
     
     <item>
+      <title>Structural Variation and Repeats</title>
+      <link>/structural-variation-and-repeats/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/structural-variation-and-repeats/</guid>
+      <description>Segmental duplications Centromeric/telomeric regions Euchromatic variants DNA satellites Transposable elements In cancers  Bibliography   De and Michor (2011) found an enrichment of somatic CNV breakpoints in simple repeats, Alu and CR1.
+Segmental duplications Segmental duplications are genomic regions ranging from 1-400 Kbp present in multiple locations and sharing a high level (&amp;gt;90%) of sequence identity (Sharp, Cheng, and Eichler 2006). Some blocks are duplicated in the same chromosome while others locate in non-homologous chromosomes.</description>
+    </item>
+    
+    <item>
       <title>Structural Variation Impact</title>
       <link>/structural-variation-impact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/structural-variation-impact/</guid>
-      <description>Gene expression Micro RNAs Genes with recurrent CNV Enhancer hijacking Methylation trigerring  Large chromosomal aberrations Association studies and LD Inversions  Cancer Pan-Cancer patterns Arm-level aberrations Focal sCNVs  Gene fusion Enhancer hijacking Relation with epigenetic marks Mobile element insertion  Neurological disorders Epilepsy  Congenital Heart Disease Asthma Other diseases Loss of chromosome Y and diseases Bibliography   Gene expression Coding regions of 800-1800 known genes are subject to variation in copy number (Sharp, Cheng, and Eichler 2006).</description>
+      <description>Gene expression Micro RNAs Genes with recurrent CNV Enhancer hijacking Methylation trigerring  Large chromosomal aberrations Association studies and LD Inversions  Cancer Pan-Cancer patterns Arm-level aberrations Focal sCNVs  Gene fusion Enhancer hijacking Relation with epigenetic marks Mobile element insertion  Neurological disorders Epilepsy  Congenital Heart Disease Asthma Other diseases Loss of chromosome Y and diseases Somatic mosaic CNVs Incomplete penetrance Mutational load Importance of understanding SV’s impact Bibliography   Gene expression Coding regions of 800-1800 known genes are subject to variation in copy number (Sharp, Cheng, and Eichler 2006).</description>
     </item>
     
     <item>
@@ -62,17 +68,7 @@ Lee and Scherer (2010) mention that 1.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/structural-variation-methods/</guid>
-      <description>Cytogenetic techniques Array-CGH technology Circular binary segmentation Shifting Level Model  SNP-array Short-read sequencing Read-Depth (RD) RD in one sample Case vs Control Choosing the optimal window size  RD in several samples Methods for repeat-rich regions PEM and Split-reads Assembly approach SV genotypers Others Benchmark Misc Mapping algorithm effect Comparing SV calls In Silico validation Visualization   Single-cell sequencing From scRNA-seq  Bibliography   Different technologies and methods have been used over the years to detect structural variation.</description>
-    </item>
-    
-    <item>
-      <title>Structural Variation and Repeats</title>
-      <link>/structural-variation-and-repeats/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/structural-variation-and-repeats/</guid>
-      <description>Segmental duplications Centromeric/telomeric regions Euchromatic variants DNA satellites Transposable elements In cancers  Bibliography   De and Michor (2011) found an enrichment of somatic CNV breakpoints in simple repeats, Alu and CR1.
-Segmental duplications Segmental duplications are genomic regions ranging from 1-400 Kbp present in multiple locations and sharing a high level (&amp;gt;90%) of sequence identity (Sharp, Cheng, and Eichler 2006). Some blocks are duplicated in the same chromosome while others locate in non-homologous chromosomes.</description>
+      <description>Cytogenetic techniques Array-CGH technology Circular binary segmentation Shifting Level Model  SNP-array Short-read sequencing Read-Depth (RD) RD in one sample Case vs Control Choosing the optimal window size  RD in several samples Methods for repeat-rich regions PEM and Split-reads Assembly approach SV genotypers Others Benchmark Misc Mapping algorithm effect Comparing SV calls In Silico validation Visualization   Long-read sequencing Single-cell sequencing From scRNA-seq  Bibliography   Different technologies and methods have been used over the years to detect structural variation.</description>
     </item>
     
     <item>

@@ -749,6 +749,14 @@ $+++$
 
 **Parliament** [@English2015] is a consensus SV-calling infrastructure that merges multiple data types and SV detection methods. For example it can merge results from short and long read sequencing, as well as aCGH.
 
+--- 
+
+The gnomAD pipeline was used in a few studies, including the one exploring the transcriptomic effects of rare SVs in brain [@CommonMindConsortium2020].
+It consists of: Delly, Lumpy, Manta, Wham, MELT, CNVnator, GenomeSTRiP, cn.MOPS.
+
+---
+
+The Hall lab used [svtools](https://github.com/hall-lab/svtools) (discovery with LUMPY, CNVnator, svtyper; then genotyping) to perform a GWAS on Finns.
 
 ## Benchmark
 
@@ -904,6 +912,11 @@ Apparently distributed/implemented by [Base2Genomics](https://base2genomics.com/
 [SVPV](https://github.com/VCCRI/SVPV) (Structural Variant Prediction Viewer) visualizes alignments of paired-end reads around input SVs.
 Useful to inspect calls and compare multiple callsets with automated PDF creation.
 It creates a multi-panel figure showing depth, insert-size clustered pairs, soft clip presence.
+
+# Long-read sequencing
+
+pbmm2 + pbsv was used in @Hiatt2020.
+They also made *de novo* assemblies with hifiasm and "called" SVs from the minimap2 alignments.
 
 # Single-cell sequencing
 

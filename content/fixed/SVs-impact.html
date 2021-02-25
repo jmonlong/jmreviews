@@ -39,6 +39,10 @@ output:
 <li><a href="#asthma">Asthma</a></li>
 <li><a href="#other-diseases">Other diseases</a></li>
 <li><a href="#loss-of-chromosome-y-and-diseases">Loss of chromosome Y and diseases</a></li>
+<li><a href="#somatic-mosaic-cnvs">Somatic mosaic CNVs</a></li>
+<li><a href="#incomplete-penetrance">Incomplete penetrance</a></li>
+<li><a href="#mutational-load">Mutational load</a></li>
+<li><a href="#importance-of-understanding-svs-impact">Importance of understanding SV’s impact</a></li>
 <li><a href="#bibliography">Bibliography</a></li>
 </ul>
 </div>
@@ -49,7 +53,9 @@ output:
 On average, <em>394 genes</em> are predicted to differ in term of copy number <em>between two individuals</em> <span class="citation">(Alkan et al. <a href="#ref-Alkan2009">2009</a>)</span>.
 Different types of genes tend to be affected by common CNVs.
 Genes involved in <em>immune response</em> or <em>environmental interaction</em> in general tend to be located in region of active CNV.
-CNV seem to have played an important role in evolutionary adaptation <span class="citation">(Sharp, Cheng, and Eichler <a href="#ref-Sharp2006">2006</a>)</span>.</p>
+CNV seem to have played an important role in evolutionary adaptation <span class="citation">(Sharp, Cheng, and Eichler <a href="#ref-Sharp2006">2006</a>)</span>.
+<span class="citation">Lee and Scherer (<a href="#ref-Lee2010">2010</a>)</span> note that CNVs are particularly frequent in genes with a role at our interface with environment.
+Moreover, these CNVs tend to be multi-allelic and in general more complex.</p>
 <p><strong>SV can influence gene expression in several ways</strong>.
 Variation in the copy number of the entire gene can lead to <strong>gene dosage</strong> effect although genes involved in common CNVs are assumed to be tolerant to it.
 Most of the segmental duplications containing genes are tandem changes <span class="citation">(Alkan et al. <a href="#ref-Alkan2009">2009</a>)</span>.
@@ -58,8 +64,8 @@ Variation in non-coding regions can affect <strong>regulatory regions or chromat
 Copy number variants can affect the expression of genes <strong>up to 100kb</strong> away from the variant <span class="citation">(Raphael <a href="#ref-Raphael2012">2012</a>)</span>.
 Finally, deletions can activate recessive allele through loss of heterozygosity.</p>
 <p>Variation in non-coding regions can also affect regulatory regions or chromatin structure around genes.
-For examples, non-coding CNVs have been associated with gene expression <span class="citation">(Stranger et al. <a href="#ref-Stranger2007b">2007</a>)</span> and can sometimes affect the expression of genes up to 100kb away from the variant <span class="citation">(Lower et al. <a href="#ref-Lower2009">2009</a>)</span>.
-In <span class="citation">Stranger et al. (<a href="#ref-Stranger2007b">2007</a>)</span>, <em>53%</em> of the CNVs influencing gene expression were located outside of the gene.
+For examples, non-coding CNVs have been associated with gene expression <span class="citation">(Stranger et al. <a href="#ref-Stranger2007a">2007</a>)</span> and can sometimes affect the expression of genes up to 100kb away from the variant <span class="citation">(Lower et al. <a href="#ref-Lower2009">2009</a>)</span>.
+In <span class="citation">Stranger et al. (<a href="#ref-Stranger2007a">2007</a>)</span>, <em>53%</em> of the CNVs influencing gene expression were located outside of the gene.
 When <span class="citation">Sudmant et al. (<a href="#ref-Sudmant2015a">2015</a>)</span> described the SVs in the 1000GP, they called eQTLs in the lymphoblastoid cell lines from the Geuvadis project and found 54 eQTLs with a SV association (0.56%) and 166 SVs in LD with SNV/indels eQTLs.
 Most of these SV-eQTLs overlapped coding sequence but some were located in upstream regions.
 A more recent study using deep WGS investigated SV-eQTLs in multiple tissues from the GTEx dataset <span class="citation">(Chiang et al. <a href="#ref-Chiang2017">2017</a>)</span> (see <a href="/2018/03/31/SVeQTLinGTEx/">more detailed review post</a>).
@@ -70,6 +76,11 @@ Indeed, rare SVs were enriched close to gene expression outliers, especially lar
 <p>Multi-allelic CNVs are more likely involved with gene dosage changes than one-copy CNVs <span class="citation">(Handsaker et al. <a href="#ref-Handsaker2015">2015</a>)</span>.
 There, 88% of gene dosage changes were caused by common multi-allelic CNVs.
 Gene dosage changes from these CNVs correlates with gene expression.</p>
+<p>In <span class="citation">CommonMind Consortium et al. (<a href="#ref-CommonMindConsortium2020">2020</a>)</span>, WGS and RNA-seq was leveraged to explore the effect of SVs on gene expression and devise a prediction approach to annotate rare CNVs.
+They observed mostly consistent effect on the gene expression for genic deletions and duplications or their promoters.
+They noted that many complete gene deletions/duplications are not expression outliers though.
+They built a disruption score that is better at ranking pathogenic CNVs than the traditional size+frequency considerations.
+Also pathogenic deletions and duplications associated with NDDs have higher “disruption score”.</p>
 <div id="micro-rnas" class="section level2">
 <h2>Micro RNAs</h2>
 <p>CNVs can also affect gene expression by <strong>disrupting miRNAs dosage</strong>.
@@ -82,6 +93,8 @@ One review just cited distinct studies showing miRNAs importance, CNVs importanc
 <div id="genes-with-recurrent-cnv" class="section level2">
 <h2>Genes with recurrent CNV</h2>
 <p>Many genes are recurrently affected by copy number variation in normal genomes.
+<span class="citation">Lee and Scherer (<a href="#ref-Lee2010">2010</a>)</span> note that CNVs are particularly frequent in genes with a role at our interface with environment.
+Moreover, these CNVs tend to be multi-allelic and in general more complex.
 These genes must be haplosufficient (right?).
 For example, <span class="citation">Alkan et al. (<a href="#ref-Alkan2009">2009</a>)</span> genes with full CNV : complement factor H-related complex (CFHR1-4), defensin gene family (DEFB103B), amylase gene family (AMY1A), as well as CCL3L1 and TBC1D3.</p>
 <p>CNVs in SD are enriched for genes involved in <strong>sensory response, immune and inflammatory response, cell signaling and cell adhesion and structural proteins</strong> <span class="citation">(Cooper, Nickerson, and Eichler <a href="#ref-Cooper2007">2007</a>)</span>.</p>
@@ -99,6 +112,9 @@ The ectopic expression of genes during limb development in mice was assessed by 
 Using 4C-seq again, the <em>ectopic interaction</em> were also visible in patient-derived fibroblasts.
 Investigating deeper the minimal region, genomic annotations and additional mice experiments helped identify 5 candidate enhancers potentially responsible for the normal and ectopic regulation.
 Finally, further genome editing confirmed that the <strong>breaking of the TAD boundary</strong> (and insulation region) <strong>was the crucial factor</strong> rather than the distance between enhancers and genes.</p>
+<p><span class="citation">CommonMind Consortium et al. (<a href="#ref-CommonMindConsortium2020">2020</a>)</span> showed that SV overlapping enhancers was selected against.
+Same for SVs overlapping CTCF sites.
+The enhancer annotation was also significantly associated with their gene expression z-scores, although mostly for duplications.</p>
 </div>
 <div id="methylation-trigerring" class="section level2">
 <h2>Methylation trigerring</h2>
@@ -157,6 +173,9 @@ Similar to other variants, other challenges comprise the sample size and power c
 The latter has more power but its results will need to be validated and investigated through genotyping.</p>
 <p><span class="citation">Beyter et al. (<a href="#ref-Beyter2019">2019</a>)</span> discovered SVs using long-read sequencing in almost 2K Icelanders and imputed their presence in 166K Icelanders from SNP arrays.
 They performed association tests with the phenotype available and notably found a 14 Kbp deletion that overlaps the first exon of PCSK9 and correlates with lower LDL cholesterol levels.</p>
+<p><span class="citation">Chen et al. (<a href="#ref-Chen2020a">2020</a>)</span> performed a GWAS on 65K SVs vs 116 traits in 4-5K Finns.
+They identified 31 hits in 15 loci, including 2 novel loci (a promoter deletion, and a multi-allelic CNV).
+Many have stronger SNV hits though.</p>
 <div id="inversions" class="section level2">
 <h2>Inversions</h2>
 <p>From <span class="citation">González et al. (<a href="#ref-Gonzalez2019">2019</a>)</span> introduction:</p>
@@ -188,8 +207,8 @@ These results suggest that parents are sometimes needed to fully understand the 
 <p>SVs can affect gene expression through genetic and epigenetics mechanisms <span class="citation">(Albertson et al. <a href="#ref-Albertson2003">2003</a>)</span>.</p>
 <p>Genomic gains are particularly important to identify driver genes <span class="citation">(Dear <a href="#ref-Dear2009">2009</a>)</span>.
 Moreover, duplication have been less studied than deletions.</p>
-<p><span class="citation">De and Michor (<a href="#ref-De2011a">2011</a><a href="#ref-De2011a">a</a>)</span> found an enrichment of somatic CNV breakpoints in simple repeats, Alu and CR1.</p>
-<p>Replication timing has also been associated with sCNVs formation <span class="citation">(De and Michor <a href="#ref-De2011">2011</a><a href="#ref-De2011">b</a>)</span>.</p>
+<p><span class="citation">De and Michor (<a href="#ref-De2011a">2011</a><a href="#ref-De2011a">b</a>)</span> found an enrichment of somatic CNV breakpoints in simple repeats, Alu and CR1.</p>
+<p>Replication timing has also been associated with sCNVs formation <span class="citation">(De and Michor <a href="#ref-De2011">2011</a><a href="#ref-De2011">a</a>)</span>.</p>
 <p><strong>Satellite DNA “Breaking of satellites’ silence” is a paradigm in cancerogenesis</strong> <span class="citation">(Rich, Ogryzko, and Pirozhkova <a href="#ref-Rich2014">2014</a>)</span>.
 In cancer satellites are hypomethylated and are thought to induce peri-centromeric instability.
 This might explain the observed over-expression of satellite repeats in tumors.</p>
@@ -203,7 +222,7 @@ The hypothesis is an alteration of the silencing mechanisms of these repeats.</p
 <h3>Arm-level aberrations</h3>
 <p>Copy number aberration is common in tumors from almost all cancer types.
 Tumors sometimes harbor whole-genome doubling or, more frequently, chromosome arm-level gains or losses.
-Aneuploidy, i.e. chromosome gain or loss, is seen in almost all cancer types although at varying frequencies <span class="citation">(Baudis <a href="#ref-Baudis2007">2007</a>; Kim and Marioni <a href="#ref-Kim2013b">2013</a>; Zack et al. <a href="#ref-Zack2013">2013</a>)</span>.</p>
+Aneuploidy, i.e. chromosome gain or loss, is seen in almost all cancer types although at varying frequencies <span class="citation">(Baudis <a href="#ref-Baudis2007">2007</a>; Kim, Laird, and Park <a href="#ref-Kim2013b">2013</a>; Zack et al. <a href="#ref-Zack2013">2013</a>)</span>.</p>
 <p>Aggregating CGH data across 5,918 epithelial tumors, <span class="citation">Baudis (<a href="#ref-Baudis2007">2007</a>)</span> identified frequent arm-level gains in 8q, 20q, 1q, 3q, 5p, 7q and 17q; and frequent losses in 3p, 4q, 13q, 17p and 18q.
 The median number of arm-level aberration per sample ranged from 0 in squamous skin neoplasias to 12 in small cell lung carcinomas <span class="citation">(Baudis <a href="#ref-Baudis2007">2007</a>)</span>.</p>
 <p>To further interrogate the distribution of sCNVs in different types of cancer, <span class="citation">Beroukhim et al. (<a href="#ref-Beroukhim2010">2010</a>)</span> analyzed 3,131 cancer genomes from 26 different cancer types.
@@ -212,16 +231,16 @@ Arm-level aberrations were ~30 times more frequent than expected from the freque
 In this pan-cancer survey, 25% of a typical cancer genome was affected by arm-level sCNVs.
 In contrast to some focal sCNVs, arm-level sCNVs resulted in low-amplitude changes, most of the time a single copy loss/gain.
 Interestingly, it appeared that chromosome arms had either somatic losses or gains, but rarely both.</p>
-<p>Similar observations were made in a larger meta-analysis of 8,227 cancer CNV profiles from 107 CGH studies <span class="citation">(Kim and Marioni <a href="#ref-Kim2013b">2013</a>)</span>.
+<p>Similar observations were made in a larger meta-analysis of 8,227 cancer CNV profiles from 107 CGH studies <span class="citation">(Kim, Laird, and Park <a href="#ref-Kim2013b">2013</a>)</span>.
 Chromosome arms preferentially showed losses or gains, with 1q, 5p, 7p, 3q and 20q most frequently gained and 4q, 6q, 8p, 13q and 17p most frequently lost.
 Cancer types were clustered based on their arm-level aberration frequencies and formed three groups with similar developmental origins.
 Five cancer of hematologic-origin clustered together; most of the epithelial cancers formed the second cluster; the third cluster contained four neuroepithelial cancers as well as sarcoma and RCC.
-Arm-level aberrations in gene-rich arms tend to co-occur when concordant (gain-gain, loss-loss) <span class="citation">(Kim and Marioni <a href="#ref-Kim2013b">2013</a>)</span>.</p>
+Arm-level aberrations in gene-rich arms tend to co-occur when concordant (gain-gain, loss-loss) <span class="citation">(Kim, Laird, and Park <a href="#ref-Kim2013b">2013</a>)</span>.</p>
 <p>Using a single detection platform across 4,934 cancers and 11 cancer types, The Cancer Genome Atlas described attempted to time sCNVs <span class="citation">(Zack et al. <a href="#ref-Zack2013">2013</a>)</span>.
 For example, whole-genome doubling was observed in 37% of the tumors and tended to occur prior to other types of sCNVs.
 The rate of both arm-level and focal sCNVs were higher in tumor that experienced whole-genome doubling.x
 In term of arm-level aberrations, <span class="citation">Zack et al. (<a href="#ref-Zack2013">2013</a>)</span> found a median of 3 gains and 5 losses per tumors.</p>
-<p>The pan-cancer studies described above didn’t include or comment on sex chromosomes in their analysis <span class="citation">(Baudis <a href="#ref-Baudis2007">2007</a>; Beroukhim et al. <a href="#ref-Beroukhim2010">2010</a>; Kim and Marioni <a href="#ref-Kim2013b">2013</a>; Zack et al. <a href="#ref-Zack2013">2013</a>)</span>.</p>
+<p>The pan-cancer studies described above didn’t include or comment on sex chromosomes in their analysis <span class="citation">(Baudis <a href="#ref-Baudis2007">2007</a>; Beroukhim et al. <a href="#ref-Beroukhim2010">2010</a>; Kim, Laird, and Park <a href="#ref-Kim2013b">2013</a>; Zack et al. <a href="#ref-Zack2013">2013</a>)</span>.</p>
 </div>
 <div id="focal-scnvs" class="section level3">
 <h3>Focal sCNVs</h3>
@@ -288,7 +307,7 @@ In contrast dosage effect due to full-gene CNV are (supposedly) as strong as the
 <h2>Relation with epigenetic marks</h2>
 <p>Somatic SVs can be associated with epigenetic changes and vice versa.
 On one hand, we would like to know if the epigenetic state of a genome affects the formation of somatic SVs.</p>
-<p><span class="citation">De and Michor (<a href="#ref-De2011a">2011</a><a href="#ref-De2011a">a</a>)</span> found that <strong>G-quaduplex(G4) sequences are enriched in somatic CNV breakpoints</strong> (SNP-array, 26 cancer types).
+<p><span class="citation">De and Michor (<a href="#ref-De2011a">2011</a><a href="#ref-De2011a">b</a>)</span> found that <strong>G-quaduplex(G4) sequences are enriched in somatic CNV breakpoints</strong> (SNP-array, 26 cancer types).
 Moreover, these many sCNVs breakpoints shows abnormal hypomethylation of the G4 sequence.
 They found evidence of G4-mediated SV and proposed that G4 hypomethylation could drive tissue-specific mutational patterns in cancer.
 G4 structures obstruct DNA polymerase and <em>increase the risk of DNA damage and NAHR</em>.</p>
@@ -339,6 +358,12 @@ Apparently the insertion disrupted a repressor region in one of the gene’s int
 This largely genetic condition has been linked to DNA alterations (including CNVs) in neuronal genes, but these accounts for only 20% of the cases.
 The incidence of <em>de novo</em> CNVs in ASD family is significantly higher <span class="citation">(Ionita-Laza et al. <a href="#ref-Ionita-Laza2009">2009</a>)</span>.</p>
 <p>Novel deletions/duplications &gt;100 kb were present in <strong>15% of schizophrenia cases</strong>, 3 times mores than in controls <span class="citation">(Ionita-Laza et al. <a href="#ref-Ionita-Laza2009">2009</a>)</span> (FIND ORIGINAL REF).</p>
+<p>Reduced penetrance has been observed in some families, for example for inherited CNVs and autism <span class="citation">(Lee and Scherer <a href="#ref-Lee2010">2010</a>)</span>.</p>
+<p>In <span class="citation">Hiatt et al. (<a href="#ref-Hiatt2020">2020</a>)</span>, PacBio CCS found potentially pathogenic SVs in 2 out of 6 proband-parent trios with unexplained neurodevelopmental disorders (NDDs).
+The families had negative short-read tests.
+One of the SV is a <em>de novo</em> L1-mediated insertion which result in the duplication of exon 3 of <em>CDK5</em> and creates a frameshift.
+Mosaicism is suspected because they also observed paternal reads without the insertion.
+The other proband has some complex <em>de novo</em> translocations and inversions affecting 7 genes, including one (<em>MLLT3</em>) whose expression seems disrupted (~40% decrease).</p>
 <div id="epilepsy" class="section level2">
 <h2>Epilepsy</h2>
 <p>Epilepsy has a <strong>prevalence of ~1%</strong> in the population, and a <strong>lifetime incidence</strong> up to <strong>3%</strong>.</p>
@@ -414,14 +439,19 @@ Their paper was rejected from <em>Nature</em> and <em>Science</em> right away.
 The deletion of the same locus causes hereditary neuropathy with liability to pressure palsies (HNPP).
 Both are mediated by NAHR.</p>
 <p>Williams-Beuren Syndrome is a mendelian disorder characterized by deletion at 7q11.23.
-DiGeorge/velocardiofacial syndrom is characterized by deletion of 22q11.2.</p>
+The syndrome is remarkably consistent with the presence of these micro-deletions <span class="citation">(Lee and Scherer <a href="#ref-Lee2010">2010</a>)</span>.
+Segmental duplications are mediating the deletion, as well as a relatively common inversion (see inversion section).</p>
+<p>DiGeorge/velocardiofacial syndrom is characterized by deletion of 22q11.2.</p>
+<p>1q21.1 CNVs can lead to another contiguous gene syndrome which present a large range of clinical presentations <span class="citation">(Lee and Scherer <a href="#ref-Lee2010">2010</a>)</span>.</p>
 <p>ICF syndrome (Immunodeficiency, Centromeric instability and Facial anomalies) is characterized by an extension of pericentromeric satellites.
 Hypomethylation of these satellites is thought to be the cause for this instability on chromosome 1, 9 and 16 <span class="citation">(Jeanpierre et al. <a href="#ref-Jeanpierre1993">1993</a>)</span>.</p>
 <p>Hereditary nonpolyposis colorectal cancer (HNPCC), also known as Lynch syndrome, is a common autosomal dominant syndrome characterized by early age at onset, neoplastic lesions, and microsatellite instability (MSI).</p>
 <p><span class="citation">Ionita-Laza et al. (<a href="#ref-Ionita-Laza2009">2009</a>)</span> cites associations between <strong>common CNVs and risk for HIV infections, autoimmune disease and asthma</strong>.</p>
 <p><strong>Disease-related CNVs are not restricted to rare variants</strong> and the <em>genetic risk tend to be higher than for SNPs</em> <span class="citation">(Ionita-Laza et al. <a href="#ref-Ionita-Laza2009">2009</a>)</span>.</p>
 <p><strong>Genetic pleiotropy</strong> might exists <span class="citation">(Ionita-Laza et al. <a href="#ref-Ionita-Laza2009">2009</a>)</span>.
-For example, gains and losses in <em>CLL3L1</em> are associated with HIV or Rheumatoid Arthritis. Similar for <em>DEFB4</em> and Crohn disease and Psoriasis.</p>
+For example, gains and losses in <em>CCL3L1</em> are associated with HIV or rheumatoid arthritis.
+Hence, what is protective for a trait (<em>CCR5</em> deletion/<em>CCL3L1</em> duplication for HIV/AIDS) can predispose for other (rheumatoid arthritis).
+Similar for <em>DEFB4</em> and Crohn disease and Psoriasis.</p>
 <p>Deletion of haplo-insufficient genes can lead to disease.
 For example, deletion of <em>LCE3B</em> and <em>LCE3C</em> is a risk factor for psoriasis <span class="citation">(Lee and Scherer <a href="#ref-Lee2010">2010</a>)</span>.</p>
 <p><span class="citation">Lee and Scherer (<a href="#ref-Lee2010">2010</a>)</span> has a table listing examples of diseases associated with a SV, grouped by configuration.
@@ -465,6 +495,35 @@ APOE genotypes didn’t show any differences in term of LOY but were included in
 They also propose that LOY could result in <em>defective immunosurveillance</em> which would be consistent with the AD and cancer phenotypes.
 Anyway they propose that LOY become one of the markers used for personalized medicine to better assess one’s risk of cancer or AD.</p>
 </div>
+<div id="somatic-mosaic-cnvs" class="section level1">
+<h1>Somatic mosaic CNVs</h1>
+<p>Mosaic CNVs have been observed in some diseases: Rubinstein-Taybi syndrome, tuberous sclerosis, aniridia <span class="citation">(Lee and Scherer <a href="#ref-Lee2010">2010</a>)</span>.</p>
+</div>
+<div id="incomplete-penetrance" class="section level1">
+<h1>Incomplete penetrance</h1>
+<p>Some syndromes have strong genotype-phenotype relationship (e.g. Williams-Beuren syndrome), while others some others result from very different CNVs (e.g. Down syndrome caused by parts of chr 21 to full trisomy) <span class="citation">(Lee and Scherer <a href="#ref-Lee2010">2010</a>)</span>.</p>
+<p>Recurrent deletions and duplications at 15q13.3 have been associated with schizophrenia and epilepsy but are inherited in the majority of cases <span class="citation">(Lee and Scherer <a href="#ref-Lee2010">2010</a>)</span>.</p>
+<p>Sometimes the effect of CNVs are so variable that they “evade syndromic classification”, for example for 1q21.1 deletions <span class="citation">(Lee and Scherer <a href="#ref-Lee2010">2010</a>)</span>.</p>
+<p>Some CNVs have a modifier (or buffer) effect: they are necessary but nor sufficient for a disease.
+For example, 1q21.1 deletion and thrombocytopaenia absent radius (TAR) <span class="citation">(Lee and Scherer <a href="#ref-Lee2010">2010</a>)</span>.</p>
+<p>Epigenetic effects can also explain variable penetrance sometimes, like in Silver-Russell syndrome and (possibly) developmental verbal dyspraxia <span class="citation">(Lee and Scherer <a href="#ref-Lee2010">2010</a>)</span>.</p>
+</div>
+<div id="mutational-load" class="section level1">
+<h1>Mutational load</h1>
+<p>The concept that the aggregation of multiple CNVs can model diseases like ASD, bipolar disorder, schizophrenia, macular degeneration, tetralogy of fallot <span class="citation">(Lee and Scherer <a href="#ref-Lee2010">2010</a>)</span>.</p>
+<p>In their review <span class="citation">Lee and Scherer (<a href="#ref-Lee2010">2010</a>)</span> mention Li-Fraumeni syndrome as a <em>striking prototype</em>.
+This familial cancer syndrome is caused by mutations in <em>TP53</em> but evidence suggests the presence of modifier loci.
+The amount and size of CNVs seem to correlate with carrier of TP53 mutations or to those developping cancer.</p>
+</div>
+<div id="importance-of-understanding-svs-impact" class="section level1">
+<h1>Importance of understanding SV’s impact</h1>
+<p>SVs are difficult to interpret but they can be informative and for example provide an explanation to patients and families about the challenges they faced <span class="citation">(Lee and Scherer <a href="#ref-Lee2010">2010</a>)</span>.
+Monitoring SVs could also provide earlier diagnosis for conditions which can benefit from beneficial interventions, like autism.</p>
+<p>In addition to including SVs in the interpretation, a <em>shift in mindset</em> is also necessary to look at the genomic level rather than genetic level <span class="citation">(Lee and Scherer <a href="#ref-Lee2010">2010</a>)</span>.
+For example, in addition to looking for the one causative gene in a large CNV, we should also think at the gene/protein pathways, and the mutational load and modifier effects, at the epigenetic impact.</p>
+<p><span class="citation">Lee and Scherer (<a href="#ref-Lee2010">2010</a>)</span> mentions that only 5% of GWAS hits might be explained by CNVs and that it would mean that CNVs shouldn’t account for much of the <em>missing heritability</em>.
+<code>Do they mean _large_ CNVs here?</code></p>
+</div>
 <div id="bibliography" class="section level1 unnumbered">
 <h1>Bibliography</h1>
 <div id="refs" class="references">
@@ -489,8 +548,14 @@ Anyway they propose that LOY become one of the markers used for personalized med
 <div id="ref-Beyter2019">
 <p>Beyter, Doruk, Helga Ingimundardottir, Hannes Eggertsson, Eythor Bjornsson,..., and Kari Stefansson. 2019. “Long Read Sequencing of 1,817 Icelanders Provides Insight into the Role of Structural Variants in Human Disease.” <em>bioRxiv</em>. <a href="https://doi.org/10.1101/848366">https://doi.org/10.1101/848366</a>.</p>
 </div>
+<div id="ref-Chen2020a">
+<p>Chen, Lei, Haley J. Abel, Indraniel Das, David E. Larson,..., and Ira M. Hall. 2020. “Association of Structural Variation with Cardiometabolic Traits in Finns.” <em>bioRxiv</em>. <a href="https://doi.org/10.1101/2020.12.13.422502">https://doi.org/10.1101/2020.12.13.422502</a>.</p>
+</div>
 <div id="ref-Chiang2017">
 <p>Chiang, Colby, Alexandra J Scott, Joe R Davis, Emily K Tsang,..., and Ira M Hall. 2017. “The Impact of Structural Variation on Human Gene Expression.” <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng.3834">https://doi.org/10.1038/ng.3834</a>.</p>
+</div>
+<div id="ref-CommonMindConsortium2020">
+<p>CommonMind Consortium, Lide Han, Xuefang Zhao, Mary Lauren Benton,..., and Douglas M. Ruderfer. 2020. “Functional Annotation of Rare Structural Variation in the Human Brain.” <em>Nature Communications</em>. <a href="https://doi.org/10.1038/s41467-020-16736-1">https://doi.org/10.1038/s41467-020-16736-1</a>.</p>
 </div>
 <div id="ref-Cooper2007">
 <p>Cooper, Gregory M., Deborah A. Nickerson, and Evan E. Eichler. 2007. “Mutational and Selective Effects on Copy-Number Variants in the Human Genome.” <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng2054">https://doi.org/10.1038/ng2054</a>.</p>
@@ -498,10 +563,10 @@ Anyway they propose that LOY become one of the markers used for personalized med
 <div id="ref-Costain2016">
 <p>Costain, Gregory, Candice K Silversides, and Anne S Bassett. 2016. “The Importance of Copy Number Variation in Congenital Heart Disease.” <em>Npj Genomic Medicine</em>. <a href="https://doi.org/10.1038/npjgenmed.2016.31">https://doi.org/10.1038/npjgenmed.2016.31</a>.</p>
 </div>
-<div id="ref-De2011a">
+<div id="ref-De2011">
 <p>De, Subhajyoti, and Franziska Michor. 2011a. “DNA Replication Timing and Long-Range DNA Interactions Predict Mutational Landscapes of Cancer Genomes.” <em>Nature Biotechnology</em>. <a href="https://doi.org/10.1038/nbt.2030">https://doi.org/10.1038/nbt.2030</a>.</p>
 </div>
-<div id="ref-De2011">
+<div id="ref-De2011a">
 <p>———. 2011b. “DNA Secondary Structures and Epigenetic Determinants of Cancer Genome Evolution.” <em>Nature Structural &amp; Molecular Biology</em>. <a href="https://doi.org/10.1038/nsmb.2089">https://doi.org/10.1038/nsmb.2089</a>.</p>
 </div>
 <div id="ref-Dear2009">
@@ -520,10 +585,13 @@ Anyway they propose that LOY become one of the markers used for personalized med
 <p>González, Juan R, Carlos Ruiz-Arenas, Alejandro Cáceres, Ignasi Morán,..., and Luis A Pérez-Jurado. 2019. “Polymorphic Inversions Underlie the Shared Genetic Susceptibility to Prevalent Common Diseases.” <em>bioRxiv</em>. <a href="https://doi.org/10.1101/859280">https://doi.org/10.1101/859280</a>.</p>
 </div>
 <div id="ref-Handsaker2015">
-<p>Handsaker, Robert E, Van DorenVanessa, Jennifer R Berman, Giulio Genovese,..., and Steven a McCarroll. 2015. “Large Multiallelic Copy Number Variations in Humans.” <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng.3200">https://doi.org/10.1038/ng.3200</a>.</p>
+<p>Handsaker, Robert E, Vanessa Van Doren, Jennifer R Berman, Giulio Genovese,..., and Steven a McCarroll. 2015. “Large Multiallelic Copy Number Variations in Humans.” <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng.3200">https://doi.org/10.1038/ng.3200</a>.</p>
 </div>
 <div id="ref-Helbig2014">
 <p>Helbig, Ingo, Marielle E.M. Swinkels, Emmelien Aten, Almuth Caliebe,..., and Bobby P.C. Koeleman. 2014. “Structural Genomic Variation in Childhood Epilepsies with Complex Phenotypes.” <em>European Journal of Human Genetics</em>. <a href="https://doi.org/10.1038/ejhg.2013.262">https://doi.org/10.1038/ejhg.2013.262</a>.</p>
+</div>
+<div id="ref-Hiatt2020">
+<p>Hiatt, Susan M., James M.J. Lawlor, Lori H. Handley, Ryne C. Ramaker,..., and Gregory M. Cooper. 2020. “Long-Read Genome Sequencing for the Diagnosis of Neurodevelopmental Disorders.” <em>bioRxiv</em>. <a href="https://doi.org/10.1101/2020.07.02.185447">https://doi.org/10.1101/2020.07.02.185447</a>.</p>
 </div>
 <div id="ref-Ionita-Laza2009">
 <p>Ionita-Laza, Iuliana, Angela J. Rogers, Christoph Lange, Benjamin A. Raby, and Charles Lee. 2009. “Genetic Association Analysis of Copy-Number Variation (CNV) in Human Disease Pathogenesis.” <em>Genomics</em>. <a href="https://doi.org/10.1016/j.ygeno.2008.08.012">https://doi.org/10.1016/j.ygeno.2008.08.012</a>.</p>
@@ -532,7 +600,7 @@ Anyway they propose that LOY become one of the markers used for personalized med
 <p>Jeanpierre, M, C Turleau, A Aurias, M Prieur,..., and E Viegas-Pequignot. 1993. “An Embryonic-Like Methylation Pattern of Classical Satellite DNA Is Observed in ICF Syndrome.” <em>Human Molecular Genetics</em>.</p>
 </div>
 <div id="ref-Kim2013b">
-<p>Kim, Jong Kyoung, and John C Marioni. 2013. “Inferring the Kinetics of Stochastic Gene Expression from Single-Cell RNA-Sequencing Data.” <em>Genome Biology</em>. <a href="https://doi.org/10.1186/gb-2013-14-1-r7">https://doi.org/10.1186/gb-2013-14-1-r7</a>.</p>
+<p>Kim, Tae-Min, Peter W. Laird, and Peter J. Park. 2013. “The Landscape of Microsatellite Instability in Colorectal and Endometrial Cancer Genomes.” <em>Cell</em>. <a href="https://doi.org/10.1016/j.cell.2013.10.015">https://doi.org/10.1016/j.cell.2013.10.015</a>.</p>
 </div>
 <div id="ref-Lee2010">
 <p>Lee, Charles, and Stephen W. Scherer. 2010. “The Clinical Context of Copy Number Variation in the Human Genome.” <em>Expert Reviews in Molecular Medicine</em>. <a href="https://doi.org/10.1017/S1462399410001390">https://doi.org/10.1017/S1462399410001390</a>.</p>
@@ -541,7 +609,7 @@ Anyway they propose that LOY become one of the markers used for personalized med
 <p>Li, Yudong, Li Zhang, Robyn L. Ball, Xinle Liang,..., and Han Liang. 2012. “Comparative Analysis of Somatic Copy-Number Alterations Across Different Human Cancer Types Reveals Two Distinct Classes of Breakpoint Hotspots.” <em>Human Molecular Genetics</em>. <a href="https://doi.org/10.1093/hmg/dds340">https://doi.org/10.1093/hmg/dds340</a>.</p>
 </div>
 <div id="ref-Lower2009">
-<p>Lower, Karen M, Jim R Hughes, De GobbiMarco, Shirley Henderson,..., and Douglas R Higgs. 2009. “Adventitious Changes in Long-Range Gene Expression Caused by Polymorphic Structural Variation and Promoter Competition.” <em>Proceedings of the National Academy of Sciences of the United States of America</em>. <a href="https://doi.org/10.1073/pnas.0909331106">https://doi.org/10.1073/pnas.0909331106</a>.</p>
+<p>Lower, Karen M, Jim R Hughes, Marco De Gobbi, Shirley Henderson,..., and Douglas R Higgs. 2009. “Adventitious Changes in Long-Range Gene Expression Caused by Polymorphic Structural Variation and Promoter Competition.” <em>Proceedings of the National Academy of Sciences of the United States of America</em>. <a href="https://doi.org/10.1073/pnas.0909331106">https://doi.org/10.1073/pnas.0909331106</a>.</p>
 </div>
 <div id="ref-Lupianez2015">
 <p>Lupiáñez, Daŕio G., Katerina Kraft, Verena Heinrich, Peter Krawitz,..., and Stefan Mundlos. 2015. “Disruptions of Topological Chromatin Domains Cause Pathogenic Rewiring of Gene-Enhancer Interactions.” <em>Cell</em>. <a href="https://doi.org/10.1016/j.cell.2015.04.004">https://doi.org/10.1016/j.cell.2015.04.004</a>.</p>
@@ -556,7 +624,7 @@ Anyway they propose that LOY become one of the markers used for personalized med
 <p>Mefford, Heather C., and Evan E. Eichler. 2009. “Duplication Hotspots, Rare Genomic Disorders, and Common Disease.” <em>Current Opinion in Genetics &amp; Development</em>. <a href="https://doi.org/10.1016/j.gde.2009.04.003">https://doi.org/10.1016/j.gde.2009.04.003</a>.</p>
 </div>
 <div id="ref-Mefford2010">
-<p>Mefford, Heather C., Hiltrud Muhle, Philipp Ostertag, von SpiczakSarah,..., and Evan E. Eichler. 2010. “Genome-Wide Copy Number Variation in Epilepsy: Novel Susceptibility Loci in Idiopathic Generalized and Focal Epilepsies.” <em>PLoS Genetics</em>. <a href="https://doi.org/10.1371/journal.pgen.1000962">https://doi.org/10.1371/journal.pgen.1000962</a>.</p>
+<p>Mefford, Heather C., Hiltrud Muhle, Philipp Ostertag, Sarah von Spiczak,..., and Evan E. Eichler. 2010. “Genome-Wide Copy Number Variation in Epilepsy: Novel Susceptibility Loci in Idiopathic Generalized and Focal Epilepsies.” <em>PLoS Genetics</em>. <a href="https://doi.org/10.1371/journal.pgen.1000962">https://doi.org/10.1371/journal.pgen.1000962</a>.</p>
 </div>
 <div id="ref-Mefford2011">
 <p>Mefford, Heather C., Simone C. Yendle, Cynthia Hsu, Joseph Cook,..., and Ingrid E. Scheffer. 2011. “Rare Copy Number Variants Are an Important Cause of Epileptic Encephalopathies.” <em>Annals of Neurology</em>. <a href="https://doi.org/10.1002/ana.22645">https://doi.org/10.1002/ana.22645</a>.</p>
@@ -591,8 +659,8 @@ Anyway they propose that LOY become one of the markers used for personalized med
 <div id="ref-Sharp2006">
 <p>Sharp, Andrew J., Ze Cheng, and Evan E. Eichler. 2006. “Structural Variation of the Human Genome.” <em>Annual Review of Genomics and Human Genetics</em>. <a href="https://doi.org/10.1146/annurev.genom.7.080505.115618">https://doi.org/10.1146/annurev.genom.7.080505.115618</a>.</p>
 </div>
-<div id="ref-Stranger2007b">
-<p>Stranger, Barbara E, Matthew S Forrest, Mark Dunning, Catherine E Ingle,..., and Emmanouil T Dermitzakis. 2007. “Expression Phenotypes.” <em>Recherche</em>. <a href="https://doi.org/DOI: 10.1126/science.1137223">https://doi.org/DOI: 10.1126/science.1137223</a>.</p>
+<div id="ref-Stranger2007a">
+<p>Stranger, Barbara E, Matthew S Forrest, Mark Dunning, Catherine E Ingle,..., and Emmanouil T Dermitzakis. 2007. “Relative Impact of Nucleotide and Copy Number Variation on Gene Expression Phenotypes.” <em>Science (New York, N.Y.)</em>. <a href="https://doi.org/10.1126/science.1136678">https://doi.org/10.1126/science.1136678</a>.</p>
 </div>
 <div id="ref-Sudmant2015a">
 <p>Sudmant, P. H., S. Mallick, B. J. Nelson, F. Hormozdiari,..., and E. E. Eichler. 2015. “Global Diversity, Population Stratification, and Selection of Human Copy Number Variation.” <em>Science</em>. <a href="https://doi.org/10.1126/science.aab3761">https://doi.org/10.1126/science.aab3761</a>.</p>

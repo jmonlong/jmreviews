@@ -21,10 +21,10 @@ keepinfo = args.fields.split(',') + ['jmreviews']
 tagre = re.compile(' *([a-z]+).*=.*')
 citere = re.compile('.*{([^,]+),')
 
-print "Original bib file: \t" + args.bib
-print "Output file: \t" + args.out
-print "BibTeX fields: \t" + args.fields
-print "Max # authors: \t" + str(args.nauths)
+print("Original bib file: \t" + args.bib)
+print("Output file: \t" + args.out)
+print("BibTeX fields: \t" + args.fields)
+print("Max # authors: \t" + str(args.nauths))
 
 
 class Citation:
@@ -77,7 +77,9 @@ class CitationList:
 
     def parseCit(self, line, fileCon):
         while(line.find('@') == -1):
-            line = fileCon.next()
+            line = next(fileCon)
+        if line.find('@preamble') == 0:
+            return False
         cit = Citation(line)
         for line in fileCon:
             if(line.find('@') == 0):
@@ -90,8 +92,8 @@ class CitationList:
         return False
 
     def parseBib(self, filename):
-        ffile = open(filename)
-        line = self.parseCit(ffile.next(), ffile)
+        ffile = open(filename, 'r')
+        line = self.parseCit(next(ffile), ffile)
         while(line):
             line = self.parseCit(line, ffile)
         ffile.close()
@@ -101,7 +103,7 @@ class CitationList:
         cits = [cit.ref for cit in self.cits]
         for cit in citToWrite:
             if cit not in cits:
-                print 'Missing ref: ' + cit
+                print('Missing ref: ' + cit)
         outCon = open(outBib, 'w')
         for cit in self.cits:
             if cit.ref in citToWrite:

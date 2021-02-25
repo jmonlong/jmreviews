@@ -38,6 +38,7 @@ output:
 <li><a href="#visualization">Visualization</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#long-read-sequencing">Long-read sequencing</a></li>
 <li><a href="#single-cell-sequencing">Single-cell sequencing</a><ul>
 <li><a href="#from-scrna-seq">From scRNA-seq</a></li>
 </ul></li>
@@ -65,7 +66,7 @@ Anyway, it was such a big improvement in the CNV detection field that it deserve
 <p>DNA from a test sample and normal reference sample are labeled differentially, using different fluorophores, and hybridized to several thousand probes.
 The probes are derived from most of the known genes and non-coding regions of the genome, printed on a glass slide.</p>
 <div class="figure">
-<img src="/Array-CGH_protocol.svg" alt="" />
+<img src="/Array-CGH_protocol.svg" alt="Protocol" />
 <p class="caption">Protocol</p>
 </div>
 <p>Using this method, copy number changes at a level of <strong>5–10 kilobases</strong> of DNA sequences can be detected.
@@ -74,22 +75,22 @@ As of 2006, even high-resolution CGH (<em>HR-CGH</em>) arrays are accurate to de
 This technology is not able to detect balanced chromosomal imbalances as translocations or inversions.</p>
 <div id="circular-binary-segmentation" class="section level2">
 <h2>Circular binary segmentation</h2>
-<p>For example improved by <span class="citation">Venkatraman and Olshen (<a href="#ref-Venkatraman2007" role="doc-biblioref">2007</a>)</span>, CBS iteratively identify segment with different mean value.</p>
+<p>For example improved by <span class="citation">Venkatraman and Olshen (<a href="#ref-Venkatraman2007">2007</a>)</span>, CBS iteratively identify segment with different mean value.</p>
 <p>It computes a maximal t-statistic \(T=max_{1 i &lt; j m}|T_{ij}|\), where \(T_{ij}\) compared the mean of observations between <em>i+1</em> and <em>j</em> to the rest using the formula:</p>
 <p><span class="math display">\[ T_{ij} = \frac{\bar{Y}_{ij}-\bar{Z}_{ij}}{s_{ij}\{(j-i)^{-1}+(m-j+i)^{-1}\}^{1/2}} \]</span></p>
 <p>where <span class="math display">\[\bar{Y}_{ij}\]</span> and <span class="math display">\[\bar{Z}_{ij}\]</span> are the mean values within and outside of <em>i</em> and <em>j</em>.</p>
 </div>
 <div id="shifting-level-model" class="section level2">
 <h2>Shifting Level Model</h2>
-<p><span class="citation">Magi et al. (<a href="#ref-Magi2010" role="doc-biblioref">2010</a>)</span> model the \(log_2\) ratios as the sum of two independent stochastic processes.
+<p><span class="citation">Magi et al. (<a href="#ref-Magi2010">2010</a>)</span> model the \(log_2\) ratios as the sum of two independent stochastic processes.
 One is the biological process and results from variation in DNA copy number while the second one models the noise due to technical errors.</p>
 </div>
 </div>
 <div id="snp-array" class="section level1">
 <h1>SNP-array</h1>
-<p>Some methods are implemented for normal genomes (PennCNV <span class="citation">(Chen et al. <a href="#ref-Chen2013" role="doc-biblioref">2013</a>)</span>, iPattern, QuantiSNP, Birdsuite, Genotyping Console).
-Others are capable of dealing with complex signal in tumoral samples (ASCAT <span class="citation">(Van Loo et al. <a href="#ref-VanLoo2010" role="doc-biblioref">2010</a>)</span>, GAP <span class="citation">(Popova et al. <a href="#ref-Popova2009" role="doc-biblioref">2009</a>)</span>).</p>
-<p>Concordance between the results of different methods is often weak, pushing several studies to adopt an ensemble approach. In this approach, several (2-3 usually) methods are ran on the same SNP-array and discordant calls are filtered <span class="citation">(Walker and Scherer <a href="#ref-Walker2013" role="doc-biblioref">2013</a>)</span>.</p>
+<p>Some methods are implemented for normal genomes (PennCNV <span class="citation">(Chen et al. <a href="#ref-Chen2013">2013</a>)</span>, iPattern, QuantiSNP, Birdsuite, Genotyping Console).
+Others are capable of dealing with complex signal in tumoral samples (ASCAT <span class="citation">(Van Loo et al. <a href="#ref-VanLoo2010">2010</a>)</span>, GAP <span class="citation">(Popova et al. <a href="#ref-Popova2009">2009</a>)</span>).</p>
+<p>Concordance between the results of different methods is often weak, pushing several studies to adopt an ensemble approach. In this approach, several (2-3 usually) methods are ran on the same SNP-array and discordant calls are filtered <span class="citation">(Walker and Scherer <a href="#ref-Walker2013">2013</a>)</span>.</p>
 </div>
 <div id="short-read-sequencing" class="section level1">
 <h1>Short-read sequencing</h1>
@@ -102,17 +103,17 @@ Most of the time, random distribution of the sequenced reads across the genome i
 Yet several technical factors affect read depth (GC content, open regions, mappability) and are not completely corrected for.</p>
 <div id="rd-in-one-sample" class="section level3">
 <h3>RD in one sample</h3>
-<p>In <span class="citation">Campbell et al. (<a href="#ref-Campbell2008" role="doc-biblioref">2008</a>)</span> <strong>circular binary segmentation</strong> algorithm is adapted.
+<p>In <span class="citation">Campbell et al. (<a href="#ref-Campbell2008">2008</a>)</span> <strong>circular binary segmentation</strong> algorithm is adapted.
 Two lung cancer cell lines were sequenced using GenomeAnalyzer: paired end 29-36bp reads with ~200/400 bp insert size.
 The main discovery approach used paired end information; RD was used as additional information.</p>
 <p>Coverage was normalized using custom bin size estimated from a simulation analysis to standardize the number of unique mapping.
 It resulted in ~425 simulated reads per bin and an average bin size of 15 Kbp.
 Region within 1Mb of the centromere or telomere were discarded.
-To detect copy number variation, a method was adapted from array CGH approach using a fast version of circular binary segmentation algorithm, implemented in *DNACopy} package from Bioconductor <span class="citation">(Venkatraman and Olshen <a href="#ref-Venkatraman2007" role="doc-biblioref">2007</a>)</span>.</p>
+To detect copy number variation, a method was adapted from array CGH approach using a fast version of circular binary segmentation algorithm, implemented in *DNACopy} package from Bioconductor <span class="citation">(Venkatraman and Olshen <a href="#ref-Venkatraman2007">2007</a>)</span>.</p>
 <p>The minimum event detected was 30 Kbp long.
 They also noticed some amplicon amplification with up to 35-50 fold amplification.</p>
 <hr />
-<p><strong>RDXplorer</strong> aka Event-Wise Testing is used on single read sequencing results(~30X coverage) from Genome Analyzer <span class="citation">(Yoon et al. <a href="#ref-Yoon2009" role="doc-biblioref">2009</a>)</span>.
+<p><strong>RDXplorer</strong> aka Event-Wise Testing is used on single read sequencing results(~30X coverage) from Genome Analyzer <span class="citation">(Yoon et al. <a href="#ref-Yoon2009">2009</a>)</span>.
 The method was applied to five samples (CEU trio: NA12878 NA12891 NA12892 + NA18507 YH).</p>
 <p>The genome was cut into 100 bp windows in order to ensure breakpoint identification accuracy and small event detection.
 The normality was assessed with QQplot and loosely accepted.
@@ -130,7 +131,7 @@ However, instead of overlapping the SVs for the correspondent samples, they used
 Finally, they compared their results to the one from PEM approaches on the same samples.
 The SVs detected being very different between the two techniques, the conclusion was that both methods had his advantages to different types of SVs.</p>
 <hr />
-<p><strong>mrFAST</strong> was used to map more robustly reads to duplicated regions of the human genome <span class="citation">(Alkan et al. <a href="#ref-Alkan2009" role="doc-biblioref">2009</a>)</span>.
+<p><strong>mrFAST</strong> was used to map more robustly reads to duplicated regions of the human genome <span class="citation">(Alkan et al. <a href="#ref-Alkan2009">2009</a>)</span>.
 Previous knowledge on the copy number state guided the parameter of the segmentation approach.
 In the end, 6 out of 7 consecutive bins (5 Kbp) with a deviation exceeding 3 SD defined a CNV call.
 They also corrected for GC bias using a LOESS-based smoothing technique.</p>
@@ -138,7 +139,7 @@ They also corrected for GC bias using a LOESS-based smoothing technique.</p>
 <p><strong>Control-FREEC</strong> can run on one sample although it is recommended to provide a control.
 More on the method <a href="#controlfreec">below</a>.</p>
 <hr />
-<p><strong>CNVnator</strong> combines mean-shift approach with additional refinements as GC correction and multiple-bandwidth partitioning <span class="citation">(Abyzov et al. <a href="#ref-Abyzov2011" role="doc-biblioref">2011</a>)</span>.
+<p><strong>CNVnator</strong> combines mean-shift approach with additional refinements as GC correction and multiple-bandwidth partitioning <span class="citation">(Abyzov et al. <a href="#ref-Abyzov2011">2011</a>)</span>.
 It rapidly (a few hours) analyze small bins (around 100bp) to detect CNVs from a wide range of sizes (hundreds to megabases in length).</p>
 <p>GC bias was corrected by binning and average adjustment.
 The bins were partitioned into segment using a mean-shift technique, that comes from image processing.
@@ -157,27 +158,27 @@ They didn’t validate any but mentioned that the immunoglobulin lambda locus wa
 <hr />
 <p><strong>cnD</strong> (Jared Simpson and Richard Durbin) is HMM approach using RD and allele imbalance to call CNVs from homozygous strains of mice.</p>
 <hr />
-<p><strong>CNV-TV</strong> uses total variation penalized least squares model to detect changes in RD of a sample <span class="citation">(Duan et al. <a href="#ref-Duan2013a" role="doc-biblioref">2013</a>)</span>.
+<p><strong>CNV-TV</strong> uses total variation penalized least squares model to detect changes in RD of a sample <span class="citation">(Duan et al. <a href="#ref-Duan2013a">2013</a>)</span>.
 It improves the segmentation.
 Apparently better across a wider range of sizes and copy numbers compared to other methods.
 Also better breakpoint accuracy.</p>
 <p>The figures are a bit unusual, maybe the authors’ background leans more toward math/CS?</p>
 <hr />
-<p><strong>CNVfinder</strong> uses HMM to model bias and coverage variation using a negative binomial <span class="citation">(McCallum and Wang <a href="#ref-McCallum2013" role="doc-biblioref">2013</a>)</span>.
+<p><strong>CNVfinder</strong> uses HMM to model bias and coverage variation using a negative binomial <span class="citation">(McCallum and Wang <a href="#ref-McCallum2013">2013</a>)</span>.
 After normalization the coverage follows even less a Poisson so a negative binomial is better suited.
 The coverage, GC content and mappability are included in the emission probabilities.</p>
 <p>The package name changed from the beginning of the paper to the end (CNVwire).</p>
 <hr />
-<p><strong><span class="citation">Sepúlveda et al. (<a href="#ref-Sepulveda2013" role="doc-biblioref">2013</a>)</span></strong> developed a more flexible Poisson model to analyze genomes of micro-organisms, such as malaria.
+<p><strong><span class="citation">Sepúlveda et al. (<a href="#ref-Sepulveda2013">2013</a>)</span></strong> developed a more flexible Poisson model to analyze genomes of micro-organisms, such as malaria.
 The rate of the Poisson distribution varies across the genome according to a Gamma (negative binomial) or Lognormal distribution.</p>
 <hr />
-<p><strong>GENSENG</strong> <span class="citation">(Szatkiewicz et al. <a href="#ref-Szatkiewicz2013" role="doc-biblioref">2013</a>)</span> uses a complex HMM strategy to fit different models in order to take into account biases.
+<p><strong>GENSENG</strong> <span class="citation">(Szatkiewicz et al. <a href="#ref-Szatkiewicz2013">2013</a>)</span> uses a complex HMM strategy to fit different models in order to take into account biases.
 A negative binomial is used to account to over-dispersion and the effect of confounders.
 Unknown confounders are taken into account by the over-dispersion parameter and a noise component in a mixture model.
 The input is a triplet of RD, GC content and mappability for each bin.
 They used 500 bp windows with 200 bp overlap (why not).</p>
 <hr />
-<p><strong>GROM-RD</strong> <span class="citation">(Smith, Kawash, and Grigoriev <a href="#ref-Smith2015" role="doc-biblioref">2015</a>)</span> aims at removing genomic biases before performing segmentation.
+<p><strong>GROM-RD</strong> <span class="citation">(Smith, Kawash, and Grigoriev <a href="#ref-Smith2015">2015</a>)</span> aims at removing genomic biases before performing segmentation.
 It’s unique features include excessive coverage masking, GC bias mean and variance normalization, GC weighting, dinucleotide repeat bias correction and usage of bins of mutliple sizes.
 Masking regions with excessive coverage is actually used only in the <em>no-repeat</em> mode and the method is also ran on the unmasked genome with both call sets outputted in the end.
 The GC content is computed from the GC weights which are computed at the base level using bases within the average insert size.
@@ -189,7 +190,7 @@ Comprehensive but also a lot of arbitrary thresholds.</p>
 <h3>Case vs Control</h3>
 <p>The RD in the case sample is compared to the control sample. The concept is similar to aCGH, but with much more data points and control.</p>
 <hr />
-<p><strong>SegSeq</strong> <span class="citation">(Chiang et al. <a href="#ref-Chiang2009" role="doc-biblioref">2009</a>)</span> uses a different approach, it looks for breakpoints comparing tumor-normal log-ratio of two consecutive windows.
+<p><strong>SegSeq</strong> <span class="citation">(Chiang et al. <a href="#ref-Chiang2009">2009</a>)</span> uses a different approach, it looks for breakpoints comparing tumor-normal log-ratio of two consecutive windows.
 Random distribution of the sequenced read and Poisson is assumed.
 Using the normal sample as control should take care of most of the GC bias and mappability.
 It’s not clear in the main text how the RD from the two samples are normalized.</p>
@@ -198,28 +199,28 @@ A P-value is derived from the differences between the two log-ratios.
 Candidate breakpoints (\(P-value&gt;p_{init}\)) are then eliminated by recomputing the P-value using the whole segments and tested against a minimal \(p_{merge}\).</p>
 <p>The events detected in their application ranged from 29kb to 582kb.</p>
 <hr />
-<p><strong>CNV-seq</strong> <span class="citation">(Xie and Tammi <a href="#ref-Xie2009" role="doc-biblioref">2009</a>)</span> tries to estimate the best window size and uses \(log_2\) copy ratio between two samples and a sliding-window approach.
+<p><strong>CNV-seq</strong> <span class="citation">(Xie and Tammi <a href="#ref-Xie2009">2009</a>)</span> tries to estimate the best window size and uses \(log_2\) copy ratio between two samples and a sliding-window approach.
 It uses a Poisson model and assumes the reads are randomly distributed across the genome.
 Heavily inspired by aCGH technology.
 Statistical analysis of power according to coverage but practical use not really described/clear.</p>
 <hr />
-<p><strong>CNAseg</strong> <span class="citation">(Ivakhno et al. <a href="#ref-Ivakhno2010" role="doc-biblioref">2010</a>)</span> segments RD signal using a HMM tumor-normal approach.
+<p><strong>CNAseg</strong> <span class="citation">(Ivakhno et al. <a href="#ref-Ivakhno2010">2010</a>)</span> segments RD signal using a HMM tumor-normal approach.
 Notably, the difference in read counts between normal and tumor is used and modeled by Skellam distribution.</p>
 <p>Normal and tumor read counts are normalized by their total number of reads beforehand.
 GC bias is corrected using LOESS regression and mappability issues are <em>taken care</em> of by smoothing the signal with Discrete Wavelet Transform.</p>
 <p>On the last steps, segments are merged using a \(^2\) test.
 The threshold for the test is derived by mixing flowcells from normal and tumor and running control segmentation expected to contain only noise.</p>
 <hr />
-<p><strong>ExomeCNV</strong> <span class="citation">(Sathirapongsasuti et al. <a href="#ref-Sathirapongsasuti2011" role="doc-biblioref">2011</a>)</span> looks at the coverage and B allele frequency in exome sequencing data.</p>
+<p><strong>ExomeCNV</strong> <span class="citation">(Sathirapongsasuti et al. <a href="#ref-Sathirapongsasuti2011">2011</a>)</span> looks at the coverage and B allele frequency in exome sequencing data.</p>
 <hr />
-<p><strong>BIC-seq</strong> <span class="citation">(Xi et al. <a href="#ref-Xi2011" role="doc-biblioref">2011</a>)</span> minimize the Bayesian information criterion in order to get the best segmentation of the tumor/normal RD ratio.</p>
+<p><strong>BIC-seq</strong> <span class="citation">(Xi et al. <a href="#ref-Xi2011">2011</a>)</span> minimize the Bayesian information criterion in order to get the best segmentation of the tumor/normal RD ratio.</p>
 <hr />
-<p><strong>VarScan 2</strong> <span class="citation">(Koboldt et al. <a href="#ref-Koboldt2012" role="doc-biblioref">2012</a>)</span> apply log ratio approach to exome data, controlling carefully for similar sequencing of the normal and tumor sample(similar hybridization).</p>
+<p><strong>VarScan 2</strong> <span class="citation">(Koboldt et al. <a href="#ref-Koboldt2012">2012</a>)</span> apply log ratio approach to exome data, controlling carefully for similar sequencing of the normal and tumor sample(similar hybridization).</p>
 <p><strong>+++</strong></p>
 <hr />
 <div id="controlfreec" class="section level6">
 <h6></h6>
-<p><strong>Control-FREEC</strong> <span class="citation">(Boeva et al. <a href="#ref-Boeva2011" role="doc-biblioref">2011</a>, <a href="#ref-Boeva2012" role="doc-biblioref">2012</a>)</span> aims at predicting copy number variation along with LOH.
+<p><strong>Control-FREEC</strong> <span class="citation">(Boeva et al. <a href="#ref-Boeva2011">2011</a>, <a href="#ref-Boeva2012">2012</a>)</span> aims at predicting copy number variation along with LOH.
 The read depth can be corrected for GC bias and mappability if a control sample is unavailable.
 For cancer, the method can also estimate the stromal contamination or ploidy.
 Both germline and somatic variants can be called.</p>
@@ -237,28 +238,28 @@ First, the windows are segmented using the same lasso-based algorithm on the med
 This new set of breakpoints is merged with the RD-based breakpoints.
 The copy number in each segment is based on the RD but the genotyping on the BAF (maximum likelihood using Gaussian mixture models).</p>
 <hr />
-<p><strong>CNAnorm</strong> <span class="citation">(Gusnanto et al. <a href="#ref-Gusnanto2012" role="doc-biblioref">2012</a>)</span> corrects for cancer genome size and tumour cell content to segment tumor/normal RD ratios.</p>
+<p><strong>CNAnorm</strong> <span class="citation">(Gusnanto et al. <a href="#ref-Gusnanto2012">2012</a>)</span> corrects for cancer genome size and tumour cell content to segment tumor/normal RD ratios.</p>
 <hr />
-<p><strong>CoNVEX</strong> <span class="citation">(Amarasinghe, Li, and Halgamuge <a href="#ref-Amarasinghe2013" role="doc-biblioref">2013</a>)</span> is an exome approach using discrete wavelet transform on tumor/normal coverage ratio in each exonic region. The segmentation is performed through Hidden Markov Models.</p>
+<p><strong>CoNVEX</strong> <span class="citation">(Amarasinghe, Li, and Halgamuge <a href="#ref-Amarasinghe2013">2013</a>)</span> is an exome approach using discrete wavelet transform on tumor/normal coverage ratio in each exonic region. The segmentation is performed through Hidden Markov Models.</p>
 <hr />
-<p><strong>WaveCNV</strong> <span class="citation">(Holt et al. <a href="#ref-Holt2013" role="doc-biblioref">2013</a>)</span> uses a translation-invariant discrete wavelet transform to detect CNV breakpoints from tumor/normal RD ratios.</p>
+<p><strong>WaveCNV</strong> <span class="citation">(Holt et al. <a href="#ref-Holt2013">2013</a>)</span> uses a translation-invariant discrete wavelet transform to detect CNV breakpoints from tumor/normal RD ratios.</p>
 <hr />
-<p><strong>AbsCN-seq</strong> <span class="citation">(Bao, Pu, and Messer <a href="#ref-Bao2014" role="doc-biblioref">2014</a>)</span> is an exome approach to detect tumoral variant taking into account purity and ploidy.</p>
+<p><strong>AbsCN-seq</strong> <span class="citation">(Bao, Pu, and Messer <a href="#ref-Bao2014">2014</a>)</span> is an exome approach to detect tumoral variant taking into account purity and ploidy.</p>
 <hr />
-<p><strong>CONSERTING</strong> <span class="citation">(Chen et al. <a href="#ref-Chen2015" role="doc-biblioref">2015</a>)</span> uses regression trees to segment the tumor/normal coverage ratio.</p>
+<p><strong>CONSERTING</strong> <span class="citation">(Chen et al. <a href="#ref-Chen2015">2015</a>)</span> uses regression trees to segment the tumor/normal coverage ratio.</p>
 <p>Interestingly the breakpoint are fine-tuned using local SV detection around the segmented calls with <em>CREST</em>.</p>
 </div>
 </div>
 <div id="choosing-the-optimal-window-size" class="section level3">
 <h3>Choosing the optimal window size</h3>
-<p>Control-FREEC defines the optimal window size using the theoretical coefficient of variation in a window <span class="citation">(Boeva et al. <a href="#ref-Boeva2011" role="doc-biblioref">2011</a>)</span>.
+<p>Control-FREEC defines the optimal window size using the theoretical coefficient of variation in a window <span class="citation">(Boeva et al. <a href="#ref-Boeva2011">2011</a>)</span>.
 This CV is computed from the total read count, assuming a Poisson distribution.
 The authors suggest a CV from 0.05 and 0.1.</p>
 </div>
 </div>
 <div id="rd-in-several-samples" class="section level2">
 <h2>RD in several samples</h2>
-<p><strong>JointSLM</strong> <span class="citation">(Magi et al. <a href="#ref-Magi2011" role="doc-biblioref">2011</a>)</span> simultaneously analyzes several samples to increase statistical power to detect shared events.
+<p><strong>JointSLM</strong> <span class="citation">(Magi et al. <a href="#ref-Magi2011">2011</a>)</span> simultaneously analyzes several samples to increase statistical power to detect shared events.
 It can detect common CNVs as small as 500 bp in their analysis.</p>
 <p>Uniform distribution of the reads is assumed to use and model the count data as the same Poisson for the entire genome.
 A specific Hidden-Markov Model, coined Shifting Level Model (SLM) model the log2 ratios as a mixture of a white noise process and a biological process.
@@ -278,27 +279,27 @@ Using known annotation (DGV, then GSV) JointSLM had 58% specificity and 43% sens
 <p>Finally, they used the copy number to cluster regions and samples.
 They found two clear clusters that represented sample ancestry.</p>
 <hr />
-<p><strong>Copynumber</strong> <span class="citation">(Nilsen et al. <a href="#ref-Nilsen2012" role="doc-biblioref">2012</a>)</span> is a R package that can analyze single of multiple samples together to segment the genome.</p>
+<p><strong>Copynumber</strong> <span class="citation">(Nilsen et al. <a href="#ref-Nilsen2012">2012</a>)</span> is a R package that can analyze single of multiple samples together to segment the genome.</p>
 <hr />
-<p><strong>cn.MOPS</strong> <span class="citation">(Klambauer et al. <a href="#ref-Klambauer2012" role="doc-biblioref">2012</a>)</span> integrates in their Bayesian model , read depth signal for all samples.
+<p><strong>cn.MOPS</strong> <span class="citation">(Klambauer et al. <a href="#ref-Klambauer2012">2012</a>)</span> integrates in their Bayesian model , read depth signal for all samples.
 They use a mixture of Poisson distributions to model the copy number of each sample and technical variation.</p>
 <p><strong>+++++</strong></p>
 <hr />
-<p><strong>XHMM</strong> <span class="citation">(Fromer et al. <a href="#ref-Fromer2012" role="doc-biblioref">2012</a>)</span> applies a PCA-based normalization of exome read depth and performs coverage segmentation using Hidden Markov Model. The RD is normalized using the mean RD across all samples; regions are filtered out if too variable across the samples.</p>
+<p><strong>XHMM</strong> <span class="citation">(Fromer et al. <a href="#ref-Fromer2012">2012</a>)</span> applies a PCA-based normalization of exome read depth and performs coverage segmentation using Hidden Markov Model. The RD is normalized using the mean RD across all samples; regions are filtered out if too variable across the samples.</p>
 <hr />
-<p><strong>CoNIFER</strong> <span class="citation">(Krumm et al. <a href="#ref-Krumm2012" role="doc-biblioref">2012</a>)</span> is an exome approach that normalize coverage and compute Z-score using information from several samples.</p>
+<p><strong>CoNIFER</strong> <span class="citation">(Krumm et al. <a href="#ref-Krumm2012">2012</a>)</span> is an exome approach that normalize coverage and compute Z-score using information from several samples.</p>
 <hr />
-<p><strong>CONTRA</strong> <span class="citation">(Li et al. <a href="#ref-Li2012" role="doc-biblioref">2012</a>)</span> is another exome approach that segment ratios whose baseline is computed using reference samples.</p>
+<p><strong>CONTRA</strong> <span class="citation">(Li et al. <a href="#ref-Li2012">2012</a>)</span> is another exome approach that segment ratios whose baseline is computed using reference samples.</p>
 <hr />
-<p><strong>EXCAVATOR</strong> <span class="citation">(Magi et al. <a href="#ref-Magi2013" role="doc-biblioref">2013</a>)</span> is another exome approach that segment ratios whose baseline is computed using reference samples. It uses Hidden Markov Models.</p>
+<p><strong>EXCAVATOR</strong> <span class="citation">(Magi et al. <a href="#ref-Magi2013">2013</a>)</span> is another exome approach that segment ratios whose baseline is computed using reference samples. It uses Hidden Markov Models.</p>
 <hr />
-<p><strong>FishingCNV</strong> <span class="citation">(Shi and Majewski <a href="#ref-Shi2013" role="doc-biblioref">2013</a>)</span> analyze exome data using information from a set of reference samples.</p>
+<p><strong>FishingCNV</strong> <span class="citation">(Shi and Majewski <a href="#ref-Shi2013">2013</a>)</span> analyze exome data using information from a set of reference samples.</p>
 <hr />
-<p><strong>PatternCNV</strong> <span class="citation">(Wang et al. <a href="#ref-Wang2014" role="doc-biblioref">2014</a>)</span> analyze exome data using information from a set of reference samples.</p>
+<p><strong>PatternCNV</strong> <span class="citation">(Wang et al. <a href="#ref-Wang2014">2014</a>)</span> analyze exome data using information from a set of reference samples.</p>
 <hr />
-<p><strong>ONCOCNV</strong> <span class="citation">(Boeva et al. <a href="#ref-Boeva2014" role="doc-biblioref">2014</a>)</span> is an amplicon sequencing approach that includes a multi-factor normalization and annotation of large CNVs. The amplicon technology is particularly useful to detect somatic events.</p>
+<p><strong>ONCOCNV</strong> <span class="citation">(Boeva et al. <a href="#ref-Boeva2014">2014</a>)</span> is an amplicon sequencing approach that includes a multi-factor normalization and annotation of large CNVs. The amplicon technology is particularly useful to detect somatic events.</p>
 <hr />
-<p><strong>CNVkit</strong> <span class="citation">(Talevich et al. <a href="#ref-Talevich2014" role="doc-biblioref">2014</a>)</span> uses off-target reads from targeted sequencing and a series of corrections and normalization.
+<p><strong>CNVkit</strong> <span class="citation">(Talevich et al. <a href="#ref-Talevich2014">2014</a>)</span> uses off-target reads from targeted sequencing and a series of corrections and normalization.
 In a nutshell, non-targeted regions are partitioned in larger bins so that the coverage is comparable to the one in the targeted regions.
 Then a series of normalization and corrections are applied and a typical segmentation approach is performed.</p>
 <p>First the usefulness of off-targeted reads is verified by showing that copy-number correlated with adjacent targeted regions and aCGH data.
@@ -311,9 +312,9 @@ Moreover, several samples (out of not so many) are still outliers and will be in
 They don’t explain how the reference samples are normalized get the average coverage in each bin, they just mention Tuckey’s biweight something.</p>
 <p>The analysis is mostly done using a Python library and is quite fast (supposedly seconds once the reads are counted).</p>
 <hr />
-<p><strong><span class="citation">Glusman et al. (<a href="#ref-Glusman2015" role="doc-biblioref">2015</a>)</span></strong> integrates RD information from thousands of samples. Its normalization and reference building may seem simplistic but it is extremely efficient. It is exactly the goal of the pipeline as it targets clinical usage.</p>
+<p><strong><span class="citation">Glusman et al. (<a href="#ref-Glusman2015">2015</a>)</span></strong> integrates RD information from thousands of samples. Its normalization and reference building may seem simplistic but it is extremely efficient. It is exactly the goal of the pipeline as it targets clinical usage.</p>
 <hr />
-<p><strong>Genome STRiP 2.0</strong> <span class="citation">(Handsaker et al. <a href="#ref-Handsaker2015" role="doc-biblioref">2015</a>)</span> is the extended version of <em>Genome STRiP</em>.
+<p><strong>Genome STRiP 2.0</strong> <span class="citation">(Handsaker et al. <a href="#ref-Handsaker2015">2015</a>)</span> is the extended version of <em>Genome STRiP</em>.
 Now the read depth across many samples is used to detect multi-allelic CNVs.</p>
 <p>Quickly the methods consists in <em>“carefully normalizing”</em> the coverage information across samples and fitting a Gaussian mixture model.
 The normalization seems to be only GC bias correction.
@@ -325,26 +326,26 @@ Complex regions, e.g. mixing both deletions and duplications, or inversions, ar
 </div>
 <div id="methods-for-repeat-rich-regions" class="section level2">
 <h2>Methods for repeat-rich regions</h2>
-<p>Tandem copy-number variation reconstruction by improved multi-mapped reads counting approach was proposed by <span class="citation">He et al. (<a href="#ref-He2011" role="doc-biblioref">2011</a>)</span>.</p>
+<p>Tandem copy-number variation reconstruction by improved multi-mapped reads counting approach was proposed by <span class="citation">He et al. (<a href="#ref-He2011">2011</a>)</span>.</p>
 <hr />
-<p><strong>VariationHunter-CR</strong> <span class="citation">(Hormozdiari et al. <a href="#ref-Hormozdiari2010" role="doc-biblioref">2010</a>)</span> improves their previous PEM approach by modeling transposon insertion. It considers and chooses from the potential multi-mapping of a read to support a SV <span class="citation">(Halper-Stromberg et al. <a href="#ref-Halper-Stromberg2014" role="doc-biblioref">2014</a>)</span>.</p>
+<p><strong>VariationHunter-CR</strong> <span class="citation">(Hormozdiari et al. <a href="#ref-Hormozdiari2010">2010</a>)</span> improves their previous PEM approach by modeling transposon insertion. It considers and chooses from the potential multi-mapping of a read to support a SV <span class="citation">(Halper-Stromberg et al. <a href="#ref-Halper-Stromberg2014">2014</a>)</span>.</p>
 <hr />
-<p><strong>CNVeM</strong> <span class="citation">(Wang et al. <a href="#ref-Wang2013" role="doc-biblioref">2013</a>)</span> uses an Expectation-Maximization to allocate ambiguous reads to the correct location and compute better copy number estimates in repeat-rich regions.</p>
+<p><strong>CNVeM</strong> <span class="citation">(Wang et al. <a href="#ref-Wang2013">2013</a>)</span> uses an Expectation-Maximization to allocate ambiguous reads to the correct location and compute better copy number estimates in repeat-rich regions.</p>
 <hr />
-<p><strong>MELT</strong> finds mobile element insertions. It was developed for the 1000 Genomes Project <span class="citation">(Sudmant et al. <a href="#ref-Sudmant2015a" role="doc-biblioref">2015</a>)</span>.
-It was also used to confirm and characterize a driver somatic L1 insertion in the APC gene in colorectal cancer <span class="citation">(Scott et al. <a href="#ref-Scott2016" role="doc-biblioref">2016</a>)</span>.</p>
+<p><strong>MELT</strong> finds mobile element insertions. It was developed for the 1000 Genomes Project <span class="citation">(Sudmant et al. <a href="#ref-Sudmant2015a">2015</a>)</span>.
+It was also used to confirm and characterize a driver somatic L1 insertion in the APC gene in colorectal cancer <span class="citation">(Scott et al. <a href="#ref-Scott2016">2016</a>)</span>.</p>
 <p>Insertions are detected using the classical PEM/split-read approach: reads are selected if mapping to the TE consensus, then filtered and monitored for breakpoint patterns (target site duplication).</p>
-<p>It generally uses the transducted sequence to identify the source L1 but apparently can also use internal variants (see <span class="citation">Scott et al. (<a href="#ref-Scott2016" role="doc-biblioref">2016</a>)</span>).</p>
+<p>It generally uses the transducted sequence to identify the source L1 but apparently can also use internal variants (see <span class="citation">Scott et al. (<a href="#ref-Scott2016">2016</a>)</span>).</p>
 <hr />
 <p><strong>Mobster</strong> detects mobile element insertion using a similar approach to MELT.</p>
 <hr />
-<p><a href="https://github.com/cancerit/TraFiC"><strong>TraFiC</strong></a> was used in <span class="citation">Tubio et al. (<a href="#ref-Tubio2014" role="doc-biblioref">2014</a>)</span> to detect <strong>somatic L1 insertion in cancer</strong>. It can detect <strong>solo-L1</strong> insertions as well as <strong>partnered and orphan transduction</strong>. With this method they could even reconstruct multi-jumps insertions.</p>
+<p><a href="https://github.com/cancerit/TraFiC"><strong>TraFiC</strong></a> was used in <span class="citation">Tubio et al. (<a href="#ref-Tubio2014">2014</a>)</span> to detect <strong>somatic L1 insertion in cancer</strong>. It can detect <strong>solo-L1</strong> insertions as well as <strong>partnered and orphan transduction</strong>. With this method they could even reconstruct multi-jumps insertions.</p>
 </div>
 <div id="pem-and-split-reads" class="section level2">
 <h2>PEM and Split-reads</h2>
-<p><strong><span class="citation">Tuzun et al. (<a href="#ref-Tuzun2005" role="doc-biblioref">2005</a>)</span></strong> seem to be the first who used paired-end mapping to detect SVs.</p>
+<p><strong><span class="citation">Tuzun et al. (<a href="#ref-Tuzun2005">2005</a>)</span></strong> seem to be the first who used paired-end mapping to detect SVs.</p>
 <hr />
-<p><strong><span class="citation">Korbel et al. (<a href="#ref-Korbel2007" role="doc-biblioref">2007</a>)</span></strong> were one of the first to use paired-end mapping information to detect SVs.
+<p><strong><span class="citation">Korbel et al. (<a href="#ref-Korbel2007">2007</a>)</span></strong> were one of the first to use paired-end mapping information to detect SVs.
 They used outlier from the insert size distribution as well as inverted reads or distal insertions.
 Looking at the paired-end information they could detect insertion, insertion of distal locus, deletions and inversions.
 Two supporting read were necessary to call an event.</p>
@@ -356,46 +357,46 @@ Several SVs were also found in repetitive elements (<em>Alu</em>, L1, L2, SVA, L
 They estimated the origin of their SVs as mainly non-homologous end-joining (NHEJ) (56%), retrotransposition (30%) and a few non-allelic homologous recombination (NAHR) (14%).</p>
 <p>To validate their calls they compared to DGV annotation, Celera assembly, array-CGH and PCR experiments.</p>
 <hr />
-<p><strong><span class="citation">Campbell et al. (<a href="#ref-Campbell2008" role="doc-biblioref">2008</a>)</span></strong> Two lung cancer cell lines were sequenced using GenomeAnalyzer: paired end 29-36 bp reads with ~200/400 bp insert size.</p>
+<p><strong><span class="citation">Campbell et al. (<a href="#ref-Campbell2008">2008</a>)</span></strong> Two lung cancer cell lines were sequenced using GenomeAnalyzer: paired end 29-36 bp reads with ~200/400 bp insert size.</p>
 <p>Aberrant paired reads supported by high mapping quality were targeted by a confirmatory screening (PCR amplification and conventional sequencing) that gave them the base-pair breakpoint resolution.</p>
 <p>Mostly deletions were detected.
 Around 50-60% of the SVs found were germlines (<em>Q?? I still don’t know how they distinguish germline/somatic from one cancer sample.</em>) and several L1 and AluY deletions were found.
 Also a bunch of events created fusion transcript or exon duplication.
 They observed <em>“genomic shards”</em>, i.e. small DNA fragments inserted around breakpoints, and inverted duplications.</p>
 <hr />
-<p><strong>BreakDancer</strong> <span class="citation">(Chen et al. <a href="#ref-Chen2009" role="doc-biblioref">2009</a>)</span> also monitors anomalous(in term of insert size or orientation) paired reads to detect large structural variants.
+<p><strong>BreakDancer</strong> <span class="citation">(Chen et al. <a href="#ref-Chen2009">2009</a>)</span> also monitors anomalous(in term of insert size or orientation) paired reads to detect large structural variants.
 The confidence score for the calls integrates the number of pairs supporting it, the sequencing coverage and the insert size deviation.
 The significance of the score is compute for each insert type by assuming an uniform distribution across the genome (not very realistic for repeat-rich regions).
 It also propose a module to detect small indels, using the the insert size information of reads mapping to a window(of size the mean insert size), sliding it 1bp at a time.
 It integrates samples pooling to increase detection power of common variants or flag inherited variation in normal vs tumor studies.</p>
 <hr />
-<p><strong>SVMiner</strong> <span class="citation">(Pyon, Hayes, and Li <a href="#ref-Pyon2011" role="doc-biblioref">2011</a>)</span> looks like a standard approach.</p>
+<p><strong>SVMiner</strong> <span class="citation">(Pyon, Hayes, and Li <a href="#ref-Pyon2011">2011</a>)</span> looks like a standard approach.</p>
 <hr />
-<p><strong>CLEVER</strong> <span class="citation">(Marschall et al. <a href="#ref-Marschall2012" role="doc-biblioref">2012</a>)</span> organizes all read into <em>read alignment graphs</em> and looks for cliques of consistent reads.</p>
+<p><strong>CLEVER</strong> <span class="citation">(Marschall et al. <a href="#ref-Marschall2012">2012</a>)</span> organizes all read into <em>read alignment graphs</em> and looks for cliques of consistent reads.</p>
 <p><strong>++</strong></p>
 <hr />
 <p><strong>RetroSeq and SECluster</strong> ++</p>
 <hr />
-<p><strong>CommonLAW</strong> <span class="citation">(Hormozdiari et al. <a href="#ref-Hormozdiari2011a" role="doc-biblioref">2011</a>)</span> looks at PEM signal across several samples to increase the sensitivity and specificity.</p>
+<p><strong>CommonLAW</strong> <span class="citation">(Hormozdiari et al. <a href="#ref-Hormozdiari2011a">2011</a>)</span> looks at PEM signal across several samples to increase the sensitivity and specificity.</p>
 <hr />
-<p><strong>Hydra-Multi</strong> <span class="citation">(Lindberg, Hall, and Quinlan <a href="#ref-Lindberg2014" role="doc-biblioref">2014</a>)</span> also looks at PEM signal across several samples to increase the sensitivity and specificity.</p>
+<p><strong>Hydra-Multi</strong> <span class="citation">(Lindberg, Hall, and Quinlan <a href="#ref-Lindberg2014">2014</a>)</span> also looks at PEM signal across several samples to increase the sensitivity and specificity.</p>
 <hr />
-<p><strong>Pindel</strong> <span class="citation">(Ye et al. <a href="#ref-Ye2009" role="doc-biblioref">2009</a>)</span> uses pattern growth on the unmapped pair of uniquely mapped anchor read.
+<p><strong>Pindel</strong> <span class="citation">(Ye et al. <a href="#ref-Ye2009">2009</a>)</span> uses pattern growth on the unmapped pair of uniquely mapped anchor read.
 The mapped read (anchor) is used to reduce the search-space.
 The unmapped read is cut in two or three and the ends are mapped around the anchor.
 Breakpoints with at least 2 supporting reads are reported.
 Depending on the read length, this approach can detected large deletions (1bp-10kb) and small insertions (1-20bp).</p>
 <hr />
-<p><strong>Splitread</strong> <span class="citation">(Karakoc et al. <a href="#ref-Karakoc2012" role="doc-biblioref">2012</a>)</span> in exome sequencing data, splits the unmapped read into balanced or unbalanced subsequences and detect cluster of sub-reads.
+<p><strong>Splitread</strong> <span class="citation">(Karakoc et al. <a href="#ref-Karakoc2012">2012</a>)</span> in exome sequencing data, splits the unmapped read into balanced or unbalanced subsequences and detect cluster of sub-reads.
 Something about <em>weighted set-cover approximation</em>.</p>
 <p><strong>++</strong></p>
 <hr />
-<p><strong>YAHA</strong> <span class="citation">(Faust and Hall <a href="#ref-Faust2012" role="doc-biblioref">2012</a>)</span> implement a split read approach for long reads.</p>
+<p><strong>YAHA</strong> <span class="citation">(Faust and Hall <a href="#ref-Faust2012">2012</a>)</span> implement a split read approach for long reads.</p>
 <p><strong>++</strong></p>
 <hr />
-<p><strong>SplazerS</strong> <span class="citation">(Emde et al. <a href="#ref-Emde2012" role="doc-biblioref">2012</a>)</span> is another approach.</p>
+<p><strong>SplazerS</strong> <span class="citation">(Emde et al. <a href="#ref-Emde2012">2012</a>)</span> is another approach.</p>
 <hr />
-<p><strong>Gustaf</strong> <span class="citation">(Trappe et al. <a href="#ref-Trappe2014" role="doc-biblioref">2014</a>)</span> is yet another approach.</p>
+<p><strong>Gustaf</strong> <span class="citation">(Trappe et al. <a href="#ref-Trappe2014">2014</a>)</span> is yet another approach.</p>
 </div>
 <div id="assembly-approach" class="section level2">
 <h2>Assembly approach</h2>
@@ -425,9 +426,9 @@ The sequence redundancy is also more complex to assemble (and map/retrieve).</p>
 It must be a tradeoff between complexity and coverage.
 A small k-mer will create complex structure due to common k-mer in different part of the assembled sequence, but each node will be well covered.</p>
 <hr />
-<p><strong>Cortex</strong> <span class="citation">(Iqbal et al. <a href="#ref-Iqbal2012" role="doc-biblioref">2012</a>)</span> is a <em>de novo</em> assembly method that uses de Bruijn graphs to detect and genotype simple and complex variants in an individual or population.</p>
+<p><strong>Cortex</strong> <span class="citation">(Iqbal et al. <a href="#ref-Iqbal2012">2012</a>)</span> is a <em>de novo</em> assembly method that uses de Bruijn graphs to detect and genotype simple and complex variants in an individual or population.</p>
 <hr />
-<p><strong>Platypus</strong> <span class="citation">(Rimmer et al. <a href="#ref-Rimmer2014" role="doc-biblioref">2014</a>)</span> Platypus integrated mapping, assembly and haplotype approaches to call variants.
+<p><strong>Platypus</strong> <span class="citation">(Rimmer et al. <a href="#ref-Rimmer2014">2014</a>)</span> Platypus integrated mapping, assembly and haplotype approaches to call variants.
 It also integrates information across multiple samples.</p>
 <p>First a set of candidates is derived from read alignment, local assembly or external sources.
 The local assembly uses reads mapping in a genomic window, as well as their mate, and reference sequences to construct a colored de Bruijn graph.
@@ -443,7 +444,7 @@ Hence few efforts have been directed toward detection of the wide range of SV ty
 <p>Among the remarkable results, the calling rate for de novo variant and HLA analysis are quite impressive.
 Of note, Platypus works similarly with Whole-Exome Sequencing data.</p>
 <hr />
-<p><strong>TIGRA</strong> <span class="citation">(Chen et al. <a href="#ref-Chen2014" role="doc-biblioref">2014</a>)</span> Targeted Iterative Graph Routing Assembler was widely used in large-scale projects (e.g. 1KGP) for breakpoints assembly of deletions and mobile element insertion.
+<p><strong>TIGRA</strong> <span class="citation">(Chen et al. <a href="#ref-Chen2014">2014</a>)</span> Targeted Iterative Graph Routing Assembler was widely used in large-scale projects (e.g. 1KGP) for breakpoints assembly of deletions and mobile element insertion.
 It’s an old effort, that they started in 2008, which was optimized and improved across the years.</p>
 <p>To clarify, TIGRA assembles the breakpoint region of SV, not the entire SV region.
 Another clarification: TIGRA is used to validate existing calls and reduce the FDR, not so much to characterize SV mechanism or features.</p>
@@ -472,7 +473,7 @@ It is implemented to assemble small breakpoint regions, hence require almost nuc
 I didn’t understand how they define their contigs (used in the iterative process; aligned against the reference).
 Is it all possible path in the graph ? Only unambiguous paths ?</p>
 <hr />
-<p><strong>SGA</strong> <span class="citation">(Simpson and Durbin <a href="#ref-Simpson2012" role="doc-biblioref">2012</a>)</span> stands for String Graph Assembler and follows a overlap-based string graph approach.
+<p><strong>SGA</strong> <span class="citation">(Simpson and Durbin <a href="#ref-Simpson2012">2012</a>)</span> stands for String Graph Assembler and follows a overlap-based string graph approach.
 Thanks to its FM-index representation and Burrow-Wheeler compressing transformation, it manages considerable economy in memory.</p>
 <p>The overlap graph is simplified before being transformed into the string graph used to resolve contig assembly.
 K-mer correction for sequencing error removal, duplicated reads removal and ``bubble-popping’’ are applied beforehand.
@@ -485,13 +486,13 @@ This genome easier than a human genome in several sense: haploid, small (100 Mbp
 <p>I thought one of the strength of overlap-based method would be its robustness to sequencing errors or polymorphism.
 In my head two reads would overlap significantly even if a few bases are discordant.
 However, here, the overlap definition is based on comparing suffixes/prefixes, meaning that exact match is necessary.</p>
-<p>SGA was modified in <span class="citation">Malhotra et al. (<a href="#ref-Malhotra2013" role="doc-biblioref">2013</a>)</span> to report all paths instead of the consensus, and validate the breakpoints regions of their tumoral calls.</p>
+<p>SGA was modified in <span class="citation">Malhotra et al. (<a href="#ref-Malhotra2013">2013</a>)</span> to report all paths instead of the consensus, and validate the breakpoints regions of their tumoral calls.</p>
 <hr />
 <p><strong>AbySS</strong></p>
 </div>
 <div id="sv-genotypers" class="section level2">
 <h2>SV genotypers</h2>
-<p><span class="citation">Eggertsson et al. (<a href="#ref-Eggertsson2019" role="doc-biblioref">2019</a>)</span> improved their variant GraphTyper to integrate structural variants.
+<p><span class="citation">Eggertsson et al. (<a href="#ref-Eggertsson2019">2019</a>)</span> improved their variant GraphTyper to integrate structural variants.
 They show that it can genotype SNVs, indels and SVs from short-read data in large-scale datasets.
 The approach is very similar to BayesTyper: SVs are discovered with methods likes Manta, then genotyped.
 Many of the input SVs might be errors but it’s not a big problem because the genotyper can figure out if the variant is supported or not by mapped reads.
@@ -499,7 +500,7 @@ One limitation of this breakpoint-centric approach is that some informative read
 </div>
 <div id="others" class="section level2">
 <h2>Others</h2>
-<p><strong>SVMerge</strong> <span class="citation">(Wong et al. <a href="#ref-Wong2010" role="doc-biblioref">2010</a>)</span> is a pipeline applying multiple detection methods and using local de novo assembly to refine breakpoints.
+<p><strong>SVMerge</strong> <span class="citation">(Wong et al. <a href="#ref-Wong2010">2010</a>)</span> is a pipeline applying multiple detection methods and using local de novo assembly to refine breakpoints.
 Written in Perl, SVMerge is supposedly flexible and modular to integrate new callers.</p>
 <p>The pipeline is divided in four modules: calling, filtering, merging and de novo assembly.
 After calling, calls are filtered according to their intrinsic quality as well as their proximity to gaps (less 600bp), highly repetitive regions or centromere/telomere (less than 1 Mb).
@@ -513,9 +514,9 @@ At this stage the assembly is not suited for diploid genomes.</p>
 <p>As another demonstration of their assembly validation, only 11% of their insertion could be validated.
 To conclude on the subject of limitations, they also filtered out inter-chromosomal translocation candidates because too numerous.</p>
 <hr />
-<p><strong>CREST</strong> <span class="citation">(Wang et al. <a href="#ref-Wang2011" role="doc-biblioref">2011</a>)</span> uses both discordant paired-mapping and split-reads to call SVs.</p>
+<p><strong>CREST</strong> <span class="citation">(Wang et al. <a href="#ref-Wang2011">2011</a>)</span> uses both discordant paired-mapping and split-reads to call SVs.</p>
 <hr />
-<p><strong>DELLY</strong> <span class="citation">(Rausch et al. <a href="#ref-Rausch2012" role="doc-biblioref">2012</a>)</span> DELLY integrates information from short insert paired-reads and long-range mate-pairs as well as split-reads alignments.
+<p><strong>DELLY</strong> <span class="citation">(Rausch et al. <a href="#ref-Rausch2012">2012</a>)</span> DELLY integrates information from short insert paired-reads and long-range mate-pairs as well as split-reads alignments.
 It can theoretically detect any type of structural variation.
 Still I’m suspecting the detection of duplications to be challenging with this approach.
 They stress the advantage of mixing two sets of reads with different insert sizes.</p>
@@ -536,30 +537,35 @@ Additionally DELLY checks that both PEM and SR derived event are concordant.</p>
 Believing it could be actual inter-individual variability or due to incomplete reference they didn’t completely filter these calls out.
 Still, they limited the number of variant in any particular genomic region in order to avoid countless alignments.</p>
 <hr />
-<p><strong>SVM<span class="math inline">\(^2\)</span></strong> <span class="citation">(Chiara, Pesole, and Horner <a href="#ref-Chiara2012" role="doc-biblioref">2012</a>)</span> uses Support Vector Machine integrating coverage and paired-end read information.</p>
+<p><strong>SVM<span class="math inline">\(^2\)</span></strong> <span class="citation">(Chiara, Pesole, and Horner <a href="#ref-Chiara2012">2012</a>)</span> uses Support Vector Machine integrating coverage and paired-end read information.</p>
 <p><span class="math inline">\(+++\)</span></p>
 <hr />
-<p><strong>forestSV</strong> <span class="citation">(Michaelson and Sebat <a href="#ref-Michaelson2012" role="doc-biblioref">2012</a>)</span> trained a random forest machine learning model with known variant. Different signals such as coverage, read-pair signature and others are integrated in the model. After training the method scans a BAM file to find probable variants.</p>
+<p><strong>forestSV</strong> <span class="citation">(Michaelson and Sebat <a href="#ref-Michaelson2012">2012</a>)</span> trained a random forest machine learning model with known variant. Different signals such as coverage, read-pair signature and others are integrated in the model. After training the method scans a BAM file to find probable variants.</p>
 <hr />
-<p><strong>GASVPro</strong> <span class="citation">(Sindi et al. <a href="#ref-Sindi2012" role="doc-biblioref">2012</a>)</span> integrates read depth and paired-end signal in their model and account for multiple alignments.</p>
-<p>Apparently it weights multiple mapping per read in proportion to their probability <span class="citation">(Halper-Stromberg et al. <a href="#ref-Halper-Stromberg2014" role="doc-biblioref">2014</a>)</span>.</p>
+<p><strong>GASVPro</strong> <span class="citation">(Sindi et al. <a href="#ref-Sindi2012">2012</a>)</span> integrates read depth and paired-end signal in their model and account for multiple alignments.</p>
+<p>Apparently it weights multiple mapping per read in proportion to their probability <span class="citation">(Halper-Stromberg et al. <a href="#ref-Halper-Stromberg2014">2014</a>)</span>.</p>
 <p><span class="math inline">\(+++\)</span></p>
 <hr />
-<p><strong>LUMPY</strong> <span class="citation">(Layer et al. <a href="#ref-Layer2014" role="doc-biblioref">2014</a>)</span> integrates multiple SV signals such as coverage, PEM and split-reads. It can be extended to new custom SV signals and can analyze several samples at the same time.</p>
+<p><strong>LUMPY</strong> <span class="citation">(Layer et al. <a href="#ref-Layer2014">2014</a>)</span> integrates multiple SV signals such as coverage, PEM and split-reads. It can be extended to new custom SV signals and can analyze several samples at the same time.</p>
 <hr />
-<p><strong>ERDS</strong> <span class="citation">(Zhu et al. <a href="#ref-Zhu2012" role="doc-biblioref">2012</a>)</span> integrates both coverage and B allele frequency in a Hidden Markov Model.</p>
+<p><strong>ERDS</strong> <span class="citation">(Zhu et al. <a href="#ref-Zhu2012">2012</a>)</span> integrates both coverage and B allele frequency in a Hidden Markov Model.</p>
 <hr />
-<p><strong><span class="citation">Yang et al. (<a href="#ref-Yang2013" role="doc-biblioref">2013</a>)</span></strong> integrates both paired-end information and split-reads detect somatic SV in cancer genomes.</p>
+<p><strong><span class="citation">Yang et al. (<a href="#ref-Yang2013">2013</a>)</span></strong> integrates both paired-end information and split-reads detect somatic SV in cancer genomes.</p>
 <hr />
-<p><strong>SMUFFIN</strong> <span class="citation">(Moncunill et al. <a href="#ref-Moncunill2014" role="doc-biblioref">2014</a>)</span> analyzes directly the reads to find differences between pattern in the normal and tumor samples. Once somatic patterns are identified they can be mapped back to the reference genome.</p>
+<p><strong>SMUFFIN</strong> <span class="citation">(Moncunill et al. <a href="#ref-Moncunill2014">2014</a>)</span> analyzes directly the reads to find differences between pattern in the normal and tumor samples. Once somatic patterns are identified they can be mapped back to the reference genome.</p>
 <hr />
-<p><strong>SMaSH</strong> <span class="citation">(Talwalkar et al. <a href="#ref-Talwalkar2014" role="doc-biblioref">2014</a>)</span> is a toolkit to benchmark human genome variant calling. I think it’s also giving calls, maybe using a consensus of its preferred methods ?</p>
+<p><strong>SMaSH</strong> <span class="citation">(Talwalkar et al. <a href="#ref-Talwalkar2014">2014</a>)</span> is a toolkit to benchmark human genome variant calling. I think it’s also giving calls, maybe using a consensus of its preferred methods ?</p>
 <hr />
-<p><strong>SlideSort-BPR</strong> <span class="citation">(Wijaya et al. <a href="#ref-Wijaya2014" role="doc-biblioref">2014</a>)</span> is based on a fast all-against-all read comparison to find patterns of breakpoints.</p>
+<p><strong>SlideSort-BPR</strong> <span class="citation">(Wijaya et al. <a href="#ref-Wijaya2014">2014</a>)</span> is based on a fast all-against-all read comparison to find patterns of breakpoints.</p>
 <hr />
-<p><strong>CLImAT</strong> <span class="citation">(Yu et al. <a href="#ref-Yu2014" role="doc-biblioref">2014</a>)</span> looks at both RD and B allele frequency. Quantile normalization is used on the B allele frequency.</p>
+<p><strong>CLImAT</strong> <span class="citation">(Yu et al. <a href="#ref-Yu2014">2014</a>)</span> looks at both RD and B allele frequency. Quantile normalization is used on the B allele frequency.</p>
 <hr />
-<p><strong>Parliament</strong> <span class="citation">(English et al. <a href="#ref-English2015" role="doc-biblioref">2015</a>)</span> is a consensus SV-calling infrastructure that merges multiple data types and SV detection methods. For example it can merge results from short and long read sequencing, as well as aCGH.</p>
+<p><strong>Parliament</strong> <span class="citation">(English et al. <a href="#ref-English2015">2015</a>)</span> is a consensus SV-calling infrastructure that merges multiple data types and SV detection methods. For example it can merge results from short and long read sequencing, as well as aCGH.</p>
+<hr />
+<p>The gnomAD pipeline was used in a few studies, including the one exploring the transcriptomic effects of rare SVs in brain <span class="citation">(CommonMind Consortium et al. <a href="#ref-CommonMindConsortium2020">2020</a>)</span>.
+It consists of: Delly, Lumpy, Manta, Wham, MELT, CNVnator, GenomeSTRiP, cn.MOPS.</p>
+<hr />
+<p>The Hall lab used <a href="https://github.com/hall-lab/svtools">svtools</a> (discovery with LUMPY, CNVnator, svtyper; then genotyping) to perform a GWAS on Finns.</p>
 </div>
 <div id="benchmark" class="section level2">
 <h2>Benchmark</h2>
@@ -578,7 +584,7 @@ Still, they limited the number of variant in any particular genomic region in or
 <tbody>
 <tr class="odd">
 <td>2007</td>
-<td><span class="citation">Korbel et al. (<a href="#ref-Korbel2007" role="doc-biblioref">2007</a>)</span></td>
+<td><span class="citation">Korbel et al. (<a href="#ref-Korbel2007">2007</a>)</span></td>
 <td>PEM</td>
 <td>IS/Or</td>
 <td>no</td>
@@ -586,7 +592,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2008</td>
-<td><span class="citation">Campbell et al. (<a href="#ref-Campbell2008" role="doc-biblioref">2008</a>)</span></td>
+<td><span class="citation">Campbell et al. (<a href="#ref-Campbell2008">2008</a>)</span></td>
 <td>PEM, RD</td>
 <td>IS/Or, CBS</td>
 <td>no</td>
@@ -594,7 +600,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2008</td>
-<td>SeqSeg <span class="citation">(Chiang et al. <a href="#ref-Chiang2009" role="doc-biblioref">2009</a>)</span></td>
+<td>SeqSeg <span class="citation">(Chiang et al. <a href="#ref-Chiang2009">2009</a>)</span></td>
 <td>RD</td>
 <td>2 bins around breakpoints</td>
 <td>case-control</td>
@@ -602,7 +608,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2009</td>
-<td>EWT <span class="citation">(Yoon et al. <a href="#ref-Yoon2009" role="doc-biblioref">2009</a>)</span></td>
+<td>EWT <span class="citation">(Yoon et al. <a href="#ref-Yoon2009">2009</a>)</span></td>
 <td>RD</td>
 <td>Event-Wise Testing</td>
 <td>no</td>
@@ -610,7 +616,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2009</td>
-<td>CNV-seq <span class="citation">(Xie and Tammi <a href="#ref-Xie2009" role="doc-biblioref">2009</a>)</span></td>
+<td>CNV-seq <span class="citation">(Xie and Tammi <a href="#ref-Xie2009">2009</a>)</span></td>
 <td>RD</td>
 <td>theoretical</td>
 <td>case-control</td>
@@ -618,7 +624,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2009</td>
-<td>BreakDancer <span class="citation">(Chen et al. <a href="#ref-Chen2009" role="doc-biblioref">2009</a>)</span></td>
+<td>BreakDancer <span class="citation">(Chen et al. <a href="#ref-Chen2009">2009</a>)</span></td>
 <td>PEM</td>
 <td>nbReads+IS+coverage, Poisson sig.</td>
 <td>&gt;~10bp</td>
@@ -626,7 +632,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2009</td>
-<td>Pindel <span class="citation">(Ye et al. <a href="#ref-Ye2009" role="doc-biblioref">2009</a>)</span></td>
+<td>Pindel <span class="citation">(Ye et al. <a href="#ref-Ye2009">2009</a>)</span></td>
 <td>SR</td>
 <td>Pattern-Growth</td>
 <td>no</td>
@@ -634,7 +640,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2010</td>
-<td>CNAseg <span class="citation">(Ivakhno et al. <a href="#ref-Ivakhno2010" role="doc-biblioref">2010</a>)</span></td>
+<td>CNAseg <span class="citation">(Ivakhno et al. <a href="#ref-Ivakhno2010">2010</a>)</span></td>
 <td>RD</td>
 <td>HMM, flowcell varibility, Skellam dist.</td>
 <td>no</td>
@@ -642,7 +648,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2010</td>
-<td>VariationHunter-CR <span class="citation">(Hormozdiari et al. <a href="#ref-Hormozdiari2010" role="doc-biblioref">2010</a>)</span></td>
+<td>VariationHunter-CR <span class="citation">(Hormozdiari et al. <a href="#ref-Hormozdiari2010">2010</a>)</span></td>
 <td>PEM</td>
 <td>Transposon model</td>
 <td></td>
@@ -650,7 +656,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2010</td>
-<td>SVMerge <span class="citation">(Wong et al. <a href="#ref-Wong2010" role="doc-biblioref">2010</a>)</span></td>
+<td>SVMerge <span class="citation">(Wong et al. <a href="#ref-Wong2010">2010</a>)</span></td>
 <td>PL</td>
 <td><em>de novo</em> local assembly</td>
 <td></td>
@@ -658,7 +664,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2010</td>
-<td>NovelSeq <span class="citation">(Hajirasouliha et al. <a href="#ref-Hajirasouliha2010" role="doc-biblioref">2010</a>)</span></td>
+<td>NovelSeq <span class="citation">(Hajirasouliha et al. <a href="#ref-Hajirasouliha2010">2010</a>)</span></td>
 <td>PEM+Assembly</td>
 <td></td>
 <td></td>
@@ -666,7 +672,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2011</td>
-<td>JointSLM <span class="citation">(Magi et al. <a href="#ref-Magi2011" role="doc-biblioref">2011</a>)</span></td>
+<td>JointSLM <span class="citation">(Magi et al. <a href="#ref-Magi2011">2011</a>)</span></td>
 <td>RD</td>
 <td>HMM, Common SVs</td>
 <td>Yes</td>
@@ -674,7 +680,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2011</td>
-<td>Control-FREEC <span class="citation">(Boeva et al. <a href="#ref-Boeva2011" role="doc-biblioref">2011</a>)</span></td>
+<td>Control-FREEC <span class="citation">(Boeva et al. <a href="#ref-Boeva2011">2011</a>)</span></td>
 <td>RD+BAF</td>
 <td>CNV and contamination</td>
 <td>single, pair</td>
@@ -682,7 +688,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2011</td>
-<td>BIC-seq <span class="citation">(Xi et al. <a href="#ref-Xi2011" role="doc-biblioref">2011</a>)</span></td>
+<td>BIC-seq <span class="citation">(Xi et al. <a href="#ref-Xi2011">2011</a>)</span></td>
 <td>RD</td>
 <td></td>
 <td></td>
@@ -690,7 +696,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2011</td>
-<td>Genome STRIP <span class="citation">(Handsaker et al. <a href="#ref-Handsaker2011" role="doc-biblioref">2011</a>)</span></td>
+<td>Genome STRIP <span class="citation">(Handsaker et al. <a href="#ref-Handsaker2011">2011</a>)</span></td>
 <td>PEM</td>
 <td>Population-based</td>
 <td></td>
@@ -698,7 +704,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2011</td>
-<td>CNVnator <span class="citation">(Abyzov et al. <a href="#ref-Abyzov2011" role="doc-biblioref">2011</a>)</span></td>
+<td>CNVnator <span class="citation">(Abyzov et al. <a href="#ref-Abyzov2011">2011</a>)</span></td>
 <td>RD</td>
 <td></td>
 <td></td>
@@ -706,7 +712,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2012</td>
-<td>VarScan 2 <span class="citation">(Koboldt et al. <a href="#ref-Koboldt2012" role="doc-biblioref">2012</a>)</span></td>
+<td>VarScan 2 <span class="citation">(Koboldt et al. <a href="#ref-Koboldt2012">2012</a>)</span></td>
 <td>RD</td>
 <td>Control, exome</td>
 <td></td>
@@ -714,7 +720,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2012</td>
-<td>cn.MOPS <span class="citation">(Klambauer et al. <a href="#ref-Klambauer2012" role="doc-biblioref">2012</a>)</span></td>
+<td>cn.MOPS <span class="citation">(Klambauer et al. <a href="#ref-Klambauer2012">2012</a>)</span></td>
 <td>RD</td>
 <td>MS, Bayesian</td>
 <td></td>
@@ -722,7 +728,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2012</td>
-<td>CLEVER <span class="citation">(Marschall et al. <a href="#ref-Marschall2012" role="doc-biblioref">2012</a>)</span></td>
+<td>CLEVER <span class="citation">(Marschall et al. <a href="#ref-Marschall2012">2012</a>)</span></td>
 <td>PEM</td>
 <td>Graphs</td>
 <td></td>
@@ -730,7 +736,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2012</td>
-<td>Splitread <span class="citation">(Karakoc et al. <a href="#ref-Karakoc2012" role="doc-biblioref">2012</a>)</span></td>
+<td>Splitread <span class="citation">(Karakoc et al. <a href="#ref-Karakoc2012">2012</a>)</span></td>
 <td>SR</td>
 <td>Exome</td>
 <td></td>
@@ -738,7 +744,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2012</td>
-<td>YAHA <span class="citation">(Faust and Hall <a href="#ref-Faust2012" role="doc-biblioref">2012</a>)</span></td>
+<td>YAHA <span class="citation">(Faust and Hall <a href="#ref-Faust2012">2012</a>)</span></td>
 <td>SR</td>
 <td>Long reads</td>
 <td></td>
@@ -746,7 +752,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2012</td>
-<td>SVM2 <span class="citation">(Chiara, Pesole, and Horner <a href="#ref-Chiara2012" role="doc-biblioref">2012</a>)</span></td>
+<td>SVM2 <span class="citation">(Chiara, Pesole, and Horner <a href="#ref-Chiara2012">2012</a>)</span></td>
 <td>RD+PEM</td>
 <td>SVM</td>
 <td></td>
@@ -754,7 +760,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2012</td>
-<td>GASVPro <span class="citation">(Sindi et al. <a href="#ref-Sindi2012" role="doc-biblioref">2012</a>)</span></td>
+<td>GASVPro <span class="citation">(Sindi et al. <a href="#ref-Sindi2012">2012</a>)</span></td>
 <td>RD+PEM</td>
 <td></td>
 <td></td>
@@ -762,7 +768,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2012</td>
-<td>LUMPY <span class="citation">(Layer et al. <a href="#ref-Layer2014" role="doc-biblioref">2014</a>)</span></td>
+<td>LUMPY <span class="citation">(Layer et al. <a href="#ref-Layer2014">2014</a>)</span></td>
 <td>PEM+SR</td>
 <td></td>
 <td></td>
@@ -770,7 +776,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2012</td>
-<td>DELLY <span class="citation">(Rausch et al. <a href="#ref-Rausch2012" role="doc-biblioref">2012</a>)</span></td>
+<td>DELLY <span class="citation">(Rausch et al. <a href="#ref-Rausch2012">2012</a>)</span></td>
 <td>PEM+SR</td>
 <td></td>
 <td></td>
@@ -778,7 +784,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2013</td>
-<td>WaveCNV <span class="citation">(Holt et al. <a href="#ref-Holt2013" role="doc-biblioref">2013</a>)</span></td>
+<td>WaveCNV <span class="citation">(Holt et al. <a href="#ref-Holt2013">2013</a>)</span></td>
 <td>RD</td>
 <td>Cancer</td>
 <td></td>
@@ -786,7 +792,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2013</td>
-<td>CNV-TV <span class="citation">(Duan et al. <a href="#ref-Duan2013a" role="doc-biblioref">2013</a>)</span></td>
+<td>CNV-TV <span class="citation">(Duan et al. <a href="#ref-Duan2013a">2013</a>)</span></td>
 <td>RD</td>
 <td>Segmentation</td>
 <td>single, pair</td>
@@ -794,7 +800,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2013</td>
-<td>PeSV-Fisher <span class="citation">(Escaraḿis et al. <a href="#ref-Escaramis2013" role="doc-biblioref">2013</a>)</span></td>
+<td>PeSV-Fisher <span class="citation">(Escaraḿis et al. <a href="#ref-Escaramis2013">2013</a>)</span></td>
 <td>PEM+RD</td>
 <td></td>
 <td></td>
@@ -802,7 +808,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2013</td>
-<td>CNVeM <span class="citation">(Wang et al. <a href="#ref-Wang2013" role="doc-biblioref">2013</a>)</span></td>
+<td>CNVeM <span class="citation">(Wang et al. <a href="#ref-Wang2013">2013</a>)</span></td>
 <td>RD</td>
 <td></td>
 <td></td>
@@ -810,7 +816,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2013</td>
-<td>CNVfinder <span class="citation">(McCallum and Wang <a href="#ref-McCallum2013" role="doc-biblioref">2013</a>)</span></td>
+<td>CNVfinder <span class="citation">(McCallum and Wang <a href="#ref-McCallum2013">2013</a>)</span></td>
 <td>RD</td>
 <td>HMM, GC/mappability</td>
 <td>no</td>
@@ -818,7 +824,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2013</td>
-<td>GENSENG <span class="citation">(Szatkiewicz et al. <a href="#ref-Szatkiewicz2013" role="doc-biblioref">2013</a>)</span></td>
+<td>GENSENG <span class="citation">(Szatkiewicz et al. <a href="#ref-Szatkiewicz2013">2013</a>)</span></td>
 <td>RD</td>
 <td>HMM, GC/mappability</td>
 <td>no</td>
@@ -826,7 +832,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2014</td>
-<td>CLImAT <span class="citation">(Yu et al. <a href="#ref-Yu2014" role="doc-biblioref">2014</a>)</span></td>
+<td>CLImAT <span class="citation">(Yu et al. <a href="#ref-Yu2014">2014</a>)</span></td>
 <td>RD+BAF</td>
 <td></td>
 <td></td>
@@ -834,7 +840,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2014</td>
-<td>Gustaf <span class="citation">(Trappe et al. <a href="#ref-Trappe2014" role="doc-biblioref">2014</a>)</span></td>
+<td>Gustaf <span class="citation">(Trappe et al. <a href="#ref-Trappe2014">2014</a>)</span></td>
 <td>SR</td>
 <td></td>
 <td></td>
@@ -842,7 +848,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="even">
 <td>2014</td>
-<td>SMASH <span class="citation">(Talwalkar et al. <a href="#ref-Talwalkar2014" role="doc-biblioref">2014</a>)</span></td>
+<td>SMASH <span class="citation">(Talwalkar et al. <a href="#ref-Talwalkar2014">2014</a>)</span></td>
 <td>PEM+SR</td>
 <td></td>
 <td></td>
@@ -850,7 +856,7 @@ Still, they limited the number of variant in any particular genomic region in or
 </tr>
 <tr class="odd">
 <td>2015</td>
-<td>GROM-RD <span class="citation">(Smith, Kawash, and Grigoriev <a href="#ref-Smith2015" role="doc-biblioref">2015</a>)</span></td>
+<td>GROM-RD <span class="citation">(Smith, Kawash, and Grigoriev <a href="#ref-Smith2015">2015</a>)</span></td>
 <td>RD</td>
 <td>Aggressive normalization</td>
 <td>no</td>
@@ -871,245 +877,245 @@ Still, they limited the number of variant in any particular genomic region in or
 <tbody>
 <tr class="odd">
 <td>2007</td>
-<td><span class="citation">Korbel et al. (<a href="#ref-Korbel2007" role="doc-biblioref">2007</a>)</span></td>
+<td><span class="citation">Korbel et al. (<a href="#ref-Korbel2007">2007</a>)</span></td>
 <td>NA</td>
 <td>NA</td>
 <td>0</td>
 </tr>
 <tr class="even">
 <td>2008</td>
-<td><span class="citation">Campbell et al. (<a href="#ref-Campbell2008" role="doc-biblioref">2008</a>)</span></td>
+<td><span class="citation">Campbell et al. (<a href="#ref-Campbell2008">2008</a>)</span></td>
 <td>none</td>
 <td>binning</td>
 <td>1Mb</td>
 </tr>
 <tr class="odd">
 <td>2008</td>
-<td>SeqSeg <span class="citation">(Chiang et al. <a href="#ref-Chiang2009" role="doc-biblioref">2009</a>)</span></td>
+<td>SeqSeg <span class="citation">(Chiang et al. <a href="#ref-Chiang2009">2009</a>)</span></td>
 <td>unnecessary</td>
 <td>unnecessary</td>
 <td>NA</td>
 </tr>
 <tr class="even">
 <td>2009</td>
-<td>EWT <span class="citation">(Yoon et al. <a href="#ref-Yoon2009" role="doc-biblioref">2009</a>)</span></td>
+<td>EWT <span class="citation">(Yoon et al. <a href="#ref-Yoon2009">2009</a>)</span></td>
 <td>median</td>
 <td>random mapping</td>
 <td>NA</td>
 </tr>
 <tr class="odd">
 <td>2009</td>
-<td>CNV-seq <span class="citation">(Xie and Tammi <a href="#ref-Xie2009" role="doc-biblioref">2009</a>)</span></td>
+<td>CNV-seq <span class="citation">(Xie and Tammi <a href="#ref-Xie2009">2009</a>)</span></td>
 <td>unnecessary</td>
 <td>unnecessary</td>
 <td>NA</td>
 </tr>
 <tr class="even">
 <td>2009</td>
-<td>BreakDancer <span class="citation">(Chen et al. <a href="#ref-Chen2009" role="doc-biblioref">2009</a>)</span></td>
+<td>BreakDancer <span class="citation">(Chen et al. <a href="#ref-Chen2009">2009</a>)</span></td>
 <td>NA</td>
 <td>NA</td>
 <td>pooled possible</td>
 </tr>
 <tr class="odd">
 <td>2009</td>
-<td>Pindel <span class="citation">(Ye et al. <a href="#ref-Ye2009" role="doc-biblioref">2009</a>)</span></td>
+<td>Pindel <span class="citation">(Ye et al. <a href="#ref-Ye2009">2009</a>)</span></td>
 <td>NA</td>
 <td>NA</td>
 <td>NA</td>
 </tr>
 <tr class="even">
 <td>2010</td>
-<td>CNAseg <span class="citation">(Ivakhno et al. <a href="#ref-Ivakhno2010" role="doc-biblioref">2010</a>)</span></td>
+<td>CNAseg <span class="citation">(Ivakhno et al. <a href="#ref-Ivakhno2010">2010</a>)</span></td>
 <td>LOESS</td>
 <td>DWT smoothing</td>
 <td>NA</td>
 </tr>
 <tr class="odd">
 <td>2010</td>
-<td>VariationHunter-CR <span class="citation">(Hormozdiari et al. <a href="#ref-Hormozdiari2010" role="doc-biblioref">2010</a>)</span></td>
+<td>VariationHunter-CR <span class="citation">(Hormozdiari et al. <a href="#ref-Hormozdiari2010">2010</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>2010</td>
-<td>SVMerge <span class="citation">(Wong et al. <a href="#ref-Wong2010" role="doc-biblioref">2010</a>)</span></td>
+<td>SVMerge <span class="citation">(Wong et al. <a href="#ref-Wong2010">2010</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>2010</td>
-<td>NovelSeq <span class="citation">(Hajirasouliha et al. <a href="#ref-Hajirasouliha2010" role="doc-biblioref">2010</a>)</span></td>
+<td>NovelSeq <span class="citation">(Hajirasouliha et al. <a href="#ref-Hajirasouliha2010">2010</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>2011</td>
-<td>JointSLM <span class="citation">(Magi et al. <a href="#ref-Magi2011" role="doc-biblioref">2011</a>)</span></td>
+<td>JointSLM <span class="citation">(Magi et al. <a href="#ref-Magi2011">2011</a>)</span></td>
 <td>median</td>
 <td>NA</td>
 <td>0</td>
 </tr>
 <tr class="odd">
 <td>2011</td>
-<td>Control-FREEC <span class="citation">(Boeva et al. <a href="#ref-Boeva2011" role="doc-biblioref">2011</a>)</span></td>
+<td>Control-FREEC <span class="citation">(Boeva et al. <a href="#ref-Boeva2011">2011</a>)</span></td>
 <td>poly model</td>
 <td>track + exc</td>
 <td>50 Kbp</td>
 </tr>
 <tr class="even">
 <td>2011</td>
-<td>BIC-seq <span class="citation">(Xi et al. <a href="#ref-Xi2011" role="doc-biblioref">2011</a>)</span></td>
+<td>BIC-seq <span class="citation">(Xi et al. <a href="#ref-Xi2011">2011</a>)</span></td>
 <td></td>
 <td></td>
 <td><em>In theory</em>, so No</td>
 </tr>
 <tr class="odd">
 <td>2011</td>
-<td>Genome STRIP <span class="citation">(Handsaker et al. <a href="#ref-Handsaker2011" role="doc-biblioref">2011</a>)</span></td>
+<td>Genome STRIP <span class="citation">(Handsaker et al. <a href="#ref-Handsaker2011">2011</a>)</span></td>
 <td></td>
 <td></td>
 <td>Yes</td>
 </tr>
 <tr class="even">
 <td>2011</td>
-<td>CNVnator <span class="citation">(Abyzov et al. <a href="#ref-Abyzov2011" role="doc-biblioref">2011</a>)</span></td>
+<td>CNVnator <span class="citation">(Abyzov et al. <a href="#ref-Abyzov2011">2011</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>2012</td>
-<td>VarScan 2 <span class="citation">(Koboldt et al. <a href="#ref-Koboldt2012" role="doc-biblioref">2012</a>)</span></td>
+<td>VarScan 2 <span class="citation">(Koboldt et al. <a href="#ref-Koboldt2012">2012</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>2012</td>
-<td>cn.MOPS <span class="citation">(Klambauer et al. <a href="#ref-Klambauer2012" role="doc-biblioref">2012</a>)</span></td>
+<td>cn.MOPS <span class="citation">(Klambauer et al. <a href="#ref-Klambauer2012">2012</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>2012</td>
-<td>CLEVER <span class="citation">(Marschall et al. <a href="#ref-Marschall2012" role="doc-biblioref">2012</a>)</span></td>
+<td>CLEVER <span class="citation">(Marschall et al. <a href="#ref-Marschall2012">2012</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>2012</td>
-<td>Splitread <span class="citation">(Karakoc et al. <a href="#ref-Karakoc2012" role="doc-biblioref">2012</a>)</span></td>
+<td>Splitread <span class="citation">(Karakoc et al. <a href="#ref-Karakoc2012">2012</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>2012</td>
-<td>YAHA <span class="citation">(Faust and Hall <a href="#ref-Faust2012" role="doc-biblioref">2012</a>)</span></td>
+<td>YAHA <span class="citation">(Faust and Hall <a href="#ref-Faust2012">2012</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>2012</td>
-<td>SVM2 <span class="citation">(Chiara, Pesole, and Horner <a href="#ref-Chiara2012" role="doc-biblioref">2012</a>)</span></td>
+<td>SVM2 <span class="citation">(Chiara, Pesole, and Horner <a href="#ref-Chiara2012">2012</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>2012</td>
-<td>GASVPro <span class="citation">(Sindi et al. <a href="#ref-Sindi2012" role="doc-biblioref">2012</a>)</span></td>
+<td>GASVPro <span class="citation">(Sindi et al. <a href="#ref-Sindi2012">2012</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>2012</td>
-<td>LUMPY <span class="citation">(Layer et al. <a href="#ref-Layer2014" role="doc-biblioref">2014</a>)</span></td>
+<td>LUMPY <span class="citation">(Layer et al. <a href="#ref-Layer2014">2014</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>2012</td>
-<td>DELLY <span class="citation">(Rausch et al. <a href="#ref-Rausch2012" role="doc-biblioref">2012</a>)</span></td>
+<td>DELLY <span class="citation">(Rausch et al. <a href="#ref-Rausch2012">2012</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>2013</td>
-<td>WaveCNV <span class="citation">(Holt et al. <a href="#ref-Holt2013" role="doc-biblioref">2013</a>)</span></td>
+<td>WaveCNV <span class="citation">(Holt et al. <a href="#ref-Holt2013">2013</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>2013</td>
-<td>CNV-TV <span class="citation">(Duan et al. <a href="#ref-Duan2013a" role="doc-biblioref">2013</a>)</span></td>
+<td>CNV-TV <span class="citation">(Duan et al. <a href="#ref-Duan2013a">2013</a>)</span></td>
 <td>median</td>
 <td>random mapping</td>
 <td>NA</td>
 </tr>
 <tr class="even">
 <td>2013</td>
-<td>PeSV-Fisher <span class="citation">(Escaraḿis et al. <a href="#ref-Escaramis2013" role="doc-biblioref">2013</a>)</span></td>
+<td>PeSV-Fisher <span class="citation">(Escaraḿis et al. <a href="#ref-Escaramis2013">2013</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>2013</td>
-<td>CNVeM <span class="citation">(Wang et al. <a href="#ref-Wang2013" role="doc-biblioref">2013</a>)</span></td>
+<td>CNVeM <span class="citation">(Wang et al. <a href="#ref-Wang2013">2013</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>2013</td>
-<td>CNVfinder <span class="citation">(McCallum and Wang <a href="#ref-McCallum2013" role="doc-biblioref">2013</a>)</span></td>
+<td>CNVfinder <span class="citation">(McCallum and Wang <a href="#ref-McCallum2013">2013</a>)</span></td>
 <td>model</td>
 <td>model</td>
 <td>NA</td>
 </tr>
 <tr class="odd">
 <td>2013</td>
-<td>GENSENG <span class="citation">(Szatkiewicz et al. <a href="#ref-Szatkiewicz2013" role="doc-biblioref">2013</a>)</span></td>
+<td>GENSENG <span class="citation">(Szatkiewicz et al. <a href="#ref-Szatkiewicz2013">2013</a>)</span></td>
 <td>model</td>
 <td>model</td>
 <td>NA</td>
 </tr>
 <tr class="even">
 <td>2014</td>
-<td>CLImAT <span class="citation">(Yu et al. <a href="#ref-Yu2014" role="doc-biblioref">2014</a>)</span></td>
+<td>CLImAT <span class="citation">(Yu et al. <a href="#ref-Yu2014">2014</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>2014</td>
-<td>Gustaf <span class="citation">(Trappe et al. <a href="#ref-Trappe2014" role="doc-biblioref">2014</a>)</span></td>
+<td>Gustaf <span class="citation">(Trappe et al. <a href="#ref-Trappe2014">2014</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>2014</td>
-<td>SMASH <span class="citation">(Talwalkar et al. <a href="#ref-Talwalkar2014" role="doc-biblioref">2014</a>)</span></td>
+<td>SMASH <span class="citation">(Talwalkar et al. <a href="#ref-Talwalkar2014">2014</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>2015</td>
-<td>GROM-RD <span class="citation">(Smith, Kawash, and Grigoriev <a href="#ref-Smith2015" role="doc-biblioref">2015</a>)</span></td>
+<td>GROM-RD <span class="citation">(Smith, Kawash, and Grigoriev <a href="#ref-Smith2015">2015</a>)</span></td>
 <td>quantile</td>
 <td>quantile</td>
 <td>Yes or no</td>
@@ -1123,15 +1129,15 @@ Still, they limited the number of variant in any particular genomic region in or
 <h3>Mapping algorithm effect</h3>
 <p>Except for assembly approaches, the choice of read mapping algorithm might affect the results.
 Methods that manipulate discordant mapping in particular might gain the most at using a mapping strategy that fits best their approach.</p>
-<p>For example in <span class="citation">Malhotra et al. (<a href="#ref-Malhotra2013" role="doc-biblioref">2013</a>)</span>, reads were realigned with <em>Novoalign</em> before investigating the discordant reads with <em>HYDRA-MULTI</em>.</p>
+<p>For example in <span class="citation">Malhotra et al. (<a href="#ref-Malhotra2013">2013</a>)</span>, reads were realigned with <em>Novoalign</em> before investigating the discordant reads with <em>HYDRA-MULTI</em>.</p>
 </div>
 <div id="comparing-sv-calls" class="section level3">
 <h3>Comparing SV calls</h3>
-<p>GASV was developed to model uncertainty in the breakpoints <span class="citation">(Sindi et al. <a href="#ref-Sindi2009" role="doc-biblioref">2009</a>)</span>.
+<p>GASV was developed to model uncertainty in the breakpoints <span class="citation">(Sindi et al. <a href="#ref-Sindi2009">2009</a>)</span>.
 Each supporting read/probe/call is represented as a polygon defined by the start/end location and error (e.g. from insert size distribution).
 Polygons are then intersected using an efficient plane sweep to identify subset of intersecting polygons, that are assumed to support the same variant.
 Most of the paper describes GASV on raw data but they mention that it can be used to compare SV calls across studies.</p>
-<p>VarSim first normalize VCFs to canonical forms before comparison <span class="citation">(Mu et al. <a href="#ref-Mu2015" role="doc-biblioref">2015</a>)</span>.
+<p>VarSim first normalize VCFs to canonical forms before comparison <span class="citation">(Mu et al. <a href="#ref-Mu2015">2015</a>)</span>.
 Each record is converted to a simple insertion or deletion followed by SNVs.
 The insertion/deletion is either at the start/end of the variant, whatever results in the least number of mismatches.</p>
 <p><a href="https://www.ncbi.nlm.nih.gov/pubmed/23369161">Wittler et al. (2013)</a> describe a clustering approach to better define overlapping deletions from paired-end reads.</p>
@@ -1151,7 +1157,7 @@ Insertions can also be considered based on their sequence identity.</p>
 </div>
 <div id="in-silico-validation" class="section level3">
 <h3>In Silico validation</h3>
-<p><strong>Reads realignment</strong> <em>targetSeqView</em> <span class="citation">(Halper-Stromberg et al. <a href="#ref-Halper-Stromberg2014" role="doc-biblioref">2014</a>)</span> was developed to visualize and assess the quality of structural variants, especially in regions with repeats.
+<p><strong>Reads realignment</strong> <em>targetSeqView</em> <span class="citation">(Halper-Stromberg et al. <a href="#ref-Halper-Stromberg2014">2014</a>)</span> was developed to visualize and assess the quality of structural variants, especially in regions with repeats.
 The goal is to distinguish true SV from alignment artifacts.</p>
 <p>The reads are re-aligned to the SV sequence and the two contiguous (reference) sequences.
 The score represents how better the reads map to the SV sequence compared to the reference sequences.
@@ -1178,6 +1184,11 @@ Useful to inspect calls and compare multiple callsets with automated PDF creatio
 It creates a multi-panel figure showing depth, insert-size clustered pairs, soft clip presence.</p>
 </div>
 </div>
+</div>
+<div id="long-read-sequencing" class="section level1">
+<h1>Long-read sequencing</h1>
+<p>pbmm2 + pbsv was used in <span class="citation">Hiatt et al. (<a href="#ref-Hiatt2020">2020</a>)</span>.
+They also made <em>de novo</em> assemblies with hifiasm and “called” SVs from the minimap2 alignments.</p>
 </div>
 <div id="single-cell-sequencing" class="section level1">
 <h1>Single-cell sequencing</h1>
@@ -1255,6 +1266,9 @@ I thought the CNV calling was done at the cell level, I might be missing somethi
 <div id="ref-Chiara2012">
 <p>Chiara, Matteo, Graziano Pesole, and David S. Horner. 2012. “SVM2: An Improved Paired-End-Based Tool for the Detection of Small Genomic Structural Variations Using High-Throughput Single-Genome Resequencing Data.” <em>Nucleic Acids Research</em>. <a href="https://doi.org/10.1093/nar/gks606">https://doi.org/10.1093/nar/gks606</a>.</p>
 </div>
+<div id="ref-CommonMindConsortium2020">
+<p>CommonMind Consortium, Lide Han, Xuefang Zhao, Mary Lauren Benton,..., and Douglas M. Ruderfer. 2020. “Functional Annotation of Rare Structural Variation in the Human Brain.” <em>Nature Communications</em>. <a href="https://doi.org/10.1038/s41467-020-16736-1">https://doi.org/10.1038/s41467-020-16736-1</a>.</p>
+</div>
 <div id="ref-Duan2013a">
 <p>Duan, Junbo, Ji-Gang Zhang, Hong-Wen Deng, and Yu-Ping Wang. 2013. “Comparative Studies of Copy Number Variation Detection Methods for Next-Generation Sequencing Technologies.” <em>PloS One</em>. <a href="https://doi.org/10.1371/journal.pone.0059128">https://doi.org/10.1371/journal.pone.0059128</a>.</p>
 </div>
@@ -1296,6 +1310,9 @@ I thought the CNV calling was done at the cell level, I might be missing somethi
 </div>
 <div id="ref-He2011">
 <p>He, Dan, Farhad Hormozdiari, Nicholas Furlotte, and Eleazar Eskin. 2011. “Efficient Algorithms for Tandem Copy Number Variation Reconstruction in Repeat-Rich Regions.” <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btr169">https://doi.org/10.1093/bioinformatics/btr169</a>.</p>
+</div>
+<div id="ref-Hiatt2020">
+<p>Hiatt, Susan M., James M.J. Lawlor, Lori H. Handley, Ryne C. Ramaker,..., and Gregory M. Cooper. 2020. “Long-Read Genome Sequencing for the Diagnosis of Neurodevelopmental Disorders.” <em>bioRxiv</em>. <a href="https://doi.org/10.1101/2020.07.02.185447">https://doi.org/10.1101/2020.07.02.185447</a>.</p>
 </div>
 <div id="ref-Holt2013">
 <p>Holt, Carson, Bojan Losic, Deepa Pai, Zhen Zhao,..., and Lakshmi B Muthuswamy. 2013. “WaveCNV: Allele Specific Copy Number Alterations in Primary Tumors and Xenograft Models from Next-Generation Sequencing.” <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btt611">https://doi.org/10.1093/bioinformatics/btt611</a>.</p>
@@ -1361,7 +1378,7 @@ I thought the CNV calling was done at the cell level, I might be missing somethi
 <p>Moncunill, Valent́i, Santi Gonzalez, Śilvia Beà, Lise O Andrieux,..., and David Torrents. 2014. “Comprehensive Characterization of Complex Structural Variations in Cancer by Directly Comparing Genome Sequence Reads.” <em>Nature Biotechnology</em>. <a href="https://doi.org/10.1038/nbt.3027">https://doi.org/10.1038/nbt.3027</a>.</p>
 </div>
 <div id="ref-Mu2015">
-<p>Mu, John C., Marghoob Mohiyuddin, Jian Li, Narges Bani Asadi,..., and Hugo Y. K. Lam. 2015. “VarSim: A High-Fidelity Simulation and Validation Framework for High-Throughput Genome Sequencing with Cancer Applications.” <a href="https://doi.org/10.1093/bioinformatics/btu828">https://doi.org/10.1093/bioinformatics/btu828</a>.</p>
+<p>Mu, John C., Marghoob Mohiyuddin, Jian Li, Narges Bani Asadi,..., and Hugo Y.K. Lam. 2015. “VarSim: A High-Fidelity Simulation and Validation Framework for High-Throughput Genome Sequencing with Cancer Applications.” <a href="https://doi.org/10.1093/bioinformatics/btu828">https://doi.org/10.1093/bioinformatics/btu828</a>.</p>
 </div>
 <div id="ref-Nilsen2012">
 <p>Nilsen, Gro, Knut Liestøl, Peter Van Loo, Hans Kristian Moen Vollan,..., and Ole Christian Lingjærde. 2012. “Copynumber: Efficient Algorithms for Single- and Multi-Track Copy Number Segmentation.” <em>BMC Genomics</em>. <a href="https://doi.org/10.1186/1471-2164-13-591">https://doi.org/10.1186/1471-2164-13-591</a>.</p>
@@ -1418,7 +1435,7 @@ I thought the CNV calling was done at the cell level, I might be missing somethi
 <p>Trappe, Kathrin, Anne-Katrin Emde, Hans-Christian Ehrlich, and Knut Reinert. 2014. “Gustaf: Detecting and Correctly Classifying SVs in the NGS Twilight Zone.” <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btu431">https://doi.org/10.1093/bioinformatics/btu431</a>.</p>
 </div>
 <div id="ref-Tubio2014">
-<p>Tubio, Jose M. C. C., Yilong Li, Young Seok Ju, Inigo Martincorena,..., and Peter J. Campbell. 2014. “Extensive Transduction of Nonrepetitive DNA Mediated by L1 Retrotransposition in Cancer Genomes.” <em>Science</em>. <a href="https://doi.org/10.1126/science.1251343">https://doi.org/10.1126/science.1251343</a>.</p>
+<p>Tubio, Jose M.C. C., Yilong Li, Young Seok Ju, Inigo Martincorena,..., and Peter J. Campbell. 2014. “Extensive Transduction of Nonrepetitive DNA Mediated by L1 Retrotransposition in Cancer Genomes.” <em>Science</em>. <a href="https://doi.org/10.1126/science.1251343">https://doi.org/10.1126/science.1251343</a>.</p>
 </div>
 <div id="ref-Tuzun2005">
 <p>Tuzun, Eray, Andrew J Sharp, Jeffrey a Bailey, Rajinder Kaul,..., and Evan E Eichler. 2005. “Fine-Scale Structural Variation of the Human Genome.” <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng1562">https://doi.org/10.1038/ng1562</a>.</p>

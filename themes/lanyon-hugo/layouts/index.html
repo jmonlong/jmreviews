@@ -1,9 +1,9 @@
 {{ partial "default_head.html" . }}
 
-See <a href="/about/">About page</a> for a disclaimer.
-
 <!-- Space delimited list of page types -->
-{{ $paginator := .Paginate (where .Data.Pages "Type" "in" "post") }}
+{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+
+See <a href="/about/">About page</a> for a disclaimer.
 
 <div class="homehead">
   <h2 class="post-title">Pages</h2>

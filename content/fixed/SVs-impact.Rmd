@@ -16,6 +16,8 @@ On average, *394 genes* are predicted to differ in term of copy number *between 
 Different types of genes tend to be affected by common CNVs.
 Genes involved in *immune response* or *environmental interaction* in general tend to be located in region of active CNV.
 CNV seem to have played an important role in evolutionary adaptation [@Sharp2006].
+@Lee2010 note that CNVs are particularly frequent in genes with a role at our interface with environment.
+Moreover, these CNVs tend to be multi-allelic and in general more complex.
 
 **SV can influence gene expression in several ways**.
 Variation in the copy number of the entire gene can lead to **gene dosage** effect although genes involved in common CNVs are assumed to be tolerant to it.
@@ -40,6 +42,13 @@ Multi-allelic CNVs are more likely involved with gene dosage changes than one-co
 There, 88% of gene dosage changes were caused by common multi-allelic CNVs.
 Gene dosage changes from these CNVs correlates with gene expression.
 
+In @CommonMindConsortium2020, WGS and RNA-seq was leveraged to explore the effect of SVs on gene expression and devise a prediction approach to annotate rare CNVs.
+They observed mostly consistent effect on the gene expression for genic deletions and duplications or their promoters.
+They noted that many complete gene deletions/duplications are not expression outliers though.
+They built a disruption score that is better at ranking pathogenic CNVs than the traditional size+frequency considerations.
+Also pathogenic deletions and duplications associated with NDDs have higher "disruption score".
+
+
 ## Micro RNAs
 CNVs can also affect gene expression by **disrupting miRNAs dosage**.
 These non-coding small RNAs often regulate genes and sometimes entire pathways expression.
@@ -52,6 +61,8 @@ One reference from Volinia 2010 apparently confirms the role of CNV-causing dysr
 ## Genes with recurrent CNV
 
 Many genes are recurrently affected by copy number variation in normal genomes.
+@Lee2010 note that CNVs are particularly frequent in genes with a role at our interface with environment.
+Moreover, these CNVs tend to be multi-allelic and in general more complex.
 These genes must be haplosufficient (right?).
 For example, @Alkan2009 genes with full CNV :  complement factor H-related complex (CFHR1-4), defensin gene family (DEFB103B), amylase gene family (AMY1A), as well as CCL3L1 and TBC1D3.
 
@@ -71,6 +82,10 @@ The ectopic expression of genes during limb development in mice was assessed by 
 Using 4C-seq again, the *ectopic interaction* were also visible in patient-derived fibroblasts.
 Investigating deeper the minimal region, genomic annotations and additional mice experiments helped identify 5 candidate enhancers potentially responsible for the normal and ectopic regulation. 
 Finally, further genome editing confirmed that the **breaking of the TAD boundary** (and insulation region) **was the crucial factor** rather than the distance between enhancers and genes.
+
+@CommonMindConsortium2020 showed that SV overlapping enhancers was selected against.
+Same for SVs overlapping CTCF sites.
+The enhancer annotation was also significantly associated with their gene expression z-scores, although mostly for duplications.
 
 ## Methylation trigerring
 
@@ -136,6 +151,11 @@ The latter has more power but its results will need to be validated and investig
 
 @Beyter2019 discovered SVs using long-read sequencing in almost 2K Icelanders and imputed their presence in 166K Icelanders from SNP arrays.
 They performed association tests with the phenotype available and notably found a 14 Kbp deletion that overlaps the first exon of PCSK9 and correlates with lower LDL cholesterol levels.
+
+@Chen2020a performed a GWAS on 65K SVs vs 116 traits in 4-5K Finns.
+They identified 31 hits in 15 loci, including 2 novel loci (a promoter deletion, and a multi-allelic CNV).
+Many have stronger SNV hits though.
+
 
 ## Inversions
 
@@ -352,6 +372,12 @@ Novel deletions/duplications >100 kb were present in **15% of schizophrenia case
 
 Reduced penetrance has been observed in some families, for example for inherited CNVs and autism [@Lee2010].
 
+In @Hiatt2020, PacBio CCS found potentially pathogenic SVs in 2 out of 6 proband-parent trios with unexplained neurodevelopmental disorders (NDDs).
+The families had negative short-read tests.
+One of the SV is a *de novo* L1-mediated insertion which result in the duplication of exon 3 of *CDK5* and creates a frameshift.
+Mosaicism is suspected because they also observed paternal reads without the insertion.
+The other proband has some complex *de novo* translocations and inversions affecting 7 genes, including one (*MLLT3*) whose expression seems disrupted (~40% decrease).
+
 ## Epilepsy
 
 Epilepsy has a **prevalence of ~1%** in the population, and a **lifetime incidence** up to **3%**.
@@ -438,7 +464,12 @@ The deletion of the same locus causes hereditary neuropathy with liability to pr
 Both are mediated by NAHR.
 
 Williams-Beuren Syndrome is a mendelian disorder characterized by deletion at 7q11.23.
+The syndrome is remarkably consistent with the presence of these micro-deletions [@Lee2010].
+Segmental duplications are mediating the deletion, as well as a relatively common inversion (see inversion section).
+
 DiGeorge/velocardiofacial syndrom is characterized by deletion of 22q11.2.
+
+1q21.1 CNVs can lead to another contiguous gene syndrome which present a large range of clinical presentations [@Lee2010].
 
 ICF syndrome (Immunodeficiency, Centromeric instability and Facial anomalies) is characterized by an extension of pericentromeric satellites.
 Hypomethylation of these satellites is thought to be the cause for this instability on chromosome 1, 9 and 16 [@Jeanpierre1993].
@@ -450,7 +481,9 @@ Hereditary nonpolyposis colorectal cancer (HNPCC), also known as Lynch syndrome,
 **Disease-related CNVs are not restricted to rare variants** and the *genetic risk tend to be higher than for SNPs* [@Ionita-Laza2009].
 
 **Genetic pleiotropy** might exists [@Ionita-Laza2009].
-For example, gains and losses in *CLL3L1* are associated with HIV or Rheumatoid Arthritis. Similar for *DEFB4* and Crohn disease and Psoriasis.
+For example, gains and losses in *CCL3L1* are associated with HIV or rheumatoid arthritis. 
+Hence, what is protective for a trait (*CCR5* deletion/*CCL3L1* duplication for HIV/AIDS) can predispose for other (rheumatoid arthritis).
+Similar for *DEFB4* and Crohn disease and Psoriasis.
 
 Deletion of haplo-insufficient genes can lead to disease.
 For example, deletion of *LCE3B* and *LCE3C* is a risk factor for psoriasis [@Lee2010].
@@ -473,13 +506,6 @@ Here is a subset:
     - somatic mosaicism: Tuberous sclerosis (*TSC1*, *TSC2*)
     - somatic instability: Li-Fraumeni syndrome
 
-Some CNVs have a modifier (or buffer) effect: they are necessary but nor sufficient for a disease. 
-For example, 1q21.1 deletion and thrombocytopaenia absent radius (TAR) [@Lee2010].
-
-Sometimes the effect of CNVs are so variable that they "evade syndromic classification", for example for 1q21.1 deletions [@Lee2010].
-
-Epigenetic effects can also explain variable penetrance sometimes, like in Silver-Russell syndrome and (possibly) developmental verbal dyspraxia [@Lee2010].
-
 # Loss of chromosome Y and diseases
 
 Mosaic loss of chromosome Y (LOY) in blood in aging men has been known for several decades already.
@@ -498,6 +524,43 @@ APOE genotypes didn't show any differences in term of LOY but were included in t
 One proposed mechanism explaining these association is that LOY is a marker of *biological age*, hence more accurate than the chronological age at estimating these risks.
 They also propose that LOY could result in *defective immunosurveillance* which would be consistent with the AD and cancer phenotypes.
 Anyway they propose that LOY become one of the markers used for personalized medicine to better assess one's risk of cancer or AD.
+
+
+# Somatic mosaic CNVs
+
+Mosaic CNVs have been observed in some diseases: Rubinstein-Taybi syndrome, tuberous sclerosis, aniridia [@Lee2010].
+
+# Incomplete penetrance
+
+Some syndromes have strong genotype-phenotype relationship (e.g. Williams-Beuren syndrome), while others some others result from very different CNVs (e.g. Down syndrome caused by parts of chr 21 to full trisomy) [@Lee2010].
+
+Recurrent deletions and duplications at 15q13.3 have been associated with schizophrenia and epilepsy but are inherited in the majority of cases [@Lee2010].
+
+Sometimes the effect of CNVs are so variable that they "evade syndromic classification", for example for 1q21.1 deletions [@Lee2010].
+
+Some CNVs have a modifier (or buffer) effect: they are necessary but nor sufficient for a disease. 
+For example, 1q21.1 deletion and thrombocytopaenia absent radius (TAR) [@Lee2010].
+
+Epigenetic effects can also explain variable penetrance sometimes, like in Silver-Russell syndrome and (possibly) developmental verbal dyspraxia [@Lee2010].
+
+# Mutational load
+
+The concept that the aggregation of multiple CNVs can model diseases like ASD, bipolar disorder, schizophrenia, macular degeneration, tetralogy of fallot [@Lee2010].
+
+In their review @Lee2010 mention Li-Fraumeni syndrome as a *striking prototype*.
+This familial cancer syndrome is caused by mutations in *TP53* but evidence suggests the presence of modifier loci.
+The amount and size of CNVs seem to correlate with carrier of TP53 mutations or to those developping cancer.
+
+# Importance of understanding SV's impact
+
+SVs are difficult to interpret but they can be informative and for example provide an explanation to patients and families about the challenges they faced [@Lee2010].
+Monitoring SVs could also provide earlier diagnosis for conditions which can benefit from beneficial interventions, like autism.
+
+In addition to including SVs in the interpretation, a *shift in mindset* is also necessary to look at the genomic level rather than genetic level [@Lee2010].
+For example, in addition to looking for the one causative gene in a large CNV, we should also think at the gene/protein pathways, and the mutational load and modifier effects, at the epigenetic impact.
+
+@Lee2010 mentions that only 5% of GWAS hits might be explained by CNVs and that it would mean that CNVs shouldn't account for much of the *missing heritability*.
+`Do they mean _large_ CNVs here?`
 
 # Bibliography
 

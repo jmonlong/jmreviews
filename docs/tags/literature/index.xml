@@ -1,26 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Literature on </title>
+    <title>literature on </title>
     <link>/tags/literature/</link>
-    <description>Recent content in Literature on </description>
+    <description>Recent content in literature on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Dec 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/literature/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 24 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/literature/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>SVs</title>
-      <link>/2020/12/16/svs/</link>
-      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
+      <title>Functional SVs: GWAS, long-read for NDDs, disruption prediction</title>
+      <link>/2021/02/24/functional-svs-gwas-long-read-for-ndds-disruption-prediction/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>/2020/12/16/svs/</guid>
-      <description>Association of Structural Variation with Cardiometabolic Traits in Finns bioRxiv from Ira Hall’s group.
-From the intro:
- Targeted analysis of known SVs across large cohorts associated HP and LPA with cholesterol levels  This study:
- &amp;gt;20x WGS SV calling  svtools: discovery with LUMPY, CNVnator, svtyper; then genotyping. GenomeSTRiP and CNVnator for cohort-level CNVs. 55k DEL, 32k DUP, 187 INV, 3k MEI, 34k mCNV (, 4k BND).  ~130K SVs across 4-5K Finnish individuals 35% overlap with 1KG and gnomAD Advantage of the Finnish population: some rare variants enriched due to bottlenecks.</description>
+      <guid>/2021/02/24/functional-svs-gwas-long-read-for-ndds-disruption-prediction/</guid>
+      <description>Association of Structural Variation with Cardiometabolic Traits in Finns bioRxiv Chen et al. (2020)
+From the intro  Targeted analysis of known SVs across large cohorts associated HP and LPA with cholesterol levels   In this study  &amp;gt;20x WGS SV calling  svtools: discovery with LUMPY, CNVnator, svtyper; then genotyping. GenomeSTRiP and CNVnator for cohort-level CNVs. 55k DEL, 32k DUP, 187 INV, 3k MEI, 34k mCNV (, 4k BND).</description>
     </item>
     
     <item>

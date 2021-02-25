@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sv on </title>
+    <link>/tags/sv/</link>
+    <description>Recent content in sv on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/sv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Functional SVs: GWAS, long-read for NDDs, disruption prediction</title>
+      <link>/2021/02/24/functional-svs-gwas-long-read-for-ndds-disruption-prediction/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021/02/24/functional-svs-gwas-long-read-for-ndds-disruption-prediction/</guid>
+      <description>Association of Structural Variation with Cardiometabolic Traits in Finns bioRxiv Chen et al. (2020)
+From the intro  Targeted analysis of known SVs across large cohorts associated HP and LPA with cholesterol levels   In this study  &amp;gt;20x WGS SV calling  svtools: discovery with LUMPY, CNVnator, svtyper; then genotyping. GenomeSTRiP and CNVnator for cohort-level CNVs. 55k DEL, 32k DUP, 187 INV, 3k MEI, 34k mCNV (, 4k BND).</description>
+    </item>
+    
+  </channel>
+</rss>

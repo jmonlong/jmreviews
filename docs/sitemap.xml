@@ -1,206 +1,122 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/genome-assembly/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/genome-graphs/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/structural-variation/</loc>
-  </url>
-  
-  <url>
-    <loc>/structural-variation-impact/</loc>
-  </url>
-  
-  <url>
-    <loc>/structural-variation-mechanisms-of-formation/</loc>
-  </url>
-  
-  <url>
-    <loc>/structural-variation-methods/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/structural-variation-and-repeats/</loc>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/structural-variation-impact/</loc>
+  </url><url>
+    <loc>/structural-variation-mechanisms-of-formation/</loc>
+  </url><url>
+    <loc>/structural-variation-methods/</loc>
+  </url><url>
     <loc>/whole-genome-sequencing/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/glossary/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/about/</loc>
-  </url>
-  
-  <url>
-    <loc>/2020/12/16/svs/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2021-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/functional/</loc>
+    <lastmod>2021-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2021/02/24/functional-svs-gwas-long-read-for-ndds-disruption-prediction/</loc>
+    <lastmod>2021-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/literature/</loc>
+    <lastmod>2021-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2021-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/sv/</loc>
+    <lastmod>2021-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2021-02-24T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/2019/12/08/japanese-reference-genome-inversion-gwas-decode-svs/</loc>
     <lastmod>2019-12-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/06/17/1pe-week-1-2/</loc>
     <lastmod>2019-06-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2019/02/12/minimizers-cnv-burden-and-ref-guided-scaffolding/</loc>
     <lastmod>2019-02-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2018/07/22/cool-tools-machine-learning-and-a-population-specific-reference-genome/</loc>
     <lastmod>2018-07-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2018/03/31/chiang-sveqtl-2017/</loc>
     <lastmod>2018-03-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/10/23/summary-of-our-loy-paper/</loc>
-    <lastmod>2017-10-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/10/21/cancer-numbers/</loc>
-    <lastmod>2017-10-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/10/19/lit-digest-testing-overlap-between-genomic-regions/</loc>
-    <lastmod>2017-10-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/10/02/epilepsy-genes-candidates/</loc>
-    <lastmod>2017-10-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/09/23/genome-graphs/</loc>
-    <lastmod>2017-09-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/09/22/lit-digest-non-coding-variants-in-regulatory-regions/</loc>
-    <lastmod>2017-09-22T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/09/20/lit-digest-sv-and-long-read-sequencing/</loc>
-    <lastmod>2017-09-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/08/20/misc/</loc>
-    <lastmod>2017-08-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/08/10/testing-the-quality-of-an-assembly/</loc>
-    <lastmod>2017-08-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/05/23/single-cell-rna-seq-and-gbm/</loc>
-    <lastmod>2017-05-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/04/09/family-based-designs-for-gene-association-studies/</loc>
-    <lastmod>2017-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/04/02/epilepsy/</loc>
-    <lastmod>2017-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/02/05/microsatellite-instability/</loc>
-    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/01/14/the-self-assessment-trap/</loc>
-    <lastmod>2017-01-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2017/01/10/lit-digest-svs-and-tes/</loc>
-    <lastmod>2017-01-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2016/08/17/local-assembly/</loc>
-    <lastmod>2016-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/2016/06/18/sv-gene-expression-cancer-types-alu-insertions./</loc>
-    <lastmod>2016-06-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/disease/</loc>
-    <lastmod>2017-10-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/fixed/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/literature/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/mypubs/</loc>
     <lastmod>2017-10-23T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-12-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
+  </url><url>
+    <loc>/2017/10/23/summary-of-our-loy-paper/</loc>
+    <lastmod>2017-10-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2017/10/21/cancer-numbers/</loc>
     <lastmod>2017-10-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+  </url><url>
+    <loc>/tags/disease/</loc>
+    <lastmod>2017-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2017/10/19/lit-digest-testing-overlap-between-genomic-regions/</loc>
+    <lastmod>2017-10-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2017/10/02/epilepsy-genes-candidates/</loc>
+    <lastmod>2017-10-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2017/09/23/genome-graphs/</loc>
+    <lastmod>2017-09-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2017/09/22/lit-digest-non-coding-variants-in-regulatory-regions/</loc>
+    <lastmod>2017-09-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2017/09/20/lit-digest-sv-and-long-read-sequencing/</loc>
+    <lastmod>2017-09-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2017/08/20/misc/</loc>
+    <lastmod>2017-08-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2017/08/10/testing-the-quality-of-an-assembly/</loc>
+    <lastmod>2017-08-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2017/05/23/single-cell-rna-seq-and-gbm/</loc>
+    <lastmod>2017-05-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2017/04/09/family-based-designs-for-gene-association-studies/</loc>
+    <lastmod>2017-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2017/04/02/epilepsy/</loc>
+    <lastmod>2017-04-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2017/02/05/microsatellite-instability/</loc>
+    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2017/01/14/the-self-assessment-trap/</loc>
+    <lastmod>2017-01-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2017/01/10/lit-digest-svs-and-tes/</loc>
+    <lastmod>2017-01-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2016/08/17/local-assembly/</loc>
+    <lastmod>2016-08-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/2016/06/18/sv-gene-expression-cancer-types-alu-insertions./</loc>
+    <lastmod>2016-06-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+  </url><url>
+    <loc>/fixed/</loc>
   </url>
-  
 </urlset>

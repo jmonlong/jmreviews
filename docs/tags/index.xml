@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on </title>
@@ -6,35 +6,49 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Oct 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 24 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Disease</title>
-      <link>/tags/disease/</link>
-      <pubDate>Sat, 21 Oct 2017 00:00:00 +0000</pubDate>
+      <title>functional</title>
+      <link>/tags/functional/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>/tags/disease/</guid>
+      <guid>/tags/functional/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Literature</title>
+      <title>literature</title>
       <link>/tags/literature/</link>
-      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>/tags/literature/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Mypubs</title>
+      <title>sv</title>
+      <link>/tags/sv/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/sv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mypubs</title>
       <link>/tags/mypubs/</link>
       <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>/tags/mypubs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>disease</title>
+      <link>/tags/disease/</link>
+      <pubDate>Sat, 21 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/disease/</guid>
       <description></description>
     </item>
     

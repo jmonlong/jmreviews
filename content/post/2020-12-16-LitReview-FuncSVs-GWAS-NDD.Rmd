@@ -1,0 +1,200 @@
+---
+date: 2021-02-24
+title: "Functional SVs: GWAS, long-read for NDDs, disruption prediction"
+tags: ['literature', 'functional', 'sv']
+bibliography: [../../library-small.bib]
+link-citations: true
+output: blogdown::html_page
+---
+
+## Association of Structural Variation with Cardiometabolic Traits in Finns
+
+[bioRxiv](https://www.biorxiv.org/content/10.1101/2020.12.13.422502v1) @Chen2020a
+
+### From the intro
+
+- Targeted analysis of known SVs across large cohorts associated *HP* and *LPA* with cholesterol levels
+
+### In this study
+
+- \>20x WGS
+- SV calling
+    - [svtools](https://github.com/hall-lab/svtools): discovery with LUMPY, CNVnator, svtyper; then genotyping.
+    - GenomeSTRiP and CNVnator for cohort-level CNVs.
+    - 55k DEL, 32k DUP, 187 INV, 3k MEI, 34k mCNV (, 4k BND).
+- **~130K SVs across 4-5K Finnish individuals**
+- 35% overlap with 1KG and gnomAD
+- Advantage of the Finnish population: some rare variants enriched due to bottlenecks.
+- 65K SVs tested for **association with 116 traits**
+- Association using raw values when possible, e.g. allele balence from LUMPY or raw decimal copy numbers from CNVnator.
+- **WES and arrays for replication** on 15K more individuals
+- 31 hits at 15 loci
+    - **2 novel loci**: 
+        - *ALB* promoter deletion: $\nearrow$ serum albumin, $\searrow$ cholesterol.
+        - *PDPR* multi-allelic CNV: pyruvate and alanine levels.
+- The *PDPR* CNV is in a complex region: flanked by segmental duplications and were two recurrent CNVs overlap.
+- 5/6 replicated have stronger SNV hits
+- *HP* recurrent deletion associated with cholesterol and $\nearrow$ glycoprotein.
+
+### Questions
+
+- What about rare variants? Any burden test attempts?
+- Did they consider using specialized tools to detect MEI? And to assess STR variation?
+
+### Glossary
+
+- cholesterol: essential lipid required to build and maintain membranes, and modulate membrane fluidity. 
+- glycoprotein: protein with carbohydrates attached that are use, for example, for cell-cell interaction.
+- albumin: transport protein, of which serum albumin is the main protein of blood plasma.
+- pyruvate: versatile molecule used as intermediate for multiple pathways, including the one to break/make glucose.
+- alanine: amino acid, maybe relevant here because interchangeable with pyruvate?
+
+## Long-read genome sequencing for the diagnosis of neurodevelopmental disorders
+
+[bioRxiv](https://doi.org/10.1101/2020.07.02.185447) @Hiatt2020
+
+### Summary
+
+PacBio CCS found potentially pathogenic SVs in 2 out of 6 proband-parent trios with unexplained neurodevelopmental disorders (NDDs).
+
+### Why look for SVs in NDDs using long reads?
+
+1. Majority of NDDs are still undiagnosed.
+2. Some NDDs should result from highly penetrant varaints missed by other tests.
+
+### Methods
+
+- SNV/indels calling with bwa-mem + DeepVariant + GLNexus
+- SV calling with pbmm2 + pbsv
+- *de novo* assemblies sandbox included canu, Flacon unzip, HiCanu, hifiasm
+- Final assembly appoach was trio-binned hifiasm using short reads from the parents.
+- SV calling from the *de novo* assemblies just from the minimap2 alignments + bedtools.
+- [Gepard](https://cube.univie.ac.at/gepard) to make dotplots
+
+They also used a list of 35 known low-complexity repeats associated to diseases which they visualized on IGV.
+
+Note: The (negative) Illumina short reads pipeline had used DRAGEN+GATK, Delly+CNVnator+ERD+Manta+MELT.
+
+### Results
+
+- ~56K SVs per trio
+- ~59 candidate *de novo* SVs per proband
+- **~35-45 Mb N50 for the hifiasm assemblies**
+- MEI that looked *de novo* in the short reads were real but had been missed in the parents.
+- Much less *de novo* MEI calls in the CCS data.
+
+#### *de novo* L1-mediated insertion causing frameshift
+
+One of the SV is a *de novo* L1-mediated insertion which result in the duplication of exon 3 of *CDK5* and creates a frameshift.
+Mosaicism is suspected because they also observed paternal reads without the insertion.
+The insertion is made up of:
+
+- ~4.3 Kbp of L1HS sequence
+- ~2.6 Kbp of sequence similar to an exon of a nearby gene
+- 119 bp with the duplicated exon 3 of *CDKL5*
+
+They confirmed the variant by Sanger and also that the duplicated exon is spliced in the mRNA.
+**Very cool!**
+
+#### Complex multi-SVs event(s)
+
+The other proband has some complex *de novo* translocations and inversions affecting 7 genes, including one (*MLLT3*) **whose expression seems disrupted** (~40% decrease).
+Another gene, *DGKB*, is also predicted to be affected by those rearrangements.
+The *de novo* status, number of genes affected (including on predicted haploinsufficient), and total number of SVs are the most compelling evidence of pathogenicity in this proband.
+Like in the other patient, all these SVs are predicted to be on the paternal allele.
+
+### References to read
+
+- Torene RI, Galens K, Liu S, et al. Mobile element insertion detection in 89,874 clinical exomes. doi:10.1038/s41436-020
+- Gardner EJ, Prigmore E, Gallone G, et al. Contribution of retrotransposition to developmental disorders. doi:10.1038/s41467-019-12520-y
+
+---
+
+> Parents were sequenced, at a relatively reduced depth, to facilitate identification of de novo variation.
+
+Which I read as if it was the reduced depth that helped "finding" de novo variants...
+
+
+## Functional annotation of rare structural variation in the human brain
+
+[Nature Communications 2020](https://doi.org/10.1038/s41467-020-16736-1) @CommonMindConsortium2020
+
+### Summary
+
+WGS and RNA-seq was leveraged to explore the effect of SVs on gene expression and devise a prediction approach to annotate rare CNVs.
+
+### Methods
+
+- Data from the CommonMind Consortium: >1000 brain bank samples, many with SCZ and bipolar disorder.
+- **WGS and RNA-seq from 629 samples**
+- Same SV pipeline as for gnomAD-SV: Delly, Lumpy, Manta, Wham, MELT, CNVnator, GenomeSTRiP, cn.MOPS
+- Rare SVs are treated as heterozygous.
+- Regulatory regions: CTCF sites, enhancers from brain tissue, promoters (2 kbp upstream of TSS).
+- Control "non-functional" SVs if not overlapping any annotation. Either *intronic* or *intergenic*.
+- Z-score based on expression in non-carriers.
+- Compare z-score outliers for genic SVs vs non-genic SVs. Note: where did the "60" for the Bonferroni correction come from?
+- Enhancers linked to genes using Hi-C data (PsychENCODE)
+- Linear model between z-score and:
+  - proportion of exonic sequence
+  - proportion of the promoter
+  - sum proportion of all affected enhancers. `what's affected?`
+  - wheter SV and gene are in same TAD
+  - SV length
+- Compare with genic intolerance scores (ExAC/gnomAD)
+- Aggregate regulatory disruption scoreas **sum z-scores of each affected gene weighted by the intolerance score**.
+- Annotated CNVs across ~15K genomes with WGS
+  - including those overlapping known pathogenic CNVs from NDD ClinGen track.
+
+### Results
+
+- ~116K SVs, >90% of which are CNVs or MEI, and ~80% are smaller than 1 Kbp
+- ~89K SVs are rare (AF<1%)
+- AF is lower for SVs in coding region, enhancer, and CTCF sites (although maybe some SV size bias, see below).
+- The more exons affected the stronger the expression disruption.
+- TSS more sensitive than transcription end.
+- Consistent Z-score shift for genic duplications/deletions...
+- ...although most complete gene deletions/duplications don't lead to expression outliers.
+- Expression outliers also enriched in **genic inversions**.
+- Linear model expression-z-score vs annotation:
+  - exon and promoter proportion correlated in expected direction with deletions and duplications.
+  - $\nearrow$ enhancer proportion by duplications (and deletion but not significant), $\searrow$ expression
+  - SV-gene co-occurence in same TAD only significant for deletions ($\searrow$ expression)
+- I think the comparison with intolerance scores focused on each annotation or the SV frequencies, but didn't explore their relation to the observed transcriptomic disruption. For example, I'd have liked to know if SVs were more likely to have an impact on intolerant genes.
+  - I don't understand Fig 4 bcd. The way I understand, expecting 20% of CNVs in each gene quintile, wouldn't be ideal I think.
+- Pathogenic deletions and duplications associated with NDDs have higher "disruption score".
+- "Disruption score" is better at ranking pathogenic CNVs than the traditional size+frequency considerations.
+- This study highlights **SVs that alters CTCF sites**.
+
+### Figure 2 is more about "SV size" effect than the functional class?
+
+The effect of SV size was controlled by matching each functional SV with a non-functional SV of similar size.
+That way, the two sets of SVs compared with the Wilcoxon test have a similar size distribution.
+Although this works for the test comparing two sets of SVs, the AF numbers in the text and Figure 2 don't take this adjustment into account (I think).
+If so there is not one "intergenic AF", there should be one adjusted for each comparison with the different functional cases.
+
+Suprisingly, Fig 2 shows stronger selection patterns for enhancers and CTCF compared to coding regions. 
+If the size is not (well) controlled, it would make sense that these regulatory elements which are more spread in the genome, more often overlap larger and rarer SVs.
+The fact that the singleton proportion for SVs in enhancers drops that much when focusing on SVs overlapping one functional class only (CMC unique) would suggest a confounding effect of SV size in the other two panel also.
+
+My best guess is that the test is kind of correct but the figure 2 is biased by the size effect.
+The fact that the p-value of the test is smallest for enhancers might be because there more SVs to test than coding SVs for example.
+
+Thinking about this adjustment strategies, I can imagine two problems.
+First, it might be difficult if not impossible to match some large SVs.
+In particular, is it really possible to find Kbp-long intronic SVs, or even large SVs that don't overlap any CTCF sites or enhancers?
+Second, the few large SVs overlapping none of the functional annotations might be enriched in difficult regions to annotate and study in general, like low-complexity, repeat-rich and centro-telomeric regions. 
+These regions might well have SV calls, and often frequent. 
+So there might be a bias if we don't control for repeat context and how they might correlate with lack of annotation (I think).
+
+To finish on this, I can think of a few alternative approaches.
+Why not model the frequency of a SV using a linear model with their size and their overlap with functional classes?
+If we want intuitive numbers like AF or singleton proportion, maybe a conservative size theshold would give better results (kind of what *CMC unique* looks like).
+Or maybe show Figure 2 for a couple of size classes. 
+I would be reassured if SVs shorter than 200 or 500 bp showed the same pattern, for example.
+
+### References to read
+
+- Fudenberg, G. & Pollard, K. S. Chromatin features constrain structural variation across evolutionary timescales. Proc. Natl Acad. Sci. 116, 2175–2180 (2019).
+
+
+## References
