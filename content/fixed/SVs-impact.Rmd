@@ -130,7 +130,47 @@ Early milestones listed in @Lee2010:
 
 Large CNVs that span multiple genes can cause 'contiguous gene syndromes' or genomic disorders ("old" ref in @Lee2010)
 
+# Rare SVs
+
+One of the first duplication associated with a disease was found by Lupski and colleagues [@Baker2012].
+They found that hereditary neuropathy Charcot-Marie-Tooth disease was associated with the presence of an extra copy of a particular genetic region.
+Their paper was rejected from *Nature* and *Science* right away.
+The deletion of the same locus causes hereditary neuropathy with liability to pressure palsies (HNPP).
+Both are mediated by NAHR.
+
+Williams-Beuren Syndrome is a mendelian disorder characterized by deletion at 7q11.23.
+The syndrome is remarkably consistent with the presence of these micro-deletions [@Lee2010].
+Segmental duplications are mediating the deletion, as well as a relatively common inversion (see inversion section).
+
+DiGeorge/velocardiofacial syndrom is characterized by deletion of 22q11.2.
+
+Pinto et al. (Nature 2010) found a higher burden of rare genic CNVs (1.19x more >30kb CNV with AF<1%) in 996 ASD vs 1,287 controls using dense genotyping arrays.
+The enrichment was stronger for in loci implicated with ASD in the past (1.69x).
+Novel ASD genes were identified, e.g. SHANK2 (SHANK3 was a known ASD gene already), by zooming in to the *de novo* CNVs.
+Similar enrichmnent has been observed in schizophrenia and bipolar disorder.
+ 
+| Disease                       | Gene    | SV  | Size           | Description           | Ref               |
+|-------------------------------|---------|-----|----------------|-----------------------|-------------------|
+| ASD                           | SHANK2  | DEL | 66 kbp         | de novo exonic        | Pinto Nature 2010 |
+| Early-onset Alzheimer disease | APP     | DUP | 400 kb, 3.5 Mb | novel large rare CNVs |                   |
+| Breast cancer                 | BRCA1/2 | MEI | 300 bp         | Alu                   |                   |
+| Parkinson disease             | SNCA    | DUP |                |                       |                   |
+
 # Association studies and LD
+
+| Disease                                              | Gene        | SV                  | Size   | Description                                              | Ref                         |
+|------------------------------------------------------|-------------|---------------------|--------|----------------------------------------------------------|-----------------------------|
+| Crohn's Disease                                      | IRGM        | DEL                 | 20.1kb | upstream, known because perfect LD with associated SNP   | Wellcome Trust Nature 2010  |
+| Crohn's Disease                                      | IRGM        | DEL                 | 3.9kb  | upstream, not in LD with associated SNP                  | Wellcome Trust Nature 2010  |
+| Crohn's Disease                                      | DEFB4       |                     |        |                                                          |                             |
+| Type 2 Diabetes                                      | TSPAN8      | inverted DUP + DEL? | 1kb    | partly exonic, gene known but CNV not in LD with SNP hit | Wellcome Trust Nature 2010  |
+| Psoriasis                                            | LCE3B LCE3C | DEL                 | 32.2kb | full gene(s) loss                                        | de Cid Nature Genetics 2009 |
+| lower LDL cholesterol levels                         | PCSK9       | DEL                 | 14kb   | exon 1                                                   | @Beyter2019                 |
+| decreased serum albumin level, increased cholesterol | ALB         | DEL                 | 4kb    | promoter                                                 | @Chen2020a                  |
+| Alzheimer, parkinson                                 | MAPT        | INV                 | 900kb  | 17q21.31                                                 |                             |
+| obesity, autism,                                     |             | INV                 | 4.5Mb  | 8p23.1                                                   |                             |
+
++ How is association tested ? How many such studies have been performed ?
 
 One approach to test potential effect of common SVs with phenotypes uses **SNP in strong LD as markers**.
 Although it seemed at first glance that genotyped SNPs were in sufficient LD with many SVs, these analysis were **biased toward a specific type of SVs**.
@@ -149,13 +189,26 @@ Two strategies have been used:
 The former can result in a loss of information and power when the genotyping process is not exact.
 The latter has more power but its results will need to be validated and investigated through genotyping.
 
-@Beyter2019 discovered SVs using long-read sequencing in almost 2K Icelanders and imputed their presence in 166K Icelanders from SNP arrays.
+@Ionita-Laza2009 cites associations between **common CNVs and risk for HIV infections, autoimmune disease and asthma**. 
+
+**Disease-related CNVs are not restricted to rare variants** and the *genetic risk tend to be higher than for SNPs* [@Ionita-Laza2009].
+
+**Genetic pleiotropy** might exists [@Ionita-Laza2009].
+For example, gains and losses in *CCL3L1* are associated with HIV or rheumatoid arthritis. 
+Hence, what is protective for a trait (*CCR5* deletion/*CCL3L1* duplication for HIV/AIDS) can predispose for other (rheumatoid arthritis).
+Similar for *DEFB4* and Crohn disease and Psoriasis.
+
+CNVs have been associated with autism, schizophrenia, Crohn's disease, rheumatoid arthritis, type 1 diabetes, obesity and numerous developmental diseases [@Zarrei2015].
+
+Deletion of haplo-insufficient genes can lead to disease.
+For example, deletion of *LCE3B* and *LCE3C* is a risk factor for psoriasis [@Lee2010].
+
+@Beyter2019 discovered ~70K SVs using long-read sequencing in almost 2K Icelanders and imputed the presence of ~50K in 166K Icelanders from SNP arrays.
 They performed association tests with the phenotype available and notably found a 14 Kbp deletion that overlaps the first exon of PCSK9 and correlates with lower LDL cholesterol levels.
 
-@Chen2020a performed a GWAS on 65K SVs vs 116 traits in 4-5K Finns.
+@Chen2020a performed a GWAS on 65K SVs detected with 20x WGS vs 116 traits in 4-5K Finns.
 They identified 31 hits in 15 loci, including 2 novel loci (a promoter deletion, and a multi-allelic CNV).
-Many have stronger SNV hits though.
-
+5 out of the 6 replicated hits have stronger SNV association though.
 
 ## Inversions
 
@@ -172,6 +225,8 @@ An inversion in a parental chromosome may predispose to de novo CNVs [@Lee2010].
 For example the deletion in 17q21.31 results from an inversion common in Europeans.
 Other examples include Sotos syndrome or Williams-Beuren syndrome.
 These results suggest that parents are sometimes needed to fully understand the origin of CNVs.
+
+
 
 
 # Cancer
@@ -453,22 +508,6 @@ In @Ionita-Laza2009, Table 1 mention common deletions in *GSTM1* associated with
 
 # Other diseases
 
-+ How is association tested ? How many such studies have been performed ?
-
-CNVs have been associated with autism, schizophrenia, Crohn's disease, rheumatoid arthritis, type 1 diabetes, obesity and numerous developmental diseases [@Zarrei2015].
-
-One of the first duplication associated with a disease was found by Lupski and colleagues [@Baker2012].
-They found that hereditary neuropathy Charcot-Marie-Tooth disease was associated with the presence of an extra copy of a particular genetic region.
-Their paper was rejected from *Nature* and *Science* right away.
-The deletion of the same locus causes hereditary neuropathy with liability to pressure palsies (HNPP).
-Both are mediated by NAHR.
-
-Williams-Beuren Syndrome is a mendelian disorder characterized by deletion at 7q11.23.
-The syndrome is remarkably consistent with the presence of these micro-deletions [@Lee2010].
-Segmental duplications are mediating the deletion, as well as a relatively common inversion (see inversion section).
-
-DiGeorge/velocardiofacial syndrom is characterized by deletion of 22q11.2.
-
 1q21.1 CNVs can lead to another contiguous gene syndrome which present a large range of clinical presentations [@Lee2010].
 
 ICF syndrome (Immunodeficiency, Centromeric instability and Facial anomalies) is characterized by an extension of pericentromeric satellites.
@@ -476,17 +515,6 @@ Hypomethylation of these satellites is thought to be the cause for this instabil
 
 Hereditary nonpolyposis colorectal cancer (HNPCC), also known as Lynch syndrome, is a common autosomal dominant syndrome characterized by early age at onset, neoplastic lesions, and microsatellite instability (MSI).
 
-@Ionita-Laza2009 cites associations between **common CNVs and risk for HIV infections, autoimmune disease and asthma**. 
-
-**Disease-related CNVs are not restricted to rare variants** and the *genetic risk tend to be higher than for SNPs* [@Ionita-Laza2009].
-
-**Genetic pleiotropy** might exists [@Ionita-Laza2009].
-For example, gains and losses in *CCL3L1* are associated with HIV or rheumatoid arthritis. 
-Hence, what is protective for a trait (*CCR5* deletion/*CCL3L1* duplication for HIV/AIDS) can predispose for other (rheumatoid arthritis).
-Similar for *DEFB4* and Crohn disease and Psoriasis.
-
-Deletion of haplo-insufficient genes can lead to disease.
-For example, deletion of *LCE3B* and *LCE3C* is a risk factor for psoriasis [@Lee2010].
 
 @Lee2010 has a table listing examples of diseases associated with a SV, grouped by configuration. 
 Here is a subset:
