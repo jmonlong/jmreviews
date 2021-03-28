@@ -145,7 +145,7 @@ Segmental duplications are mediating the deletion, as well as a relatively commo
 DiGeorge/velocardiofacial syndrom is characterized by deletion of 22q11.2.
 
 Pinto et al. (Nature 2010) found a higher burden of rare genic CNVs (1.19x more >30kb CNV with AF<1%) in 996 ASD vs 1,287 controls using dense genotyping arrays.
-The enrichment was stronger for in loci implicated with ASD in the past (1.69x).
+The enrichment was stronger in loci implicated with ASD in the past (1.69x).
 Novel ASD genes were identified, e.g. SHANK2 (SHANK3 was a known ASD gene already), by zooming in to the *de novo* CNVs.
 Similar enrichmnent has been observed in schizophrenia and bipolar disorder.
  
