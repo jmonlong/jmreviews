@@ -142,19 +142,27 @@ Williams-Beuren Syndrome is a mendelian disorder characterized by deletion at 7q
 The syndrome is remarkably consistent with the presence of these micro-deletions [@Lee2010].
 Segmental duplications are mediating the deletion, as well as a relatively common inversion (see inversion section).
 
-DiGeorge/velocardiofacial syndrom is characterized by deletion of 22q11.2.
+DiGeorge/velocardiofacial syndrome is characterized by deletion of 22q11.2.
 
 Pinto et al. (Nature 2010) found a higher burden of rare genic CNVs (1.19x more >30kb CNV with AF<1%) in 996 ASD vs 1,287 controls using dense genotyping arrays.
 The enrichment was stronger for in loci implicated with ASD in the past (1.69x).
 Novel ASD genes were identified, e.g. SHANK2 (SHANK3 was a known ASD gene already), by zooming in to the *de novo* CNVs.
 Similar enrichmnent has been observed in schizophrenia and bipolar disorder.
  
-| Disease                       | Gene    | SV  | Size           | Description           | Ref               |
-|-------------------------------|---------|-----|----------------|-----------------------|-------------------|
-| ASD                           | SHANK2  | DEL | 66 kbp         | de novo exonic        | Pinto Nature 2010 |
-| Early-onset Alzheimer disease | APP     | DUP | 400 kb, 3.5 Mb | novel large rare CNVs |                   |
-| Breast cancer                 | BRCA1/2 | MEI | 300 bp         | Alu                   |                   |
-| Parkinson disease             | SNCA    | DUP |                |                       |                   |
+ 
+Sekiguchi et al. (Tansl Psychiatry 2020) performed GWAS on CNVs in 2940 patients with schizophrenia and 2402 controls.
+They identified a novel gene, *ARHGAP10*, from a significant enrichment of exonic CNVs in patients.
+They used aCGH and CNVs > 5kbp.
+They say "genome-wide" analysis but only talk about *ARHGAP10*, even in the methods.
+So it's not clear if they only look at this gene or if it was the one with significant association.
+ 
+| Disease                       | Gene     | SV  | Size           | Description           | Ref                             |
+|-------------------------------|----------|-----|----------------|-----------------------|---------------------------------|
+| ASD                           | SHANK2   | DEL | 66 kbp         | de novo exonic        | Pinto Nature 2010               |
+| Early-onset Alzheimer disease | APP      | DUP | 400 kb, 3.5 Mb | novel large rare CNVs |                                 |
+| Breast cancer                 | BRCA1/2  | MEI | 300 bp         | Alu                   |                                 |
+| Parkinson disease             | SNCA     | DUP |                |                       |                                 |
+| Schizophrenia                 | ARHGAP10 | DEL |                | exonic, (novel gene)  | Sekiguchi Tansl Psychiatry 2020 |
 
 # Association studies and LD
 

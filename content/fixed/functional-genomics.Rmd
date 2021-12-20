@@ -1,0 +1,15 @@
+---
+sidebar: true
+title: Functional Genomics
+bibliography: [../../library-small.bib]
+draft: true
+link-citations: true
+weight: 5
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+# Gene-based scores
+
+- [RVIS (Residual Variation Intolerance Score)](https://pubmed.ncbi.nlm.nih.gov/23990802/)
