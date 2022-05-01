@@ -1,0 +1,128 @@
+---
+date: 2022-04-30
+title: "Comparing SV: Viola, SV clustering, MARS and TT-MARS"
+tags: ['literature', 'sv']
+slug: litreviews-svsmethods
+bibliography: [../../library-small.bib]
+link-citations: true
+output: blogdown::html_page
+---
+
+## Viola: a structural variant signature extractor with user-defined classifications
+
+[Sugita et al Bioinformatics 2022](https://www.doi.org/10.1093/bioinformatics/btab662)
+
+[Website](https://dermasugita.github.io/ViolaDocs/docs/html/index.html)
+
+Viola is a python package to **merge SV calls and look for mutation signatures in cancer samples**.
+It's intended to be used within Python scripts.
+
+The annotation (can) include:
+
+- SV types/length
+- Genes
+- Fragile sites
+- Replication timing
+- Microhomology
+
+The "categories" can be customized as the intersection of multiple simpler ones, e.g. "duplications larger than XXbp in fragile sites".
+The rationale is to be able to refine the SV classification "by trial and error" which might be dangerously close to p-hacking if one is not careful.
+
+The SV merging is based on the breakpoints position, making sure the strand are concordant and SVs overlap on at least 1bp.
+It doesn't seem to explicitly ensure that the merged SVs are of the same type. 
+
+It can then generate a matrix for each sample and annotation feature (averaging/summing the SV numbers per sample?).
+The signature extraction is performed using [**non-negative matrix factorization** (NMF)](https://en.wikipedia.org/wiki/Non-negative_matrix_factorization) on the matrix.
+I have heard of NMF in the past for SNV mutations in cancer. 
+Apparently the two matrices produced are an *exposure* matrix and a *signature* matrix.
+To pick the number of signature *K*, they bootstrap the matrix and run the NMF multiple times, then look for K that gives the most stable signatures.
+
+Introduction mentioned that SVs can be grouped by **replication timing** in addition to fragile sites. 
+Tandem duplication in region with late replication were associated with driver mutations in CDK12, a gene involved in DNA damage response.
+
+(pyCancerSig is the other current tool they found to compare with.)
+
+## Improving structural variant clustering to reduce the negative effect
+
+[Geryk et al BMC Bioinformatics 2021](https://doi.org/10.1186/s12859-021-04374-3)
+
+Comparison of clustering approaches on Mendelian consistency, HWE, and kinship found that merging/clustering based on distance between breakpoints works better than overlap-based methods.
+Performing even better: their new *constrained clustering* approach which actually tries to maximize Mendelian consistency across trios.
+
+They used a few metrics to test is SV should cluster together. For different levels of clustering/merging:
+
+- Fraction of Mendelian errors (erroneous genotype configurations). I guess the fraction over all sites where a SV is called in at least one sample?
+- Number of Mendelian errors fixed by merging clusters.
+- Degree of kinship between samples.
+- Fraction of SVs in Hardy-Weinberg Equilibrium
+
+**Methods** in a nutshell:
+
+- 124 WGS samples: 102 unrelated samples, one 3-generation family of 10 samples, and another of 12 samples.
+- Manta calls merged samples with Survivor (switching off merging SVs).
+- Overlap or maximum distance between breakpoints to cluster SVs as components in a graph.
+
+
+**Merging SVs** by component is not always trivial, e.g. when two SVs are called in a same sample.
+Their *trivial strategy* is to leave them separate, no merging.
+Their *corrected strategy* decreases the distance D for those, until sub-components can be merged.
+Their *constrined strategy* is designed specially for trios and uses the trio relationship to maximize Mendelian consistency.
+Basically, it looks directly for pairs/triplets that should be merged first to maximize consistency across the sample set and iterates across components.
+
+One limitation is that this is about merging calls between just a few samples. 
+It might be less relevant when matching variants to a database of many SVs that would be more likely to match "by chance".
+
+Also why are the HWE estimates so low!? (<20%)
+They used Bonferroni-corrected p-values <0.05 on a Chi-square test across "only" 102 samples. 
+I'm surprised than more than 80% of the SVs were significantly violating HWE.
+
+## MARS: a tool for haplotype-resolved population-based structural variation detection
+
+[Zhang et al 2021 bioRxiv](http://biorxiv.org/lookup/doi/10.1101/2021.09.27.462061)
+
+[Github](https://github.com/maiziex/MARS)
+
+MARS calls SVs from diploid assemblies and refine their breakpoints across haplotypes of multiple samples using multiple sequence alignment.
+
+Methods:
+
+- Assembly of 34 samples from linked-reads using Aquila.
+- Call SVs from pairwise alignement assembly vs reference
+- Pool samples and realign SVs sequences (+-500bp) using MUSCLE
+
+They "validated" their approach by showing that the Mendelian concordance was high enough (~80%) and that ~80% of the SVs were seen in  HiFi reads.
+
+## TT-Mars: Structural Variants Assessment Based on Haplotype-resolved Assemblies
+
+[Yang & Chaisson bioRxiv 2021](http://biorxiv.org/lookup/doi/10.1101/2021.09.27.462044)
+
+[Github](https://github.com/ChaissonLab/TT-Mars)
+
+Tool to evaluate the quality of a SV callset by **comparing it directly to a high-quality assembly**, e.g. those produced by HGSVC (or HPRC).
+No need to match calls to SVs from a truthset catalog/VCF, this method compares the SV sequence to the assembly.
+If the alignment fit the predicted SV call, esp. compared to how the reference genome aligns, it's a "match".
+
+**Advantages** put forward:
+
+1. evaluates more variants
+    - although it's not clear to me why. Maybe compared to the confident regions available with the typical GIAB truthset. 
+1. evaluation as a distribution rather than a point estimate
+	- I don't really understand that, you could make truvari-like comparison as distributions I think.
+2. works with fragmented SV calls
+    - that's useful even if it's only fragmented calls in the truthset (dipcall-truvari comparison in their case).
+
+**Methods**: 
+
+- lra aligns reference genome and assemblies to make a orthology map, excluding centromeres.
+- Each SV is compared independently.
+- Both the SV sequence (edited reference) and the reference genome are compared to the orthologous local region in the assembly (in both haplogypes).
+- The comparison is computed using the unique (1-to-1) anchors from the orthology map, and the realignment results.
+- Classify SVs into FP/TP based on relative alignment of SV/reference onto the assembly, and the relative length differences.
+
+**Limitation**: TT-MARS evaluate SV calls (absence/presence) not genotypes.
+This is known to be challenging because SVs can't be analyzed independently but potentially combined to match the true genotype.
+
+About the name:
+
+- One of those *creative* acronyms: "TT-Mars (Structural Variants Assessment Based on Haplotype-resolved Assemblies)"
+- Is it a coincidence that the name is also MARS, like the preprint above that does something very similar? MARS is not cited by TT-MARS, so maybe it is.

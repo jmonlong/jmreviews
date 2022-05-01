@@ -1,0 +1,69 @@
+---
+date: 2021-03-03
+title: "Lit skimming: CNV in Brazilian cohort, epigenomic & SVs in human and chimp"
+tags: ['literature', 'sv']
+bibliography: [../../library-small.bib]
+link-citations: true
+output: blogdown::html_page
+---
+
+
+
+<div id="copy-number-variation-cnv-identification-interpretation-and-database-from-brazilian-patients" class="section level2">
+<h2>Copy number variation (CNV) identification, interpretation, and database from Brazilian patients</h2>
+<p><a href="https://pubmed.ncbi.nlm.nih.gov/33306777/">Genet Mol Biol. 2020</a></p>
+<ul>
+<li>adress lack of diversity in genomics study thanks to diverse/admixed Brazilian population.</li>
+<li>Methods
+<ul>
+<li>268 clinical samples, inc. neurodev disorders and/or congenital malformations.</li>
+<li>microarrays. SVs&gt; 50 probes and &gt;150-200 kbp</li>
+<li>annotation with DGV, DEVIPHER, ClinVar, ClinGen, RefSeq genes. ACMG guidelines</li>
+<li>pathogenic if not in DGV (&gt;=3 individuals and &gt;50% coverage) and: &gt;3Mb; or known; or OMIM gene + DECIPHER/ClinVar/ClinGen + phenotype match</li>
+</ul></li>
+<li>Results: more frequent CNVs in their dataset compared to open resources (which?)</li>
+<li>2.7% of 1,504 autosomal CNVs classified as pathogenic using gene content and overlaps with known clinical CNVs.</li>
+</ul>
+<p>Some regions were frequently affected (4 in particular), more than in other studies on European samples for example.
+This results is used to suggest that more diverse population shows a better picture of the variant distribution in the population.
+My main concern is that this sample set was specifically selected for NDD and other disease phenotypes while they compare to the frequencies in studies on “healthy” populations.</p>
+<p>Read next:
+- ACMG guidelines</p>
+</div>
+<div id="epigenomic-differences-in-the-human-and-chimpanzee-genomes-are-associated-with-structural-variation" class="section level2">
+<h2>Epigenomic differences in the human and chimpanzee genomes are associated with structural variation</h2>
+<p><a href="http://www.genome.org/cgi/doi/10.1101/gr.263491.120">Genome Research 2021</a></p>
+<p>Between human and chimp, 20-50k bp indels co-occur with epigenomic differences?</p>
+<ul>
+<li>Epigenomic data/Putative regulatory and repressed regions (PRRs)?
+<ul>
+<li>put. promoters (H3K4me3), put. enhancers (H3K27ac), H3K9me3 (heterochromatin, “repressed”)</li>
+<li>Cell types: cranial crest cells?</li>
+</ul></li>
+<li>Lineage bias in epi-marks based on peak calls and read difference (ChIP-seq)
+<ul>
+<li>Peaks are compared with OrthoINDEL which lifts indel-containing regions better.</li>
+</ul></li>
+<li>Insertions/deletions: DASVC
+<ul>
+<li>Select non-repeat ones with ancestral state (gorilla outgroup)</li>
+</ul></li>
+<li>12% of indels overlap
+<ul>
+<li>15% of these associated with lineage-biased PRRs</li>
+</ul></li>
+<li>PRRs with indels more likely to be lineage-biased (1.3-3x)
+<ul>
+<li>insertions in human tend to result in more human-biased, and inversely for deletions (same for chimp)</li>
+</ul></li>
+<li>Enrichment of 20-50 bp indels in CpG islands around promoters
+<ul>
+<li>More than in promoters without CpG. I imagine because CpG islands are more prone to slippage-like variation?</li>
+</ul></li>
+<li>Examples of transposable elements insertions that lead to new regulatory regions
+<ul>
+<li>SVAs in CNCC correlated with NR2F1 binding (nice motif found too)</li>
+<li>LTR5 in iPSC</li>
+</ul></li>
+</ul>
+</div>

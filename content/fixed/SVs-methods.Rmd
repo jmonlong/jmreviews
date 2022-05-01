@@ -879,6 +879,15 @@ In the network representation, SVs are merged using a minimum spanning forest al
 It offers multiple ways to specify distance thresholds such as absolute, relative to variant size, per variant in the VCF INFO field.
 Insertions can also be considered based on their sequence identity.
 
+[Viola](/2022/04/30/litreviews-svsmethods)[@Sugita2022] merges SVs based on the breakpoints positions, making sure the strand are concordant and SVs overlap on at least 1bp.
+It doesn't seem to explicitly ensure that the merged SVs are of the same type. 
+
+[MARS](/2022/04/30/litreviews-svsmethods) [@Zhang2021] calls SVs from diploid assemblies and refine their breakpoints across haplotypes of multiple samples using multiple sequence alignment.
+
+[TT-MARS](/2022/04/30/litreviews-svsmethods) [@Yang2021] also compare the SV calls to an haplotype-resolved assembly but focusing on evaluating the quality of SV calls, one sample at a time.
+No breakpoint refinement.
+Still a more modern way of evaluating SVs using the new high-quality haplotype-resolved assemblies from HGSVC/HPRC etc.
+
 ### In Silico validation
 
 **Reads realignment** *targetSeqView* [@Halper-Stromberg2014] was developed to visualize and assess the quality of structural variants, especially in regions with repeats.
@@ -912,6 +921,12 @@ Apparently distributed/implemented by [Base2Genomics](https://base2genomics.com/
 [SVPV](https://github.com/VCCRI/SVPV) (Structural Variant Prediction Viewer) visualizes alignments of paired-end reads around input SVs.
 Useful to inspect calls and compare multiple callsets with automated PDF creation.
 It creates a multi-panel figure showing depth, insert-size clustered pairs, soft clip presence.
+
+### Annotation/characterization
+
+[Viola](/2022/04/30/litreviews-svsmethods)[@Sugita2022] looks for mutation signatures in cancer samples from SV annotations using non-negative matrix factorization.
+
+
 
 # Long-read sequencing
 

@@ -1,6 +1,6 @@
 ---
 date: 2021-03-03
-title: "Skim"
+title: "Lit skimming: CNV in Brazilian cohort, epigenomic & SVs in human and chimp"
 tags: ['literature', 'sv']
 bibliography: [../../library-small.bib]
 link-citations: true

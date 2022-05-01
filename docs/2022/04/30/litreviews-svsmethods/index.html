@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name='robots' content='noindex,follow' />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Comparing SV: Viola, SV clustering, MARS and TT-MARS &middot; My Reviews
+    
+  </title>
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113785126-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', "UA-113785126-1");
+  </script>
+  
+  
+  <link rel="stylesheet" href="../../../../css/poole.css">
+  <link rel="stylesheet" href="../../../../css/syntax.css">
+  <link rel="stylesheet" href="../../../../css/lanyon.css">
+  <link rel="stylesheet" href="../../../../css/github.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="../../../../fa/css/font-awesome.min.css">
+  
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../../../assets/R-icon.png">
+  <link rel="shortcut icon" href="../../../../assets/R-icon.png">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="../../../../atom.xml">
+</head>
+
+  
+  <body class="theme-base-0d">
+
+    
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A place to review papers I read. Views are my own.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item " href="../../../../">Home</a>
+    <a class="sidebar-nav-item " href="../../../../post">Posts</a>
+
+    
+    
+      
+        <a class="sidebar-nav-item " href="../../../../genome-assembly/">Genome Assembly</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../genome-graphs/">Genome Graphs</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../structural-variation/">Structural Variation</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../structural-variation-and-repeats/">Structural Variation and Repeats</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../structural-variation-impact/">Structural Variation Impact</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../structural-variation-mechanisms-of-formation/">Structural Variation Mechanisms of Formation</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../structural-variation-methods/">Structural Variation Methods</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../whole-genome-sequencing/">Whole-Genome Sequencing</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../glossary/">Glossary</a>
+      
+    
+      
+        <a class="sidebar-nav-item " href="../../../../about/">About</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+    
+  </nav>
+
+  <div class="sidebar-item">
+  </div>
+  
+  <div class="sidebar-item">
+    <div><a href="../../../../index.xml"><i class="fa fa-rss-square" aria-hidden="true"></i> RSS</a></div>
+    <div><a href="https://twitter.com/JMonlong"><i class="fa fa-twitter" aria-hidden="true"></i> @JMonlong</a></div>
+    <p>&copy; 2020 Jean Monlong. All rights reserved.</p>
+  </div>
+</div>
+
+
+    
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="../../../../" title="Home">My Reviews</a>
+            <small>Views are my own</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+
+
+<div class="post">
+  <h1 class="post-title">Comparing SV: Viola, SV clustering, MARS and TT-MARS</h1>
+  <span class="post-date">Apr 30 2022
+  
+  
+  
+  
+  
+  <a href='../../../../tags/literature/' class='label'>literature</a>
+  
+  <a href='../../../../tags/sv/' class='label'>sv</a>
+  
+  
+  
+  </span>
+  
+
+
+<div id="viola-a-structural-variant-signature-extractor-with-user-defined-classifications" class="section level2">
+<h2>Viola: a structural variant signature extractor with user-defined classifications</h2>
+<p><a href="https://www.doi.org/10.1093/bioinformatics/btab662">Sugita et al Bioinformatics 2022</a></p>
+<p><a href="https://dermasugita.github.io/ViolaDocs/docs/html/index.html">Website</a></p>
+<p>Viola is a python package to <strong>merge SV calls and look for mutation signatures in cancer samples</strong>.
+It’s intended to be used within Python scripts.</p>
+<p>The annotation (can) include:</p>
+<ul>
+<li>SV types/length</li>
+<li>Genes</li>
+<li>Fragile sites</li>
+<li>Replication timing</li>
+<li>Microhomology</li>
+</ul>
+<p>The “categories” can be customized as the intersection of multiple simpler ones, e.g. “duplications larger than XXbp in fragile sites”.
+The rationale is to be able to refine the SV classification “by trial and error” which might be dangerously close to p-hacking if one is not careful.</p>
+<p>The SV merging is based on the breakpoints position, making sure the strand are concordant and SVs overlap on at least 1bp.
+It doesn’t seem to explicitly ensure that the merged SVs are of the same type.</p>
+<p>It can then generate a matrix for each sample and annotation feature (averaging/summing the SV numbers per sample?).
+The signature extraction is performed using <a href="https://en.wikipedia.org/wiki/Non-negative_matrix_factorization"><strong>non-negative matrix factorization</strong> (NMF)</a> on the matrix.
+I have heard of NMF in the past for SNV mutations in cancer.
+Apparently the two matrices produced are an <em>exposure</em> matrix and a <em>signature</em> matrix.
+To pick the number of signature <em>K</em>, they bootstrap the matrix and run the NMF multiple times, then look for K that gives the most stable signatures.</p>
+<p>Introduction mentioned that SVs can be grouped by <strong>replication timing</strong> in addition to fragile sites.
+Tandem duplication in region with late replication were associated with driver mutations in CDK12, a gene involved in DNA damage response.</p>
+<p>(pyCancerSig is the other current tool they found to compare with.)</p>
+</div>
+<div id="improving-structural-variant-clustering-to-reduce-the-negative-effect" class="section level2">
+<h2>Improving structural variant clustering to reduce the negative effect</h2>
+<p><a href="https://doi.org/10.1186/s12859-021-04374-3">Geryk et al BMC Bioinformatics 2021</a></p>
+<p>Comparison of clustering approaches on Mendelian consistency, HWE, and kinship found that merging/clustering based on distance between breakpoints works better than overlap-based methods.
+Performing even better: their new <em>constrained clustering</em> approach which actually tries to maximize Mendelian consistency across trios.</p>
+<p>They used a few metrics to test is SV should cluster together. For different levels of clustering/merging:</p>
+<ul>
+<li>Fraction of Mendelian errors (erroneous genotype configurations). I guess the fraction over all sites where a SV is called in at least one sample?</li>
+<li>Number of Mendelian errors fixed by merging clusters.</li>
+<li>Degree of kinship between samples.</li>
+<li>Fraction of SVs in Hardy-Weinberg Equilibrium</li>
+</ul>
+<p><strong>Methods</strong> in a nutshell:</p>
+<ul>
+<li>124 WGS samples: 102 unrelated samples, one 3-generation family of 10 samples, and another of 12 samples.</li>
+<li>Manta calls merged samples with Survivor (switching off merging SVs).</li>
+<li>Overlap or maximum distance between breakpoints to cluster SVs as components in a graph.</li>
+</ul>
+<p><strong>Merging SVs</strong> by component is not always trivial, e.g. when two SVs are called in a same sample.
+Their <em>trivial strategy</em> is to leave them separate, no merging.
+Their <em>corrected strategy</em> decreases the distance D for those, until sub-components can be merged.
+Their <em>constrined strategy</em> is designed specially for trios and uses the trio relationship to maximize Mendelian consistency.
+Basically, it looks directly for pairs/triplets that should be merged first to maximize consistency across the sample set and iterates across components.</p>
+<p>One limitation is that this is about merging calls between just a few samples.
+It might be less relevant when matching variants to a database of many SVs that would be more likely to match “by chance”.</p>
+<p>Also why are the HWE estimates so low!? (&lt;20%)
+They used Bonferroni-corrected p-values &lt;0.05 on a Chi-square test across “only” 102 samples.
+I’m surprised than more than 80% of the SVs were significantly violating HWE.</p>
+</div>
+<div id="mars-a-tool-for-haplotype-resolved-population-based-structural-variation-detection" class="section level2">
+<h2>MARS: a tool for haplotype-resolved population-based structural variation detection</h2>
+<p><a href="http://biorxiv.org/lookup/doi/10.1101/2021.09.27.462061">Zhang et al 2021 bioRxiv</a></p>
+<p><a href="https://github.com/maiziex/MARS">Github</a></p>
+<p>MARS calls SVs from diploid assemblies and refine their breakpoints across haplotypes of multiple samples using multiple sequence alignment.</p>
+<p>Methods:</p>
+<ul>
+<li>Assembly of 34 samples from linked-reads using Aquila.</li>
+<li>Call SVs from pairwise alignement assembly vs reference</li>
+<li>Pool samples and realign SVs sequences (+-500bp) using MUSCLE</li>
+</ul>
+<p>They “validated” their approach by showing that the Mendelian concordance was high enough (~80%) and that ~80% of the SVs were seen in HiFi reads.</p>
+</div>
+<div id="tt-mars-structural-variants-assessment-based-on-haplotype-resolved-assemblies" class="section level2">
+<h2>TT-Mars: Structural Variants Assessment Based on Haplotype-resolved Assemblies</h2>
+<p><a href="http://biorxiv.org/lookup/doi/10.1101/2021.09.27.462044">Yang &amp; Chaisson bioRxiv 2021</a></p>
+<p><a href="https://github.com/ChaissonLab/TT-Mars">Github</a></p>
+<p>Tool to evaluate the quality of a SV callset by <strong>comparing it directly to a high-quality assembly</strong>, e.g. those produced by HGSVC (or HPRC).
+No need to match calls to SVs from a truthset catalog/VCF, this method compares the SV sequence to the assembly.
+If the alignment fit the predicted SV call, esp. compared to how the reference genome aligns, it’s a “match”.</p>
+<p><strong>Advantages</strong> put forward:</p>
+<ol style="list-style-type: decimal">
+<li>evaluates more variants
+<ul>
+<li>although it’s not clear to me why. Maybe compared to the confident regions available with the typical GIAB truthset.</li>
+</ul></li>
+<li>evaluation as a distribution rather than a point estimate
+<ul>
+<li>I don’t really understand that, you could make truvari-like comparison as distributions I think.</li>
+</ul></li>
+<li>works with fragmented SV calls
+<ul>
+<li>that’s useful even if it’s only fragmented calls in the truthset (dipcall-truvari comparison in their case).</li>
+</ul></li>
+</ol>
+<p><strong>Methods</strong>:</p>
+<ul>
+<li>lra aligns reference genome and assemblies to make a orthology map, excluding centromeres.</li>
+<li>Each SV is compared independently.</li>
+<li>Both the SV sequence (edited reference) and the reference genome are compared to the orthologous local region in the assembly (in both haplogypes).</li>
+<li>The comparison is computed using the unique (1-to-1) anchors from the orthology map, and the realignment results.</li>
+<li>Classify SVs into FP/TP based on relative alignment of SV/reference onto the assembly, and the relative length differences.</li>
+</ul>
+<p><strong>Limitation</strong>: TT-MARS evaluate SV calls (absence/presence) not genotypes.
+This is known to be challenging because SVs can’t be analyzed independently but potentially combined to match the true genotype.</p>
+<p>About the name:</p>
+<ul>
+<li>One of those <em>creative</em> acronyms: “TT-Mars (Structural Variants Assessment Based on Haplotype-resolved Assemblies)”</li>
+<li>Is it a coincidence that the name is also MARS, like the preprint above that does something very similar? MARS is not cited by TT-MARS, so maybe it is.</li>
+</ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+
+    
+    
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src="../../../../assets/highlight.min.js"></script>
+    <script src="../../../../assets/r.min.js"></script>
+    
+    <script>
+      hljs.configure({languages: ['r']});
+      hljs.initHighlightingOnLoad();
+    </script>
+
+    <script src="//yihui.name/js/math-code.js"></script>
+    <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    
+  </body>
+</html>
+

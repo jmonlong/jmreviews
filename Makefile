@@ -9,7 +9,7 @@ docs/index.html: $(mdfiles) library-small.bib
 	Rscript -e 'blogdown::build_site()'
 
 library-small.bib: $(mdfiles) library.bib
-	python reduceBib.py -b library.bib -o library-small.bib $(mdfiles)
+	python3 reduceBib.py -b library.bib -o library-small.bib $(mdfiles)
 
 epub: jmreviews-ebook.epub
 
