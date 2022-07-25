@@ -124,5 +124,5 @@ This is known to be challenging because SVs can't be analyzed independently but 
 
 About the name:
 
-- One of those *creative* acronyms: "TT-Mars (Structural Variants Assessment Based on Haplotype-resolved Assemblies)"
+- One of those *creative* acronyms: "TT-Mars (S**t**ructural Varian**t**s Assess**m**ent B**a**sed on Haplotype-**r**esolved A**s**semblies)"
 - Is it a coincidence that the name is also MARS, like the preprint above that does something very similar? MARS is not cited by TT-MARS, so maybe it is.

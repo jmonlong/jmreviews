@@ -649,6 +649,9 @@ The approach is very similar to BayesTyper: SVs are discovered with methods like
 Many of the input SVs might be errors but it's not a big problem because the genotyper can figure out if the variant is supported or not by mapped reads.
 One limitation of this breakpoint-centric approach is that some informative reads might be discarded. 
 
+@Li2021 developped [PanSVR](/2022/07/12/litreviews-svdetection) as a SV caller guided by known SVs. 
+It can "genotype" divergent alleles but only around know SV sites.
+It uses a pangenomic seeding approach to cluster the reads and assemble them.
 
 ## Others
 

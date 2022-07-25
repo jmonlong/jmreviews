@@ -1,0 +1,92 @@
+---
+date: 2022-07-20
+title: "Comparing SV: Truvari, SURVIVOR, SVanalyser"
+tags: ['literature', 'sv']
+slug: litreviews-svcomparison
+bibliography: [../../library-small.bib]
+link-citations: true
+draft: true
+output: blogdown::html_page
+---
+
+## Truvari
+
+[English et al. bioRxiv 2022](https://doi.org/10.1101/2022.02.21.481353)
+
+Truvari ([https://github.com/ACEnglish/truvari](https://github.com/ACEnglish/truvari)) can take different sets of structural variants (SVs) and match them in order to:
+1. benchmark a callset with a truthset
+2. merge/collapse variant sets
+   - multiple SVs sets from different methods on a sample 
+   - SVs across samples, merged into SV "sites".
+
+The authors warn about the **dangers of over-merging and under-merging SVs**.
+Over-merging can inflate allele frequency and lead to a loss of allele diversity.
+Under-mergin would make variant association and functional annotation more difficult.
+
+#### Methods
+
+SVs are matched is all of the following occurs:
+1. Same type.
+2. Sizes are similar. Reciprocally above 70%/95% of the other.
+2. Sequences are similar. 70%/95% similarity when aligning SV alleles.
+3. Located not too far. If breakpoints at less than 500bp from each other
+
+The two default values above correspond to their benchmarking and collapsing modes.
+Collapsing is much more stringent.
+
+**Reciprocal overlap** can also be used when calls are not sequence resolved.
+I imagine the default thresholds would be the same as for the sequence similarity.
+
+Of note, insertions are represented by the region centered in their position and extended upstream and downstream by half its size.
+This means the distance allowed to match two insertions is greater the greater the insertions are.
+I'm not sure that it makes sense.
+We do assume something similar when using reciprocal overlap for deletions.
+
+#### Analysis
+
+The first application showcased was to merge SVs in the two haplotypes of a same sample. 
+The SVs were called with dipcall from phased de novo assemblies from HGSVC2.
+
+They first double-checked the quality of their calls by **comparing each haploypes of NA24385 to the GIAB truthset**. 
+I didn't understand how they did that *for each haplotype*.
+Is GIAB also split by haplotype for this sample??
+
+**Genotype matching** is mentionned as one of the five metrics taken into account but not listed when listing the default values for *bench* and *collapse*.
+The output file of the *bench* mode does include numbers for both calling and genotyping.
+It also has a *genotype concordance* which they computed at the proportion of true positive to have correct predicted genotypes.
+It's not clear which one they used in the different sections.
+For example, after merging the haplotypes of NA24385, are the recall/TP/FN/FP taking into account genotype. 
+We'd hope so because the goal, by merging two haplotypes, is to get correct genotypes.
+It's not mentionned in the text or methods.
+
+Reading this paper made me wonder if the **GIAB genotypes are to be trusted**? 
+Or if we should only use it to benchmark SV calling??
+Are there similar heterozygous SVs in the same sample that should be one homozygous record, for example.
+
+Another application is merging SVs across samples.
+The SV merging mode was compared to:
+- BCFtools: exact matching
+- Jasmine: similar to truvari but more effort on clustering
+- Naive 50% reciprocal-overlap
+- SURVIVOR: more of distance threshold between breakpoins I think??
+
+Overall, I think they demonstrated that **stringency will affect the benchmarking/merging results**.
+Truvari turns out to be by default more stringent than the other tools in their comparison. 
+Hence, it looks like a good middle ground to avoid over-merging for example. 
+However, it's not clear that their approach is better. 
+We might get similar results by using more stringent paramets with SURVIVOR.
+Despite not being convinced by their benchmarking of truvari, I think the method makes sense and that it's easy to tune to make it a very useful tools for SV comparison.
+
+The **Hardy-Weinberg equilibrium and excess heterozygosity had a lot of potential** to benchmark the tools, in my opinion.
+It's a bit disappointing that they use it on such a small subset of variants (NA24385 true positives AND in the Challenging Medically Relevant Genes regions).
+Why not compute this over of the variants in the genome?
+Also this could be used to fine-tune the parameters.
+
+I liked that they tried the hard task of assessing the performance in hard repeated regions.
+As far as I understand, each SV in STRs/VNRTs is decomposed into units and copy number using TandemRepeatFinder.
+Then they test if the different tools over-merge (merge variants with different CNs, *missing*), or under-merge (variants with same CN are not merged, *redundant*)
+Truvari, as the most stringent approach, has lower *missing* variants but more *redundant*.
+
+## SURVIVOR
+
+## SVanalyzer

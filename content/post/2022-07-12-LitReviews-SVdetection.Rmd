@@ -1,0 +1,62 @@
+---
+date: 2022-07-12
+title: "SV detection???"
+tags: ['literature', 'sv']
+slug: litreviews-svdetection
+bibliography: [../../library-small.bib]
+link-citations: true
+draft: true
+output: blogdown::html_page
+---
+
+## PanSVR: Pan-Genome Augmented Short Read Realignment for Sensitive Detection of Structural Variations
+
+[Li et al. Frontiers in Genetics 2021](https://www.frontiersin.org/articles/10.3389/fgene.2021.731515/full)
+
+Pan-genome augmented Structure Variation calling tool with read Re-alignment (PanSVR) is a SV caller method is **more sensitive to SVs**, including in repeat-rich regions or **for insertions**.
+Compared to other pangenomic approaches, PanSVR is supposed to be **more robust to the sample SV diverging from the known SV**.
+I guess this is true because the pangenome is used only to get longer and more informative seeds that will be used for a more traditional read alignment, clustering, and assembly afterwards.
+
+**Methods**:
+
+1. The pan-genome SV reference contains the sequence around SV sites and the new sequence (for insertions).
+    2. SV breakpoints +- 250 bp
+    3. Those "anchor" sequences of all SVs are concatenated?
+    3. Index with a de Bruijn graph (RdBG-index??). *k=22*
+1. Chimeric short reads are aligned to this SV reference to make long "match blocks"
+    2. Keep all read pairs with at least on reads not perfectly aligned. (Really, that's a lot of reads??)
+    3. Realigned using the RdBG index with unique 20-mers seeds (or repetitive seeds at ends of the read).
+    4. Seeds are extended within graph unitigs.
+4. "Match blocks" are used as seeds for a re-alignment to the reference sequence 
+    5. Chaining using sparse dynamic programming
+    6. Align the gaps with Smith-Waterman
+3. Reads are clustered by position in the SV reference
+2. In each cluster, reads are assembled into a consensus sequence
+    3. Only consider cluster with good quality distribution.
+    4. Fragmented assembly with a modified version of Manta.
+3. Consensus sequence is aligned back to the SV reference with NW, and the 
+
+**They use the pangenome just to make longer seeds.** 
+It surprises me because the breakpoint information is not really used. 
+They could have just indexed the regions surrounding each known SV (and the inserted sequences) and selected the alignment seeds based on how uniquely they map, and get exactly the same. 
+Well, I guess that's what they did. 
+The other pangenomic methods I know use the adjacency information in the graph (GraphTyper, vg, BayesTyper, Paragraph).
+It feels like a lost oppotunity to not use the fact that reads **span** the known breakpoints.
+On the other hand, it makes their method more robust when the SVs are different.
+
+**Benchmark**:
+
+- Compare to Manta and Delly
+- Truthset: minimap2+SVIM-asm to call SVs from phased HGSVC assembly.
+- SV comparison to truthset using SURVIVOR
+- Higher F1 scores for both insertions and deletions
+- Overall better at calling long insertions (~20x more 500+ bp insertions than Manta).
+- Alu insertions are still challenging
+- No comparison to other pangenomic SV genotypers (cited in Discussion) :(
+
+Multiple typos/inconsistencies:
+- "Both *two the* values can be used"
+- Figure 2C legend says "NW" algorithm but the figure and text talk about SW.
+- "the improved alignments are sort by their positions"
+- "There are two haplotypes *of* for each of the samples"
+- "within the inserted *strings* of the sequenced sample"
