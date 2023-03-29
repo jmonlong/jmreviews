@@ -1,0 +1,59 @@
+---
+sidebar: true
+title: Diseases
+bibliography: [../../library-small.bib]
+link-citations: true
+weight: 5
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+# Hemochromatosis
+
+
+[Hemochromatosis](https://en.wikipedia.org/wiki/Iron_overload) is caused by an excess of iron.
+There are five types of hemochromatosis, two of which are juvenile forms.
+The classical type, [hereditary hemochromatosis type 1](https://en.wikipedia.org/wiki/Hereditary_haemochromatosis), is by far the most frequent.
+
+Multiple organs are affected, notably liver and heart.
+Symptoms include:
+
+- liver disease, e.g. cirrhosis or liver cancer
+- heart failure
+- chronic fatigue
+- arthritis
+
+The disease onset is later in women, usually after menopause.
+Men aged 40-50 and more should show symptoms.
+
+The treatment is usually blood draws ([phlebotomy](https://en.wikipedia.org/wiki/Phlebotomy)).
+
+### Genetics
+
+The main risk factor is a [C282Y mutation](https://www.ncbi.nlm.nih.gov/snp/rs1800562) in the HFE gene which is frequent but has an incomplete penetrance.
+This mutation is observed in about 5% of European populations, and to a lower extent in south Europe and the US.
+It was spread through Viking and then Normans migrations (and the [celtic haplotype HLA-A3/B7](https://bmcmedgenet.biomedcentral.com/articles/10.1186/1471-2350-5-25)).
+Carriers of the homozygous risk alleles (3-8 out of 1000) have about 10-20% chance of developing the disease.
+
+A second HFE mutation is sometimes H63D, which has 17% allele frequency.
+
+HFE is the gene for the hepcidin protein, which is involved in iron absorption regulation
+
+Heritability of hemochromatosis is unknown.
+Among HFE-hom, transferrin levels and serum ferritin levels had an estimated heritability of ~0.2 ([McLaren et al. 2008](https://doi.org/10.1182/blood.V112.11.115.115), [McLaren et al. 2010](https://pubmed.ncbi.nlm.nih.gov/20095037/)).
+While the chances of developing symptoms is ~20% in general, it increases to ~50% if another member of the family suffers from hemochromatosis.
+
+De Tayrac et al. ([2015](https://pubmed.ncbi.nlm.nih.gov/25457201/)) tested 500K SNPs across 474 unrelated HFE-homs and found a SNP in intron 11 of TF (transferrin gene) associated with levels of serum iron (serum transferrin and serum iron), which correlated with severity of the disease (iron removed by blood draws, clinical stage).
+The association was replicated in 748 C282Y-homozygotes.
+
+Milet et al. ([2007](https://pubmed.ncbi.nlm.nih.gov/17847004/)) tested just 10 genes (75 SNPs) across 592 C282Y-homozygotes, and found an association between a SNP near BMP2 and pretherapeutic serum ferritin level (marker penetrance).
+They also detected a potential interaction between the BMP2 SNP and a SNP in HJV.
+Overall, they concluded that the BMP pathway might be a good candidate when searching for modifier genes.
+
+Next:
+
+- [The global prevalence of HFE and non-HFE hemochromatosis estimated from analysis of next-generation sequencing data](https://www.nature.com/articles/gim2015140)
+- [Novel loci affecting iron homeostasis and their effects in individuals at risk for hemochromatosis](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4215164/)
+- [HFE in OMIM](https://www.omim.org/entry/613609)
+- Iron regulation: ferritin, transferrin, hepcidin

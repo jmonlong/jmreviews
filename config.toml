@@ -13,7 +13,7 @@ title = "My Reviews"
 author = "Jean Monlong"
 tagline = 'Views are my own'
 description = 'A place to review papers I read. Views are my own.'
-year = "2020 Jean Monlong"
+year = "2022 Jean Monlong"
 [params.github]
 url = "https://github.com/jmonlong"
 

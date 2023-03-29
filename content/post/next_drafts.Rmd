@@ -1,0 +1,48 @@
+---
+date: 2026-01-01
+title: "Draft of upcoming reviews"
+slug: litreviews-bovine-pangenome
+bibliography: [../../library-small.bib]
+link-citations: true
+draft: true
+output: blogdown::html_page
+---
+
+## Mapping And Phasing Of Structural Variation In Patient Genomes Using Nanopore Sequencing
+
+TODO
+
+## Optimizing Nanopore sequencing-based detection of structural variants enables individualized circulating tumor DNA-based disease monitoring in cancer patients
+
+[Valle-Inclan et al. Genome Medicine 2021](https://doi.org/10.1186/s13073-021-00899-7)
+
+SVs were first detected using low-coverage 1.5-5x long reads sequencing (ONT).
+Then, those SVs were searched in circulating tumor DNA using digital PCR assays.
+The PCR mini-amplicons were designed to span the SV breakpoints.
+This allows for monitoring the tumor during/after treatment for example.
+Because it's low coverage, it is also quite fast to get those validated biomarkers (~3 days).
+
+The SV filtering pipeline includes a model trained to detect false-positives and an approach to filter out germline calls (not necessarily from the same sample).
+If the goal if to filter out germline calls, why does the first database, SharcDB, contains calls from tumor samples?
+Maybe a few of those were the blood samples from these patients, but at list a couple at cell line, so definitely somatic SVs.
+
+
+
+*Methods overview*:
+- SV calling from ONT with NanoSV which seems to be Sniffles + NanoVar
+- SV calling from short reads with GRIDSS for tumors and Manta for germline
+- Random forest trained on NA12878 to filter out false-positives
+- Annotate SVs if present in database with VCF-exporer(?)
+  - SV calls from 14 samples
+  - Germline SVs calls from 59 controls
+- Select the top 20 largest SVs for PCR validation.
+- Each SV was assessed with three probes
+  - 2 wild-type alleles (up- downstream)
+  - 1 of the breakpoint junction
+
+
+Limitations:
+- Some SV types are filtered out even if I think many could be detected with PCR.
+  - Insertions are filtered out because "the inserted sequence cannot be accurately inferred from the low coverage nanopore sequencing data."
+  - Translocations are not selected by the size ranking but can be "manually selected".
+- The germline filter is based on a small database which could easily be augmented with public catalogs (gnomAD-SV, 1000GP, HPRC). Luckily, the "top 20 largest SVs" also enriches somatic SVs. 

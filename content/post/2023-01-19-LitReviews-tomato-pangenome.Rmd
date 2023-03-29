@@ -1,0 +1,113 @@
+---
+date: 2023-01-19
+title: "Tomato pangenomes"
+tags: ['literature', 'pangenome', 'tomato', 'plant']
+slug: litreviews-bovine-pangenome
+bibliography: [../../library-small.bib]
+link-citations: true
+draft: true
+output: blogdown::html_page
+---
+
+## Background on tomato
+
+- Tomato - *Solanum lycopersicum*.
+- Latest reference genome, SL5.0 is 802 Mbp.
+- 12 chromosomes, diploid.
+- ~34-36K protein-coding genes.
+
+## Graph pangenome captures missing heritability and empowers tomato breeding
+
+[Zhou et al. Nature 2022](https://doi.org/10.1038/s41586-022-04808-9)
+
+**Thanks to the pangenomes, structural variants** could be analyzed and helped **explain more of the heritability of metabolic traits and gene expression**.
+They used long-read sequencing and de novo assembly to better catalog SVs (and SNVs/indels) that were then integrated into a pangenome.
+The pangenome was used for mapping reads of more than 700 samples.
+Once projected to the linear reference, variants were called and used for heritability analysis and GWAS.
+
+**Methods summary**:
+1. 32 assemblies from HiFi reads using Flye/Hicanu/Hifiasm
+  - SL5.0 also scaffolded with HiC
+1. SNP/indels from HiFi reads using DeepVariant
+1. SVs from HiFi reads using NGLMR and Sniffles/SVIM/CuteSV/PBSV
+  - Also assembly-based SVs using Assemblytics.
+1. More SVs from 100 tomatoes (MAS2.0) lifted from SL4.0
+2. Gene annotation projected to a pangenome containing the assemblies made with minigraph.
+   - Following scripts from [a bovine pangenome study](https://github.com/AnimalGenomicsETH/bovine-graphs).
+1. Pangenome using the vg SV-Giraffe pipeline
+  - Redundant SVs filtered and iteratively added to pangenome.
+1. Short reads for 706 tomatoes (>6x) mapped with giraffe and projected to SL5.0. Then:
+  1. DeepVariant to call SNVs/indels 
+  1. Paragraph to genotype SVs.
+1. Heritability estimated by LDAK
+1. GWAS using two models
+  1. Single-locus testing with mixed linear model using GCTA
+  1. Multi-locus testing with LASSO from LDAK using lassopv.
+1. Some heritability/association restricted to co-expression modules found using WGCNA
+
+One of the reason for this increased power is that **many SVs have a functional impact and are not "tagged" properly by SNVs/indels**.
+Hence, the effect of the these important SVs were only partially captured by variants that were in incomplete linkage disequilibrium.
+For example, they found that only about 3% of SVs are in complete LD with SNPs nearby, even if ~60% are in strong LD ($R^2>0.7$).
+Their example in figure 2d-e highlights this nicely.
+The SVs are the ones explaining most of the heritability in that gene's expression.
+If they are not included the explained heritability is much lower.
+Also, the most associated SNP is quite far from the SV which makes fine-mapping the causal variant more difficult.
+Hence, including SVs could not only find new associations but **also help strengthen and fine-map know (SNP) associations**.
+
+As observed before, the **pangenome helped with variant calling, especially structural variants**. 
+This was shown by simulating reads and evaluating the DeepVariant/Paragraph calls using the mappings from the linear vs pangenome reference.
+The gain in especially strong for SVs.
+Of note, the reads were simulated for the assembled samples in the pangenome, so it represents the ideal case where the studied sample is fully represented in the pangenome, or when the goal is to genotype those variants rather than discovering new ones.
+In the past, we've tried to take out the sample that we simulated the reads from the pangenome for these kind of analysis.
+They also observed that **only 20% of the SVs detected using the pangenome were called when using the linear reference**.
+
+The **heritability of metabilic and gene expression traits was significantly higher when using pangenomes, especially when taking SVs into account**.
+They estimate that SVs are responsible for 65.9% of the overall heritability.
+
+| Measure                         | Linear genome | Pangenome |
+|---------------------------------|---------------|-----------|
+| 10x variant calling F1 - SNP    | 0.931         | 0.966     |
+| 10x variant calling F1 - Indel  | 0.897         | 0.941     |
+| 10x variant calling F1 - SV     | 0.474         | 0.84      |
+| Heritability - SNP              | 0.28          | 0.29      |
+| Heritability - Indel            | 0.29          | 0.34      |
+| Heritability - SV               | 0.25          | 0.36      |
+| Heritability - SNP + indel + SV | 0.33          | 0.41      |
+
+Heritability with LDAK in a nutshell.
+The most recent models assume that the contribution of a variant to heritability varies across the genome.
+Those models now often include annotations about linkage disequilibrium, allele frequency, and functional features (e.g. overlap with coding sequence).
+The **LDAK-thin model** used in this paper, is the recommended by LDAK when analyzing individual-level data. 
+It models heritability using just the allele frequency of variants, after "thinning" duplicate variants (i.e. in high LD with other variants).
+In practice, a kinship matrix and covariates (PCs 1-4) are also provided. 
+Of note, the "kinship matrix (or genetic relationship matrix) [...] can be used to account for phenotype correlation due to genetic similarity among samples." (from the [GENESIS manual](https://www.bioconductor.org/packages/release/bioc/vignettes/GENESIS/inst/doc/assoc_test.html))
+
+Their first GWAS followed the classic single-locus design where each variant is tested independently.
+I'm not yet completely clear on **mixed linear model association** (MLMA) as implemented by [GCTA](https://yanglab.westlake.edu.cn/software/gcta/#MLMA).
+It seems to be **more powerful** by correcting for population and relatedness structure.
+I should read [Yang et al. 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3989144/).
+
+
+The second model used in this article can **test multiple variants at once** thanks to the integrated variable selection of the [**LASSO** approach](https://en.wikipedia.org/wiki/Lasso_(statistics)).
+The LASSO model seemed more powerful by handling what they call **"allele heterogeneity"**.
+For each gene, they tested the association of all nearby SVs in this "multilocus" model and could find many more genes with multiple cis-SV eQTLs than with the single-locus model.
+For that part, they used the [lassopv package](https://github.com/lingfeiwang/lassopv) which claims that the p-values are better than with other method. 
+It's not published though, and has been a preprint (on both arxiv and biorxiv) since 2018.
+I'm not sure why they use the predicted phenotype (best linear unbiased prediction, BLUP) from LDAK as response variable instead of the actual trait measure though?
+
+To tackle **locus heterogeneity**, they repeated the **LASSO analysis across genes in the same co-expressed module**. 
+Their co-expression network contains 99 modules that groups genes that might impact a same trait.
+Each module contains only a small number of genes, ~178 on average, hence the LASSO model is still computationally practical.
+
+**Limitations** include:
+- No complex SVs analyzed, which could change if high quality assemblies were used to construct the pangenome directly.
+- LASSO approach cannot yet be applied genome-wide.
+- Only biallelic variants considered.
+
+Kudos for the the github repo for this paper which has a lot of the commands used and helped clarify some of my questions: https://github.com/YaoZhou89/TGG
+
+##  Major Impacts of W1idespread Structural Variation on Gene Expression and Crop Improvement in Tomato 
+
+https://pubmed.ncbi.nlm.nih.gov/32553272/
+
+MAS2.0

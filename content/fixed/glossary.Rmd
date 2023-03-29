@@ -199,7 +199,7 @@ The symptoms include declining physical abilities and cognitive functions.
 
 # Inbreeding coefficient
 
-The probability that the same allele is transmitted from both parents.
+The probability that two alleles are the same, i.e identical by descent.
 
 A simple formula to estimate the inbreeding coefficient is \\(1-\frac{O}{E}\\) where *O* is the observed number of heterozygotes and *E* the expected under HWE.
 
