@@ -38,7 +38,8 @@ Carriers of the homozygous risk alleles (3-8 out of 1000) have about 10-20% chan
 
 A second HFE mutation is sometimes H63D, which has 17% allele frequency.
 
-HFE is the gene for the hepcidin protein, which is involved in iron absorption regulation
+HFE is the gene for the hepcidin protein, which is involved in iron absorption regulation by regulating the concentration of ferroportin, the only iron exporter.
+Hepcidin also controls the release of iron by macrophages or hepatocytes.
 
 Heritability of hemochromatosis is unknown.
 Among HFE-hom, transferrin levels and serum ferritin levels had an estimated heritability of ~0.2 ([McLaren et al. 2008](https://doi.org/10.1182/blood.V112.11.115.115), [McLaren et al. 2010](https://pubmed.ncbi.nlm.nih.gov/20095037/)).
@@ -57,3 +58,14 @@ Next:
 - [Novel loci affecting iron homeostasis and their effects in individuals at risk for hemochromatosis](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4215164/)
 - [HFE in OMIM](https://www.omim.org/entry/613609)
 - Iron regulation: ferritin, transferrin, hepcidin
+
+### Iron regulation
+
+- Enterocyte: intestinal absorptive cell
+- Hepatocyte: liver cell
+- Ferroportin exports iron absorbed by enterocytes, into blood stream. Regulated by hepcidin.
+- Hepcidin regulates iron homeostasis. Inhibits iron transport by binding to ferroportin.
+- Macrophages can contain iron too after recycling erythrocytes.
+- Erythrocytes: red blood cells.
+- Erythropoiesis is the process of making red blood cells, which uses iron.
+- Transferrin? HFE?

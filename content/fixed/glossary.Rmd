@@ -172,6 +172,10 @@ The hazard rate is the limit of the number of events per individual at risk in a
 It represents the magnitude of distance between the Kaplan–Meier plots.
 Derived from regression models such as Cox proportional hazard models.
 
+# Hepatocyte
+
+Stores iron.
+
 # Heritability
 
 Overall genetic effect of a quantitative trait. 
@@ -185,10 +189,6 @@ Presence of more than one type of organellar genome (e.g. mitochondrial DNA or p
 
 For example, a variant in the hemoglobin gene is responsible for sickle cell disease but protects against the malaria parasite.
 
-# Hybridization
-
-The binding of one strand of DNA to its complementary strand in the DNA double-helix (aka hybridization) is sensitive to even single-base mismatches when the hybrid region is short or if specialized mismatch detection proteins are present.
-
 # Huntington disease
 
 The expansion of a CAG tandem repeat in the coding region of the Huntington gene (HTT) can lead to an increased rate of neuronal decay in the brain and elsewhere.
@@ -196,6 +196,14 @@ The expansion of a CAG tandem repeat in the coding region of the Huntington gene
 The longer the STR the earlier the age of onset and the faster progression.
 
 The symptoms include declining physical abilities and cognitive functions.
+
+# Hybridization
+
+The binding of one strand of DNA to its complementary strand in the DNA double-helix (aka hybridization) is sensitive to even single-base mismatches when the hybrid region is short or if specialized mismatch detection proteins are present.
+
+# Hypoxia
+
+Lower than normal level of oxygen.
 
 # Inbreeding coefficient
 
@@ -234,6 +242,10 @@ Using marker data and the traits across a pedigree, linkage analysis estimated h
 His functions include: detoxification of metabolite, protein synthesis, production of biochemicals for digestion.
 
 It is a accessory digestive gland.
+
+# Macrophage
+
+Recycles iron (among other things).
 
 # Mather's law
 
