@@ -52,20 +52,23 @@ Milet et al. ([2007](https://pubmed.ncbi.nlm.nih.gov/17847004/)) tested just 10 
 They also detected a potential interaction between the BMP2 SNP and a SNP in HJV.
 Overall, they concluded that the BMP pathway might be a good candidate when searching for modifier genes.
 
-Next:
-
-- [The global prevalence of HFE and non-HFE hemochromatosis estimated from analysis of next-generation sequencing data](https://www.nature.com/articles/gim2015140)
-- [Novel loci affecting iron homeostasis and their effects in individuals at risk for hemochromatosis](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4215164/)
-- [HFE in OMIM](https://www.omim.org/entry/613609)
-- Iron regulation: ferritin, transferrin, hepcidin
-
 ### Iron regulation
 
 - Enterocyte: intestinal absorptive cell
 - Hepatocyte: liver cell
-- Ferroportin exports iron absorbed by enterocytes, into blood stream. Regulated by hepcidin.
-- Hepcidin regulates iron homeostasis. Inhibits iron transport by binding to ferroportin.
 - Macrophages can contain iron too after recycling erythrocytes.
 - Erythrocytes: red blood cells.
 - Erythropoiesis is the process of making red blood cells, which uses iron.
-- Transferrin? HFE?
+- Duedenum: first section of the small intestine, where most iron absorption occurs.
+- Ferroportin exports iron absorbed by enterocytes, into blood stream. Regulated by hepcidin.
+- Hepcidin regulates iron homeostasis. Inhibits iron transport by binding to ferroportin.
+- Transferrin: protein that binds to iron to help its transport to tissues. Transferrin saturation is a symptom of hemochromatosis.
+- HFE: gene encoding a transmembrane protein that is thought to down-regulate the absorption of iron from transferrin.
+- Ferritin: intracellular protein that stores iron.
+
+### Next
+
+- [The global prevalence of HFE and non-HFE hemochromatosis estimated from analysis of next-generation sequencing data](https://www.nature.com/articles/gim2015140)
+- [Novel loci affecting iron homeostasis and their effects in individuals at risk for hemochromatosis](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4215164/)
+- [HFE in OMIM](https://www.omim.org/entry/613609)
+
