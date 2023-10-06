@@ -97,9 +97,16 @@ Named after the characteristic cry of affected children.
 
 # Crohn's disease
 
-A type of **inflammatory bowel disease** caused by a combination of environmental, immune and bacterial factors in genetically susceptible individuals. No medication or surgery can cure Crohn's disease.
+A type of **inflammatory bowel disease** caused by a combination of environmental, immune and bacterial factors in genetically susceptible individuals. 
+No medication or surgery can cure Crohn's disease.
+The unregulated inflammation is thought to be caused by a disfunctional immune response.
 
-Approximately 60% of patients with Crohn's disease suffer from colonic involvement.
+About 40% of cases show inflammation of the ileum (final section of the small intestine in) and 30-40% inflammation of the small intestine, often in segments (skip lesions). 
+About 20% of cases have skip lesions of the colon (Crohn's colitis).
+Less than 10% have perianal inflammation.
+
+More female are affected.
+Smoking aggravates the disease.
 
 # Cytokine
 
@@ -378,6 +385,10 @@ No cure.
 
 Sequencing of ribosome-protected RNA fragments which informs about the translation rate rather than the transcription rate (RNA-seq).
 
+# Sarcoma
+
+Malignant tumor originating from cells of connective tissue. Typically grouped into bone sarcomes and soft-tissue sarcomas. Symptoms include a lump.
+
 # Sensitivity, specificity, precision, recall
 
 - **Sensitivity** or **Recall** `TP/(TP+FN)`
@@ -400,6 +411,13 @@ Literally "running together". A collection of features or symptoms recognized to
 
 Megabase-scale regions where interaction is possible, e.g. between regulatory regions and genes, in mammalian genomes.
 TADs are separated by insulators such as CTCF or house-keeping genes that block interaction across adjacent TADs.
+
+# Ulcerative colitis
+
+A type of **inflammatory bowel disease**. 
+It's an autoimmune disease where T-cells infiltrate the colon which cause inflammation and ulcers in the colon and rectum.
+The main symptoms include abdominal pain and diarrhea mixed with blood.
+About 40-50% of the inflammation is located in the rectal/sigmoid area (proctitis) that can then spread.
 
 # Wahlund effect
 

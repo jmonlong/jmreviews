@@ -72,3 +72,66 @@ Overall, they concluded that the BMP pathway might be a good candidate when sear
 - [Novel loci affecting iron homeostasis and their effects in individuals at risk for hemochromatosis](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4215164/)
 - [HFE in OMIM](https://www.omim.org/entry/613609)
 
+
+# Cancer
+
+## Leiomyosarcoma (LMS) 
+
+Leiomyosarcoma (LMS) is the most common soft tissue and uterine sarcoma.
+It's the malignant tumor of smooth muscles, which are found in hollw structures like intestines, bladder, uterus, blood vessels.
+Unpredictable and usually not responsive to chemotherapy, the most effective treatment seems to be surgical removal.
+
+Subtypes include:
+
+- Uterine leiomyosarcoma
+- Cutaneous leiomyosarcoma
+- Gastrointestinal leiomyosarcoma
+
+SRF: Serum Response Factor (SRF), transcription factor involved in cell proliferation, cell death resistance, metastasis
+
+Alternative Lengthening of Telomeres (ALT) has been associated with poorer outcome. 
+Instead of using telomerase to extend/maintain telomeres, the ALT pathway uses an homologous recombination-based pathway and allow cancerous cells to evade senescence due to telomere shortening.
+
+Low mutation burden of ~40 somatic non-silent (missense or nonsense) coding SNVs per sample (RevChibon2019).
+Cancer with one of the highest number of rearrangements, but they are mostly private and don't typically create gene fusions.
+
+We expect multiple activation/inactivation of oncogenes/tumor suppressors with combined effects rather than one event.
+
+Recurrent events:
+
+- TP53 pathway altered
+- p16/RB1 pathway altered
+- PI3K/mTOR pathway dysregulation
+- ATRX frequently mutated by SNVs, and associated with ALT phenotype
+
+### Structural variants of LMS
+
+More somatic losses than gains (RevChibon2019).
+LMS are often tetraploid.
+
+Exclusive genomic alterations:
+
+- MYOCD amplification
+- PTEN homozygous deletion
+- DMD structural rearrangement
+
+Gene fusions:
+
+- TRIO-TERT?
+
+### To read
+
+- [Comprehensive and Integrated Genomic Characterization of Adult Soft Tissue Sarcomas. Cell 2017](https://pubmed.ncbi.nlm.nih.gov/29100075/)
+- [Integrative genomic and transcriptomic analysis of leiomyosarcoma. Nat Commun 2018](https://pubmed.ncbi.nlm.nih.gov/29321523/)
+
+## Neoantigens
+
+Neoantigens are antigens produced by tumors and that could be targeted for treatment.
+They can arise from tumor viruses integrating in the cancerous genome, or as products of mutant proteins.
+
+Most specific neoantigens might be non-coding and will require better tools to be identified.
+
+### To read
+
+- [Neoantigen: A New Breakthrough in Tumor Immunotherapy. Front Immunol 2021](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8085349/)
+- [Noncoding regions are the main source of targetable tumor-specific antigens. Sci Transl Med 2018](https://pubmed.ncbi.nlm.nih.gov/30518613/)
