@@ -1,0 +1,46 @@
+---
+date: 2022-08-29
+title: "Pangenome application: transcriptome"
+tags: ['literature', 'pangenome']
+slug: litreviews-pangenome-apps
+bibliography: [../../library-small.bib]
+link-citations: true
+draft: true
+output: blogdown::html_page
+---
+
+
+
+<div id="haplotype-aware-pantranscriptome-analyses-using-spliced-pangenome-graphs" class="section level2">
+<h2>Haplotype-aware pantranscriptome analyses using spliced pangenome graphs</h2>
+<p><a href="https://doi.org/10.1101/2021.03.26.437240">Sibbesen et al. bioRxiv 2021</a></p>
+<p>A pantranscriptome is a spliced variation graphs: typical pangenome with variants/haplotypes + splice junctions and transcript annotation.</p>
+<p>Applications:
+- better allele-specific expression (ASE) detection because no reference bias
+- identify haplotypes from RNA-seq
+- better read mapping, i.e. rescuing some reads that couldn’t map, for example in highly variable regions</p>
+<p><code>vg rna</code> to construct the spliced pangenome from a VCF and transcript annotation.
+Each transcript is combined with the haplotypes in the pangenome into haplotype-specific transcripts, stored in a GBWT.</p>
+<p><code>vg mpmap</code> then maps short reads in splice-aware fashion, allowing for discovery of new splicing junctions.
+Instead of returning one alignment path (e.g. the best one) for a read, it outputs a multi-path alignments which models the probability for the reads to align to a whole subgraph representing multiple candidate paths.</p>
+<p>Finally, <code>rpvg</code> quantifies haplotype specific transcript expression using an E-M approach??
+First, the mot likely haplotypes are selected using ??
+Then transcript quantification on this reduced set of haplotypes is performed using ??</p>
+<ul>
+<li>Simulated reads map better to the pantranscriptome even when 20% of the information is missing.</li>
+<li>On real reads:
+<ul>
+<li>lower mapping rate</li>
+<li>higher correlation of exon expression with Iso-Seq (long-reads)</li>
+</ul></li>
+<li>Slower (3-5x slower than HISAT2) and uses more memory (30-40 Gb)</li>
+<li>rpvg has much higher precision than Kallisto, Salmon and RSEM</li>
+<li>The set of haplotypes in the pangenome doesn’t affect the performance too much.</li>
+<li>rpvg assigns better haplotypes, here NA12878 haplotypes for reads from this sample.</li>
+<li>How are the other methods able to predict haplotypes?</li>
+<li>The ASE experiment showed that rpvg could find more associations, and handle insertions and deletions.</li>
+<li>The HLA typing experiment showed good preliminary results as in most predicted HLA HST were concordant between child and parents in the trio.</li>
+<li>The concordance of alleles predicted across five tissue samples of the same individuals was also high, especially on transcript with &gt;2 TPM</li>
+<li>Imprinting can be detected as ASE. With HST, it’s possible to look for differential imprinting strength across isoforms.</li>
+</ul>
+</div>

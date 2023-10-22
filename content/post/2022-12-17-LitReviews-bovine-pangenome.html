@@ -1,0 +1,145 @@
+---
+date: 2022-12-17
+title: "Bovine pangenomes"
+tags: ['literature', 'pangenome', 'bovine']
+slug: litreviews-bovine-pangenome
+bibliography: [../../library-small.bib]
+link-citations: true
+draft: true
+output: blogdown::html_page
+---
+
+
+
+<div id="background-on-cattle" class="section level2">
+<h2>Background on cattle</h2>
+<ul>
+<li>Nucleotide diversity is higher in cattle than human populations.
+<ul>
+<li>Pangenome might be even more useful in cattle for that reason.</li>
+</ul></li>
+<li>The reference genomes is from a highly inbred <a href="https://en.wikipedia.org/wiki/Hereford_cattle">Hereford cow</a>, one of the most common cattle in many countries.
+<ul>
+<li>A typical <em>B. taurus</em> genome differs from that reference by ~7-8M SNPs/INDELs.</li>
+<li>Genome size ~2.76Gb</li>
+<li>29 autosomes + X/Y</li>
+<li>Draft in 2004</li>
+<li>Latest version is ARS-UCD1.2</li>
+</ul></li>
+<li>Bovine autosomes are acrocentric.</li>
+<li>The <a href="https://bovinepangenome.github.io/">Bovine Pangenome Consortium (BPC)</a> aims at producing high-quality haplotype-resolved genome assemblies for the bovid species.</li>
+</ul>
+<div id="different-bovine-species" class="section level4">
+<h4>Different bovine species</h4>
+<p><img src="/bos-6species.jpg" /></p>
+<pre><code>      - Banteng (*Bos javanicus*) south-east Asian cattle
+    / - Gaur (*Bos gaurus*) Indian bison
+   |
+  / \ - Yak (*Bos grunniens*)
+ |    - American Bison (*Bison Bison*)
+ |
+  \   -European Bison (*Bison bonasus*)
+    /
+    \ - Taurine cattle (*Bos taurus*)
+      - Zebu/indicine cattle (*Bos indicus*)</code></pre>
+<p>Others:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Kouprey">Kouprey</a>: south-east Asian forest ox, possibly extinct.</li>
+<li><a href="https://en.wikipedia.org/wiki/Gayal">Gayal</a> (Drung ox): Domesticated gaur, India-China</li>
+</ul>
+</div>
+</div>
+<div id="bovine-breed-specific-augmented-reference-graphs-facilitate-accurate-sequence-read-mapping-and-unbiased-variant-discovery" class="section level2">
+<h2>Bovine breed-specific augmented reference graphs facilitate accurate sequence read mapping and unbiased variant discovery</h2>
+<p><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02105-0">Crysnanto &amp; Pausch, Genome Biology 2020</a></p>
+<p>They made a <strong>pangenome from SNPs/INDELs catalogs</strong> and showed that this pangenomic reference <strong>helps with mapping short reads and genotyping</strong>.
+This is the first study that shows that in large genomes other than human.
+Similar to some previous studies, they see that it <strong>helps to select variants based on their frequencies</strong>, when deciding which ones to include in the pangenome.</p>
+<p><strong>Breed-specific pangenomes result in better mapping</strong> when studying a sample from that breed.
+The <strong>global pangenome was the second best</strong>, producing slightly more mapping errors.
+Of note, both the breed-specific and global pangenome performed better than modified linear reference containing the major allele for that breed or the whole population.
+Pangenome did <strong>increase the mapping ambiguity a bit</strong>, which was visible with slightly less uniquely mapped reads</p>
+<p>Regarding variant-oriented analysis, the allelic support was closer to 0.5 for heterozygous variants, esp. INDELs, with pangenomes compared to linear references.</p>
+<p><strong>Methods</strong>:</p>
+<ul>
+<li>Genotypes from 288 cattle</li>
+<li><em>vg</em> to construct the pangenome (<code>vg construct</code>) and map short reads (<code>vg map</code>).</li>
+<li>Genotyping performed on the surjected BAMs (<code>vg surject</code>) using GATK, Graphtyped, and SAMtools.</li>
+<li>Breed-specific pangenomes using breed-specific allele frequency thresholds (&gt;0.03).</li>
+<li>Multiple experiments restricted to chromosome 25.</li>
+<li>Mapping accuracy using simulations.</li>
+</ul>
+</div>
+<div id="graph-construction-method-impacts-variation-representation-and-analyses-in-a-bovine-super-pangenome" class="section level2">
+<h2>Graph construction method impacts variation representation and analyses in a bovine super-pangenome</h2>
+<p><a href="https://doi.org/10.1101/2022.09.17.508368">Leonard et al bioRxiv 2022</a></p>
+<p>They experimented with different pangenome construction methods (pggb, cactus, minigraph) and observed differences in the variants represented by the pangenomes.</p>
+<p>There was much more variation/non-reference sequence in cactus/PGGB, both because it represents small variation and because it included centromeric repeats assembled by some of the assemblies.
+<strong>96% of variants discovered from the assembly-based calling are found in the pangenomes.</strong>
+Variation that is private to a construction method is rarely validated (as in called from the assemblies).</p>
+<p>Conflicting alleles in the pangenomes were more frequent in cactus graph.
+I think those are alleles that follow another path than the assembly they came from?
+Not sure, maybe something vcfwave flags?</p>
+<p>When realigning the assemblies, <strong>cactus and PGGB had much less alignment difference</strong>, as measured by the edit distance, as expected.
+The differences were also not correlated with divergence from the reference genome, which might make them more suitable to make “super-pangenomes” (i.e. that includes more divergent genomes).
+Interestingly, alignment of the assemblies with GraphAligner sometimes failed, usually because of exceeded “tangle effort” in complex regions.
+This happened more for PGGB, and to a smaller extend cactus.</p>
+<p>Focusing on VNTR representation, they found that their <strong>repeat counts are 90% concordant across pangenomes</strong>, but that <strong>minigraph can over/underestimate the counts</strong>.
+Cactus VNTR representation were the most similar in term of repeat counts with on genotyping VNTR in HiFi reads (then PGGB, then minigraph).
+Finally, they correlate those counts with expression of nearby genes.
+This analysis focuses on one VNTR locus, with two haplotypes tagged by 2 SNPs and an INDEL.
+Although the VNTR is one of the variants associated the most with gene expression, it’s not the top one which makes me believe the association it mostly due to LD.
+There are quite a few variants more strongly associated but they still conclude that “These findings suggest that the VNTR haplotype primarily mediates the expression of…”?</p>
+<p>They mention the computational resources needed for pangenome construction: minigraph was the fastest to run.; <strong>cactus was 34x slower, and PGGB 287x slower</strong>.
+Interestingly, the discussion also calls out for more efficient downstream tools to handle rich pangenomes like the cactus/PGGB ones, and for visualization/annotation tools for these pangenomes.</p>
+<p><strong>Methods</strong>:</p>
+<ul>
+<li>Hereford reference + 11 haplotype-resolved assembles (inc. indicine cattle, bison, yak, gaur).</li>
+<li>Minigraph with ARS-UCD1.2 as backbone, cactus (reference-free), PGGB.</li>
+<li>Realign assemblies with minigraph to verify that they follow the appropriate path in the pangenome.</li>
+<li>SVs were decomposed into VCFs from each pangenomes and compared together and with assembly-based SV discovery.
+<ul>
+<li>Assembly-based SV discovery with minimap2+paftools.js.</li>
+<li>SV comparison/merging with Jasmine.</li>
+<li>SVs in a pangenome were “validated” if found by the assembly-based SV discovery.</li>
+<li>Also validated from optical mapping, but on different samples though.</li>
+</ul></li>
+<li>Align 100 Kbp segments of assemblies with GraphAligner to measure edit distance.</li>
+<li>Investigated alleles of VNTR identified in the reference genome.
+<ul>
+<li>Count “validated” with adVNTR (genotyped from HiFi reads).</li>
+</ul></li>
+<li>Zoom in to a VNTR and its association with expression using 2 SNPs and on INDEL tags.
+<ul>
+<li>83 bulls</li>
+</ul></li>
+</ul>
+</div>
+<div id="structural-variant-based-pangenome-construction-has-low-sensitivity-to-variability-of-haplotype-resolved-bovine-assemblies" class="section level2">
+<h2>Structural variant-based pangenome construction has low sensitivity to variability of haplotype-resolved bovine assemblies</h2>
+<p><a href="https://doi.org/10.1038/s41467-022-30680-2">Leonard et al. Nature Communications 2022</a></p>
+<p>Could the type of <strong>sequencing technology or assembly method affect the final pangenome constructed?</strong>
+<strong>Not a lot</strong> according to this study.
+They constructed bovine pangenomes with ONT and HiFi, different read coverage?, and hifiasm/Shasta assemblers.
+For each configuration, the pangenome was similar: 92.1% of SVs in common, 0.39-1.8Mb of non-reference sequence unique to a pangenome.</p>
+<p>Of note, lower coverage, <strong>~20X HiFi and ~60x ONT</strong>, seems to be enough to get a representative pangenome.
+Low-coverage ONT-Shasta had more SVs though, which are likely false-positives.</p>
+<p>They also compute a measure of diversity based on the bubbles shared or not by pairs of assemblies.
+Similarly looking at the bubbles, they looked at a few known SV loci.
+Some were present and consistent, others had different copy number representations between pangenomes, others were missed.</p>
+<p><strong>Methods</strong>:</p>
+<ul>
+<li>3 bovine trios: taurus x taurus, taurus x indicus, taurus x gaurus.</li>
+<li>6 haplotype-resolved de novo assemblies.</li>
+<li>Long reads for offspring separated thanks to parental short-reads.</li>
+<li>hifiasm and Shasta to assemble HiFi and ONT reads.</li>
+<li>Pangenome constructed with minigraph using ARS-UCD1.2 as backbone.</li>
+<li>Compare pangenomes from hifiasm, Shasta, or random mixture.</li>
+</ul>
+<p>Further reading: pangenome-based GWAS in crops</p>
+<ol style="list-style-type: decimal">
+<li>Gupta, P. K. Quantitative genetics: pan-genomes, SVs, and k-mers for GWAS. Trends Genet. 37, 868–871 (2021).
+2.Hufford, M. B. et al. De novo assembly, annotation, and comparative analysis of 26 diverse maize genomes. Science 373, 655–662 (2021).</li>
+<li>Song, J.-M. et al. Eight high-quality genomes reveal pan-genome architecture and ecotype differentiation of Brassica napus. Nat. Plants 6, 34 (2020).</li>
+</ol>
+</div>

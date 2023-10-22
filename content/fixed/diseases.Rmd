@@ -72,6 +72,75 @@ Overall, they concluded that the BMP pathway might be a good candidate when sear
 - [Novel loci affecting iron homeostasis and their effects in individuals at risk for hemochromatosis](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4215164/)
 - [HFE in OMIM](https://www.omim.org/entry/613609)
 
+# Inflammatory bowel disease
+
+Inflammatory bowel disease (IBD) is characterized by inflammation of the colon and small intestine.
+The two main forms are Crohn's disease (CD) and ulcerative colitis (UC).
+The unregulated inflammation is thought to be caused by a combination of environmental, genetic and bacterial factors interacting with the immune system.
+Most IDB types are classified as an autoimmune disease because thought to be caused by a disfunctional immune response.
+
+In CD, the inflammation tend to be spread in local clusters (skip lesions) and to extend deep into the tissues.
+The inflammation of UC usually only affects the outer (mucosal) layer and starts in the rectal/sigmoid area (proctitis) before spreading.
+
+## Genetics
+
+Many associated loci in IDB, are associated to both CD and UC.
+For example, 110 out of 163 loci associated with IBD conferred risk to both CD and UC (review @mcgovern2015g).
+In many cases, the effect is stronger in CD than UC, for example the Arg381Gln protective allele in IL23R (review @mcgovern2015g).
+Associated loci are sometimes also associated with other phenotypes like primary sclerosing cholangitis, psoriasis, ankylosing spondylitis, type 1 diabetes, or multiple sclerosis (review @verstockt2018c).
+
+Explained variance tends to be low.
+The 163 loci, from the meta-analysis mentioned in the @mcgovern2015g review, explained only 13.6% of CD and 7.5% of UC total disease variance.
+According to @verstockt2018c (review), on 26% of CD variance is accounted for by disease-associated SNPs.
+This could be due to epistasis (gene-gene interactions) or gene-environment interactions not being modeled, or because some regions are not well studied (repeats, sex chromosomes), e.g. the Fc receptor gene cluster or the KIR genes.
+Rare variants might have a large effect, although the first studies on these variants failed to show it (review @verstockt2018c).
+Of course, the heritability estimates might be inflated too.
+
+A missense allele in NOD2 was one of the first associated loci found with CD.
+NOD2 was originally one of the few examples of successes by linkage mapping approaches.
+It supported the hypothesis that CD may be caused by innate immune cell function deficiencies, and pointed at innate lymphoid cells as key players in CD.
+GWAS hits related to autophagy seem to be specific to CD.
+
+The discovery of a missense allele in ATG16L1 lead the field to explore the role of autophagy in CD.
+An exonic variant in IRGM, a gene related to autophagy also identified early, affects the binding site of a microRNA (miR-196) expressed in intestinal epithelia and likely repressing IRGM.
+
+Multiple independent risk alleles for IBD were found in the IL23R gene region.
+Associated loci provided evidence that anti-inflammatory mechanisms may be disrupted in CD.
+Several GWAS hits are located near genes involved in IL-10 signaling, an anti-inflammatory cytokine, for example IL10, IL10RB, STAT3, TYK2.
+GWAS hits were also found near other cytokines, e.g. IL22, SMAD3, SMAD7.
+Several of these SNPs related IL-23/IL-17 have been associated with other autoimmune diseases such as psoriasis, ankylosing spondylitis, or multiple sclerosis (review @verstockt2018c).
+However, the signals the SNPs might be independent or have opposing effects across those traits.
+For example, a missense risk allele for CD in TYK2 look protective for psoriasis.
+
+W134X in FUT2 is a CD-specific association that suggested a potential importance of the mucus layer.
+
+Some associations are not replicated in all human populations.
+For example, NOD2 and ATG16L1 were not found to be associated with CD in East Asians (review @mcgovern2015g).
+However, ATG16L2 seemed to be, according to GWAS studies in Korean and Japanese populations.
+
+In 2010, a large meta-analysis included ~22K cases and 29K controls from 13 different countries (review @verstockt2018c).
+It found 71 susceptibility loci.
+
+- Summary table of known loci: see table 1 in review @verstockt2018c
+- Consortium of note: International Inflammatory Bowel Disease Genetic Consortium (IIBDGC).
+
+### Functional fine-mapping
+
+Like many other complex diseases, it is difficult to identify the causal gene driving the association signal. 
+This is due, among other factors, to large LD blocks, missing variants, cell type specific effects, 
+
+
+Targeted sequencing around GWAS hits can also help identify likely causal genes.
+For example, it uncovered rare missense alleles in PRDM1 or CARD9.
+
+Expression QTLs can also help narrow down the list of gene candidate in a region.
+
+Single-cell RNA seq studies may help understand the different cell types involved in IDB ( see [scIBD](http://scibd.cn/)).
+
+Of note, the set of associated loci can still provide useful information, even if causal variants remain uncharacterized. 
+For example, the loci can be compared to epigenetic profiles across cell types to identify the ones that might be involved.
+For IBD, the strongest enrichment was observed within CD4+ T cells. 
+CD showed an enrichment in immune cells, while UC was also enriched in colonic mucus.
 
 # Cancer
 
