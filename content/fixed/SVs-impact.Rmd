@@ -218,6 +218,21 @@ They performed association tests with the phenotype available and notably found 
 They identified 31 hits in 15 loci, including 2 novel loci (a promoter deletion, and a multi-allelic CNV).
 5 out of the 6 replicated hits have stronger SNV association though.
 
+Common 3.7 kb deletion of alpha globin gene in 16p13.3 associated with red blod cell phenotypes? (mentioned in @wheeler2022nc)
+
+Chr7 deletion overlapping the EPI promoter and expression in iPSC (mentioned in @wheeler2022nc).
+
+@wheeler2022nc et al. performed a GWAS on more than 50K participants in TOPMed, comparing SVs found from WGS to 24 hematological traits.
+Both common and rare SVs were studied.
+SVs were discovered by the Parliament2 pipeline and muCNV.
+For SVs with 5 alleles or more, single-variant tests were run using a two-stage linear mixed model with GENESIS.
+It identified 21 independent SVs (41 associations)
+All 18 of the associated SVs that could be matched in deCODE or UKBB were replicated.
+The effect of known association was adjusted with conditional regression.
+16 out of 21 were enough in LD that their effect didn't reach significance after adjustment.
+14 of the 21 SVs overlapped only non-coding/regulatory regions (ENCODE, TADs, FIREs, SIPs)
+They found a ~600 bp deletion associated with lower monocyte counts where the proposed mechanism is an enhancer disruption for the *S1PR3* gene, 70 kb further (validated using gene editing and gene expression or differentiation assays)
+
 ## Inversions
 
 From @Gonzalez2019 introduction:

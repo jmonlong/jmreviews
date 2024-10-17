@@ -17,6 +17,35 @@ output:
 
 In @Novak2017, several genome graphs structures are compared and shown to be superior to linear representations when mapping reads.
 
+# Pangenome construction
+
+- kmer/de bruijn graph
+    - Pantools
+    - Bifrost
+- sequence graphs
+  - PGGB
+  - TwoPaco
+  - Minigraph
+  - Minigraph-Cactus
+
+Andreace et al. compared five tools to make human pangenome graphs [@andreace2023].
+`Bifrost` and `mdbg` build kmers/minimizers graphs.
+`Minigraph`, `Minigraph-Cactus`, `pggb` build sequence graphs.
+They used 52 phased assemblies (HPRC + 5 haplotypes from the DeepConsensus paper), plus GRCh38 and CHM13.
+They tested the tools at different scales (2, 10, 104 haplotypes) and changing the order of the inputs.
+Potentially important note, `mdbg` is the tool from the author of this comparison work.
+For all tools, the graph complexity grew only by a factor of 5 going from 10 to 104 haplotypes.
+They compare the graphs in some complex relevant loci (e.g. HLA).
+Each tools was also graded on eight features (stability, editability, downstream applications, compression, visualization, annotation).
+I'm suprised that Minigraph-Cactus makes slightly different graphs on identical inputs.
+Most make sense to me, although *ease of visualization* seems to be simply the inverse of the number of nodes: pangenomes with more information have more nodes and are harder to visualize but lossy approaches like the minimizer de bruijn graph are "easy" to visualize?
+One big limitation to this comparative work is that PGGB and Minigraph-Cactus were run on the entire genome instead of clustering by chromosomes first. 
+That can have a large impact on both the computing resources and the graph topology (basically all the aspects that this article is attempting to compare).
+I'm not sure I agree with the rationale to do that.
+Regarding scalability, users want to know how the tools scale *when best practices are followed*, not that it takes an order of magnitude longer when used incorrectly.
+Regarding the variations missed, it's true that translocations would be dismissed but they tend to be artifacts in those assemblies (maybe a different story when building cancer pangenomes, or multi-species pangenomes).
+It not clear to me what are inter-chromosomal inversions and transposable elements.
+
 # Read alignment
 
 In vg, there are `map`, `mpmap`.
@@ -130,10 +159,34 @@ In the end, the mean mapping identity slightly increased, the mapping rate decre
 
 # Tools
 
+## danbing-tk
+
+- DOI: 10.1038/s41467-021-24378-0
+- [@lu2021nc]
+
+1. Build a separate de bruijn graph for each VNTR site
+   - include flanking "invariant" region
+2. Align short reads to those repeat-pangenomes and infer VNTR length and composition
+    1. Read alignment
+        2. First, pick best VNTR locus based on read kmer composition (max number of kmers in common)
+        3. "algorithm map the k-mers [..] such that the mapping forms a continuous path/cycle" not sure exactly how.
+    4. VNTR length estimation
+        5. Find reference sample with most similar kmer counts (correlation?)
+    6. VNTR motif investigation using regression on different 1000GP populations
+
+VNTR for their analysis: motif >6bp +  150bp > total length < 10kbp
+
 ## vg
 
 In their preprint, @Garrison2017 presented the [vg](https://github.com/vgteam/vg) toolkit that provides ways to create/edit variation graphs and perform read mapping and variant calling on it.
 In particular, vg scales to large genome like the human genome.
+
+### rpvg
+
+Spliced pangenome graph includes known splice junctions as edges, and known transcripts as paths.
+Reads are mapped using mpmap, a splice-aware mapper, that produces multipath alignments to save uncertainty of an alignment to different paths.
+RPVG then infers the most likely diplotype, and then quantify the expression of each transcript-haplotype pair using a expectation maximization approach.
+
 
 ## HISAT2
 
@@ -172,5 +225,59 @@ The simple approach creates a fork every time there is a change in the MSA.
 A more advanced "universal" approach tries to limit overlapping alleles (`++`).
 In the end, the mean mapping identity slightly increased, the mapping rate decreased, most likely due to multi-mapped reads between duplicated regions with `MAPQ=0`.
 
+
+# Human pangenomes
+
+- HPRC
+    - 94 haplotypes
+    - 47 individuals
+- *A Pangenome Reference of 36 Chinese populations* Gao et al.
+    - *A Chinese Pangenome Reference*
+    - Phase I of the Chinese Pangenome Consortium (CPC)
+    - 116 high-quality and haplotype-phased de novo assemblies
+    - 58 core samples from 36 minority Chinese ethnic groups.
+- [A Draft Pacific Ancestry Pangenome Reference](https://www.biorxiv.org/content/10.1101/2024.08.07.606392v2)
+    - 23 individuals with diverse Pacific ancestry
+    - phased assemblies with hifiasm from HiFi + Illumina
+    - pangenomes using MC
+      - 46 Pacific ancestry + GRCh38 + CHM13
+      - 46 Pacific ancestry + 94 HPRC + GRCh38 + CHM13
+    - +30.6Mb compared to HPRC v1
+    - Small variant calls better with Pacific pangenome, and more than when combining with HPRC
+        - Picked as truth sample the one with highest assembly quality (hence present in the pangenomes)
+- Senegalese Genome project (SEN-GENOME)
+    - [Toward building a comprehensive human pan-genome: The SEN-GENOME project (Commentary)](https://www.cell.com/ajhg/abstract/S0002-9297(24)00303-3)
+    - *aims to sequence 1,000 genomes from 31 ethnolinguistic groups*
+    - *SEN-GENOME seeks partnerships for the deep DNA sequencing of collected samples*
+
+# Plant pangenomes
+
+- Ash trees
+    - [Pan-genome analyses of eleven Fraxinus species provide insights into salt adaptation in ash trees](https://pubmed.ncbi.nlm.nih.gov/39308021/)
+    - *eleven high-quality chromosome-level genome assemblies for Fraxinus species*
+        - Illumina + ONT
+        - Canu + Racon + RagTag
+    - Gene family-based pangenome?
+        - PanGP v. 1.0.1 (Zhao et al., 2014) on OrthoFinder output?
+    - SV-based pangenome
+        1. SV detected from assemblies by aligning to the "reference" one with MUMmer, and using SyRI to identify SVs.
+        1. `vg construct` to build the pangenome
+    - WGS of 123 F1-progeny of a salt-tolerant x salt-sensitive species.
+        - Mapped to SV-based pangenome using `vg map` and PAV called with `vg call` 
+        - Then salt tolerance PAV-based quantitative trait loci (QTL)
+- Bamboo
+    - [Haplotype-based pangenomes reveal genetic variations and climate adaptations in moso bamboo populations](https://pubmed.ncbi.nlm.nih.gov/39278956/)
+    - 16 high-quality haplotype-based pangenome assemblies of moso bamboo
+        - HiFi + HiC
+    - gene-based pangenome
+    - Variants identified by reference-alignment based methods
+    - `vg construct` to build a graph pangenome and `vg giraffe` to map short reads from 427 previously resequenced accessions
+    - Identify SVs from the graph-based pangenome, guessing using `vg call`
+    - SNVs/indels discovered using existing pipeline(BWA-GATK) to be comparable with previous study
+    - *local climate adaptation mechanisms*
+- Solanum
+    - [Solanum pan-genomics and pan-genetics reveal paralogs as contingencies in crop engineering](https://www.biorxiv.org/content/10.1101/2024.09.10.612244v1.full)
+    - Solanum species include eggplant (S. melongena), potato (S. tuberosum), tomato (S. lycopersicum) + indigenous crops
+    - 22 species assembled with HiFi data
 
 # Bibliography
