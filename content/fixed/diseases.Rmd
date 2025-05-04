@@ -9,6 +9,40 @@ output:
     toc: true
 ---
 
+# GWAS
+
+## Relation to expression QTLs
+
+GWAS hits don't usually co-localize with eQTLs (only 43% overlap GTEx eQTLs). 
+One reason could be that the relevant tissue's transcriptome was not assayed so the eQTL that would co-localize with a GWAS hit was just not found yet.
+There could also be other mechanisms of disruption, e.g. post-transcriptionnal.
+
+Mostafavi et al (Nat. Genetics 2023) explored the differences between GWAS hits and eQTLs.
+They compared 44 GWAS results from UKBB and eQTLs across 38 tissues from GTEx.
+They found that they had different profiles: 
+
+- GWAS genes:
+    - are enriched in high-pLI genes
+    - have longer enhancer regions
+    - have more TSSs used
+    - are enriched in highly-connected nodes of co-expression network
+    - are further from the TSS
+- eQTL genes:
+    - are depleted in high-pLI genes
+    - have shorter enhancer regions
+    - have less TSSs used
+    - are depleted in highly-connected nodes of co-expression network
+    - cluster around the TSS
+
+In their model, they first make the point that both techniques are likely under-powered. 
+Hence, it's possible that they find different variants.
+They also make the point that natural selection has a different effect on the power to detect GWAS hits versus eQTLs.
+They compare a neutral model where there should be a good overlap between the associations found, and a model with selection. 
+In the presence of selection, the area of the parameter space covered start to differ more significantly.
+If I got that right, it's mostly the eQTL area that shrinks due to selection on the variants with the largest phenotypic effect.
+A variant under negative selection might have a larger effect, detectable in a GWAS study, but would tend to be at lower frequency in a cohort typically used for eQTLs.
+
+
 # Hemochromatosis
 
 
@@ -204,3 +238,56 @@ Most specific neoantigens might be non-coding and will require better tools to b
 
 - [Neoantigen: A New Breakthrough in Tumor Immunotherapy. Front Immunol 2021](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8085349/)
 - [Noncoding regions are the main source of targetable tumor-specific antigens. Sci Transl Med 2018](https://pubmed.ncbi.nlm.nih.gov/30518613/)
+## Rare ocular diseases
+
+- Anophtalmia (no eye) and microphtalmia (small eye) (A/M)
+- isolated or symdromic
+    - ~50% syndromic, e.g. trisomy 13 or 18
+    - [Isolated form OrphaNet](https://www.orpha.net/en/disease/detail/2542)
+- Account for 3-12% of visual impairment in children[@plaisancieGeneticsAnophthalmiaMicrophthalmia2019].
+- Bilateral or unilateral (the other eye can be normal or with other anomalies like cataract or coloboma)
+- Microphtalmia typically diagnosed when the axial length of the eye is at least two SD below average.
+- *Simple* microphtalmia, eye anatomically normal
+- *Complex* microphtalmia, other abnormalities, e.g. cataract or coloboma.
+- Prenatal detection using high-res ultrasound.
+- Prevalence ~1-3 per 10,000 live births.
+- Small proportion caused by environmental factors
+- Several hundreds genes are known to be involved in eye development.
+    - ~30 genes disease-associated across multiple patients
+        - transcription factors: SOX2, OTX2, RAX, FOXE3, PAX6, SIX3
+        - expression regulators: YAP1, BCOR, CHD7
+        - signaling pathways: BMP4, SHH PTCH1, GDF3
+- Even WES/WGS, no molecular diagnosis in  > 1/2 patients .
+    - Diagnosis yield lower for milder forms, e.g unilateral A/M.
+
+> The importance of an accurate genetic diagnosis cannot be underestimated in terms of management, screening for associated conditions, genetic counseling, and prenatal diagnosis.
+
+- Plansancié et al.[@plaisancieGeneticsAnophthalmiaMicrophthalmia2019]
+
+Variants in non-coding regions can cause ocular disorders (REFs)
+
+In many cases, a molecular diagnosis is hard based solely on the genomic characterization.
+For example, if the functional impact or segregation is not clear.
+In that case, a precise clinical phenotype can help the variant interpretation, or prioritize genes to investigate further.
+
+- Autosomal dominant 
+    - SOX2 mostly *de novo* variants
+    - OTX2 but incomplete penetrance and clinical variability.
+- Autosomal recessive
+    - RAX, VSX2, STRA6
+
+### Management and treatment
+
+Goal to
+- maximize visual potential
+- prevent deterioration
+- improve aesthetics
+- screen for potential complications (development delay, kidney/heart/brain anomalies)
+
+A molecular diagnosis help with genetic counseling and make prenatal/preimplantation strategies feasible.
+
+### Other symptoms/anomalies
+
+**Coloboma**?
+
+**Cataract**?

@@ -970,5 +970,20 @@ I thought the CNV calling was done at the cell level, I might be missing somethi
 
 [HoneyBadger](https://github.com/JEFworks/HoneyBADGER) **+++**
 
+# Complex loci
+
+SMN1/2 are two genes located in a particularly variable region with a lot of segmental duplications.
+While the genes are ~28 kbp long, they are within paralogous regions of ~205 kbp, 99.8% similar and separated by ~670 kbp.
+There seem to be only [one functional base](https://www.ncbi.nlm.nih.gov/clinvar/variation/586628/) that differ between SMN1 and SMN2.
+SMN1 is the functional copy but SMN2 can still produce a small quantity of transcript so the SMN2 copy number can be a modifier factor of spinal muscular distrophy's severity.
+Individuals can carry 0, 1, or 2 copies of SMN1.
+Detecting silent carrier (carrying 2 + 0 copies of SMN1) is also important.
+
+[Paraphase](https://github.com/PacificBiosciences/paraphase) realigns long PacBio reads to one unique copy and phase them into "haplotypes" (phased variants in one copy of a gene) [@chenComprehensiveSMN1SMN22023].
+The original publication focused on SMN1/2 and more specifically of the 44 kbp region around the genes.
+Reads are phased into haplotypes based on the variant sites and label them as SMN1/2 based on the c.840 site.
+SMN1/2 copy numbers are estimated as the number of unique of haplotypes, although depth analysis is also performed when only one copy is detected.
+Phasing across "alleles" was done using parental information, either from long-reads or from short reads by focusing on haplogroup-informative sites.
+
 # Bibliography
 
