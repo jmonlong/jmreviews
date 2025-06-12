@@ -761,6 +761,21 @@ It consists of: Delly, Lumpy, Manta, Wham, MELT, CNVnator, GenomeSTRiP, cn.MOPS.
 
 The Hall lab used [svtools](https://github.com/hall-lab/svtools) (discovery with LUMPY, CNVnator, svtyper; then genotyping) to perform a GWAS on Finns.
 
+---
+
+[BioGraph](https://github.com/spiralgenetics/biograph) was developed by Spiral Genetics and described in a [white paper on bioRxiv](https://www.biorxiv.org/content/10.1101/2020.04.24.060202v1) (startup acquired since then).
+The idea is to build a graph of the sequencing reads, once, and then query/call variants efficiently.
+With the BioGraph format, the pre-processed reads are not tied to a reference version anymore. 
+Under the hood, it seems to be a BWT-like structure that more or less replicates what you can do with a de bruijn graph.
+Reads information are indexed in a separate file.
+To discover variants, they slide a window on the reference sequence and assemble local contigs from the read graph when they detect a difference.
+The contigs are extended until they rejoin the reference path or up to 100Kb of sequence is assembled.
+A "coverage" computation can also be performed from variants defined in a VCF.
+Finally, a random forest model was trained to genotype variants based on this coverage information.
+They showed that it performs better than Manta or Parliament2 for SV discovery.
+I'm not sure how it deals with repeats, sequencing errors.
+
+
 ## Benchmark
 
 IS:Insert-size; Or:Orientation
@@ -984,6 +999,27 @@ The original publication focused on SMN1/2 and more specifically of the 44 kbp r
 Reads are phased into haplotypes based on the variant sites and label them as SMN1/2 based on the c.840 site.
 SMN1/2 copy numbers are estimated as the number of unique of haplotypes, although depth analysis is also performed when only one copy is detected.
 Phasing across "alleles" was done using parental information, either from long-reads or from short reads by focusing on haplogroup-informative sites.
+
+
+# SV imputation
+
+@Gonzalez2019 imputed the presence of inversions in >400K Europeans individuals and performed association tests agains 25 obesity-related traits.
+
+@Beyter2019 discovered ~70K SVs using long-read sequencing in almost 2K Icelanders and imputed the presence of ~50K in 166K Icelanders from SNP arrays.
+
+@Noyvert2023 built an imputation panel from 888 samples from the 1000GP and imputed SVs in the UK Biobank.
+They used ONT sequencing (R9) with ~15x coverage of ~6.2 kbp long reads.
+SVs were called with Sniffles2 in joint calling mode.
+On average, individuals carried 16K SVs.
+They integrated the SV catalog with the 1000GP release 3 (45M) for those same individuals.
+Variants were phased with Beagle5.
+Beagle5 was also used for the imputation using input SNPs that were phased with SHAPEIT4.
+The imputation accuracy was evaluated using leave-one-out comparison.
+Two metrics were computed: per-variant non-reference genotype concordance, imputation quality $r^{2}_{imp}$.
+They also evaluated the performance per individuals by computing a per-individual non-reference genotype concordance.
+The imputed SVs in UKBB resulted in 3,858 SV association being found.
+Only 55 of those had a lower p-value than SNVs around (if I read that correctly).
+They describe examples where SVs helped prioritize the gene candidate.
 
 # Bibliography
 

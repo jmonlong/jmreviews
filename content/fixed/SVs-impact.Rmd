@@ -233,6 +233,42 @@ The effect of known association was adjusted with conditional regression.
 14 of the 21 SVs overlapped only non-coding/regulatory regions (ENCODE, TADs, FIREs, SIPs)
 They found a ~600 bp deletion associated with lower monocyte counts where the proposed mechanism is an enhancer disruption for the *S1PR3* gene, 70 kb further (validated using gene editing and gene expression or differentiation assays)
 
+@Noyvert2023 imputed SVs in the UK Biobank and tested association with many traits.
+They used imputed SV dosage and a linear mixed model (REGENIE v3).
+
+@Aguirre2019 tested the genetic burden of rare CNVs and phenotypes in the UK Biobank.
+CNVs were detected from SNP arrays using PennCNV.
+They detect 275K unique CNVs across the 470K individuals.
+The average CNV size is ~226 kbp.
+A model of the CNV counts per gene is then fitted, controlling for gene size fraction of the region overlapping segmental duplications and the number of markers in the array.
+The burden/constraint score is computed from the residuals.
+They also performed a GWAS on the ~7K CNVs with frequency higher than 0.005%.
+This analysis was performed with PLINK on self-reported white British individuals, and controlling for age, sex, and 4 PCs.
+They found ~14K associations (~4 per phenotype).
+Finally, a burden test was performed testing if having at least one rare CNV overlapping a gene is associated with the phenotype.
+Here, they don't differentiate deletions from duplications, and control for the total number and length of the CNVs in each individual (in addition to age, sex, 4PCs).
+They found ~100K associations (about 32 genes per phenotypes).
+They then described examples for acute coronary artery disease (CAD) and for BMI.
+
+@Halldorsson2021 analyzed the first 150K samples sequenced with whole-genome short-reads in the UK Biobank.
+They used the variants to generate a depletion rank score.
+They also found associations between traits and rare variants with large effects, including SVs.
+The samples were sequenced at around 32.5X (minimum 23.5X) average coverage.
+SNPs and indels were joint called with GraphTyper and GATK.
+They observed much better small variants called compared to WES in UTRs.
+Most small variants are rare (40-46% singletons).
+SVs were first found by Manta, then combined with the icelandic LR-catalog and genotyped with GraphTyper.
+They found on average ~8K reliable SVs per individual.
+All variant types were imputed in the rest of the cohort from SNP array (using "in-house tools"...).
+Four SV associations are described.
+A 14kb deletion of *PCSK9*'s first exon, previously associated with non-HDL cholesterol in their icelandic LR study.
+A 4.2kb deletion in the promoter of *ALB*, associated with lower albumin level (also in icelandic study?).
+A 16.4kkb deletion of two exons of *GCSH* linked to higher glycine levels.
+A 754bp deletion on exon 6 of *NMRK2* associated with earlier age at menopause.
+A SNP had been found already but the SV is now the lead variant.
+They also looked at microsatellite using popSTR, which they found on average 810K variants per individuals.
+They mention examples of association around *CACNA1A* and *DMPK*.
+
 ## Inversions
 
 From @Gonzalez2019 introduction:
