@@ -211,6 +211,10 @@
 
 <div id="TOC">
 <ul>
+<li><a href="#gwas" id="toc-gwas">GWAS</a>
+<ul>
+<li><a href="#relation-to-expression-qtls" id="toc-relation-to-expression-qtls">Relation to expression QTLs</a></li>
+</ul></li>
 <li><a href="#hemochromatosis" id="toc-hemochromatosis">Hemochromatosis</a>
 <ul>
 <li><a href="#genetics" id="toc-genetics">Genetics</a></li>
@@ -234,11 +238,50 @@
 <li><a href="#neoantigens" id="toc-neoantigens">Neoantigens</a>
 <ul>
 <li><a href="#to-read-1" id="toc-to-read-1">To read</a></li>
+<li><a href="#management-and-treatment" id="toc-management-and-treatment">Management and treatment</a></li>
+<li><a href="#other-symptomsanomalies" id="toc-other-symptomsanomalies">Other symptoms/anomalies</a></li>
 </ul></li>
 </ul></li>
 </ul>
 </div>
 
+<div id="gwas" class="section level1">
+<h1>GWAS</h1>
+<div id="relation-to-expression-qtls" class="section level2">
+<h2>Relation to expression QTLs</h2>
+<p>GWAS hits don’t usually co-localize with eQTLs (only 43% overlap GTEx eQTLs).
+One reason could be that the relevant tissue’s transcriptome was not assayed so the eQTL that would co-localize with a GWAS hit was just not found yet.
+There could also be other mechanisms of disruption, e.g. post-transcriptionnal.</p>
+<p>Mostafavi et al (Nat. Genetics 2023) explored the differences between GWAS hits and eQTLs.
+They compared 44 GWAS results from UKBB and eQTLs across 38 tissues from GTEx.
+They found that they had different profiles:</p>
+<ul>
+<li>GWAS genes:
+<ul>
+<li>are enriched in high-pLI genes</li>
+<li>have longer enhancer regions</li>
+<li>have more TSSs used</li>
+<li>are enriched in highly-connected nodes of co-expression network</li>
+<li>are further from the TSS</li>
+</ul></li>
+<li>eQTL genes:
+<ul>
+<li>are depleted in high-pLI genes</li>
+<li>have shorter enhancer regions</li>
+<li>have less TSSs used</li>
+<li>are depleted in highly-connected nodes of co-expression network</li>
+<li>cluster around the TSS</li>
+</ul></li>
+</ul>
+<p>In their model, they first make the point that both techniques are likely under-powered.
+Hence, it’s possible that they find different variants.
+They also make the point that natural selection has a different effect on the power to detect GWAS hits versus eQTLs.
+They compare a neutral model where there should be a good overlap between the associations found, and a model with selection.
+In the presence of selection, the area of the parameter space covered start to differ more significantly.
+If I got that right, it’s mostly the eQTL area that shrinks due to selection on the variants with the largest phenotypic effect.
+A variant under negative selection might have a larger effect, detectable in a GWAS study, but would tend to be at lower frequency in a cohort typically used for eQTLs.</p>
+</div>
+</div>
 <div id="hemochromatosis" class="section level1">
 <h1>Hemochromatosis</h1>
 <p><a href="https://en.wikipedia.org/wiki/Iron_overload">Hemochromatosis</a> is caused by an excess of iron.
@@ -413,10 +456,73 @@ They can arise from tumor viruses integrating in the cancerous genome, or as pro
 <div id="to-read-1" class="section level3">
 <h3>To read</h3>
 <ul>
-<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8085349/">Neoantigen: A New Breakthrough in Tumor Immunotherapy. Front Immunol 2021</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/30518613/">Noncoding regions are the main source of targetable tumor-specific antigens. Sci Transl Med 2018</a></li>
+<li><p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8085349/">Neoantigen: A New Breakthrough in Tumor Immunotherapy. Front Immunol 2021</a></p></li>
+<li><p><a href="https://pubmed.ncbi.nlm.nih.gov/30518613/">Noncoding regions are the main source of targetable tumor-specific antigens. Sci Transl Med 2018</a>
+## Rare ocular diseases</p></li>
+<li><p>Anophtalmia (no eye) and microphtalmia (small eye) (A/M)</p></li>
+<li><p>isolated or symdromic</p>
+<ul>
+<li>~50% syndromic, e.g. trisomy 13 or 18</li>
+<li><a href="https://www.orpha.net/en/disease/detail/2542">Isolated form OrphaNet</a></li>
+</ul></li>
+<li><p>Account for 3-12% of visual impairment in children<span class="citation">(<a href="#ref-plaisancieGeneticsAnophthalmiaMicrophthalmia2019"><strong>plaisancieGeneticsAnophthalmiaMicrophthalmia2019?</strong></a>)</span>.</p></li>
+<li><p>Bilateral or unilateral (the other eye can be normal or with other anomalies like cataract or coloboma)</p></li>
+<li><p>Microphtalmia typically diagnosed when the axial length of the eye is at least two SD below average.</p></li>
+<li><p><em>Simple</em> microphtalmia, eye anatomically normal</p></li>
+<li><p><em>Complex</em> microphtalmia, other abnormalities, e.g. cataract or coloboma.</p></li>
+<li><p>Prenatal detection using high-res ultrasound.</p></li>
+<li><p>Prevalence ~1-3 per 10,000 live births.</p></li>
+<li><p>Small proportion caused by environmental factors</p></li>
+<li><p>Several hundreds genes are known to be involved in eye development.</p>
+<ul>
+<li>~30 genes disease-associated across multiple patients
+<ul>
+<li>transcription factors: SOX2, OTX2, RAX, FOXE3, PAX6, SIX3</li>
+<li>expression regulators: YAP1, BCOR, CHD7</li>
+<li>signaling pathways: BMP4, SHH PTCH1, GDF3</li>
+</ul></li>
+</ul></li>
+<li><p>Even WES/WGS, no molecular diagnosis in &gt; 1/2 patients .</p>
+<ul>
+<li>Diagnosis yield lower for milder forms, e.g unilateral A/M.</li>
+</ul></li>
 </ul>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<blockquote>
+<p>The importance of an accurate genetic diagnosis cannot be underestimated in terms of management, screening for associated conditions, genetic counseling, and prenatal diagnosis.</p>
+</blockquote>
+<ul>
+<li>Plansancié et al.<span class="citation">(<a href="#ref-plaisancieGeneticsAnophthalmiaMicrophthalmia2019"><strong>plaisancieGeneticsAnophthalmiaMicrophthalmia2019?</strong></a>)</span></li>
+</ul>
+<p>Variants in non-coding regions can cause ocular disorders (REFs)</p>
+<p>In many cases, a molecular diagnosis is hard based solely on the genomic characterization.
+For example, if the functional impact or segregation is not clear.
+In that case, a precise clinical phenotype can help the variant interpretation, or prioritize genes to investigate further.</p>
+<ul>
+<li>Autosomal dominant
+<ul>
+<li>SOX2 mostly <em>de novo</em> variants</li>
+<li>OTX2 but incomplete penetrance and clinical variability.</li>
+</ul></li>
+<li>Autosomal recessive
+<ul>
+<li>RAX, VSX2, STRA6</li>
+</ul></li>
+</ul>
+</div>
+<div id="management-and-treatment" class="section level3">
+<h3>Management and treatment</h3>
+<p>Goal to
+- maximize visual potential
+- prevent deterioration
+- improve aesthetics
+- screen for potential complications (development delay, kidney/heart/brain anomalies)</p>
+<p>A molecular diagnosis help with genetic counseling and make prenatal/preimplantation strategies feasible.</p>
+</div>
+<div id="other-symptomsanomalies" class="section level3">
+<h3>Other symptoms/anomalies</h3>
+<p><strong>Coloboma</strong>?</p>
+<p><strong>Cataract</strong>?</p>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-mcgovern2015g" class="csl-entry">
 McGovern, Dermot P. B., Subra Kugathasan, and Judy H. Cho. 2015. <span>“Genetics of <span>Inflammatory Bowel Diseases</span>.”</span> <em>Gastroenterology</em>. <a href="https://doi.org/10.1053/j.gastro.2015.08.001">https://doi.org/10.1053/j.gastro.2015.08.001</a>.
 </div>
