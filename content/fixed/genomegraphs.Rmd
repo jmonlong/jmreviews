@@ -65,6 +65,58 @@ In a second phase, a chunk of reads are indexed and uncovered parts of the graph
 This avoids exploring paths absent in the reads.
 PSI is as efficient as GCSA2 while being fully sensitive and not requiring any pruning.
 
+
+# Variant decomposition
+
+A genome graph can be decomposed into subgraphes corresponding to variants. 
+It can be informative to understand the number, types, and general organization of variant sites in a pangenome. 
+How many SNPs, how many deletions/insertions, how many nested variants, how deep, etc.
+Those variants can also be the scaffold for variant calling tools from sequencing data, for example. 
+
+In `vg`, the `deconstruct` subcommand can decompose a pangenome graph into a list of variants in VCF. 
+It first decomposes the pangenome into snarls, and output information for all snarls whose boundaries touch a reference path.
+Nested snarls are present in the VCF (if they are on the reference path). 
+The latest version of `vg deconstruct` follows the haplotypes in the pangenome to enumerate alleles through each snarl, while previous version could enumerate all possible walks.
+
+## Snarls
+
+*Add snarl definition and references.*
+
+## Panbubbles and hairpins
+
+@Bhat2025 introduced two new concepts: panbubbles and hairpins.
+
+Hairpins are relatively rare and seem to occur at inversion breakpoints. 
+It's defined as a subgraph where all of its nodes appear in an *inverted closed walk* starting at node *s*.
+It also needs to be separable and minimal.
+The hairpin in Fig 1 corresponds to an insertion of a sequence with a tandem inverted duplication: one allele would be `a-c` and the other `a-b-d-c` (here with `d` the reverse-complement of `b`).
+The example in figure 3 is harder to imagine because it's not clear where the pangenome would "start". 
+I can't see a self-contained inversion, only the hairpin that would invert a walk.
+Only a handful of hairpins were found in real pangenomes, so I would guess they are extremely rare and some might due to pangenome construction errors or fragmented inversion structures in repeat regions.
+
+A panbubble is a snarl with two additional conditions: 1) *contiguity* all nodes must be in a walk from *s* to *t* (the snarl boundaries), 2) *no-hairpin* no node is the entrance of a hairpin.
+The *contiguity* condition means that a few snarls are discarded when, for example, a node is on a walk that enters through *s* and also exits through *s*. 
+That can happen at the breakpoint of a tandem inverted duplication: the duplicated copy in inverted, and there is some new sequence in between.
+This new "insertion" at the breakpoint introduces a change of orientation in the path which then traverses the duplicated copy the other way. 
+I imagine the same kind of structure, or at least an edge connecting downstream is present at the other breakpoint of the large inverted duplication. 
+Funny enough, this looks a lot like the hairpin defined in this paper, but it's not exactly the configuration defined so it's not. 
+Too bad because that could have helped to flag these complex variants.
+
+With these definitions, nesting is not as straightforward and universal.
+Panbubbles can be nested within panbubbles or a hairpin, but hairpins cannot be nested.
+A subgraph containing a hairpin cannot be a panbubble, so some nodes won't be a part of any panbubbles or hairpins.
+
+So the main limitations, in my opinion is that: hairpins doesn't seem very useful in practice, but it can invalidate clear snarls just because they overlap them.
+Also, some nodes end up not being in the decomposition at all, because panbubbles is a stricter definition, and panbubble and hairpins are not complementary.
+That being said, they showed that it's faster and more efficient to decompose a pangenome with those definitions.
+Of note, they do use a "heuristic" version instead of the "exact" algorithm. 
+It seems to find the same bubbles but I guess it could technically miss some.
+
+## Others
+
+Bibubble, flubble, BubbleGum?
+
+
 # Variant calling
 
 @Eggertsson2017 implemented Graphtyper, a variant caller that realigns reads in a local graph only representing a region (50 Kbp).
