@@ -2,6 +2,7 @@
 sidebar: true
 title: Structural Variation Methods
 bibliography: [../../library-small.bib]
+csl: ../../chicago-author-date.csl
 link-citations: true
 weight: 5
 output:
@@ -994,7 +995,7 @@ SMN1 is the functional copy but SMN2 can still produce a small quantity of trans
 Individuals can carry 0, 1, or 2 copies of SMN1.
 Detecting silent carrier (carrying 2 + 0 copies of SMN1) is also important.
 
-[Paraphase](https://github.com/PacificBiosciences/paraphase) realigns long PacBio reads to one unique copy and phase them into "haplotypes" (phased variants in one copy of a gene) [@chenComprehensiveSMN1SMN22023].
+[Paraphase](https://github.com/PacificBiosciences/paraphase) realigns long PacBio reads to one unique copy and phase them into "haplotypes" (phased variants in one copy of a gene) [@Chen2023].
 The original publication focused on SMN1/2 and more specifically of the 44 kbp region around the genes.
 Reads are phased into haplotypes based on the variant sites and label them as SMN1/2 based on the c.840 site.
 SMN1/2 copy numbers are estimated as the number of unique of haplotypes, although depth analysis is also performed when only one copy is detected.

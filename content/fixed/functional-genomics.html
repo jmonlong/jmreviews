@@ -2,6 +2,7 @@
 sidebar: true
 title: Functional Genomics
 bibliography: [../../library-small.bib]
+csl: ../../chicago-author-date.csl
 draft: true
 link-citations: true
 weight: 5
@@ -15,6 +16,7 @@ output:
 <ul>
 <li><a href="#gene-based-scores" id="toc-gene-based-scores">Gene-based scores</a></li>
 <li><a href="#scores-for-non-coding-regions" id="toc-scores-for-non-coding-regions">Scores for non-coding regions</a></li>
+<li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
 </ul>
 </div>
 
@@ -26,7 +28,7 @@ output:
 </div>
 <div id="scores-for-non-coding-regions" class="section level1">
 <h1>Scores for non-coding regions</h1>
-<p><span class="citation">(<a href="#ref-vitsios2021nc"><strong>vitsios2021nc?</strong></a>)</span> introduced the JARVIS and gwRVIS scores integrating variation in humans to help predict functional regions across the whole genome.
+<p><span class="citation">Vitsios et al. (<a href="#ref-Vitsios2021">2021</a>)</span> introduced the JARVIS and gwRVIS scores integrating variation in humans to help predict functional regions across the whole genome.
 gwRVIS only includes human variation information, while JARVIS integrates other information like genomic sequence and functional annotations.
 The score is built from the TOPMed data of 60K+ whole-genome sequencing samples.
 The gwRVIS score is computed with a sliding window approach (size 3kbp, step 1bp) and regression model to predict the number of common variants (MAF &gt;0.1%) in a window based on the total number of variants.
@@ -37,4 +39,12 @@ It was trained on “positive” non-coding ClinVar Pathogenic/Likely Pathogenic
 To annotate SVs, they computed the median, mean, 1st/3rd quartiles of the scores in the affected region, then took the average of those summary statistics to get one score per SV.
 To compare the performance of the SV scoring, they evaluate the power to predict intergenic SVs from different types of coding/promoter SVs in the gnomAD-SV dataset.
 JARVIS is the most predicitive for most SV classes (</p>
+</div>
+<div id="bibliography" class="section level1 unnumbered">
+<h1>Bibliography</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Vitsios2021" class="csl-entry">
+<strong>Vitsios, Dhindsa, Middleton, Gussow, and Petrovski 2021</strong>. <span>“Prioritizing Non-Coding Regions Based on Human Genomic Constraint and Sequence Context with Deep Learning.”</span> <em>Nature Communications</em>, ahead of print. <a href="https://doi.org/10.1038/s41467-021-21790-4">https://doi.org/10.1038/s41467-021-21790-4</a>.
+</div>
+</div>
 </div>

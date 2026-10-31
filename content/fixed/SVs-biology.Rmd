@@ -2,6 +2,7 @@
 sidebar: true
 title: Structural Variation
 bibliography: [../../library-small.bib]
+csl: ../../chicago-author-date.csl
 link-citations: true
 weight: 5
 output:

@@ -103,7 +103,7 @@ class CitationList:
         cits = [cit.ref for cit in self.cits]
         for cit in citToWrite:
             if cit not in cits:
-                print('Missing ref: ' + cit)
+                print('Missing {} from {}'.format(cit, ', '.join(citToWrite[cit])))
         outCon = open(outBib, 'w')
         for cit in self.cits:
             if cit.ref in citToWrite:

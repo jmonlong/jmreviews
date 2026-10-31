@@ -2,6 +2,7 @@
 sidebar: true
 title: Genome Graphs
 bibliography: [../../library-small.bib]
+csl: ../../chicago-author-date.csl
 link-citations: true
 weight: 5
 output:
@@ -52,6 +53,7 @@ output:
 <li><a href="#plant-pangenomes" id="toc-plant-pangenomes">Plant pangenomes</a></li>
 <li><a href="#association-testing-involving-pangenomes" id="toc-association-testing-involving-pangenomes">Association testing involving pangenomes</a>
 <ul>
+<li><a href="#association-test-in-the-pangenome" id="toc-association-test-in-the-pangenome">Association test <em>in</em> the pangenome</a></li>
 <li><a href="#tools-1" id="toc-tools-1">Tools</a></li>
 </ul></li>
 <li><a href="#bibliography" id="toc-bibliography">Bibliography</a></li>
@@ -62,7 +64,7 @@ output:
 <span class="citation">Marschall et al. (<a href="#ref-Marschall2018">2018</a>)</span> review the emergent field of computational pan-genomics.</p>
 <div id="types-of-graphs" class="section level1">
 <h1>Types of graphs</h1>
-<p>In <span class="citation">Adam M. Novak, Garrison, and Paten (<a href="#ref-Novak2017">2017</a>)</span>, several genome graphs structures are compared and shown to be superior to linear representations when mapping reads.</p>
+<p>In <span class="citation">Adam M. Novak et al. (<a href="#ref-Novak2017">2017b</a>)</span>, several genome graphs structures are compared and shown to be superior to linear representations when mapping reads.</p>
 </div>
 <div id="pangenome-construction" class="section level1">
 <h1>Pangenome construction</h1>
@@ -80,7 +82,7 @@ output:
 <li>Minigraph-Cactus</li>
 </ul></li>
 </ul>
-<p>Andreace et al. compared five tools to make human pangenome graphs <span class="citation">(<a href="#ref-andreace2023"><strong>andreace2023?</strong></a>)</span>.
+<p>Andreace et al. compared five tools to make human pangenome graphs <span class="citation">(<a href="#ref-Andreace2023">Andreace et al. 2023</a>)</span>.
 <code>Bifrost</code> and <code>mdbg</code> build kmers/minimizers graphs.
 <code>Minigraph</code>, <code>Minigraph-Cactus</code>, <code>pggb</code> build sequence graphs.
 They used 52 phased assemblies (HPRC + 5 haplotypes from the DeepConsensus paper), plus GRCh38 and CHM13.
@@ -131,7 +133,7 @@ The latest version of <code>vg deconstruct</code> follows the haplotypes in the 
 </div>
 <div id="panbubbles-and-hairpins" class="section level2">
 <h2>Panbubbles and hairpins</h2>
-<p><span class="citation">(<a href="#ref-Bhat2025"><strong>Bhat2025?</strong></a>)</span> introduced two new concepts: panbubbles and hairpins.</p>
+<p><span class="citation">Bhat et al. (<a href="#ref-Bhat2025">2025</a>)</span> introduced two new concepts: panbubbles and hairpins.</p>
 <p>Hairpins are relatively rare and seem to occur at inversion breakpoints.
 It’s defined as a subgraph where all of its nodes appear in an <em>inverted closed walk</em> starting at node <em>s</em>.
 It also needs to be separable and minimal.
@@ -166,13 +168,13 @@ It seems to find the same bubbles but I guess it could technically miss some.</p
 This approach is more accurate than standard variant calling for SNV and indels.
 It seems to integrate haplotype information when genotyping.
 There is no SV capability of yet.</p>
-<p>vg implements two approaches to genotyping with commands <code>call</code> and <code>genotype</code> <span class="citation">(<a href="#ref-Novak2017">Adam M. Novak, Garrison, and Paten 2017</a>)</span>.
+<p>vg implements two approaches to genotyping with commands <code>call</code> and <code>genotype</code> <span class="citation">(<a href="#ref-Novak2017">Adam M. Novak et al. 2017b</a>)</span>.
 <code>call</code> follows the “pileup” approach and is based on heuristic and useful to detect novel variants that can later be added to the graph (<code>augment</code> command).
 More similar to FreeBayes, <code>genotype</code> tries to identify bubbles in the read paths and which side(s) of the bubble is supported.
 Here each ultra-bubble is treated as a site to genotype.
 In the wiki there is also a <code>srpe</code> command to quickly genotype SVs with vg but it looks experimental.</p>
-<p>HISAT is a pain in the ass to read <span class="citation">(<a href="#ref-Kim2018">Kim, Paggi, and Salzberg 2018</a>)</span> so I still don’t know how variants are called or genotyped.</p>
-<p>BayesTyper is a method specifically designed for variant calling using graphs <span class="citation">(<a href="#ref-Sibbesen2018">Sibbesen, Maretty, and Krogh 2018</a>)</span>.
+<p>HISAT is a pain in the ass to read <span class="citation">(<a href="#ref-Kim2018">Kim et al. 2018</a>)</span> so I still don’t know how variants are called or genotyped.</p>
+<p>BayesTyper is a method specifically designed for variant calling using graphs <span class="citation">(<a href="#ref-Sibbesen2018">Sibbesen et al. 2018</a>)</span>.
 Variants are clustered by distance, a graph is created for each cluster and kmer counts from reads are used to fit haplotypes from the graphs.
 Some prior in a population of samples and a Gibbs sampler are used to compute the posterior probability of haplotypes.
 It can genotype any type of variants including SVs and complex variants.</p>
@@ -196,18 +198,18 @@ To me the value of graph-based approaches is that it integrates many (all) varia
 They used this approach on the MHC region of chromosome 6, with the famously polymorphic HLA region.
 They built the graph with 8 alternate reference haplotypes, known HLA alleles, and ~90K SNPs.
 In this proof of concept they showed that the genome inference was improved.</p>
-<p>In <span class="citation">Adam M. Novak, Garrison, and Paten (<a href="#ref-Novak2017">2017</a>)</span>, 5 regions of the human genome were tested: the major histocompatibility complex (MHC), the killer cell immunoglobulin-like receptors (LRC_KIR) region, the spinal muscular atrophy (SMA) locus, and the BRCA1 and BRCA2 genes.
+<p>In <span class="citation">Adam M. Novak et al. (<a href="#ref-Novak2017">2017b</a>)</span>, 5 regions of the human genome were tested: the major histocompatibility complex (MHC), the killer cell immunoglobulin-like receptors (LRC_KIR) region, the spinal muscular atrophy (SMA) locus, and the BRCA1 and BRCA2 genes.
 Genome graphs improves the amount of read mapped but especially the amount of perfect mapping.</p>
 </div>
 <div id="haplotype-modeling" class="section level1">
 <h1>Haplotype modeling</h1>
-<p><span class="citation">Adam M. Novak et al. (<a href="#ref-Novak2017a">2017</a>)</span> proposed a generalization of the PBWT (positional BWT) to genome graph, called gPBWT.
+<p><span class="citation">Adam M. Novak et al. (<a href="#ref-Novak2017a">2017a</a>)</span> proposed a generalization of the PBWT (positional BWT) to genome graph, called gPBWT.
 It’s a compressible representation of haplotypes in a graph that can be efficiently queried.
 They concluded that the haplotype information could be incorporated into graph-based read mappers.
-Continuing on this haplotype representation, <span class="citation">Rosen, Eizenga, and Paten (<a href="#ref-Rosen2017">2017</a>)</span> modeled recombination and haplotypes variation in the population.</p>
+Continuing on this haplotype representation, <span class="citation">Rosen et al. (<a href="#ref-Rosen2017">2017</a>)</span> modeled recombination and haplotypes variation in the population.</p>
 <p>Graphtyper may integrate haplotype information when genotyping <span class="citation">(<a href="#ref-Eggertsson2017">Eggertsson et al. 2017</a>)</span>.</p>
 <p><span class="citation">Sirén et al. (<a href="#ref-Siren2018">2018</a>)</span> extended the pBWT to create haplotype-aware indexes.
-What’s the difference with the implementation from <span class="citation">Adam M. Novak et al. (<a href="#ref-Novak2017a">2017</a>)</span>?</p>
+What’s the difference with the implementation from <span class="citation">Adam M. Novak et al. (<a href="#ref-Novak2017a">2017a</a>)</span>?</p>
 </div>
 <div id="reference-bias" class="section level1">
 <h1>Reference bias</h1>
@@ -250,7 +252,7 @@ In the end, the mean mapping identity slightly increased, the mapping rate decre
 <h2>danbing-tk</h2>
 <ul>
 <li>DOI: 10.1038/s41467-021-24378-0</li>
-<li><span class="citation">(<a href="#ref-lu2021nc"><strong>lu2021nc?</strong></a>)</span></li>
+<li><span class="citation">(<a href="#ref-Lu2021">Lu et al. 2021</a>)</span></li>
 </ul>
 <ol style="list-style-type: decimal">
 <li>Build a separate de bruijn graph for each VNTR site
@@ -287,7 +289,7 @@ RPVG then infers the most likely diplotype, and then quantify the expression of 
 <div id="hisat2" class="section level2">
 <h2>HISAT2</h2>
 <p>HISAT2 seems to be the main (academic) competitor to vg.
-It’s described in details in the HISAT-genotype preprint <span class="citation">(<a href="#ref-Kim2018">Kim, Paggi, and Salzberg 2018</a>)</span>.
+It’s described in details in the HISAT-genotype preprint <span class="citation">(<a href="#ref-Kim2018">Kim et al. 2018</a>)</span>.
 After alignment with HISAT2, HISAT-genotype is supposedly able to genotype all the genes in an individual’s genome within a few hours on a desktop computer.</p>
 </div>
 <div id="seven-bridges" class="section level2">
@@ -299,7 +301,7 @@ However, they provide no code.
 </div>
 <div id="bayestyper" class="section level2">
 <h2>BayesTyper</h2>
-<p>BayesTyper is a method specifically designed for variant calling using graphs <span class="citation">(<a href="#ref-Sibbesen2018">Sibbesen, Maretty, and Krogh 2018</a>)</span>.
+<p>BayesTyper is a method specifically designed for variant calling using graphs <span class="citation">(<a href="#ref-Sibbesen2018">Sibbesen et al. 2018</a>)</span>.
 Variants are clustered by distance, a graph is created for each cluster and kmer counts from reads are used to fit haplotypes from the graphs.
 Some prior in a population of samples and a Gibbs sampler are used to compute the posterior probability of haplotypes.
 It can genotype any type of variants including SVs and complex variants.</p>
@@ -337,7 +339,7 @@ They show an example of an SV/indel (51 bp deletion) where this affine gap-cost 
 </div>
 <div id="others-1" class="section level2">
 <h2>Others</h2>
-<p>FORGe is a tool that models the positive and negative effects of adding a variant to a genome graph <span class="citation">(<a href="#ref-Pritt2018">Pritt and Langmead 2018</a>)</span>.
+<p>FORGe is a tool that models the positive and negative effects of adding a variant to a genome graph <span class="citation">(<a href="#ref-Pritt2018">Pritt et al. 2018</a>)</span>.
 On the positive side it helps alignment/calling; on the negative side it increases ambiguity and computation/storage burden.</p>
 <p>NovoGraph aligns multiple assemblies and produces a VCF that can then be used to create a vg graph for example <span class="citation">(<a href="#ref-Biederstedt2018">Biederstedt et al. 2018</a>)</span>.
 Their approach starts with a pairwise alignment of each assembly with the reference genome that is then used to split the genome and guide MSA on small regions (~10 Kbp).
@@ -437,7 +439,7 @@ In the end, the mean mapping identity slightly increased, the mapping rate decre
 <div id="association-testing-involving-pangenomes" class="section level1">
 <h1>Association testing involving pangenomes</h1>
 <ul>
-<li>Cochetel et al. Genome Biology 2023 <span class="citation">(<a href="#ref-cochetelSuperpangenomeNorthAmerican2023"><strong>cochetelSuperpangenomeNorthAmerican2023?</strong></a>)</span>
+<li>Cochetel et al. Genome Biology 2023 <span class="citation">(<a href="#ref-Cochetel2023">Cochetel et al. 2023</a>)</span>
 <ul>
 <li>Assembly then PGGB</li>
 <li>Deconstruct then vg construct another pangenome to align reads with vg map and variants genotyped with vg call</li>
@@ -605,72 +607,97 @@ In the end, the mean mapping identity slightly increased, the mapping rate decre
 <li>Pangenomic analysis identifies structural variation associated with heat tolerance in pearl millet</li>
 <li>KangNatComm2023 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10558531/" class="uri">https://pmc.ncbi.nlm.nih.gov/articles/PMC10558531/</a></li>
 </ul>
+<div id="association-test-in-the-pangenome" class="section level2">
+<h2>Association test <em>in</em> the pangenome</h2>
+<p><span class="citation">Milia et al. (<a href="#ref-Milia2025">2025</a>)</span> used a <strong>Jaccard-based similarity test</strong> by computing a ratio of the intra-group over inter-group similarities for a binary trait (white-head cattle).
+They use <code>odgi extract</code> to extract subgraph in 1 kbp bins of the reference genome, then <code>odgi similarity</code> to compute a similarity matrix, and then the ratio mentioned above.
+I’m not sure if the similarity is only based on the nodes or if it is weighted by the node length (to be more a Jaccard of the sequence).
+I could confirm by reading odgi’s doc.
+Based on how odgi seems to be extracting subgraph here, by ID range, there might be a small effect of the graph sorting algorithm.
+That’s why it’s not completely clear how large SVs were detected with bins of only 1 kb.
+They should not necessarily be included in the extracted subgraph, except if the graph was sorted in a certain way.</p>
+</div>
 <div id="tools-1" class="section level2">
 <h2>Tools</h2>
 <ul>
-<li>gafpack? Used in MiliaBiorxiv2024</li>
+<li>gafpack? Used in <span class="citation">(<a href="#ref-Milia2025">Milia et al. 2025</a>)</span></li>
 </ul>
 </div>
 </div>
 <div id="bibliography" class="section level1 unnumbered">
 <h1>Bibliography</h1>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Andreace2023" class="csl-entry">
+<strong>Andreace, Lechat, Dufresne, and Chikhi 2023</strong>. <em>Construction and Representation of Human Pangenome Graphs</em>. <a href="https://doi.org/10.1101/2023.06.02.542089">https://doi.org/10.1101/2023.06.02.542089</a>.
+</div>
+<div id="ref-Bhat2025" class="csl-entry">
+<strong>Bhat, Mahajan, and Jain 2025</strong>. <em>Billi: <span>Provably Accurate</span> and <span>Scalable Bubble Detection</span> in <span>Pangenome Graphs</span></em>. <a href="https://doi.org/10.1101/2025.11.21.689636">https://doi.org/10.1101/2025.11.21.689636</a>.
+</div>
 <div id="ref-Biederstedt2018" class="csl-entry">
-Biederstedt, Evan, Jeffrey C. Oliver, Nancy F. Hansen, Aarti Jajoo,..., and Alexander T. Dilthey. 2018. <span>“<span>NovoGraph</span>: <span>Genome</span> Graph Construction from Multiple Long-Read de Novo Assemblies.”</span> <em>F1000Research</em>. <a href="https://doi.org/10.12688/f1000research.15895.1">https://doi.org/10.12688/f1000research.15895.1</a>.
+<strong>Biederstedt, Oliver, Hansen, Jajoo,..., and Dilthey 2018</strong>. <span>“<span>NovoGraph</span>: <span>Genome</span> Graph Construction from Multiple Long-Read de Novo Assemblies.”</span> <em>F1000Research</em>, ahead of print. <a href="https://doi.org/10.12688/f1000research.15895.1">https://doi.org/10.12688/f1000research.15895.1</a>.
+</div>
+<div id="ref-Cochetel2023" class="csl-entry">
+<strong>Cochetel, Minio, Guarracino, Garcia,..., and Cantu 2023</strong>. <span>“A Super-Pangenome of the <span>North American</span> Wild Grape Species.”</span> <em>Genome Biology</em>, ahead of print. <a href="https://doi.org/10.1186/s13059-023-03133-2">https://doi.org/10.1186/s13059-023-03133-2</a>.
 </div>
 <div id="ref-Dilthey2015" class="csl-entry">
-Dilthey, Alexander, Charles Cox, Zamin Iqbal, Matthew R. Nelson, and Gil McVean. 2015. <span>“Improved Genome Inference in the <span>MHC</span> Using a Population Reference Graph.”</span> <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng.3257">https://doi.org/10.1038/ng.3257</a>.
+<strong>Dilthey, Cox, Iqbal, Nelson, and McVean 2015</strong>. <span>“Improved Genome Inference in the <span>MHC</span> Using a Population Reference Graph.”</span> <em>Nature Genetics</em>, ahead of print. <a href="https://doi.org/10.1038/ng.3257">https://doi.org/10.1038/ng.3257</a>.
 </div>
 <div id="ref-Eggertsson2017" class="csl-entry">
-Eggertsson, Hannes P., Hakon Jonsson, Snaedis Kristmundsdottir, Eirikur Hjartarson,..., and Bjarni V. Halldorsson. 2017. <span>“Graphtyper Enables Population-Scale Genotyping Using Pangenome Graphs.”</span> <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng.3964">https://doi.org/10.1038/ng.3964</a>.
+<strong>Eggertsson, Jonsson, Kristmundsdottir, Hjartarson,..., and Halldorsson 2017</strong>. <span>“Graphtyper Enables Population-Scale Genotyping Using Pangenome Graphs.”</span> <em>Nature Genetics</em>, ahead of print. <a href="https://doi.org/10.1038/ng.3964">https://doi.org/10.1038/ng.3964</a>.
 </div>
 <div id="ref-Garrison2017" class="csl-entry">
-Garrison, Erik, Adam Novak, Glenn Hickey, Jordan Eizenga,..., and Mike Lin. 2017. <span>“Sequence Variation Aware References and Read Mapping with Vg : The Variation Graph Toolkit.”</span> <em>bioRxiv</em>. <a href="https://doi.org/10.1101/234856.">https://doi.org/10.1101/234856.</a>
+<strong>Garrison, Novak, Hickey, Eizenga,..., and Lin 2017</strong>. <span>“Sequence Variation Aware References and Read Mapping with Vg : The Variation Graph Toolkit.”</span> <em>bioRxiv</em>, ahead of print. <a href="https://doi.org/10.1101/234856.">https://doi.org/10.1101/234856.</a>
 </div>
 <div id="ref-Ghaffaari2019" class="csl-entry">
-Ghaffaari, Ali, and Tobias Marschall. 2019. <span>“Fully-Sensitive Seed Finding in Sequence Graphs Using a Hybrid Index.”</span> <em>Bioinformatics</em>. <a href="https://doi.org/10.1093/bioinformatics/btz341">https://doi.org/10.1093/bioinformatics/btz341</a>.
+<strong>Ghaffaari and Marschall 2019</strong>. <span>“Fully-Sensitive Seed Finding in Sequence Graphs Using a Hybrid Index.”</span> <em>Bioinformatics</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btz341">https://doi.org/10.1093/bioinformatics/btz341</a>.
 </div>
 <div id="ref-Jain2019" class="csl-entry">
-Jain, Chirag, Sanchit Misra, Haowen Zhang, Alexander Dilthey, and Srinivas Aluru. 2019. <span>“Accelerating <span>Sequence Alignment</span> to <span>Graphs</span>.”</span> <em>bioRxiv</em>. <a href="https://doi.org/10.1101/651638">https://doi.org/10.1101/651638</a>.
+<strong>Jain, Misra, Zhang, Dilthey, and Aluru 2019</strong>. <span>“Accelerating <span>Sequence Alignment</span> to <span>Graphs</span>.”</span> <em>bioRxiv</em>, ahead of print. <a href="https://doi.org/10.1101/651638">https://doi.org/10.1101/651638</a>.
 </div>
 <div id="ref-Kim2018" class="csl-entry">
-Kim, Daehwan, Joseph M Paggi, and Steven Salzberg. 2018. <span>“<span class="nocase">HISAT-genotype</span>: <span>Next Generation Genomic Analysis Platform</span> on a <span>Personal Computer</span>.”</span> <em>bioRxiv</em>. <a href="https://doi.org/10.1101/266197">https://doi.org/10.1101/266197</a>.
+<strong>Kim, Paggi, and Salzberg 2018</strong>. <span>“<span>HISAT</span>-Genotype: <span>Next Generation Genomic Analysis Platform</span> on a <span>Personal Computer</span>.”</span> <em>bioRxiv</em>, ahead of print. <a href="https://doi.org/10.1101/266197">https://doi.org/10.1101/266197</a>.
+</div>
+<div id="ref-Lu2021" class="csl-entry">
+<strong>Lu, The Human Genome Structural Variation Consortium, Munson, Lewis,..., and Chaisson 2021</strong>. <span>“Profiling Variable-Number Tandem Repeat Variation Across Populations Using Repeat-Pangenome Graphs.”</span> <em>Nature Communications</em>, ahead of print. <a href="https://doi.org/10.1038/s41467-021-24378-0">https://doi.org/10.1038/s41467-021-24378-0</a>.
 </div>
 <div id="ref-Marschall2018" class="csl-entry">
-Marschall, Tobias, Manja Marz, Thomas Abeel, Louis Dijkstra,..., and Alexander Schönhuth. 2018. <span>“Computational Pan-Genomics: <span>Status</span>, Promises and Challenges.”</span> <em>Briefings in Bioinformatics</em>. <a href="https://doi.org/10.1093/bib/bbw089">https://doi.org/10.1093/bib/bbw089</a>.
+<strong>Marschall, Marz, Abeel, Dijkstra,..., and Schönhuth 2018</strong>. <span>“Computational Pan-Genomics: <span>Status</span>, Promises and Challenges.”</span> <em>Briefings in Bioinformatics</em>, ahead of print. <a href="https://doi.org/10.1093/bib/bbw089">https://doi.org/10.1093/bib/bbw089</a>.
+</div>
+<div id="ref-Milia2025" class="csl-entry">
+<strong>Milia, Leonard, Mapel, Bernal Ulloa,..., and Pausch 2025</strong>. <span>“Taurine Pangenome Uncovers a Segmental Duplication Upstream of <span><em>KIT</em></span> Associated with Depigmentation in White-Headed Cattle.”</span> <em>Genome Research</em>, ahead of print. <a href="https://doi.org/10.1101/gr.279064.124">https://doi.org/10.1101/gr.279064.124</a>.
 </div>
 <div id="ref-Nguyen2015" class="csl-entry">
-Nguyen, Ngan, Glenn Hickey, Daniel R. Zerbino, Brian Raney,..., and Benedict Paten. 2015. <span>“Building a <span>Pangenome Reference</span> for a <span>Population</span>.”</span> In. <a href="https://doi.org/10.1007/978-3-319-05269-4_17">https://doi.org/10.1007/978-3-319-05269-4_17</a>.
-</div>
-<div id="ref-Novak2017" class="csl-entry">
-Novak, Adam M., Erik Garrison, and Benedict Paten. 2017. <span>“A Graph Extension of the Positional <span>Burrows-Wheeler</span> Transform and Its Applications.”</span> <em>Algorithms for Molecular Biology : AMB</em>. <a href="https://doi.org/10.1186/s13015-017-0109-9">https://doi.org/10.1186/s13015-017-0109-9</a>.
+<strong>Nguyen, Hickey, Zerbino, Raney,..., and Paten 2015</strong>. <em>Building a <span>Pangenome Reference</span> for a <span>Population</span></em>. <a href="https://doi.org/10.1007/978-3-319-05269-4_17">https://doi.org/10.1007/978-3-319-05269-4_17</a>.
 </div>
 <div id="ref-Novak2017a" class="csl-entry">
-Novak, Adam M, Glenn Hickey, Erik Garrison, Sean Blum,..., and Benedict Paten. 2017. <span>“Genome <span>Graphs</span>.”</span> <em>bioRxiv</em>. <a href="https://doi.org/10.1101/101378">https://doi.org/10.1101/101378</a>.
+<strong>Adam M. Novak, Garrison, and Paten 2017a</strong>. <span>“A Graph Extension of the Positional <span>Burrows-Wheeler</span> Transform and Its Applications.”</span> <em>Algorithms for Molecular Biology : AMB</em>, ahead of print. <a href="https://doi.org/10.1186/s13015-017-0109-9">https://doi.org/10.1186/s13015-017-0109-9</a>.
+</div>
+<div id="ref-Novak2017" class="csl-entry">
+<strong>Adam M. Novak, Hickey, Garrison, Blum,..., and Paten 2017b</strong>. <span>“Genome <span>Graphs</span>.”</span> <em>bioRxiv</em>, ahead of print. <a href="https://doi.org/10.1101/101378">https://doi.org/10.1101/101378</a>.
 </div>
 <div id="ref-Paten2011" class="csl-entry">
-Paten, Benedict, Dent Earl, Ngan Nguyen, M. Diekhans,..., and D. Haussler. 2011. <span>“Cactus: <span>Algorithms</span> for Genome Multiple Sequence Alignment.”</span> <em>Genome Research</em>. <a href="https://doi.org/10.1101/gr.123356.111">https://doi.org/10.1101/gr.123356.111</a>.
+<strong>Paten, Earl, Nguyen, Diekhans,..., and Haussler 2011</strong>. <span>“Cactus: <span>Algorithms</span> for Genome Multiple Sequence Alignment.”</span> <em>Genome Research</em>, ahead of print. <a href="https://doi.org/10.1101/gr.123356.111">https://doi.org/10.1101/gr.123356.111</a>.
 </div>
 <div id="ref-Paten2017" class="csl-entry">
-Paten, Benedict, Adam M. Novak, Jordan M. Eizenga, and Erik Garrison. 2017. <span>“Genome Graphs and the Evolution of Genome Inference.”</span> <em>Genome Research</em>. <a href="https://doi.org/10.1101/gr.214155.116">https://doi.org/10.1101/gr.214155.116</a>.
+<strong>Paten, Novak, Eizenga, and Garrison 2017</strong>. <span>“Genome Graphs and the Evolution of Genome Inference.”</span> <em>Genome Research</em>, ahead of print. <a href="https://doi.org/10.1101/gr.214155.116">https://doi.org/10.1101/gr.214155.116</a>.
 </div>
 <div id="ref-Pritt2018" class="csl-entry">
-Pritt, Jacob, and Ben Langmead. 2018. <span>“<span>FORGe</span> : Prioritizing Variants for Graph Genomes.”</span> <em>bioRxiv</em>. <a href="https://doi.org/10.1101/311720">https://doi.org/10.1101/311720</a>.
+<strong>Pritt, Chen, Nae-Chyun Chen, and Langmead 2018</strong>. <span>“<span>FORGe</span>: Prioritizing Variants for Graph Genomes.”</span> <em>Genome Biology</em>, ahead of print. <a href="https://doi.org/10.1186/s13059-018-1595-x">https://doi.org/10.1186/s13059-018-1595-x</a>.
 </div>
 <div id="ref-Rakocevic2017" class="csl-entry">
-Rakocevic, Goran, Vladimir Semenyuk, James Spencer, John Browning,..., and Deniz Kural. 2017. <span>“Fast and <span>Accurate Genomic Analyses</span> Using <span>Genome Graphs</span>.”</span> <em>bioRxiv</em>. <a href="https://doi.org/10.1101/194530">https://doi.org/10.1101/194530</a>.
+<strong>Rakocevic, Semenyuk, Spencer, Browning,..., and Kural 2017</strong>. <span>“Fast and <span>Accurate Genomic Analyses</span> Using <span>Genome Graphs</span>.”</span> <em>bioRxiv</em>, ahead of print. <a href="https://doi.org/10.1101/194530">https://doi.org/10.1101/194530</a>.
 </div>
 <div id="ref-Rand2017" class="csl-entry">
-Rand, Knut Dagestad, Ivar Grytten, Alexander J Nederbragt, Geir Olve Storvik,..., and Geir Kjetil Sandve. 2017. <span>“Coordinates and Intervals in Graph-Based Reference Genomes.”</span> <em>BMC Bioinformatics</em>. <a href="https://doi.org/10.1186/s12859-017-1678-9">https://doi.org/10.1186/s12859-017-1678-9</a>.
+<strong>Rand, Grytten, Nederbragt, Storvik,..., and Sandve 2017</strong>. <span>“Coordinates and Intervals in Graph-Based Reference Genomes.”</span> <em>BMC Bioinformatics</em>, ahead of print. <a href="https://doi.org/10.1186/s12859-017-1678-9">https://doi.org/10.1186/s12859-017-1678-9</a>.
 </div>
 <div id="ref-Rosen2017" class="csl-entry">
-Rosen, Yohei, Jordan Eizenga, and Benedict Paten. 2017. <span>“Modelling Haplotypes with Respect to Reference Cohort Variation Graphs.”</span> <em>Bioinformatics</em>. <a href="https://doi.org/10.1093/bioinformatics/btx236">https://doi.org/10.1093/bioinformatics/btx236</a>.
+<strong>Rosen, Eizenga, and Paten 2017</strong>. <span>“Modelling Haplotypes with Respect to Reference Cohort Variation Graphs.”</span> <em>Bioinformatics</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btx236">https://doi.org/10.1093/bioinformatics/btx236</a>.
 </div>
 <div id="ref-Sibbesen2018" class="csl-entry">
-Sibbesen, Jonas Andreas, Lasse Maretty, and Anders Krogh. 2018. <span>“Accurate Genotyping Across Variant Classes and Lengths Using Variant Graphs.”</span> <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/s41588-018-0145-5">https://doi.org/10.1038/s41588-018-0145-5</a>.
+<strong>Sibbesen, Maretty, and Krogh 2018</strong>. <span>“Accurate Genotyping Across Variant Classes and Lengths Using Variant Graphs.”</span> <em>Nature Genetics</em>, ahead of print. <a href="https://doi.org/10.1038/s41588-018-0145-5">https://doi.org/10.1038/s41588-018-0145-5</a>.
 </div>
 <div id="ref-Siren2018" class="csl-entry">
-Sirén, Jouni, Erik Garrison, Adam M. Novak, Benedict Paten, and Richard Durbin. 2018. <span>“Haplotype-Aware Graph Indexes.”</span> <a href="https://doi.org/10.4230/LIPIcs.WABI.2018.4">https://doi.org/10.4230/LIPIcs.WABI.2018.4</a>.
+<strong>Sirén, Garrison, Novak, Paten, and Durbin 2018</strong>. <em>Haplotype-Aware Graph Indexes</em>. <a href="https://doi.org/10.4230/LIPIcs.WABI.2018.4">https://doi.org/10.4230/LIPIcs.WABI.2018.4</a>.
 </div>
 </div>
 </div>

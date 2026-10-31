@@ -2,12 +2,14 @@
 sidebar: true
 title: Genome Graphs
 bibliography: [../../library-small.bib]
+csl: ../../chicago-author-date.csl
 link-citations: true
 weight: 5
 output:
   blogdown::html_page:
     toc: true
 ---
+
 
 
 @Paten2017 wrote a review on genome graphs covering a large number of topics.
@@ -28,7 +30,7 @@ In @Novak2017, several genome graphs structures are compared and shown to be sup
   - Minigraph
   - Minigraph-Cactus
 
-Andreace et al. compared five tools to make human pangenome graphs [@andreace2023].
+Andreace et al. compared five tools to make human pangenome graphs [@Andreace2023].
 `Bifrost` and `mdbg` build kmers/minimizers graphs.
 `Minigraph`, `Minigraph-Cactus`, `pggb` build sequence graphs.
 They used 52 phased assemblies (HPRC + 5 haplotypes from the DeepConsensus paper), plus GRCh38 and CHM13.
@@ -214,7 +216,7 @@ In the end, the mean mapping identity slightly increased, the mapping rate decre
 ## danbing-tk
 
 - DOI: 10.1038/s41467-021-24378-0
-- [@lu2021nc]
+- [@Lu2021]
 
 1. Build a separate de bruijn graph for each VNTR site
    - include flanking "invariant" region
@@ -365,7 +367,7 @@ In the end, the mean mapping identity slightly increased, the mapping rate decre
 
 # Association testing involving pangenomes
 
-- Cochetel et al. Genome Biology 2023 [@cochetelSuperpangenomeNorthAmerican2023]
+- Cochetel et al. Genome Biology 2023 [@Cochetel2023]
     - Assembly then PGGB
     - Deconstruct then vg construct another pangenome to align reads with vg map and variants genotyped with vg call
     - All VCFs merged with `bcftools merge -merge all`
@@ -405,8 +407,19 @@ In the end, the mean mapping identity slightly increased, the mapping rate decre
 - Pangenomic analysis identifies structural variation associated with heat tolerance in pearl millet 
 - KangNatComm2023 https://pmc.ncbi.nlm.nih.gov/articles/PMC10558531/ 
 
+
+## Association test *in* the pangenome
+
+@Milia2025 used a **Jaccard-based similarity test** by computing a ratio of the intra-group over inter-group similarities for a binary trait (white-head cattle).
+They use `odgi extract` to extract subgraph in 1 kbp bins of the reference genome, then `odgi similarity` to compute a similarity matrix, and then the ratio mentioned above.
+I'm not sure if the similarity is only based on the nodes or if it is weighted by the node length (to be more a Jaccard of the sequence).
+I could confirm by reading odgi's doc.
+Based on how odgi seems to be extracting subgraph here, by ID range, there might be a small effect of the graph sorting algorithm. 
+That's why it's not completely clear how large SVs were detected with bins of only 1 kb. 
+They should not necessarily be included in the extracted subgraph, except if the graph was sorted in a certain way. 
+
 ## Tools
 
-- gafpack? Used in MiliaBiorxiv2024
+- gafpack? Used in [@Milia2025]
 
 # Bibliography

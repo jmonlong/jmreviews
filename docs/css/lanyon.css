@@ -610,7 +610,14 @@ a.pagination-item:hover {
     float: left;
 }
 
-
 /* table { */
 /*     width: 300%; */
 /* } */
+
+.csl-entry {
+    margin-top: 20px;
+}
+
+.csl-entry::before {
+  content: '📄';
+}

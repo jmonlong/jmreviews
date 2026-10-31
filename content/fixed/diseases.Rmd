@@ -2,6 +2,7 @@
 sidebar: true
 title: Diseases
 bibliography: [../../library-small.bib]
+csl: ../../chicago-author-date.csl
 link-citations: true
 weight: 5
 output:
@@ -119,15 +120,15 @@ The inflammation of UC usually only affects the outer (mucosal) layer and starts
 ## Genetics
 
 Many associated loci in IDB, are associated to both CD and UC.
-For example, 110 out of 163 loci associated with IBD conferred risk to both CD and UC (review @mcgovern2015g).
-In many cases, the effect is stronger in CD than UC, for example the Arg381Gln protective allele in IL23R (review @mcgovern2015g).
-Associated loci are sometimes also associated with other phenotypes like primary sclerosing cholangitis, psoriasis, ankylosing spondylitis, type 1 diabetes, or multiple sclerosis (review @verstockt2018c).
+For example, 110 out of 163 loci associated with IBD conferred risk to both CD and UC (review @McGovern2015).
+In many cases, the effect is stronger in CD than UC, for example the Arg381Gln protective allele in IL23R (review @McGovern2015).
+Associated loci are sometimes also associated with other phenotypes like primary sclerosing cholangitis, psoriasis, ankylosing spondylitis, type 1 diabetes, or multiple sclerosis (review @Verstockt2018).
 
 Explained variance tends to be low.
-The 163 loci, from the meta-analysis mentioned in the @mcgovern2015g review, explained only 13.6% of CD and 7.5% of UC total disease variance.
-According to @verstockt2018c (review), on 26% of CD variance is accounted for by disease-associated SNPs.
+The 163 loci, from the meta-analysis mentioned in the @McGovern2015 review, explained only 13.6% of CD and 7.5% of UC total disease variance.
+According to @Verstockt2018 (review), on 26% of CD variance is accounted for by disease-associated SNPs.
 This could be due to epistasis (gene-gene interactions) or gene-environment interactions not being modeled, or because some regions are not well studied (repeats, sex chromosomes), e.g. the Fc receptor gene cluster or the KIR genes.
-Rare variants might have a large effect, although the first studies on these variants failed to show it (review @verstockt2018c).
+Rare variants might have a large effect, although the first studies on these variants failed to show it (review @Verstockt2018).
 Of course, the heritability estimates might be inflated too.
 
 A missense allele in NOD2 was one of the first associated loci found with CD.
@@ -142,20 +143,20 @@ Multiple independent risk alleles for IBD were found in the IL23R gene region.
 Associated loci provided evidence that anti-inflammatory mechanisms may be disrupted in CD.
 Several GWAS hits are located near genes involved in IL-10 signaling, an anti-inflammatory cytokine, for example IL10, IL10RB, STAT3, TYK2.
 GWAS hits were also found near other cytokines, e.g. IL22, SMAD3, SMAD7.
-Several of these SNPs related IL-23/IL-17 have been associated with other autoimmune diseases such as psoriasis, ankylosing spondylitis, or multiple sclerosis (review @verstockt2018c).
+Several of these SNPs related IL-23/IL-17 have been associated with other autoimmune diseases such as psoriasis, ankylosing spondylitis, or multiple sclerosis (review @Verstockt2018).
 However, the signals the SNPs might be independent or have opposing effects across those traits.
 For example, a missense risk allele for CD in TYK2 look protective for psoriasis.
 
 W134X in FUT2 is a CD-specific association that suggested a potential importance of the mucus layer.
 
 Some associations are not replicated in all human populations.
-For example, NOD2 and ATG16L1 were not found to be associated with CD in East Asians (review @mcgovern2015g).
+For example, NOD2 and ATG16L1 were not found to be associated with CD in East Asians (review @McGovern2015).
 However, ATG16L2 seemed to be, according to GWAS studies in Korean and Japanese populations.
 
-In 2010, a large meta-analysis included ~22K cases and 29K controls from 13 different countries (review @verstockt2018c).
+In 2010, a large meta-analysis included ~22K cases and 29K controls from 13 different countries (review @Verstockt2018).
 It found 71 susceptibility loci.
 
-- Summary table of known loci: see table 1 in review @verstockt2018c
+- Summary table of known loci: see table 1 in review @Verstockt2018
 - Consortium of note: International Inflammatory Bowel Disease Genetic Consortium (IIBDGC).
 
 ### Functional fine-mapping
@@ -244,7 +245,7 @@ Most specific neoantigens might be non-coding and will require better tools to b
 - isolated or symdromic
     - ~50% syndromic, e.g. trisomy 13 or 18
     - [Isolated form OrphaNet](https://www.orpha.net/en/disease/detail/2542)
-- Account for 3-12% of visual impairment in children[@plaisancieGeneticsAnophthalmiaMicrophthalmia2019].
+- Account for 3-12% of visual impairment in children[@Plaisancie2019].
 - Bilateral or unilateral (the other eye can be normal or with other anomalies like cataract or coloboma)
 - Microphtalmia typically diagnosed when the axial length of the eye is at least two SD below average.
 - *Simple* microphtalmia, eye anatomically normal
@@ -262,7 +263,7 @@ Most specific neoantigens might be non-coding and will require better tools to b
 
 > The importance of an accurate genetic diagnosis cannot be underestimated in terms of management, screening for associated conditions, genetic counseling, and prenatal diagnosis.
 
-- Plansancié et al.[@plaisancieGeneticsAnophthalmiaMicrophthalmia2019]
+- Plansancié et al.[@Plaisancie2019]
 
 Variants in non-coding regions can cause ocular disorders (REFs)
 
@@ -291,3 +292,6 @@ A molecular diagnosis help with genetic counseling and make prenatal/preimplanta
 **Coloboma**?
 
 **Cataract**?
+
+
+# Bibliography

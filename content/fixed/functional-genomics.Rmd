@@ -2,6 +2,7 @@
 sidebar: true
 title: Functional Genomics
 bibliography: [../../library-small.bib]
+csl: ../../chicago-author-date.csl
 draft: true
 link-citations: true
 weight: 5
@@ -16,7 +17,7 @@ output:
 
 # Scores for non-coding regions
 
-@vitsios2021nc introduced the JARVIS and gwRVIS scores integrating variation in humans to help predict functional regions across the whole genome.
+@Vitsios2021 introduced the JARVIS and gwRVIS scores integrating variation in humans to help predict functional regions across the whole genome.
 gwRVIS only includes human variation information, while JARVIS integrates other information like genomic sequence and functional annotations.
 The score is built from the TOPMed data of 60K+ whole-genome sequencing samples.
 The gwRVIS score is computed with a sliding window approach (size 3kbp, step 1bp) and regression model to predict the number of common variants (MAF >0.1%) in a window based on the total number of variants.
@@ -27,3 +28,5 @@ It was trained on "positive" non-coding ClinVar Pathogenic/Likely Pathogenic var
 To annotate SVs, they computed the median, mean, 1st/3rd quartiles of the scores in the affected region, then took the average of those summary statistics to get one score per SV.
 To compare the performance of the SV scoring, they evaluate the power to predict intergenic SVs from different types of coding/promoter SVs in the gnomAD-SV dataset.
 JARVIS is the most predicitive for most SV classes (
+
+# Bibliography

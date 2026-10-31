@@ -385,7 +385,7 @@ Unknown confounders are taken into account by the over-dispersion parameter and 
 The input is a triplet of RD, GC content and mappability for each bin.
 They used 500 bp windows with 200 bp overlap (why not).</p>
 <hr />
-<p><strong>GROM-RD</strong> <span class="citation">(<a href="#ref-Smith2015">Smith, Kawash, and Grigoriev 2015</a>)</span> aims at removing genomic biases before performing segmentation.
+<p><strong>GROM-RD</strong> <span class="citation">(<a href="#ref-Smith2015">Smith et al. 2015</a>)</span> aims at removing genomic biases before performing segmentation.
 It’s unique features include excessive coverage masking, GC bias mean and variance normalization, GC weighting, dinucleotide repeat bias correction and usage of bins of mutliple sizes.
 Masking regions with excessive coverage is actually used only in the <em>no-repeat</em> mode and the method is also ran on the unmasked genome with both call sets outputted in the end.
 The GC content is computed from the GC weights which are computed at the base level using bases within the average insert size.
@@ -447,13 +447,13 @@ The copy number in each segment is based on the RD but the genotyping on the BAF
 <hr />
 <p><strong>CNAnorm</strong> <span class="citation">(<a href="#ref-Gusnanto2012">Gusnanto et al. 2012</a>)</span> corrects for cancer genome size and tumour cell content to segment tumor/normal RD ratios.</p>
 <hr />
-<p><strong>CoNVEX</strong> <span class="citation">(<a href="#ref-Amarasinghe2013">Amarasinghe, Li, and Halgamuge 2013</a>)</span> is an exome approach using discrete wavelet transform on tumor/normal coverage ratio in each exonic region. The segmentation is performed through Hidden Markov Models.</p>
+<p><strong>CoNVEX</strong> <span class="citation">(<a href="#ref-Amarasinghe2013">Amarasinghe et al. 2013</a>)</span> is an exome approach using discrete wavelet transform on tumor/normal coverage ratio in each exonic region. The segmentation is performed through Hidden Markov Models.</p>
 <hr />
 <p><strong>WaveCNV</strong> <span class="citation">(<a href="#ref-Holt2013">Holt et al. 2013</a>)</span> uses a translation-invariant discrete wavelet transform to detect CNV breakpoints from tumor/normal RD ratios.</p>
 <hr />
-<p><strong>AbsCN-seq</strong> <span class="citation">(<a href="#ref-Bao2014">Bao, Pu, and Messer 2014</a>)</span> is an exome approach to detect tumoral variant taking into account purity and ploidy.</p>
+<p><strong>AbsCN-seq</strong> <span class="citation">(<a href="#ref-Bao2014">Bao et al. 2014</a>)</span> is an exome approach to detect tumoral variant taking into account purity and ploidy.</p>
 <hr />
-<p><strong>CONSERTING</strong> <span class="citation">(<a href="#ref-Chen2015">X. Chen et al. 2015</a>)</span> uses regression trees to segment the tumor/normal coverage ratio.</p>
+<p><strong>CONSERTING</strong> <span class="citation">(<a href="#ref-Chen2015">Xiang Chen et al. 2015</a>)</span> uses regression trees to segment the tumor/normal coverage ratio.</p>
 <p>Interestingly the breakpoint are fine-tuned using local SV detection around the segmented calls with <em>CREST</em>.</p>
 </div>
 </div>
@@ -496,7 +496,7 @@ They use a mixture of Poisson distributions to model the copy number of each sam
 <hr />
 <p><strong>CoNIFER</strong> <span class="citation">(<a href="#ref-Krumm2012">Krumm et al. 2012</a>)</span> is an exome approach that normalize coverage and compute Z-score using information from several samples.</p>
 <hr />
-<p><strong>CONTRA</strong> <span class="citation">(<a href="#ref-Li2012">Y. Li et al. 2012</a>)</span> is another exome approach that segment ratios whose baseline is computed using reference samples.</p>
+<p><strong>CONTRA</strong> <span class="citation">(<a href="#ref-Li2012">J. Li et al. 2012</a>)</span> is another exome approach that segment ratios whose baseline is computed using reference samples.</p>
 <hr />
 <p><strong>EXCAVATOR</strong> <span class="citation">(<a href="#ref-Magi2013">Magi et al. 2013</a>)</span> is another exome approach that segment ratios whose baseline is computed using reference samples. It uses Hidden Markov Models.</p>
 <hr />
@@ -577,7 +577,7 @@ The significance of the score is compute for each insert type by assuming an uni
 It also propose a module to detect small indels, using the the insert size information of reads mapping to a window(of size the mean insert size), sliding it 1bp at a time.
 It integrates samples pooling to increase detection power of common variants or flag inherited variation in normal vs tumor studies.</p>
 <hr />
-<p><strong>SVMiner</strong> <span class="citation">(<a href="#ref-Pyon2011">Pyon, Hayes, and Li 2011</a>)</span> looks like a standard approach.</p>
+<p><strong>SVMiner</strong> <span class="citation">(<a href="#ref-Pyon2011">Pyon et al. 2011</a>)</span> looks like a standard approach.</p>
 <hr />
 <p><strong>CLEVER</strong> <span class="citation">(<a href="#ref-Marschall2012">Marschall et al. 2012</a>)</span> organizes all read into <em>read alignment graphs</em> and looks for cliques of consistent reads.</p>
 <p><strong>++</strong></p>
@@ -586,7 +586,7 @@ It integrates samples pooling to increase detection power of common variants or 
 <hr />
 <p><strong>CommonLAW</strong> <span class="citation">(<a href="#ref-Hormozdiari2011a">Hormozdiari et al. 2011</a>)</span> looks at PEM signal across several samples to increase the sensitivity and specificity.</p>
 <hr />
-<p><strong>Hydra-Multi</strong> <span class="citation">(<a href="#ref-Lindberg2014">Lindberg, Hall, and Quinlan 2014</a>)</span> also looks at PEM signal across several samples to increase the sensitivity and specificity.</p>
+<p><strong>Hydra-Multi</strong> <span class="citation">(<a href="#ref-Lindberg2014">Lindberg et al. 2014</a>)</span> also looks at PEM signal across several samples to increase the sensitivity and specificity.</p>
 <hr />
 <p><strong>Pindel</strong> <span class="citation">(<a href="#ref-Ye2009">Ye et al. 2009</a>)</span> uses pattern growth on the unmapped pair of uniquely mapped anchor read.
 The mapped read (anchor) is used to reduce the search-space.
@@ -747,10 +747,10 @@ Additionally DELLY checks that both PEM and SR derived event are concordant.</p>
 Believing it could be actual inter-individual variability or due to incomplete reference they didn’t completely filter these calls out.
 Still, they limited the number of variant in any particular genomic region in order to avoid countless alignments.</p>
 <hr />
-<p><strong>SVM<span class="math inline">\(^2\)</span></strong> <span class="citation">(<a href="#ref-Chiara2012">Chiara, Pesole, and Horner 2012</a>)</span> uses Support Vector Machine integrating coverage and paired-end read information.</p>
+<p><strong>SVM<span class="math inline">\(^2\)</span></strong> <span class="citation">(<a href="#ref-Chiara2012">Chiara et al. 2012</a>)</span> uses Support Vector Machine integrating coverage and paired-end read information.</p>
 <p><span class="math inline">\(+++\)</span></p>
 <hr />
-<p><strong>forestSV</strong> <span class="citation">(<a href="#ref-Michaelson2012">Michaelson and Sebat 2012</a>)</span> trained a random forest machine learning model with known variant. Different signals such as coverage, read-pair signature and others are integrated in the model. After training the method scans a BAM file to find probable variants.</p>
+<p><strong>forestSV</strong> <span class="citation">(<a href="#ref-Michaelson2012">Michaelson et al. 2012</a>)</span> trained a random forest machine learning model with known variant. Different signals such as coverage, read-pair signature and others are integrated in the model. After training the method scans a BAM file to find probable variants.</p>
 <hr />
 <p><strong>GASVPro</strong> <span class="citation">(<a href="#ref-Sindi2012">S. S. Sindi et al. 2012</a>)</span> integrates read depth and paired-end signal in their model and account for multiple alignments.</p>
 <p>Apparently it weights multiple mapping per read in proportion to their probability <span class="citation">(<a href="#ref-Halper-Stromberg2014">Halper-Stromberg et al. 2014</a>)</span>.</p>
@@ -982,7 +982,7 @@ I’m not sure how it deals with repeats, sequencing errors.</p>
 </tr>
 <tr class="even">
 <td>2012</td>
-<td>SVM2 <span class="citation">(<a href="#ref-Chiara2012">Chiara, Pesole, and Horner 2012</a>)</span></td>
+<td>SVM2 <span class="citation">(<a href="#ref-Chiara2012">Chiara et al. 2012</a>)</span></td>
 <td>RD+PEM</td>
 <td>SVM</td>
 <td></td>
@@ -1086,7 +1086,7 @@ I’m not sure how it deals with repeats, sequencing errors.</p>
 </tr>
 <tr class="odd">
 <td>2015</td>
-<td>GROM-RD <span class="citation">(<a href="#ref-Smith2015">Smith, Kawash, and Grigoriev 2015</a>)</span></td>
+<td>GROM-RD <span class="citation">(<a href="#ref-Smith2015">Smith et al. 2015</a>)</span></td>
 <td>RD</td>
 <td>Aggressive normalization</td>
 <td>no</td>
@@ -1261,7 +1261,7 @@ I’m not sure how it deals with repeats, sequencing errors.</p>
 </tr>
 <tr class="even">
 <td>2012</td>
-<td>SVM2 <span class="citation">(<a href="#ref-Chiara2012">Chiara, Pesole, and Horner 2012</a>)</span></td>
+<td>SVM2 <span class="citation">(<a href="#ref-Chiara2012">Chiara et al. 2012</a>)</span></td>
 <td></td>
 <td></td>
 <td></td>
@@ -1352,7 +1352,7 @@ I’m not sure how it deals with repeats, sequencing errors.</p>
 </tr>
 <tr class="odd">
 <td>2015</td>
-<td>GROM-RD <span class="citation">(<a href="#ref-Smith2015">Smith, Kawash, and Grigoriev 2015</a>)</span></td>
+<td>GROM-RD <span class="citation">(<a href="#ref-Smith2015">Smith et al. 2015</a>)</span></td>
 <td>quantile</td>
 <td>quantile</td>
 <td>Yes or no</td>
@@ -1393,7 +1393,7 @@ It offers multiple ways to specify distance thresholds such as absolute, relativ
 Insertions can also be considered based on their sequence identity.</p>
 <p><a href="../2022/04/30/litreviews-svsmethods">Viola</a><span class="citation">(<a href="#ref-Sugita2022">Sugita et al. 2022</a>)</span> merges SVs based on the breakpoints positions, making sure the strand are concordant and SVs overlap on at least 1bp.
 It doesn’t seem to explicitly ensure that the merged SVs are of the same type.</p>
-<p><a href="../2022/04/30/litreviews-svsmethods">MARS</a> <span class="citation">(<a href="#ref-Zhang2021">Zhang, Sidow, and Zhou 2021</a>)</span> calls SVs from diploid assemblies and refine their breakpoints across haplotypes of multiple samples using multiple sequence alignment.</p>
+<p><a href="../2022/04/30/litreviews-svsmethods">MARS</a> <span class="citation">(<a href="#ref-Zhang2021">Zhang et al. 2021</a>)</span> calls SVs from diploid assemblies and refine their breakpoints across haplotypes of multiple samples using multiple sequence alignment.</p>
 <p><a href="../2022/04/30/litreviews-svsmethods">TT-MARS</a> <span class="citation">(<a href="#ref-Yang2021">J. Yang and Chaisson 2021</a>)</span> also compare the SV calls to an haplotype-resolved assembly but focusing on evaluating the quality of SV calls, one sample at a time.
 No breakpoint refinement.
 Still a more modern way of evaluating SVs using the new high-quality haplotype-resolved assemblies from HGSVC/HPRC etc.</p>
@@ -1476,7 +1476,7 @@ There seem to be only <a href="https://www.ncbi.nlm.nih.gov/clinvar/variation/58
 SMN1 is the functional copy but SMN2 can still produce a small quantity of transcript so the SMN2 copy number can be a modifier factor of spinal muscular distrophy’s severity.
 Individuals can carry 0, 1, or 2 copies of SMN1.
 Detecting silent carrier (carrying 2 + 0 copies of SMN1) is also important.</p>
-<p><a href="https://github.com/PacificBiosciences/paraphase">Paraphase</a> realigns long PacBio reads to one unique copy and phase them into “haplotypes” (phased variants in one copy of a gene) <span class="citation">(<a href="#ref-chenComprehensiveSMN1SMN22023"><strong>chenComprehensiveSMN1SMN22023?</strong></a>)</span>.
+<p><a href="https://github.com/PacificBiosciences/paraphase">Paraphase</a> realigns long PacBio reads to one unique copy and phase them into “haplotypes” (phased variants in one copy of a gene) <span class="citation">(<a href="#ref-Chen2023">Xiao Chen et al. 2023</a>)</span>.
 The original publication focused on SMN1/2 and more specifically of the 44 kbp region around the genes.
 Reads are phased into haplotypes based on the variant sites and label them as SMN1/2 based on the c.840 site.
 SMN1/2 copy numbers are estimated as the number of unique of haplotypes, although depth analysis is also performed when only one copy is detected.
@@ -1486,7 +1486,7 @@ Phasing across “alleles” was done using parental information, either from lo
 <h1>SV imputation</h1>
 <p><span class="citation">González et al. (<a href="#ref-Gonzalez2019">2019</a>)</span> imputed the presence of inversions in &gt;400K Europeans individuals and performed association tests agains 25 obesity-related traits.</p>
 <p><span class="citation">Beyter et al. (<a href="#ref-Beyter2019">2019</a>)</span> discovered ~70K SVs using long-read sequencing in almost 2K Icelanders and imputed the presence of ~50K in 166K Icelanders from SNP arrays.</p>
-<p><span class="citation">(<a href="#ref-Noyvert2023"><strong>Noyvert2023?</strong></a>)</span> built an imputation panel from 888 samples from the 1000GP and imputed SVs in the UK Biobank.
+<p><span class="citation">Noyvert et al. (<a href="#ref-Noyvert2023">2023</a>)</span> built an imputation panel from 888 samples from the 1000GP and imputed SVs in the UK Biobank.
 They used ONT sequencing (R9) with ~15x coverage of ~6.2 kbp long reads.
 SVs were called with Sniffles2 in joint calling mode.
 On average, individuals carried 16K SVs.
@@ -1502,285 +1502,291 @@ They describe examples where SVs helped prioritize the gene candidate.</p>
 </div>
 <div id="bibliography" class="section level1 unnumbered">
 <h1>Bibliography</h1>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Abyzov2011" class="csl-entry">
-Abyzov, Alexej, and Mark Gerstein. 2011. <span>“<span>AGE</span>: <span>Defining</span> Breakpoints of Genomic Structural Variants at Single-Nucleotide Resolution, Through Optimal Alignments with Gap Excision.”</span> <em>Bioinformatics</em>. <a href="https://doi.org/10.1093/bioinformatics/btq713">https://doi.org/10.1093/bioinformatics/btq713</a>.
+<strong>Abyzov and Gerstein 2011</strong>. <span>“<span>AGE</span>: <span>Defining</span> Breakpoints of Genomic Structural Variants at Single-Nucleotide Resolution, Through Optimal Alignments with Gap Excision.”</span> <em>Bioinformatics</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btq713">https://doi.org/10.1093/bioinformatics/btq713</a>.
 </div>
 <div id="ref-Alkan2009" class="csl-entry">
-Alkan, Can, Jeffrey M Kidd, Tomas Marques-Bonet, Gozde Aksay,..., and Evan E Eichler. 2009. <span>“Personalized Copy Number and Segmental Duplication Maps Using Next-Generation Sequencing.”</span> <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng.437">https://doi.org/10.1038/ng.437</a>.
+<strong>Alkan, Kidd, Marques-Bonet, Aksay,..., and Eichler 2009</strong>. <span>“Personalized Copy Number and Segmental Duplication Maps Using Next-Generation Sequencing.”</span> <em>Nature Genetics</em>, ahead of print. <a href="https://doi.org/10.1038/ng.437">https://doi.org/10.1038/ng.437</a>.
 </div>
 <div id="ref-Amarasinghe2013" class="csl-entry">
-Amarasinghe, Kaushalya C, Jason Li, and Saman K Halgamuge. 2013. <span>“<span>CoNVEX</span>: Copy Number Variation Estimation in Exome Sequencing Data Using <span>HMM</span>.”</span> <em>BMC Bioinformatics</em>. <a href="https://doi.org/10.1186/1471-2105-14-S2-S2">https://doi.org/10.1186/1471-2105-14-S2-S2</a>.
+<strong>Amarasinghe, Li, and Halgamuge 2013</strong>. <span>“<span>CoNVEX</span>: Copy Number Variation Estimation in Exome Sequencing Data Using <span>HMM</span>.”</span> <em>BMC Bioinformatics</em>, ahead of print. <a href="https://doi.org/10.1186/1471-2105-14-S2-S2">https://doi.org/10.1186/1471-2105-14-S2-S2</a>.
 </div>
 <div id="ref-Bao2014" class="csl-entry">
-Bao, Lei, Minya Pu, and Karen Messer. 2014. <span>“<span class="nocase">AbsCN-seq</span>: A Statistical Method to Estimate Tumor Purity, Ploidy and Absolute Copy Numbers from Next Generation Sequencing Data.”</span> <em>Bioinformatics</em>. <a href="https://doi.org/10.1093/bioinformatics/btt759">https://doi.org/10.1093/bioinformatics/btt759</a>.
+<strong>Bao, Pu, and Messer 2014</strong>. <span>“<span>AbsCN</span>-Seq: A Statistical Method to Estimate Tumor Purity, Ploidy and Absolute Copy Numbers from Next Generation Sequencing Data.”</span> <em>Bioinformatics</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btt759">https://doi.org/10.1093/bioinformatics/btt759</a>.
 </div>
 <div id="ref-Beyter2019" class="csl-entry">
-Beyter, Doruk, Helga Ingimundardottir, Hannes Eggertsson, Eythor Bjornsson,..., and Kari Stefansson. 2019. <span>“Long Read Sequencing of 1,817 <span>Icelanders</span> Provides Insight into the Role of Structural Variants in Human Disease.”</span> <em>bioRxiv</em>. <a href="https://doi.org/10.1101/848366">https://doi.org/10.1101/848366</a>.
+<strong>Beyter, Ingimundardottir, Eggertsson, Bjornsson,..., and Stefansson 2019</strong>. <span>“Long Read Sequencing of 1,817 <span>Icelanders</span> Provides Insight into the Role of Structural Variants in Human Disease.”</span> <em>bioRxiv</em>, ahead of print. <a href="https://doi.org/10.1101/848366">https://doi.org/10.1101/848366</a>.
 </div>
 <div id="ref-Boeva2012" class="csl-entry">
-Boeva, Valentina, Tatiana Popova, Kevin Bleakley, Pierre Chiche,..., and Emmanuel Barillot. 2012. <span>“Control-<span>FREEC</span>: A Tool for Assessing Copy Number and Allelic Content Using Next-Generation Sequencing Data.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btr670">https://doi.org/10.1093/bioinformatics/btr670</a>.
+<strong>Boeva, Popova, Bleakley, Chiche,..., and Barillot 2012</strong>. <span>“Control-<span>FREEC</span>: A Tool for Assessing Copy Number and Allelic Content Using Next-Generation Sequencing Data.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btr670">https://doi.org/10.1093/bioinformatics/btr670</a>.
 </div>
 <div id="ref-Boeva2014" class="csl-entry">
-Boeva, Valentina, Tatiana Popova, Maxime Lienard, Sebastien Toffoli,..., and Jean-François Laes. 2014. <span>“Multi-Factor Data Normalization Enables the Detection of Copy Number Aberrations in Amplicon Sequencing Data.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btu436">https://doi.org/10.1093/bioinformatics/btu436</a>.
+<strong>Boeva, Popova, Lienard, Toffoli,..., and Laes 2014</strong>. <span>“Multi-Factor Data Normalization Enables the Detection of Copy Number Aberrations in Amplicon Sequencing Data.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btu436">https://doi.org/10.1093/bioinformatics/btu436</a>.
 </div>
 <div id="ref-Boeva2011" class="csl-entry">
-Boeva, Valentina, Andrei Zinovyev, Kevin Bleakley, Jean Philippe Vert,..., and Emmanuel Barillot. 2011. <span>“Control-Free Calling of Copy Number Alterations in Deep-Sequencing Data Using <span class="nocase">GC-content</span> Normalization.”</span> <em>Bioinformatics</em>. <a href="https://doi.org/10.1093/bioinformatics/btq635">https://doi.org/10.1093/bioinformatics/btq635</a>.
+<strong>Boeva, Zinovyev, Bleakley, Vert,..., and Barillot 2011</strong>. <span>“Control-Free Calling of Copy Number Alterations in Deep-Sequencing Data Using <span>GC</span>-Content Normalization.”</span> <em>Bioinformatics</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btq635">https://doi.org/10.1093/bioinformatics/btq635</a>.
 </div>
 <div id="ref-Campbell2008" class="csl-entry">
-Campbell, Peter J, Philip J Stephens, Erin D Pleasance, Sarah O’Meara,..., and Andrew A Futreal. 2008. <span>“Identification of Somatically Acquired Rearrangements in Cancer Using Genome-Wide Massively Parallel Paired-End Sequencing.”</span> <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng.128">https://doi.org/10.1038/ng.128</a>.
+<strong>Campbell, Stephens, Pleasance, O’Meara,..., and Futreal 2008</strong>. <span>“Identification of Somatically Acquired Rearrangements in Cancer Using Genome-Wide Massively Parallel Paired-End Sequencing.”</span> <em>Nature Genetics</em>, ahead of print. <a href="https://doi.org/10.1038/ng.128">https://doi.org/10.1038/ng.128</a>.
 </div>
 <div id="ref-Chen2013" class="csl-entry">
-Chen, Gary K, Xiao Chang, Christina Curtis, and Kai Wang. 2013. <span>“Precise <span>Inference</span> of <span>Copy Number Alterations</span> in <span>Tumor Samples</span> from <span>SNP Arrays</span>.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btt521">https://doi.org/10.1093/bioinformatics/btt521</a>.
+<strong>G. K. Chen, Chang, Curtis, and Wang 2013</strong>. <span>“Precise <span>Inference</span> of <span>Copy Number Alterations</span> in <span>Tumor Samples</span> from <span>SNP Arrays</span>.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btt521">https://doi.org/10.1093/bioinformatics/btt521</a>.
 </div>
 <div id="ref-Chen2014" class="csl-entry">
-Chen, Ken, Lei Chen, Xian Fan, John Wallis,..., and George Weinstock. 2014. <span>“<span>TIGRA</span>: <span>A</span> Targeted Iterative Graph Routing Assembler for Breakpoint Assembly.”</span> <em>Genome Research</em>. <a href="https://doi.org/10.1101/gr.162883.113">https://doi.org/10.1101/gr.162883.113</a>.
+<strong>K. Chen, Chen, Fan, Wallis,..., and Weinstock 2014</strong>. <span>“<span>TIGRA</span>: <span>A</span> Targeted Iterative Graph Routing Assembler for Breakpoint Assembly.”</span> <em>Genome Research</em>, ahead of print. <a href="https://doi.org/10.1101/gr.162883.113">https://doi.org/10.1101/gr.162883.113</a>.
 </div>
 <div id="ref-Chen2009" class="csl-entry">
-Chen, Ken, John W Wallis, Michael D McLellan, David E Larson,..., and Elaine R Mardis. 2009. <span>“<span>BreakDancer</span>: An Algorithm for High-Resolution Mapping of Genomic Structural Variation.”</span> <em>Nature Methods</em>. <a href="https://doi.org/10.1038/nmeth.1363">https://doi.org/10.1038/nmeth.1363</a>.
+<strong>K. Chen, Wallis, McLellan, Larson,..., and Mardis 2009</strong>. <span>“<span>BreakDancer</span>: An Algorithm for High-Resolution Mapping of Genomic Structural Variation.”</span> <em>Nature Methods</em>, ahead of print. <a href="https://doi.org/10.1038/nmeth.1363">https://doi.org/10.1038/nmeth.1363</a>.
 </div>
 <div id="ref-Chen2015" class="csl-entry">
-Chen, Xiang, Pankaj Gupta, Jianmin Wang, Joy Nakitandwe,..., and Jinghui Zhang. 2015. <span>“<span>CONSERTING</span>: Integrating Copy-Number Analysis with Structural-Variation Detection.”</span> <em>Nature Methods</em>. <a href="https://doi.org/10.1038/nmeth.3394">https://doi.org/10.1038/nmeth.3394</a>.
+<strong>Xiang Chen, Gupta, Wang, Nakitandwe,..., and Zhang 2015</strong>. <span>“<span>CONSERTING</span>: Integrating Copy-Number Analysis with Structural-Variation Detection.”</span> <em>Nature Methods</em>, ahead of print. <a href="https://doi.org/10.1038/nmeth.3394">https://doi.org/10.1038/nmeth.3394</a>.
+</div>
+<div id="ref-Chen2023" class="csl-entry">
+<strong>Xiao Chen, Harting, Farrow, Thiffault,..., and Eberle 2023</strong>. <span>“Comprehensive <span>SMN1</span> and <span>SMN2</span> Profiling for Spinal Muscular Atrophy Analysis Using Long-Read <span>PacBio HiFi</span> Sequencing.”</span> <em>The American Journal of Human Genetics</em>, ahead of print. <a href="https://doi.org/10.1016/j.ajhg.2023.01.001">https://doi.org/10.1016/j.ajhg.2023.01.001</a>.
 </div>
 <div id="ref-Chiang2009" class="csl-entry">
-Chiang, Derek Y, Gad Getz, David B Jaffe, Michael J T O’Kelly,..., and Eric S Lander. 2009. <span>“High-Resolution Mapping of Copy-Number Alterations with Massively Parallel Sequencing.”</span> <em>Nature Methods</em>. <a href="https://doi.org/10.1038/nmeth.1276">https://doi.org/10.1038/nmeth.1276</a>.
+<strong>Chiang, Getz, Jaffe, O’Kelly,..., and Lander 2009</strong>. <span>“High-Resolution Mapping of Copy-Number Alterations with Massively Parallel Sequencing.”</span> <em>Nature Methods</em>, ahead of print. <a href="https://doi.org/10.1038/nmeth.1276">https://doi.org/10.1038/nmeth.1276</a>.
 </div>
 <div id="ref-Chiara2012" class="csl-entry">
-Chiara, Matteo, Graziano Pesole, and David S. Horner. 2012. <span>“<span>SVM2</span>: An Improved Paired-End-Based Tool for the Detection of Small Genomic Structural Variations Using High-Throughput Single-Genome Resequencing Data.”</span> <em>Nucleic Acids Research</em>. <a href="https://doi.org/10.1093/nar/gks606">https://doi.org/10.1093/nar/gks606</a>.
+<strong>Chiara, Pesole, and Horner 2012</strong>. <span>“<span>SVM2</span>: An Improved Paired-End-Based Tool for the Detection of Small Genomic Structural Variations Using High-Throughput Single-Genome Resequencing Data.”</span> <em>Nucleic Acids Research</em>, ahead of print. <a href="https://doi.org/10.1093/nar/gks606">https://doi.org/10.1093/nar/gks606</a>.
 </div>
 <div id="ref-CommonMindConsortium2020" class="csl-entry">
-CommonMind Consortium, Lide Han, Xuefang Zhao, Mary Lauren Benton,..., and Douglas M. Ruderfer. 2020. <span>“Functional Annotation of Rare Structural Variation in the Human Brain.”</span> <em>Nature Communications</em>. <a href="https://doi.org/10.1038/s41467-020-16736-1">https://doi.org/10.1038/s41467-020-16736-1</a>.
+<strong>CommonMind Consortium, Han, Zhao, Benton,..., and Ruderfer 2020</strong>. <span>“Functional Annotation of Rare Structural Variation in the Human Brain.”</span> <em>Nature Communications</em>, ahead of print. <a href="https://doi.org/10.1038/s41467-020-16736-1">https://doi.org/10.1038/s41467-020-16736-1</a>.
 </div>
 <div id="ref-Duan2013a" class="csl-entry">
-Duan, Junbo, Ji-Gang Zhang, Hong-Wen Deng, and Yu-Ping Wang. 2013. <span>“Comparative Studies of Copy Number Variation Detection Methods for Next-Generation Sequencing Technologies.”</span> <em>PloS One</em>. <a href="https://doi.org/10.1371/journal.pone.0059128">https://doi.org/10.1371/journal.pone.0059128</a>.
+<strong>Duan, Zhang, Deng, and Wang 2013</strong>. <span>“Comparative Studies of Copy Number Variation Detection Methods for Next-Generation Sequencing Technologies.”</span> <em>PloS One</em>, ahead of print. <a href="https://doi.org/10.1371/journal.pone.0059128">https://doi.org/10.1371/journal.pone.0059128</a>.
 </div>
 <div id="ref-Eggertsson2019" class="csl-entry">
-Eggertsson, Hannes P., Snaedis Kristmundsdottir, Doruk Beyter, Hakon Jonsson,..., and Pall Melsted. 2019. <span>“<span>GraphTyper2</span> Enables Population-Scale Genotyping of Structural Variation Using Pangenome Graphs.”</span> <em>Nature Communications</em>. <a href="https://doi.org/10.1038/s41467-019-13341-9">https://doi.org/10.1038/s41467-019-13341-9</a>.
+<strong>Eggertsson, Kristmundsdottir, Beyter, Jonsson,..., and Melsted 2019</strong>. <span>“<span>GraphTyper2</span> Enables Population-Scale Genotyping of Structural Variation Using Pangenome Graphs.”</span> <em>Nature Communications</em>, ahead of print. <a href="https://doi.org/10.1038/s41467-019-13341-9">https://doi.org/10.1038/s41467-019-13341-9</a>.
 </div>
 <div id="ref-Emde2012" class="csl-entry">
-Emde, Anne-Katrin, Marcel H. Schulz, David Weese, Ruping Sun,..., and Knut Reinert. 2012. <span>“Detecting Genomic Indel Variants with Exact Breakpoints in Single- and Paired-End Sequencing Data Using <span>SplazerS</span>.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/bts019">https://doi.org/10.1093/bioinformatics/bts019</a>.
+<strong>Emde, Schulz, Weese, Sun,..., and Reinert 2012</strong>. <span>“Detecting Genomic Indel Variants with Exact Breakpoints in Single- and Paired-End Sequencing Data Using <span>SplazerS</span>.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/bts019">https://doi.org/10.1093/bioinformatics/bts019</a>.
 </div>
 <div id="ref-English2015" class="csl-entry">
-English, Adam C, William J Salerno, Oliver a Hampton, Claudia Gonzaga-Jauregui,..., and Richard a Gibbs. 2015. <span>“Assessing Structural Variation in a Personal Genometowards a Human Reference Diploid Genome.”</span> <em>BMC Genomics</em>. <a href="https://doi.org/10.1186/s12864-015-1479-3">https://doi.org/10.1186/s12864-015-1479-3</a>.
+<strong>English, Salerno, Hampton, Gonzaga-Jauregui,..., and Gibbs 2015</strong>. <span>“Assessing Structural Variation in a Personal Genome—Towards a Human Reference Diploid Genome.”</span> <em>BMC Genomics</em>, ahead of print. <a href="https://doi.org/10.1186/s12864-015-1479-3">https://doi.org/10.1186/s12864-015-1479-3</a>.
 </div>
 <div id="ref-Escaramis2013" class="csl-entry">
-Escaraḿis, Geòrgia, Cristian Tornador, Laia Bassaganyas, Raquel Rabionet,..., and Xavier Estivill. 2013. <span>“<span>PeSV-Fisher</span>: <span>Identification</span> of <span>Somatic</span> and <span>Non-Somatic Structural Variants Using Next Generation Sequencing Data</span>.”</span> <em>PLoS ONE</em>. <a href="https://doi.org/10.1371/journal.pone.0063377">https://doi.org/10.1371/journal.pone.0063377</a>.
+<strong>Escaraḿis, Tornador, Bassaganyas, Rabionet,..., and Estivill 2013</strong>. <span>“<span>PeSV-Fisher</span>: <span>Identification</span> of <span>Somatic</span> and <span>Non-Somatic Structural Variants Using Next Generation Sequencing Data</span>.”</span> <em>PLoS ONE</em>, ahead of print. <a href="https://doi.org/10.1371/journal.pone.0063377">https://doi.org/10.1371/journal.pone.0063377</a>.
 </div>
 <div id="ref-Faust2012" class="csl-entry">
-Faust, Gregory G., and Ira M. Hall. 2012. <span>“<span>YAHA</span>: <span>Fast</span> and Flexible Long-Read Alignment with Optimal Breakpoint Detection.”</span> <em>Bioinformatics</em>. <a href="https://doi.org/10.1093/bioinformatics/bts456">https://doi.org/10.1093/bioinformatics/bts456</a>.
+<strong>Faust and Hall 2012</strong>. <span>“<span>YAHA</span>: <span>Fast</span> and Flexible Long-Read Alignment with Optimal Breakpoint Detection.”</span> <em>Bioinformatics</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/bts456">https://doi.org/10.1093/bioinformatics/bts456</a>.
 </div>
 <div id="ref-Fromer2012" class="csl-entry">
-Fromer, Menachem, Jennifer L Moran, Kimberly Chambert, Eric Banks,..., and Shaun M Purcell. 2012. <span>“Discovery and Statistical Genotyping of Copy-Number Variation from Whole-Exome Sequencing Depth.”</span> <em>American Journal of Human Genetics</em>. <a href="https://doi.org/10.1016/j.ajhg.2012.08.005">https://doi.org/10.1016/j.ajhg.2012.08.005</a>.
+<strong>Fromer, Moran, Chambert, Banks,..., and Purcell 2012</strong>. <span>“Discovery and Statistical Genotyping of Copy-Number Variation from Whole-Exome Sequencing Depth.”</span> <em>American Journal of Human Genetics</em>, ahead of print. <a href="https://doi.org/10.1016/j.ajhg.2012.08.005">https://doi.org/10.1016/j.ajhg.2012.08.005</a>.
 </div>
 <div id="ref-Glusman2015" class="csl-entry">
-Glusman, Gustavo, Alissa Severson, Varsha Dhankani, Max Robinson,..., and Leroy Hood. 2015. <span>“Identification of Copy Number Variants in Whole-Genome Data Using <span>Reference Coverage Profiles</span>.”</span> <em>Frontiers in Genetics</em>. <a href="https://doi.org/10.3389/fgene.2015.00045">https://doi.org/10.3389/fgene.2015.00045</a>.
+<strong>Glusman, Severson, Dhankani, Robinson,..., and Hood 2015</strong>. <span>“Identification of Copy Number Variants in Whole-Genome Data Using <span>Reference Coverage Profiles</span>.”</span> <em>Frontiers in Genetics</em>, ahead of print. <a href="https://doi.org/10.3389/fgene.2015.00045">https://doi.org/10.3389/fgene.2015.00045</a>.
 </div>
 <div id="ref-Gonzalez2019" class="csl-entry">
-González, Juan R, Carlos Ruiz-Arenas, Alejandro Cáceres, Ignasi Morán,..., and Luis A Pérez-Jurado. 2019. <span>“Polymorphic Inversions Underlie the Shared Genetic Susceptibility to Prevalent Common Diseases.”</span> <em>bioRxiv</em>. <a href="https://doi.org/10.1101/859280">https://doi.org/10.1101/859280</a>.
+<strong>González, Ruiz-Arenas, Cáceres, Morán,..., and Pérez-Jurado 2019</strong>. <span>“Polymorphic Inversions Underlie the Shared Genetic Susceptibility to Prevalent Common Diseases.”</span> <em>bioRxiv</em>, ahead of print. <a href="https://doi.org/10.1101/859280">https://doi.org/10.1101/859280</a>.
 </div>
 <div id="ref-Gusnanto2012" class="csl-entry">
-Gusnanto, Arief, Henry M Wood, Yudi Pawitan, Pamela Rabbitts, and Stefano Berri. 2012. <span>“Correcting for Cancer Genome Size and Tumour Cell Content Enables Better Estimation of Copy Number Alterations from Next-Generation Sequence Data.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btr593">https://doi.org/10.1093/bioinformatics/btr593</a>.
+<strong>Gusnanto, Wood, Pawitan, Rabbitts, and Berri 2012</strong>. <span>“Correcting for Cancer Genome Size and Tumour Cell Content Enables Better Estimation of Copy Number Alterations from Next-Generation Sequence Data.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btr593">https://doi.org/10.1093/bioinformatics/btr593</a>.
 </div>
 <div id="ref-Hajirasouliha2010" class="csl-entry">
-Hajirasouliha, Iman, Fereydoun Hormozdiari, Can Alkan, Jeffrey M Kidd,..., and S Cenk Sahinalp. 2010. <span>“Detection and Characterization of Novel Sequence Insertions Using Paired-End Next-Generation Sequencing.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btq152">https://doi.org/10.1093/bioinformatics/btq152</a>.
+<strong>Hajirasouliha, Hormozdiari, Alkan, Kidd,..., and Sahinalp 2010</strong>. <span>“Detection and Characterization of Novel Sequence Insertions Using Paired-End Next-Generation Sequencing.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btq152">https://doi.org/10.1093/bioinformatics/btq152</a>.
 </div>
 <div id="ref-Halper-Stromberg2014" class="csl-entry">
-Halper-Stromberg, Eitan, Jared Steranka, Kathleen H. Burns, Sarven Sabunciyan, and Rafael A. Irizarry. 2014. <span>“Visualization and Probability-Based Scoring of Structural Variants Within Repetitive Sequences.”</span> <em>Bioinformatics</em>. <a href="https://doi.org/10.1093/bioinformatics/btu054">https://doi.org/10.1093/bioinformatics/btu054</a>.
+<strong>Halper-Stromberg, Steranka, Burns, Sabunciyan, and Irizarry 2014</strong>. <span>“Visualization and Probability-Based Scoring of Structural Variants Within Repetitive Sequences.”</span> <em>Bioinformatics</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btu054">https://doi.org/10.1093/bioinformatics/btu054</a>.
 </div>
 <div id="ref-Handsaker2011" class="csl-entry">
-Handsaker, Robert E, Joshua M Korn, James Nemesh, and Steven A McCarroll. 2011. <span>“Discovery and Genotyping of Genome Structural Polymorphism by Sequencing on a Population Scale.”</span> <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng.768">https://doi.org/10.1038/ng.768</a>.
+<strong>Handsaker, Korn, Nemesh, and McCarroll 2011</strong>. <span>“Discovery and Genotyping of Genome Structural Polymorphism by Sequencing on a Population Scale.”</span> <em>Nature Genetics</em>, ahead of print. <a href="https://doi.org/10.1038/ng.768">https://doi.org/10.1038/ng.768</a>.
 </div>
 <div id="ref-Handsaker2015" class="csl-entry">
-Handsaker, Robert E, Vanessa Van Doren, Jennifer R Berman, Giulio Genovese,..., and Steven a McCarroll. 2015. <span>“Large Multiallelic Copy Number Variations in Humans.”</span> <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng.3200">https://doi.org/10.1038/ng.3200</a>.
+<strong>Handsaker, Van Doren, Berman, Genovese,..., and McCarroll 2015</strong>. <span>“Large Multiallelic Copy Number Variations in Humans.”</span> <em>Nature Genetics</em>, ahead of print. <a href="https://doi.org/10.1038/ng.3200">https://doi.org/10.1038/ng.3200</a>.
 </div>
 <div id="ref-He2011" class="csl-entry">
-He, Dan, Farhad Hormozdiari, Nicholas Furlotte, and Eleazar Eskin. 2011. <span>“Efficient Algorithms for Tandem Copy Number Variation Reconstruction in Repeat-Rich Regions.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btr169">https://doi.org/10.1093/bioinformatics/btr169</a>.
+<strong>He, Hormozdiari, Furlotte, and Eskin 2011</strong>. <span>“Efficient Algorithms for Tandem Copy Number Variation Reconstruction in Repeat-Rich Regions.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btr169">https://doi.org/10.1093/bioinformatics/btr169</a>.
 </div>
 <div id="ref-Hiatt2020" class="csl-entry">
-Hiatt, Susan M., James M. J. Lawlor, Lori H. Handley, Ryne C. Ramaker,..., and Gregory M. Cooper. 2020. <span>“Long-Read Genome Sequencing for the Diagnosis of Neurodevelopmental Disorders.”</span> <em>bioRxiv</em>. <a href="https://doi.org/10.1101/2020.07.02.185447">https://doi.org/10.1101/2020.07.02.185447</a>.
+<strong>Hiatt, Lawlor, Handley, Ramaker,..., and Cooper 2020</strong>. <span>“Long-Read Genome Sequencing for the Diagnosis of Neurodevelopmental Disorders.”</span> <em>bioRxiv</em>, ahead of print. <a href="https://doi.org/10.1101/2020.07.02.185447">https://doi.org/10.1101/2020.07.02.185447</a>.
 </div>
 <div id="ref-Holt2013" class="csl-entry">
-Holt, Carson, Bojan Losic, Deepa Pai, Zhen Zhao,..., and Lakshmi B Muthuswamy. 2013. <span>“<span>WaveCNV</span>: <span>Allele</span> Specific <span>Copy Number Alterations</span> in Primary Tumors and Xenograft Models from Next-Generation Sequencing.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btt611">https://doi.org/10.1093/bioinformatics/btt611</a>.
-</div>
-<div id="ref-Hormozdiari2010" class="csl-entry">
-Hormozdiari, Fereydoun, Iman Hajirasouliha, Phuong Dao, Faraz Hach,..., and S Cenk Sahinalp. 2010. <span>“Next-Generation <span>VariationHunter</span>: Combinatorial Algorithms for Transposon Insertion Discovery.”</span> <em>Bioinformatics</em>.
+<strong>Holt, Losic, Pai, Zhao,..., and Muthuswamy 2013</strong>. <span>“<span>WaveCNV</span>: <span>Allele</span> Specific <span>Copy Number Alterations</span> in Primary Tumors and Xenograft Models from Next-Generation Sequencing.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btt611">https://doi.org/10.1093/bioinformatics/btt611</a>.
 </div>
 <div id="ref-Hormozdiari2011a" class="csl-entry">
-Hormozdiari, Fereydoun, Iman Hajirasouliha, Andrew McPherson, Evan E. Eichler, and S. Cenk Sahinalp. 2011. <span>“Simultaneous Structural Variation Discovery Among Multiple Paired-End Sequenced Genomes.”</span> <em>Genome Research</em>. <a href="https://doi.org/10.1101/gr.120501.111">https://doi.org/10.1101/gr.120501.111</a>.
+<strong>Hormozdiari, Alkan, Ventura, Hajirasouliha,..., and Eichler 2011</strong>. <span>“Alu Repeat Discovery and Characterization Within Human Genomes.”</span> <em>Genome Research</em>, ahead of print. <a href="https://doi.org/10.1101/gr.115956.110">https://doi.org/10.1101/gr.115956.110</a>.
+</div>
+<div id="ref-Hormozdiari2010" class="csl-entry">
+<strong>Hormozdiari, Hajirasouliha, Dao, Hach,..., and Sahinalp 2010</strong>. <span>“Next-Generation <span>VariationHunter</span>: Combinatorial Algorithms for Transposon Insertion Discovery.”</span> <em>Bioinformatics</em>.
 </div>
 <div id="ref-Iqbal2012" class="csl-entry">
-Iqbal, Zamin, Mario Caccamo, Isaac Turner, Paul Flicek, and Gil McVean. 2012. <span>“De Novo Assembly and Genotyping of Variants Using Colored de <span>Bruijn</span> Graphs.”</span> <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng.1028">https://doi.org/10.1038/ng.1028</a>.
+<strong>Iqbal, Caccamo, Turner, Flicek, and McVean 2012</strong>. <span>“De Novo Assembly and Genotyping of Variants Using Colored de <span>Bruijn</span> Graphs.”</span> <em>Nature Genetics</em>, ahead of print. <a href="https://doi.org/10.1038/ng.1028">https://doi.org/10.1038/ng.1028</a>.
 </div>
 <div id="ref-Ivakhno2010" class="csl-entry">
-Ivakhno, Sergii, Tom Royce, Anthony J. Cox, Dirk J. Evers,..., and Simon Tavaré. 2010. <span>“<span class="nocase">CNAseg–a</span> Novel Framework for Identification of Copy Number Changes in Cancer from Second-Generation Sequencing Data.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btq587">https://doi.org/10.1093/bioinformatics/btq587</a>.
+<strong>Ivakhno, Royce, Cox, Evers,..., and Tavaré 2010</strong>. <span>“<span>CNAseg</span>–a Novel Framework for Identification of Copy Number Changes in Cancer from Second-Generation Sequencing Data.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btq587">https://doi.org/10.1093/bioinformatics/btq587</a>.
 </div>
 <div id="ref-Karakoc2012" class="csl-entry">
-Karakoc, Emre, Can Alkan, Brian J O’Roak, Megan Y Dennis,..., and Evan E Eichler. 2012. <span>“Detection of Structural Variants and Indels Within Exome Data.”</span> <em>Nature Methods</em>. <a href="https://doi.org/10.1038/nmeth.1810">https://doi.org/10.1038/nmeth.1810</a>.
+<strong>Karakoc, Alkan, O’Roak, Dennis,..., and Eichler 2012</strong>. <span>“Detection of Structural Variants and Indels Within Exome Data.”</span> <em>Nature Methods</em>, ahead of print. <a href="https://doi.org/10.1038/nmeth.1810">https://doi.org/10.1038/nmeth.1810</a>.
 </div>
 <div id="ref-Klambauer2012" class="csl-entry">
-Klambauer, Günter, Karin Schwarzbauer, Andreas Mayr, Djork Arné Clevert,..., and Sepp Hochreiter. 2012. <span>“Cn.<span>MOPS</span>: <span>Mixture</span> of <span>Poissons</span> for Discovering Copy Number Variations in Next-Generation Sequencing Data with a Low False Discovery Rate.”</span> <em>Nucleic Acids Research</em>. <a href="https://doi.org/10.1093/nar/gks003">https://doi.org/10.1093/nar/gks003</a>.
+<strong>Klambauer, Schwarzbauer, Mayr, Clevert,..., and Hochreiter 2012</strong>. <span>“Cn.<span>MOPS</span>: <span>Mixture</span> of <span>Poissons</span> for Discovering Copy Number Variations in Next-Generation Sequencing Data with a Low False Discovery Rate.”</span> <em>Nucleic Acids Research</em>, ahead of print. <a href="https://doi.org/10.1093/nar/gks003">https://doi.org/10.1093/nar/gks003</a>.
 </div>
 <div id="ref-Koboldt2012" class="csl-entry">
-Koboldt, Daniel C., Qunyuan Zhang, David E. Larson, Dong Shen,..., and Richard K. Wilson. 2012. <span>“<span>VarScan</span> 2: <span>Somatic</span> Mutation and Copy Number Alteration Discovery in Cancer by Exome Sequencing.”</span> <em>Genome Research</em>. <a href="https://doi.org/10.1101/gr.129684.111">https://doi.org/10.1101/gr.129684.111</a>.
+<strong>Koboldt, Zhang, Larson, Shen,..., and Wilson 2012</strong>. <span>“<span>VarScan</span> 2: <span>Somatic</span> Mutation and Copy Number Alteration Discovery in Cancer by Exome Sequencing.”</span> <em>Genome Research</em>, ahead of print. <a href="https://doi.org/10.1101/gr.129684.111">https://doi.org/10.1101/gr.129684.111</a>.
 </div>
 <div id="ref-Korbel2007" class="csl-entry">
-Korbel, Jan O., Alexander Eckehart Urban, Jason P. Affourtit, Brian Godwin,..., and Michael Snyder. 2007. <span>“Paired-End Mapping Reveals Extensive Structural Variation in the Human Genome.”</span> <em>Science</em>. <a href="https://doi.org/10.1126/science.1149504">https://doi.org/10.1126/science.1149504</a>.
+<strong>Korbel, Urban, Affourtit, Godwin,..., and Snyder 2007</strong>. <span>“Paired-End Mapping Reveals Extensive Structural Variation in the Human Genome.”</span> <em>Science</em>, ahead of print. <a href="https://doi.org/10.1126/science.1149504">https://doi.org/10.1126/science.1149504</a>.
 </div>
 <div id="ref-Krumm2012" class="csl-entry">
-Krumm, Niklas, Peter H. Sudmant, Arthur Ko, Brian J. O’Roak,..., and Evan E. Eichler. 2012. <span>“Copy Number Variation Detection and Genotyping from Exome Sequence Data.”</span> <em>Genome Research</em>. <a href="https://doi.org/10.1101/gr.138115.112">https://doi.org/10.1101/gr.138115.112</a>.
+<strong>Krumm, Sudmant, Ko, O’Roak,..., and Eichler 2012</strong>. <span>“Copy Number Variation Detection and Genotyping from Exome Sequence Data.”</span> <em>Genome Research</em>, ahead of print. <a href="https://doi.org/10.1101/gr.138115.112">https://doi.org/10.1101/gr.138115.112</a>.
 </div>
 <div id="ref-Layer2014" class="csl-entry">
-Layer, Ryan M, Colby Chiang, Aaron R Quinlan, and Ira M Hall. 2014. <span>“<span>LUMPY</span>: <span>A</span> Probabilistic Framework for Structural Variant Discovery.”</span> <em>Genome Biology</em>. <a href="https://doi.org/10.1186/gb-2014-15-6-r84">https://doi.org/10.1186/gb-2014-15-6-r84</a>.
+<strong>Layer, Chiang, Quinlan, and Hall 2014</strong>. <span>“<span>LUMPY</span>: <span>A</span> Probabilistic Framework for Structural Variant Discovery.”</span> <em>Genome Biology</em>, ahead of print. <a href="https://doi.org/10.1186/gb-2014-15-6-r84">https://doi.org/10.1186/gb-2014-15-6-r84</a>.
 </div>
 <div id="ref-Li2021" class="csl-entry">
-Li, Gaoyang, Tao Jiang, Junyi Li, and Yadong Wang. 2021. <span>“<span>PanSVR</span>: <span>Pan-Genome Augmented Short Read Realignment</span> for <span>Sensitive Detection</span> of <span>Structural Variations</span>.”</span> <em>Frontiers in Genetics</em>. <a href="https://doi.org/10.3389/fgene.2021.731515">https://doi.org/10.3389/fgene.2021.731515</a>.
+<strong>G. Li, Jiang, Li, and Wang 2021</strong>. <span>“<span>PanSVR</span>: <span>Pan-Genome Augmented Short Read Realignment</span> for <span>Sensitive Detection</span> of <span>Structural Variations</span>.”</span> <em>Frontiers in Genetics</em>, ahead of print. <a href="https://doi.org/10.3389/fgene.2021.731515">https://doi.org/10.3389/fgene.2021.731515</a>.
 </div>
 <div id="ref-Li2012" class="csl-entry">
-Li, Yudong, Li Zhang, Robyn L. Ball, Xinle Liang,..., and Han Liang. 2012. <span>“Comparative Analysis of Somatic Copy-Number Alterations Across Different Human Cancer Types Reveals Two Distinct Classes of Breakpoint Hotspots.”</span> <em>Human Molecular Genetics</em>. <a href="https://doi.org/10.1093/hmg/dds340">https://doi.org/10.1093/hmg/dds340</a>.
+<strong>J. Li, Lupat, Amarasinghe, Thompson,..., and Gorringe 2012</strong>. <span>“<span>CONTRA</span>: Copy Number Analysis for Targeted Resequencing.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/bts146">https://doi.org/10.1093/bioinformatics/bts146</a>.
 </div>
 <div id="ref-Lindberg2014" class="csl-entry">
-Lindberg, Michael R, Ira M Hall, and Aaron R Quinlan. 2014. <span>“Population-Based Structural Variation Discovery with <span>Hydra-Multi</span>.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btu771">https://doi.org/10.1093/bioinformatics/btu771</a>.
+<strong>Lindberg, Hall, and Quinlan 2014</strong>. <span>“Population-Based Structural Variation Discovery with <span>Hydra-Multi</span>.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btu771">https://doi.org/10.1093/bioinformatics/btu771</a>.
 </div>
 <div id="ref-Magi2010" class="csl-entry">
-Magi, Alberto, Matteo Benelli, Giuseppina Marseglia, Genni Nannetti,..., and Francesca Torricelli. 2010. <span>“A Shifting Level Model Algorithm That Identifies Aberrations in Array-<span>CGH</span> Data.”</span> <em>Biostat</em>. <a href="https://doi.org/10.1093/biostatistics/kxp051">https://doi.org/10.1093/biostatistics/kxp051</a>.
+<strong>Magi, Benelli, Marseglia, Nannetti,..., and Torricelli 2010</strong>. <span>“A Shifting Level Model Algorithm That Identifies Aberrations in Array-<span>CGH</span> Data.”</span> <em>Biostat</em>, ahead of print. <a href="https://doi.org/10.1093/biostatistics/kxp051">https://doi.org/10.1093/biostatistics/kxp051</a>.
 </div>
 <div id="ref-Magi2011" class="csl-entry">
-Magi, Alberto, Matteo Benelli, Seungtai Yoon, Franco Roviello, and Francesca Torricelli. 2011. <span>“Detecting Common Copy Number Variants in High-Throughput Sequencing Data by Using <span>JointSLM</span> Algorithm.”</span> <em>Nucleic Acids Research</em>. <a href="https://doi.org/10.1093/nar/gkr068">https://doi.org/10.1093/nar/gkr068</a>.
+<strong>Magi, Benelli, Yoon, Roviello, and Torricelli 2011</strong>. <span>“Detecting Common Copy Number Variants in High-Throughput Sequencing Data by Using <span>JointSLM</span> Algorithm.”</span> <em>Nucleic Acids Research</em>, ahead of print. <a href="https://doi.org/10.1093/nar/gkr068">https://doi.org/10.1093/nar/gkr068</a>.
 </div>
 <div id="ref-Magi2013" class="csl-entry">
-Magi, Alberto, Lorenzo Tattini, Ingrid Cifola, Romina D’Aurizio,..., and Gian Franco Gensini. 2013. <span>“<span>EXCAVATOR</span>: Detecting Copy Number Variants from Whole-Exome Sequencing Data.”</span> <em>Genome Biology</em>. <a href="https://doi.org/10.1186/gb-2013-14-10-r120">https://doi.org/10.1186/gb-2013-14-10-r120</a>.
+<strong>Magi, Tattini, Cifola, D’Aurizio,..., and Gensini 2013</strong>. <span>“<span>EXCAVATOR</span>: Detecting Copy Number Variants from Whole-Exome Sequencing Data.”</span> <em>Genome Biology</em>, ahead of print. <a href="https://doi.org/10.1186/gb-2013-14-10-r120">https://doi.org/10.1186/gb-2013-14-10-r120</a>.
 </div>
 <div id="ref-Malhotra2013" class="csl-entry">
-Malhotra, Ankit, Michael Lindberg, Gregory G Faust, Mitchell L Leibowitz,..., and Ira M Hall. 2013. <span>“Breakpoint Profiling of 64 Cancer Genomes Reveals Numerous Complex Rearrangements Spawned by Homology-Independent Mechanisms.”</span> <em>Genome Research</em>. <a href="https://doi.org/10.1101/gr.143677.112">https://doi.org/10.1101/gr.143677.112</a>.
+<strong>Malhotra, Lindberg, Faust, Leibowitz,..., and Hall 2013</strong>. <span>“Breakpoint Profiling of 64 Cancer Genomes Reveals Numerous Complex Rearrangements Spawned by Homology-Independent Mechanisms.”</span> <em>Genome Research</em>, ahead of print. <a href="https://doi.org/10.1101/gr.143677.112">https://doi.org/10.1101/gr.143677.112</a>.
 </div>
 <div id="ref-Marschall2012" class="csl-entry">
-Marschall, Tobias, Ivan G Costa, Stefan Canzar, Markus Bauer,..., and Alexander Schönhuth. 2012. <span>“<span>CLEVER</span>: Clique-Enumerating Variant Finder.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/bts566">https://doi.org/10.1093/bioinformatics/bts566</a>.
+<strong>Marschall, Costa, Canzar, Bauer,..., and Schönhuth 2012</strong>. <span>“<span>CLEVER</span>: Clique-Enumerating Variant Finder.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/bts566">https://doi.org/10.1093/bioinformatics/bts566</a>.
 </div>
 <div id="ref-McCallum2013" class="csl-entry">
-McCallum, Kenneth Jordan, and Ji-Ping Wang. 2013. <span>“Quantifying Copy Number Variations Using a Hidden <span>Markov</span> Model with Inhomogeneous Emission Distributions.”</span> <em>Biostatistics (Oxford, England)</em>. <a href="https://doi.org/10.1093/biostatistics/kxt003">https://doi.org/10.1093/biostatistics/kxt003</a>.
+<strong>McCallum and Wang 2013</strong>. <span>“Quantifying Copy Number Variations Using a Hidden <span>Markov</span> Model with Inhomogeneous Emission Distributions.”</span> <em>Biostatistics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/biostatistics/kxt003">https://doi.org/10.1093/biostatistics/kxt003</a>.
 </div>
 <div id="ref-Michaelson2012" class="csl-entry">
-Michaelson, Jacob J, and Jonathan Sebat. 2012. <span>“<span class="nocase">forestSV</span>: Structural Variant Discovery Through Statistical Learning.”</span> <em>Nature Methods</em>. <a href="https://doi.org/10.1038/nmeth.2085">https://doi.org/10.1038/nmeth.2085</a>.
+<strong>Michaelson, Shi, Gujral, Zheng,..., and Sebat 2012</strong>. <span>“Whole-Genome Sequencing in Autism Identifies Hot Spots for de Novo Germline Mutation.”</span> <em>Cell</em>, ahead of print. <a href="https://doi.org/10.1016/j.cell.2012.11.019">https://doi.org/10.1016/j.cell.2012.11.019</a>.
 </div>
 <div id="ref-Moncunill2014" class="csl-entry">
-Moncunill, Valent́i, Santi Gonzalez, Śilvia Beà, Lise O Andrieux,..., and David Torrents. 2014. <span>“Comprehensive Characterization of Complex Structural Variations in Cancer by Directly Comparing Genome Sequence Reads.”</span> <em>Nature Biotechnology</em>. <a href="https://doi.org/10.1038/nbt.3027">https://doi.org/10.1038/nbt.3027</a>.
+<strong>Moncunill, Gonzalez, Beà, Andrieux,..., and Torrents 2014</strong>. <span>“Comprehensive Characterization of Complex Structural Variations in Cancer by Directly Comparing Genome Sequence Reads.”</span> <em>Nature Biotechnology</em>, ahead of print. <a href="https://doi.org/10.1038/nbt.3027">https://doi.org/10.1038/nbt.3027</a>.
 </div>
 <div id="ref-Mu2015" class="csl-entry">
-Mu, John C., Marghoob Mohiyuddin, Jian Li, Narges Bani Asadi,..., and Hugo Y. K. Lam. 2015. <span>“<span>VarSim</span>: <span>A</span> High-Fidelity Simulation and Validation Framework for High-Throughput Genome Sequencing with Cancer Applications.”</span> <a href="https://doi.org/10.1093/bioinformatics/btu828">https://doi.org/10.1093/bioinformatics/btu828</a>.
+<strong>Mu, Mohiyuddin, Li, Bani Asadi,..., and Lam 2015</strong>. <em><span>VarSim</span>: <span>A</span> High-Fidelity Simulation and Validation Framework for High-Throughput Genome Sequencing with Cancer Applications</em>. <a href="https://doi.org/10.1093/bioinformatics/btu828">https://doi.org/10.1093/bioinformatics/btu828</a>.
 </div>
 <div id="ref-Nilsen2012" class="csl-entry">
-Nilsen, Gro, Knut Liestøl, Peter Van Loo, Hans Kristian Moen Vollan,..., and Ole Christian Lingjærde. 2012. <span>“Copynumber: <span>Efficient</span> Algorithms for Single- and Multi-Track Copy Number Segmentation.”</span> <em>BMC Genomics</em>. <a href="https://doi.org/10.1186/1471-2164-13-591">https://doi.org/10.1186/1471-2164-13-591</a>.
+<strong>Nilsen, Liestøl, Loo, Moen Vollan,..., and Lingjærde 2012</strong>. <span>“Copynumber: <span>Efficient</span> Algorithms for Single- and Multi-Track Copy Number Segmentation.”</span> <em>BMC Genomics</em>, ahead of print. <a href="https://doi.org/10.1186/1471-2164-13-591">https://doi.org/10.1186/1471-2164-13-591</a>.
+</div>
+<div id="ref-Noyvert2023" class="csl-entry">
+<strong>Noyvert, Erzurumluoglu, Drichel, Omland,..., and Ding 2023</strong>. <em>Imputation of Structural Variants Using a Multi-Ancestry Long-Read Sequencing Panel Enables Identification of Disease Associations</em>. <a href="https://doi.org/10.1101/2023.12.20.23300308">https://doi.org/10.1101/2023.12.20.23300308</a>.
 </div>
 <div id="ref-Popova2009" class="csl-entry">
-Popova, Tatiana, Elodie Manié, Dominique Stoppa-Lyonnet, Guillem Rigaill,..., and Marc Henri Stern. 2009. <span>“Genome <span>Alteration Print</span> (<span>GAP</span>): A Tool to Visualize and Mine Complex Cancer Genomic Profiles Obtained by <span>SNP</span> Arrays.”</span> <em>Genome Biology</em>. <a href="https://doi.org/10.1186/gb-2009-10-11-r128">https://doi.org/10.1186/gb-2009-10-11-r128</a>.
+<strong>Popova, Manié, Stoppa-Lyonnet, Rigaill,..., and Stern 2009</strong>. <span>“Genome <span>Alteration Print</span> (<span>GAP</span>): A Tool to Visualize and Mine Complex Cancer Genomic Profiles Obtained by <span>SNP</span> Arrays.”</span> <em>Genome Biology</em>, ahead of print. <a href="https://doi.org/10.1186/gb-2009-10-11-r128">https://doi.org/10.1186/gb-2009-10-11-r128</a>.
 </div>
 <div id="ref-Pyon2011" class="csl-entry">
-Pyon, Yoon Soo, Matthew Hayes, and Jing Li. 2011. <span>“Model Based Clustering Approach for Identifying Structural Variation Using Next Generation Sequencing Data.”</span> In. <a href="https://doi.org/10.1109/ICCABS.2011.5729871">https://doi.org/10.1109/ICCABS.2011.5729871</a>.
+<strong>Pyon, Hayes, and Li 2011</strong>. <span>“Model Based Clustering Approach for Identifying Structural Variation Using Next Generation Sequencing Data.”</span> <a href="https://doi.org/10.1109/ICCABS.2011.5729871">https://doi.org/10.1109/ICCABS.2011.5729871</a>.
 </div>
 <div id="ref-Rausch2012" class="csl-entry">
-Rausch, Tobias, Thomas Zichner, Andreas Schlattl, Adrian M Stütz,..., and Jan O Korbel. 2012. <span>“<span>DELLY</span>: Structural Variant Discovery by Integrated Paired-End and Split-Read Analysis.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/bts378">https://doi.org/10.1093/bioinformatics/bts378</a>.
+<strong>Rausch, Zichner, Schlattl, Stütz,..., and Korbel 2012</strong>. <span>“<span>DELLY</span>: Structural Variant Discovery by Integrated Paired-End and Split-Read Analysis.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/bts378">https://doi.org/10.1093/bioinformatics/bts378</a>.
 </div>
 <div id="ref-Rimmer2014" class="csl-entry">
-Rimmer, Andy, Hang Phan, Iain Mathieson, Zamin Iqbal,..., and Gerton Lunter. 2014. <span>“Integrating Mapping-, Assembly- and Haplotype-Based Approaches for Calling Variants in Clinical Sequencing Applications.”</span> <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng.3036">https://doi.org/10.1038/ng.3036</a>.
+<strong>Rimmer, Phan, Mathieson, Iqbal,..., and Lunter 2014</strong>. <span>“Integrating Mapping-, Assembly- and Haplotype-Based Approaches for Calling Variants in Clinical Sequencing Applications.”</span> <em>Nature Genetics</em>, ahead of print. <a href="https://doi.org/10.1038/ng.3036">https://doi.org/10.1038/ng.3036</a>.
 </div>
 <div id="ref-Sathirapongsasuti2011" class="csl-entry">
-Sathirapongsasuti, Jarupon Fah, Hane Lee, Basil a J Horst, Georg Brunner,..., and Stanley F Nelson. 2011. <span>“Exome Sequencing-Based Copy-Number Variation and Loss of Heterozygosity Detection: <span>ExomeCNV</span>.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btr462">https://doi.org/10.1093/bioinformatics/btr462</a>.
+<strong>Sathirapongsasuti, Lee, Horst, Brunner,..., and Nelson 2011</strong>. <span>“Exome Sequencing-Based Copy-Number Variation and Loss of Heterozygosity Detection: <span>ExomeCNV</span>.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btr462">https://doi.org/10.1093/bioinformatics/btr462</a>.
 </div>
 <div id="ref-Scott2016" class="csl-entry">
-Scott, Emma C., Eugene J. Gardner, Ashiq Masood, Nelson T. Chuang,..., and Scott E. Devine. 2016. <span>“A Hot <span>L1</span> Retrotransposon Evades Somatic Repression and Initiates Human Colorectal Cancer.”</span> <em>Genome Research</em>. <a href="https://doi.org/10.1101/gr.201814.115">https://doi.org/10.1101/gr.201814.115</a>.
+<strong>Scott, Gardner, Masood, Chuang,..., and Devine 2016</strong>. <span>“A Hot <span>L1</span> Retrotransposon Evades Somatic Repression and Initiates Human Colorectal Cancer.”</span> <em>Genome Research</em>, ahead of print. <a href="https://doi.org/10.1101/gr.201814.115">https://doi.org/10.1101/gr.201814.115</a>.
 </div>
 <div id="ref-Sepulveda2013" class="csl-entry">
-Sepúlveda, Nuno, Susana G. Campino, Samuel A. Assefa, Colin J. Sutherland,..., and Taane G. Clark. 2013. <span>“A <span>Poisson</span> Hierarchical Modelling Approach to Detecting Copy Number Variation in Sequence Coverage Data.”</span> <em>BMC Genomics</em>. <a href="https://doi.org/10.1186/1471-2164-14-128">https://doi.org/10.1186/1471-2164-14-128</a>.
+<strong>Sepúlveda, Campino, Assefa, Sutherland,..., and Clark 2013</strong>. <span>“A <span>Poisson</span> Hierarchical Modelling Approach to Detecting Copy Number Variation in Sequence Coverage Data.”</span> <em>BMC Genomics</em>, ahead of print. <a href="https://doi.org/10.1186/1471-2164-14-128">https://doi.org/10.1186/1471-2164-14-128</a>.
 </div>
 <div id="ref-Shi2013" class="csl-entry">
-Shi, Yuhao, and Jacek Majewski. 2013. <span>“<span>FishingCNV</span>: A Graphical Software Package for Detecting Rare Copy Number Variations in Exome-Sequencing Data.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btt151">https://doi.org/10.1093/bioinformatics/btt151</a>.
+<strong>Shi and Majewski 2013</strong>. <span>“<span>FishingCNV</span>: A Graphical Software Package for Detecting Rare Copy Number Variations in Exome-Sequencing Data.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btt151">https://doi.org/10.1093/bioinformatics/btt151</a>.
 </div>
 <div id="ref-Simpson2012" class="csl-entry">
-Simpson, Jared T., and Richard Durbin. 2012. <span>“Efficient de Novo Assembly of Large Genomes Using Compressed Data Structures.”</span> <em>Genome Research</em>. <a href="https://doi.org/10.1101/gr.126953.111">https://doi.org/10.1101/gr.126953.111</a>.
+<strong>Simpson and Durbin 2012</strong>. <span>“Efficient de Novo Assembly of Large Genomes Using Compressed Data Structures.”</span> <em>Genome Research</em>, ahead of print. <a href="https://doi.org/10.1101/gr.126953.111">https://doi.org/10.1101/gr.126953.111</a>.
 </div>
 <div id="ref-Sindi2012" class="csl-entry">
-Sindi, Suzanne S, Selim Onal, Luke C Peng, Hsin-Ta Wu, and Benjamin J Raphael. 2012. <span>“An Integrative Probabilistic Model for Identification of Structural Variation in Sequencing Data.”</span> <em>Genome Biology</em>. <a href="https://doi.org/10.1186/gb-2012-13-3-r22">https://doi.org/10.1186/gb-2012-13-3-r22</a>.
+<strong>S. S. Sindi, Onal, Peng, Wu, and Raphael 2012</strong>. <span>“An Integrative Probabilistic Model for Identification of Structural Variation in Sequencing Data.”</span> <em>Genome Biology</em>, ahead of print. <a href="https://doi.org/10.1186/gb-2012-13-3-r22">https://doi.org/10.1186/gb-2012-13-3-r22</a>.
 </div>
 <div id="ref-Sindi2009" class="csl-entry">
-Sindi, Suzanne, Elena Helman, Ali Bashir, and Benjamin J. Raphael. 2009. <span>“A Geometric Approach for Classification and Comparison of Structural Variants.”</span> <a href="https://doi.org/10.1093/bioinformatics/btp208">https://doi.org/10.1093/bioinformatics/btp208</a>.
+<strong>S. Sindi, Helman, Bashir, and Raphael 2009</strong>. <em>A Geometric Approach for Classification and Comparison of Structural Variants</em>. <a href="https://doi.org/10.1093/bioinformatics/btp208">https://doi.org/10.1093/bioinformatics/btp208</a>.
 </div>
 <div id="ref-Smith2015" class="csl-entry">
-Smith, Sean D., Joseph K. Kawash, and Andrey Grigoriev. 2015. <span>“<span>GROM-RD</span>: Resolving Genomic Biases to Improve Read Depth Detection of Copy Number Variants.”</span> <em>PeerJ</em>. <a href="https://doi.org/10.7717/peerj.836">https://doi.org/10.7717/peerj.836</a>.
+<strong>Smith, Kawash, and Grigoriev 2015</strong>. <span>“<span>GROM-RD</span>: Resolving Genomic Biases to Improve Read Depth Detection of Copy Number Variants.”</span> <em>PeerJ</em>, ahead of print. <a href="https://doi.org/10.7717/peerj.836">https://doi.org/10.7717/peerj.836</a>.
 </div>
 <div id="ref-Sudmant2015a" class="csl-entry">
-Sudmant, P. H., S. Mallick, B. J. Nelson, F. Hormozdiari,..., and E. E. Eichler. 2015. <span>“Global Diversity, Population Stratification, and Selection of Human Copy Number Variation.”</span> <em>Science</em>. <a href="https://doi.org/10.1126/science.aab3761">https://doi.org/10.1126/science.aab3761</a>.
+<strong>Sudmant, Mallick, Nelson, Hormozdiari,..., and Eichler 2015</strong>. <span>“Global Diversity, Population Stratification, and Selection of Human Copy Number Variation.”</span> <em>Science</em>, ahead of print. <a href="https://doi.org/10.1126/science.aab3761">https://doi.org/10.1126/science.aab3761</a>.
 </div>
 <div id="ref-Sugita2022" class="csl-entry">
-Sugita, Itsuki, Shohei Matsuyama, Hiroki Dobashi, Daisuke Komura, and Shumpei Ishikawa. 2022. <span>“Viola: A Structural Variant Signature Extractor with User-Defined Classifications.”</span> <em>Bioinformatics</em>. <a href="https://doi.org/10.1093/bioinformatics/btab662">https://doi.org/10.1093/bioinformatics/btab662</a>.
+<strong>Sugita, Matsuyama, Dobashi, Komura, and Ishikawa 2022</strong>. <span>“Viola: A Structural Variant Signature Extractor with User-Defined Classifications.”</span> <em>Bioinformatics</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btab662">https://doi.org/10.1093/bioinformatics/btab662</a>.
 </div>
 <div id="ref-Szatkiewicz2013" class="csl-entry">
-Szatkiewicz, Jin P., Wei Waibo Wang, Patrick F. Sullivan, Wei Waibo Wang, and Wei Sun. 2013. <span>“Improving Detection of Copy-Number Variation by Simultaneous Bias Correction and Read-Depth Segmentation.”</span> <em>Nucleic Acids Research</em>. <a href="https://doi.org/10.1093/nar/gks1363">https://doi.org/10.1093/nar/gks1363</a>.
+<strong>Szatkiewicz, Wang, Sullivan, Wang, and Sun 2013</strong>. <span>“Improving Detection of Copy-Number Variation by Simultaneous Bias Correction and Read-Depth Segmentation.”</span> <em>Nucleic Acids Research</em>, ahead of print. <a href="https://doi.org/10.1093/nar/gks1363">https://doi.org/10.1093/nar/gks1363</a>.
 </div>
 <div id="ref-Talevich2014" class="csl-entry">
-Talevich, Eric, A Hunter Shain, Thomas Botton, and Boris C Bastian. 2014. <span>“<span>CNVkit</span>: <span>Copy</span> Number Detection and Visualization for Targeted Sequencing Using Off-Target Reads.”</span> <em>bioRxiv</em>. <a href="https://doi.org/10.1101/010876">https://doi.org/10.1101/010876</a>.
+<strong>Talevich, Shain, Botton, and Bastian 2014</strong>. <span>“<span>CNVkit</span>: <span>Copy</span> Number Detection and Visualization for Targeted Sequencing Using Off-Target Reads.”</span> <em>bioRxiv</em>, ahead of print. <a href="https://doi.org/10.1101/010876">https://doi.org/10.1101/010876</a>.
 </div>
 <div id="ref-Talwalkar2014" class="csl-entry">
-Talwalkar, Ameet, Jesse Liptrap, Julie Newcomb, Christopher Hartl,..., and David Patterson. 2014. <span>“<span>SMaSH</span>: A Benchmarking Toolkit for Human Genome Variant Calling.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btu345">https://doi.org/10.1093/bioinformatics/btu345</a>.
+<strong>Talwalkar, Liptrap, Newcomb, Hartl,..., and Patterson 2014</strong>. <span>“<span>SMaSH</span>: A Benchmarking Toolkit for Human Genome Variant Calling.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btu345">https://doi.org/10.1093/bioinformatics/btu345</a>.
 </div>
 <div id="ref-Trappe2014" class="csl-entry">
-Trappe, Kathrin, Anne-Katrin Emde, Hans-Christian Ehrlich, and Knut Reinert. 2014. <span>“Gustaf: <span>Detecting</span> and Correctly Classifying <span>SVs</span> in the <span>NGS</span> Twilight Zone.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btu431">https://doi.org/10.1093/bioinformatics/btu431</a>.
+<strong>Trappe, Emde, Ehrlich, and Reinert 2014</strong>. <span>“Gustaf: <span>Detecting</span> and Correctly Classifying <span>SVs</span> in the <span>NGS</span> Twilight Zone.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btu431">https://doi.org/10.1093/bioinformatics/btu431</a>.
 </div>
 <div id="ref-Tubio2014" class="csl-entry">
-Tubio, Jose M. C. C., Yilong Li, Young Seok Ju, Inigo Martincorena,..., and Peter J. Campbell. 2014. <span>“Extensive Transduction of Nonrepetitive <span>DNA</span> Mediated by <span>L1</span> Retrotransposition in Cancer Genomes.”</span> <em>Science</em>. <a href="https://doi.org/10.1126/science.1251343">https://doi.org/10.1126/science.1251343</a>.
+<strong>Tubio, Li, Ju, Martincorena,..., and Campbell 2014</strong>. <span>“Extensive Transduction of Nonrepetitive <span>DNA</span> Mediated by <span>L1</span> Retrotransposition in Cancer Genomes.”</span> <em>Science</em>, ahead of print. <a href="https://doi.org/10.1126/science.1251343">https://doi.org/10.1126/science.1251343</a>.
 </div>
 <div id="ref-Tuzun2005" class="csl-entry">
-Tuzun, Eray, Andrew J Sharp, Jeffrey a Bailey, Rajinder Kaul,..., and Evan E Eichler. 2005. <span>“Fine-Scale Structural Variation of the Human Genome.”</span> <em>Nature Genetics</em>. <a href="https://doi.org/10.1038/ng1562">https://doi.org/10.1038/ng1562</a>.
+<strong>Tuzun, Sharp, Bailey, Kaul,..., and Eichler 2005</strong>. <span>“Fine-Scale Structural Variation of the Human Genome.”</span> <em>Nature Genetics</em>, ahead of print. <a href="https://doi.org/10.1038/ng1562">https://doi.org/10.1038/ng1562</a>.
 </div>
 <div id="ref-VanLoo2010" class="csl-entry">
-Van Loo, P., S. H. Nordgard, O. C. Lingjaerde, H. G. Russnes,..., and V. N. Kristensen. 2010. <span>“Allele-Specific Copy Number Analysis of Tumors.”</span> <em>Proceedings of the National Academy of Sciences</em>. <a href="https://doi.org/10.1073/pnas.1009843107">https://doi.org/10.1073/pnas.1009843107</a>.
+<strong>Van Loo, Nordgard, Lingjaerde, Russnes,..., and Kristensen 2010</strong>. <span>“Allele-Specific Copy Number Analysis of Tumors.”</span> <em>Proceedings of the National Academy of Sciences</em>, ahead of print. <a href="https://doi.org/10.1073/pnas.1009843107">https://doi.org/10.1073/pnas.1009843107</a>.
 </div>
 <div id="ref-Venkatraman2007" class="csl-entry">
-Venkatraman, E. S., and Adam B. Olshen. 2007. <span>“A Faster Circular Binary Segmentation Algorithm for the Analysis of Array <span>CGH</span> Data.”</span> <em>Bioinformatics</em>. <a href="https://doi.org/10.1093/bioinformatics/btl646">https://doi.org/10.1093/bioinformatics/btl646</a>.
+<strong>Venkatraman and Olshen 2007</strong>. <span>“A Faster Circular Binary Segmentation Algorithm for the Analysis of Array <span>CGH</span> Data.”</span> <em>Bioinformatics</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btl646">https://doi.org/10.1093/bioinformatics/btl646</a>.
 </div>
 <div id="ref-Walker2013" class="csl-entry">
-Walker, Susan, and Stephen W Scherer. 2013. <span>“Identification of Candidate Intergenic Risk Loci in Autism Spectrum Disorder.”</span> <em>BMC Genomics</em>. <a href="https://doi.org/10.1186/1471-2164-14-499">https://doi.org/10.1186/1471-2164-14-499</a>.
+<strong>Walker and Scherer 2013</strong>. <span>“Identification of Candidate Intergenic Risk Loci in Autism Spectrum Disorder.”</span> <em>BMC Genomics</em>, ahead of print. <a href="https://doi.org/10.1186/1471-2164-14-499">https://doi.org/10.1186/1471-2164-14-499</a>.
 </div>
 <div id="ref-Wang2014" class="csl-entry">
-Wang, Chen, Jared M Evans, Aditya V Bhagwate, Naresh Prodduturi,..., and Yan W Asmann. 2014. <span>“<span>PatternCNV</span>: A Versatile Tool for Detecting Copy Number Changes from Exome Sequencing Data.”</span> <em>Bioinformatics</em>. <a href="https://doi.org/10.1093/bioinformatics/btu363">https://doi.org/10.1093/bioinformatics/btu363</a>.
+<strong>C. Wang, Evans, Bhagwate, Prodduturi,..., and Asmann 2014</strong>. <span>“<span>PatternCNV</span>: A Versatile Tool for Detecting Copy Number Changes from Exome Sequencing Data.”</span> <em>Bioinformatics</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btu363">https://doi.org/10.1093/bioinformatics/btu363</a>.
 </div>
 <div id="ref-Wang2011" class="csl-entry">
-Wang, Jianmin, Charles G Mullighan, John Easton, Stefan Roberts,..., and Jinghui Zhang. 2011. <span>“<span>CREST</span> Maps Somatic Structural Variation in Cancer Genomes with Base-Pair Resolution.”</span> <em>Nature Methods</em>. <a href="https://doi.org/10.1038/nmeth.1628">https://doi.org/10.1038/nmeth.1628</a>.
+<strong>J. Wang, Mullighan, Easton, Roberts,..., and Zhang 2011</strong>. <span>“<span>CREST</span> Maps Somatic Structural Variation in Cancer Genomes with Base-Pair Resolution.”</span> <em>Nature Methods</em>, ahead of print. <a href="https://doi.org/10.1038/nmeth.1628">https://doi.org/10.1038/nmeth.1628</a>.
 </div>
 <div id="ref-Wang2013" class="csl-entry">
-Wang, Zhanyong, Farhad Hormozdiari, Wen-Yun Yang, Eran Halperin, and Eleazar Eskin. 2013. <span>“<span>CNVeM</span>: Copy Number Variation Detection Using Uncertainty of Read Mapping.”</span> <em>Journal of Computational Biology : A Journal of Computational Molecular Cell Biology</em>. <a href="https://doi.org/10.1089/cmb.2012.0258">https://doi.org/10.1089/cmb.2012.0258</a>.
+<strong>Z. Wang, Hormozdiari, Yang, Halperin, and Eskin 2013</strong>. <span>“<span>CNVeM</span>: Copy Number Variation Detection Using Uncertainty of Read Mapping.”</span> <em>Journal of Computational Biology : A Journal of Computational Molecular Cell Biology</em>, ahead of print. <a href="https://doi.org/10.1089/cmb.2012.0258">https://doi.org/10.1089/cmb.2012.0258</a>.
 </div>
 <div id="ref-Wijaya2014" class="csl-entry">
-Wijaya, Edward, Kana Shimizu, Kiyoshi Asai, and Michiaki Hamada. 2014. <span>“Reference-Free Prediction of Rearrangement Breakpoint Reads.”</span> <em>Bioinformatics</em>. <a href="https://doi.org/10.1093/bioinformatics/btu360">https://doi.org/10.1093/bioinformatics/btu360</a>.
+<strong>Wijaya, Shimizu, Asai, and Hamada 2014</strong>. <span>“Reference-Free Prediction of Rearrangement Breakpoint Reads.”</span> <em>Bioinformatics</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btu360">https://doi.org/10.1093/bioinformatics/btu360</a>.
 </div>
 <div id="ref-Wong2010" class="csl-entry">
-Wong, Kim, Thomas M Keane, James Stalker, and David J Adams. 2010. <span>“Enhanced Structural Variant and Breakpoint Detection Using <span>SVMerge</span> by Integration of Multiple Detection Methods and Local Assembly.”</span> <em>Genome Biology</em>. <a href="https://doi.org/10.1186/gb-2010-11-12-r128">https://doi.org/10.1186/gb-2010-11-12-r128</a>.
+<strong>Wong, Keane, Stalker, and Adams 2010</strong>. <span>“Enhanced Structural Variant and Breakpoint Detection Using <span>SVMerge</span> by Integration of Multiple Detection Methods and Local Assembly.”</span> <em>Genome Biology</em>, ahead of print. <a href="https://doi.org/10.1186/gb-2010-11-12-r128">https://doi.org/10.1186/gb-2010-11-12-r128</a>.
 </div>
 <div id="ref-Xi2011" class="csl-entry">
-Xi, Ruibin, Angela G Hadjipanayis, Lovelace J Luquette, Tae-Min Kim,..., and Peter J Park. 2011. <span>“Copy Number Variation Detection in Whole-Genome Sequencing Data Using the <span>Bayesian</span> Information Criterion.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em>. <a href="https://doi.org/10.1073/pnas.1110574108">https://doi.org/10.1073/pnas.1110574108</a>.
+<strong>Xi, Hadjipanayis, Luquette, Kim,..., and Park 2011</strong>. <span>“Copy Number Variation Detection in Whole-Genome Sequencing Data Using the <span>Bayesian</span> Information Criterion.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em>, ahead of print. <a href="https://doi.org/10.1073/pnas.1110574108">https://doi.org/10.1073/pnas.1110574108</a>.
 </div>
 <div id="ref-Xie2009" class="csl-entry">
-Xie, Chao, and Martti T Tammi. 2009. <span>“<span class="nocase">CNV-seq</span>, a New Method to Detect Copy Number Variation Using High-Throughput Sequencing.”</span> <em>BMC Bioinformatics</em>. <a href="https://doi.org/10.1186/1471-2105-10-80">https://doi.org/10.1186/1471-2105-10-80</a>.
+<strong>Xie and Tammi 2009</strong>. <span>“<span>CNV</span>-Seq, a New Method to Detect Copy Number Variation Using High-Throughput Sequencing.”</span> <em>BMC Bioinformatics</em>, ahead of print. <a href="https://doi.org/10.1186/1471-2105-10-80">https://doi.org/10.1186/1471-2105-10-80</a>.
 </div>
 <div id="ref-Yang2021" class="csl-entry">
-Yang, Jianzhi, and Mark Chaisson. 2021. <span>“<span>TT-Mars</span>: <span>Structural Variants Assessment Based</span> on <span class="nocase">Haplotype-resolved Assemblies</span>.”</span> <a href="https://doi.org/10.1101/2021.09.27.462044">https://doi.org/10.1101/2021.09.27.462044</a>.
+<strong>J. Yang and Chaisson 2021</strong>. <em><span>TT-Mars</span>: <span>Structural Variants Assessment Based</span> on <span>Haplotype</span>-Resolved <span>Assemblies</span></em>. <a href="https://doi.org/10.1101/2021.09.27.462044">https://doi.org/10.1101/2021.09.27.462044</a>.
 </div>
 <div id="ref-Yang2013" class="csl-entry">
-Yang, Lixing, Lovelace J Luquette, Nils Gehlenborg, Ruibin Xi,..., and Peter J Park. 2013. <span>“Diverse Mechanisms of Somatic Structural Variations in Human Cancer Genomes.”</span> <em>Cell</em>. <a href="https://doi.org/10.1016/j.cell.2013.04.010">https://doi.org/10.1016/j.cell.2013.04.010</a>.
+<strong>L. Yang, Luquette, Gehlenborg, Xi,..., and Park 2013</strong>. <span>“Diverse Mechanisms of Somatic Structural Variations in Human Cancer Genomes.”</span> <em>Cell</em>, ahead of print. <a href="https://doi.org/10.1016/j.cell.2013.04.010">https://doi.org/10.1016/j.cell.2013.04.010</a>.
 </div>
 <div id="ref-Ye2009" class="csl-entry">
-Ye, Kai, Marcel H. Schulz, Quan Long, Rolf Apweiler, and Zemin Ning. 2009. <span>“Pindel: A Pattern Growth Approach to Detect Break Points of Large Deletions and Medium Sized Insertions from Paired-End Short Reads.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btp394">https://doi.org/10.1093/bioinformatics/btp394</a>.
+<strong>Ye, Schulz, Long, Apweiler, and Ning 2009</strong>. <span>“Pindel: A Pattern Growth Approach to Detect Break Points of Large Deletions and Medium Sized Insertions from Paired-End Short Reads.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btp394">https://doi.org/10.1093/bioinformatics/btp394</a>.
 </div>
 <div id="ref-Yoon2009" class="csl-entry">
-Yoon, Seungtai, Zhenyu Xuan, Vladimir Makarov, Kenny Ye, and Jonathan Sebat. 2009. <span>“Sensitive and Accurate Detection of Copy Number Variants Using Read Depth of Coverage.”</span> <em>Genome Research</em>. <a href="https://doi.org/10.1101/gr.092981.109">https://doi.org/10.1101/gr.092981.109</a>.
+<strong>Yoon, Xuan, Makarov, Ye, and Sebat 2009</strong>. <span>“Sensitive and Accurate Detection of Copy Number Variants Using Read Depth of Coverage.”</span> <em>Genome Research</em>, ahead of print. <a href="https://doi.org/10.1101/gr.092981.109">https://doi.org/10.1101/gr.092981.109</a>.
 </div>
 <div id="ref-Yu2014" class="csl-entry">
-Yu, Zhenhua, Yuanning Liu, Yi Shen, Minghui Wang, and Ao Li. 2014. <span>“<span>CLImAT</span>: Accurate Detection of Copy Number Alteration and Loss of Heterozygosity in Impure and Aneuploid Tumor Samples Using Whole-Genome Sequencing Data.”</span> <em>Bioinformatics (Oxford, England)</em>. <a href="https://doi.org/10.1093/bioinformatics/btu346">https://doi.org/10.1093/bioinformatics/btu346</a>.
+<strong>Yu, Liu, Shen, Wang, and Li 2014</strong>. <span>“<span>CLImAT</span>: Accurate Detection of Copy Number Alteration and Loss of Heterozygosity in Impure and Aneuploid Tumor Samples Using Whole-Genome Sequencing Data.”</span> <em>Bioinformatics (Oxford, England)</em>, ahead of print. <a href="https://doi.org/10.1093/bioinformatics/btu346">https://doi.org/10.1093/bioinformatics/btu346</a>.
 </div>
 <div id="ref-Zhang2021" class="csl-entry">
-Zhang, Lu, Arend Sidow, and Xin Zhou. 2021. <span>“<span>MARS</span>: A Tool for Haplotype-Resolved Population-Based Structural Variation Detection.”</span> <a href="https://doi.org/10.1101/2021.09.27.462061">https://doi.org/10.1101/2021.09.27.462061</a>.
+<strong>Zhang, Sidow, and Zhou 2021</strong>. <em><span>MARS</span>: A Tool for Haplotype-Resolved Population-Based Structural Variation Detection</em>. <a href="https://doi.org/10.1101/2021.09.27.462061">https://doi.org/10.1101/2021.09.27.462061</a>.
 </div>
 <div id="ref-Zhu2012" class="csl-entry">
-Zhu, Mingfu, Anna C. Need, Yujun Han, Dongliang Ge,..., and David B. Goldstein. 2012. <span>“Using <span>ERDS</span> to Infer Copy-Number Variants in High-Coverage Genomes.”</span> <em>American Journal of Human Genetics</em>. <a href="https://doi.org/10.1016/j.ajhg.2012.07.004">https://doi.org/10.1016/j.ajhg.2012.07.004</a>.
+<strong>Zhu, Need, Han, Ge,..., and Goldstein 2012</strong>. <span>“Using <span>ERDS</span> to Infer Copy-Number Variants in High-Coverage Genomes.”</span> <em>American Journal of Human Genetics</em>, ahead of print. <a href="https://doi.org/10.1016/j.ajhg.2012.07.004">https://doi.org/10.1016/j.ajhg.2012.07.004</a>.
 </div>
 </div>
 </div>

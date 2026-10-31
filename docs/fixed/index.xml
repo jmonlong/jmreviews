@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/diseases/</guid>
-      <description>GWAS  Relation to expression QTLs  Hemochromatosis  Genetics Iron regulation Next  Inflammatory bowel disease  Genetics  Functional fine-mapping   Cancer  Leiomyosarcoma (LMS)  Structural variants of LMS To read  Neoantigens  To read Management and treatment Other symptoms/anomalies     GWAS Relation to expression QTLs GWAS hits don’t usually co-localize with eQTLs (only 43% overlap GTEx eQTLs). One reason could be that the relevant tissue’s transcriptome was not assayed so the eQTL that would co-localize with a GWAS hit was just not found yet.</description>
+      <description>GWAS  Relation to expression QTLs  Hemochromatosis  Genetics Iron regulation Next  Inflammatory bowel disease  Genetics  Functional fine-mapping   Cancer  Leiomyosarcoma (LMS)  Structural variants of LMS To read  Neoantigens  To read Management and treatment Other symptoms/anomalies   Bibliography   GWAS Relation to expression QTLs GWAS hits don’t usually co-localize with eQTLs (only 43% overlap GTEx eQTLs). One reason could be that the relevant tissue’s transcriptome was not assayed so the eQTL that would co-localize with a GWAS hit was just not found yet.</description>
     </item>
     
     <item>
@@ -30,7 +30,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/genome-graphs/</guid>
-      <description>Types of graphs Pangenome construction Read alignment  Indexing  Variant decomposition  Snarls Panbubbles and hairpins Others  Variant calling  Evaluation  Polymorphic regions Haplotype modeling Reference bias Annotation in the graph Linearization of a genome graph Graph from de novo assemblies Tools  danbing-tk vg  rpvg  HISAT2 Seven Bridges BayesTyper Paragraph gaftools Others  Human pangenomes Plant pangenomes Association testing involving pangenomes  Tools  Bibliography   Paten et al.</description>
+      <description>Types of graphs Pangenome construction Read alignment  Indexing  Variant decomposition  Snarls Panbubbles and hairpins Others  Variant calling  Evaluation  Polymorphic regions Haplotype modeling Reference bias Annotation in the graph Linearization of a genome graph Graph from de novo assemblies Tools  danbing-tk vg  rpvg  HISAT2 Seven Bridges BayesTyper Paragraph gaftools Others  Human pangenomes Plant pangenomes Association testing involving pangenomes  Association test in the pangenome Tools  Bibliography   Paten et al.</description>
     </item>
     
     <item>
@@ -49,7 +49,7 @@
       
       <guid>/structural-variation-and-repeats/</guid>
       <description>Segmental duplications Centromeric/telomeric regions Euchromatic variants DNA satellites Transposable elements  In cancers  Bibliography   De and Michor (2011) found an enrichment of somatic CNV breakpoints in simple repeats, Alu and CR1.
-Segmental duplications Segmental duplications are genomic regions ranging from 1-400 Kbp present in multiple locations and sharing a high level (&amp;gt;90%) of sequence identity (Sharp, Cheng, and Eichler 2006). Some blocks are duplicated in the same chromosome while others locate in non-homologous chromosomes.</description>
+Segmental duplications Segmental duplications are genomic regions ranging from 1-400 Kbp present in multiple locations and sharing a high level (&amp;gt;90%) of sequence identity (Sharp et al. 2006). Some blocks are duplicated in the same chromosome while others locate in non-homologous chromosomes.</description>
     </item>
     
     <item>
@@ -58,7 +58,7 @@ Segmental duplications Segmental duplications are genomic regions ranging from 1
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/structural-variation-impact/</guid>
-      <description>Gene expression  Micro RNAs Genes with recurrent CNV Enhancer hijacking Methylation trigerring  Large chromosomal aberrations Rare SVs Association studies and LD  Inversions  Cancer  Pan-Cancer patterns  Arm-level aberrations Focal sCNVs  Gene fusion Enhancer hijacking Relation with epigenetic marks Mobile element insertion  Neurological disorders  Epilepsy  Congenital Heart Disease Asthma Other diseases Loss of chromosome Y and diseases Somatic mosaic CNVs Incomplete penetrance Mutational load Importance of understanding SV’s impact Bibliography   Gene expression Coding regions of 800-1800 known genes are subject to variation in copy number (Sharp, Cheng, and Eichler 2006).</description>
+      <description>Gene expression  Micro RNAs Genes with recurrent CNV Enhancer hijacking Methylation trigerring  Large chromosomal aberrations Rare SVs Association studies and LD  Inversions  Cancer  Pan-Cancer patterns  Arm-level aberrations Focal sCNVs  Gene fusion Enhancer hijacking Relation with epigenetic marks Mobile element insertion  Neurological disorders  Epilepsy  Congenital Heart Disease Asthma Other diseases Loss of chromosome Y and diseases Somatic mosaic CNVs Incomplete penetrance Mutational load Importance of understanding SV’s impact Bibliography   Gene expression Coding regions of 800-1800 known genes are subject to variation in copy number (Sharp et al.</description>
     </item>
     
     <item>

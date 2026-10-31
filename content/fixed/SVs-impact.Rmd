@@ -2,6 +2,7 @@
 sidebar: true
 title: Structural Variation Impact
 bibliography: [../../library-small.bib]
+csl: ../../chicago-author-date.csl
 link-citations: true
 weight: 5
 output:
@@ -218,11 +219,11 @@ They performed association tests with the phenotype available and notably found 
 They identified 31 hits in 15 loci, including 2 novel loci (a promoter deletion, and a multi-allelic CNV).
 5 out of the 6 replicated hits have stronger SNV association though.
 
-Common 3.7 kb deletion of alpha globin gene in 16p13.3 associated with red blod cell phenotypes? (mentioned in @wheeler2022nc)
+Common 3.7 kb deletion of alpha globin gene in 16p13.3 associated with red blod cell phenotypes? (mentioned in @Wheeler2022)
 
-Chr7 deletion overlapping the EPI promoter and expression in iPSC (mentioned in @wheeler2022nc).
+Chr7 deletion overlapping the EPI promoter and expression in iPSC (mentioned in @Wheeler2022).
 
-@wheeler2022nc et al. performed a GWAS on more than 50K participants in TOPMed, comparing SVs found from WGS to 24 hematological traits.
+@Wheeler2022 et al. performed a GWAS on more than 50K participants in TOPMed, comparing SVs found from WGS to 24 hematological traits.
 Both common and rare SVs were studied.
 SVs were discovered by the Parliament2 pipeline and muCNV.
 For SVs with 5 alleles or more, single-variant tests were run using a two-stage linear mixed model with GENESIS.
@@ -250,7 +251,7 @@ Here, they don't differentiate deletions from duplications, and control for the 
 They found ~100K associations (about 32 genes per phenotypes).
 They then described examples for acute coronary artery disease (CAD) and for BMI.
 
-@Halldorsson2021 analyzed the first 150K samples sequenced with whole-genome short-reads in the UK Biobank.
+@Halldorsson2022 analyzed the first 150K samples sequenced with whole-genome short-reads in the UK Biobank.
 They used the variants to generate a depletion rank score.
 They also found associations between traits and rare variants with large effects, including SVs.
 The samples were sequenced at around 32.5X (minimum 23.5X) average coverage.
