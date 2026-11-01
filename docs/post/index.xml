@@ -6,13 +6,22 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bovine pangenomes</title>
+      <link>/2022/12/17/litreviews-bovine-pangenome/</link>
+      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/2022/12/17/litreviews-bovine-pangenome/</guid>
+      <description>Background on cattle  Nucleotide diversity is higher in cattle than human populations.  Pangenome might be even more useful in cattle for that reason.  The reference genomes is from a highly inbred Hereford cow, one of the most common cattle in many countries.  A typical B. taurus genome differs from that reference by ~7-8M SNPs/INDELs. Genome size ~2.76Gb 29 autosomes + X/Y Draft in 2004 Latest version is ARS-UCD1.</description>
+    </item>
+    
     <item>
       <title>Comparing SV: Viola, SV clustering, MARS and TT-MARS</title>
-      <link>/2022/04/30/litreviews-svsmethods/</link>
+      <link>/2022/04/30/litreviews-svsmethods-comp/</link>
       <pubDate>Sat, 30 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>/2022/04/30/litreviews-svsmethods/</guid>
+      <guid>/2022/04/30/litreviews-svsmethods-comp/</guid>
       <description>Viola: a structural variant signature extractor with user-defined classifications Sugita et al Bioinformatics 2022
 Website
 Viola is a python package to merge SV calls and look for mutation signatures in cancer samples. It’s intended to be used within Python scripts.

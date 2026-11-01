@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 30 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/sv/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Comparing SV: Viola, SV clustering, MARS and TT-MARS</title>
-      <link>/2022/04/30/litreviews-svsmethods/</link>
+      <link>/2022/04/30/litreviews-svsmethods-comp/</link>
       <pubDate>Sat, 30 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>/2022/04/30/litreviews-svsmethods/</guid>
+      <guid>/2022/04/30/litreviews-svsmethods-comp/</guid>
       <description>Viola: a structural variant signature extractor with user-defined classifications Sugita et al Bioinformatics 2022
 Website
 Viola is a python package to merge SV calls and look for mutation signatures in cancer samples. It’s intended to be used within Python scripts.

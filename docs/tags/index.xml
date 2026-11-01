@@ -6,13 +6,31 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bovine</title>
+      <link>/tags/bovine/</link>
+      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/bovine/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>literature</title>
       <link>/tags/literature/</link>
-      <pubDate>Sat, 30 Apr 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
       
       <guid>/tags/literature/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pangenome</title>
+      <link>/tags/pangenome/</link>
+      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/pangenome/</guid>
       <description></description>
     </item>
     
