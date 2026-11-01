@@ -1,5 +1,6 @@
 {{ partial "default_head.html" . }}
 
+
 <div class="post">
   <h1 class="post-title">{{ .Title }}</h1>
   <span class="post-date">{{ .Site.Params.DateForm | default "Jan 2, 2006" | .Date.Format }}
@@ -11,7 +12,17 @@
   {{ end }}
   {{ end }}
   </span>
+
+  {{ if .Draft }}
+  <div class="message">
+    <i class="fa fa-file-text" aria-hidden="true"></i>
+    <strong>This is a draft.</strong> I will for sure finish it very soon...
+  </div>
+  {{ end }}
+  
   {{ .Content }}
+
+  
 </div>
 
 {{ partial "default_foot.html" . }}

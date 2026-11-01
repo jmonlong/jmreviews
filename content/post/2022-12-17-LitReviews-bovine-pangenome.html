@@ -5,7 +5,6 @@ tags: ['literature', 'pangenome', 'bovine']
 slug: litreviews-bovine-pangenome
 bibliography: [../../library-small.bib]
 link-citations: true
-draft: true
 output: blogdown::html_page
 ---
 
@@ -51,8 +50,7 @@ output: blogdown::html_page
 </div>
 <div id="bovine-breed-specific-augmented-reference-graphs-facilitate-accurate-sequence-read-mapping-and-unbiased-variant-discovery" class="section level2">
 <h2>Bovine breed-specific augmented reference graphs facilitate accurate sequence read mapping and unbiased variant discovery</h2>
-<p><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02105-0">Crysnanto &amp; Pausch, Genome Biology 2020</a></p>
-<p>They made a <strong>pangenome from SNPs/INDELs catalogs</strong> and showed that this pangenomic reference <strong>helps with mapping short reads and genotyping</strong>.
+<p><span class="citation">Crysnanto and Pausch (<a href="#ref-Crysnanto2019a">2019</a>)</span> made a <strong>pangenome from SNPs/INDELs catalogs</strong> and showed that this pangenomic reference <strong>helps with mapping short reads and genotyping</strong>.
 This is the first study that shows that in large genomes other than human.
 Similar to some previous studies, they see that it <strong>helps to select variants based on their frequencies</strong>, when deciding which ones to include in the pangenome.</p>
 <p><strong>Breed-specific pangenomes result in better mapping</strong> when studying a sample from that breed.
@@ -72,8 +70,7 @@ Pangenome did <strong>increase the mapping ambiguity a bit</strong>, which was v
 </div>
 <div id="graph-construction-method-impacts-variation-representation-and-analyses-in-a-bovine-super-pangenome" class="section level2">
 <h2>Graph construction method impacts variation representation and analyses in a bovine super-pangenome</h2>
-<p><a href="https://doi.org/10.1101/2022.09.17.508368">Leonard et al bioRxiv 2022</a></p>
-<p>They experimented with different pangenome construction methods (pggb, cactus, minigraph) and observed differences in the variants represented by the pangenomes.</p>
+<p><span class="citation">Leonard, Crysnanto, Mapel, et al. (<a href="#ref-Leonard2022a">2022</a>)</span> experimented with different pangenome construction methods (pggb, cactus, minigraph) and observed differences in the variants represented by the pangenomes.</p>
 <p>There was much more variation/non-reference sequence in cactus/PGGB, both because it represents small variation and because it included centromeric repeats assembled by some of the assemblies.
 <strong>96% of variants discovered from the assembly-based calling are found in the pangenomes.</strong>
 Variation that is private to a construction method is rarely validated (as in called from the assemblies).</p>
@@ -117,8 +114,7 @@ Interestingly, the discussion also calls out for more efficient downstream tools
 </div>
 <div id="structural-variant-based-pangenome-construction-has-low-sensitivity-to-variability-of-haplotype-resolved-bovine-assemblies" class="section level2">
 <h2>Structural variant-based pangenome construction has low sensitivity to variability of haplotype-resolved bovine assemblies</h2>
-<p><a href="https://doi.org/10.1038/s41467-022-30680-2">Leonard et al. Nature Communications 2022</a></p>
-<p>Could the type of <strong>sequencing technology or assembly method affect the final pangenome constructed?</strong>
+<p><span class="citation">Leonard, Crysnanto, Fang, et al. (<a href="#ref-Leonard2022">2022</a>)</span> asked: could the type of <strong>sequencing technology or assembly method affect the final pangenome constructed?</strong>
 <strong>Not a lot</strong> according to this study.
 They constructed bovine pangenomes with ONT and HiFi, different read coverage?, and hifiasm/Shasta assemblers.
 For each configuration, the pangenome was similar: 92.1% of SVs in common, 0.39-1.8Mb of non-reference sequence unique to a pangenome.</p>
@@ -142,4 +138,18 @@ Some were present and consistent, others had different copy number representatio
 2.Hufford, M. B. et al. De novo assembly, annotation, and comparative analysis of 26 diverse maize genomes. Science 373, 655–662 (2021).</li>
 <li>Song, J.-M. et al. Eight high-quality genomes reveal pan-genome architecture and ecotype differentiation of Brassica napus. Nat. Plants 6, 34 (2020).</li>
 </ol>
+</div>
+<div id="bibliography" class="section level2 unnumbered">
+<h2>Bibliography</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-Crysnanto2019a" class="csl-entry">
+Crysnanto, Danang, and Hubert Pausch. 2019. <span>“Bovine Breed-Specific Augmented Reference Graphs Facilitate Accurate Sequence Read Mapping and Unbiased Variant Discovery.”</span> <em>bioRxiv</em>. <a href="https://doi.org/10.1101/2019.12.20.882423">https://doi.org/10.1101/2019.12.20.882423</a>.
+</div>
+<div id="ref-Leonard2022" class="csl-entry">
+Leonard, Alexander S., Danang Crysnanto, Zih-Hua Fang, Michael P. Heaton,..., and Hubert Pausch. 2022. <span>“Structural Variant-Based Pangenome Construction Has Low Sensitivity to Variability of Haplotype-Resolved Bovine Assemblies.”</span> <em>Nature Communications</em>. <a href="https://doi.org/10.1038/s41467-022-30680-2">https://doi.org/10.1038/s41467-022-30680-2</a>.
+</div>
+<div id="ref-Leonard2022a" class="csl-entry">
+Leonard, Alexander S., Danang Crysnanto, Xena M. Mapel, Meenu Bhati, and Hubert Pausch. 2022. <span>“Graph Construction Method Impacts Variation Representation and Analyses in a Bovine Super-Pangenome.”</span> <a href="https://doi.org/10.1101/2022.09.17.508368">https://doi.org/10.1101/2022.09.17.508368</a>.
+</div>
+</div>
 </div>

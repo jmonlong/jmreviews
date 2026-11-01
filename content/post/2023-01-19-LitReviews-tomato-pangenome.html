@@ -2,7 +2,7 @@
 date: 2023-01-19
 title: "Tomato pangenomes"
 tags: ['literature', 'pangenome', 'tomato', 'plant']
-slug: litreviews-bovine-pangenome
+slug: litreviews-tomato-pangenome
 bibliography: [../../library-small.bib]
 link-citations: true
 draft: true
@@ -27,25 +27,39 @@ output: blogdown::html_page
 They used long-read sequencing and de novo assembly to better catalog SVs (and SNVs/indels) that were then integrated into a pangenome.
 The pangenome was used for mapping reads of more than 700 samples.
 Once projected to the linear reference, variants were called and used for heritability analysis and GWAS.</p>
-<p><strong>Methods summary</strong>:
-1. 32 assemblies from HiFi reads using Flye/Hicanu/Hifiasm
-- SL5.0 also scaffolded with HiC
-1. SNP/indels from HiFi reads using DeepVariant
-1. SVs from HiFi reads using NGLMR and Sniffles/SVIM/CuteSV/PBSV
-- Also assembly-based SVs using Assemblytics.
-1. More SVs from 100 tomatoes (MAS2.0) lifted from SL4.0
-2. Gene annotation projected to a pangenome containing the assemblies made with minigraph.
-- Following scripts from <a href="https://github.com/AnimalGenomicsETH/bovine-graphs">a bovine pangenome study</a>.
-1. Pangenome using the vg SV-Giraffe pipeline
-- Redundant SVs filtered and iteratively added to pangenome.
-1. Short reads for 706 tomatoes (&gt;6x) mapped with giraffe and projected to SL5.0. Then:
-1. DeepVariant to call SNVs/indels
-1. Paragraph to genotype SVs.
-1. Heritability estimated by LDAK
-1. GWAS using two models
-1. Single-locus testing with mixed linear model using GCTA
-1. Multi-locus testing with LASSO from LDAK using lassopv.
-1. Some heritability/association restricted to co-expression modules found using WGCNA</p>
+<p><strong>Methods summary</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>32 assemblies from HiFi reads using Flye/Hicanu/Hifiasm
+<ul>
+<li>SL5.0 also scaffolded with HiC</li>
+</ul></li>
+<li>SNP/indels from HiFi reads using DeepVariant</li>
+<li>SVs from HiFi reads using NGLMR and Sniffles/SVIM/CuteSV/PBSV
+<ul>
+<li>Also assembly-based SVs using Assemblytics.</li>
+</ul></li>
+<li>More SVs from 100 tomatoes (MAS2.0) lifted from SL4.0</li>
+<li>Gene annotation projected to a pangenome containing the assemblies made with minigraph.
+<ul>
+<li>Following scripts from <a href="https://github.com/AnimalGenomicsETH/bovine-graphs">a bovine pangenome study</a>.</li>
+</ul></li>
+<li>Pangenome using the vg SV-Giraffe pipeline
+<ul>
+<li>Redundant SVs filtered and iteratively added to pangenome.</li>
+</ul></li>
+<li>Short reads for 706 tomatoes (&gt;6x) mapped with giraffe and projected to SL5.0. Then:
+<ol style="list-style-type: decimal">
+<li>DeepVariant to call SNVs/indels</li>
+<li>Paragraph to genotype SVs.</li>
+</ol></li>
+<li>Heritability estimated by LDAK</li>
+<li>GWAS using two models
+<ol style="list-style-type: decimal">
+<li>Single-locus testing with mixed linear model using GCTA</li>
+<li>Multi-locus testing with LASSO from LDAK using lassopv.</li>
+</ol></li>
+<li>Some heritability/association restricted to co-expression modules found using WGCNA</li>
+</ol>
 <p>One of the reason for this increased power is that <strong>many SVs have a functional impact and are not “tagged” properly by SNVs/indels</strong>.
 Hence, the effect of the these important SVs were only partially captured by variants that were in incomplete linkage disequilibrium.
 For example, they found that only about 3% of SVs are in complete LD with SNPs nearby, even if ~60% are in strong LD (<span class="math inline">\(R^2&gt;0.7\)</span>).
@@ -128,14 +142,16 @@ I’m not sure why they use the predicted phenotype (best linear unbiased predic
 <p>To tackle <strong>locus heterogeneity</strong>, they repeated the <strong>LASSO analysis across genes in the same co-expressed module</strong>.
 Their co-expression network contains 99 modules that groups genes that might impact a same trait.
 Each module contains only a small number of genes, ~178 on average, hence the LASSO model is still computationally practical.</p>
-<p><strong>Limitations</strong> include:
-- No complex SVs analyzed, which could change if high quality assemblies were used to construct the pangenome directly.
-- LASSO approach cannot yet be applied genome-wide.
-- Only biallelic variants considered.</p>
+<p><strong>Limitations</strong> include:</p>
+<ul>
+<li>No complex SVs analyzed, which could change if high quality assemblies were used to construct the pangenome directly.</li>
+<li>LASSO approach cannot yet be applied genome-wide.</li>
+<li>Only biallelic variants considered.</li>
+</ul>
 <p>Kudos for the the github repo for this paper which has a lot of the commands used and helped clarify some of my questions: <a href="https://github.com/YaoZhou89/TGG" class="uri">https://github.com/YaoZhou89/TGG</a></p>
 </div>
-<div id="major-impacts-of-w1idespread-structural-variation-on-gene-expression-and-crop-improvement-in-tomato" class="section level2">
-<h2>Major Impacts of W1idespread Structural Variation on Gene Expression and Crop Improvement in Tomato</h2>
+<div id="major-impacts-of-widespread-structural-variation-on-gene-expression-and-crop-improvement-in-tomato" class="section level2">
+<h2>Major Impacts of Widespread Structural Variation on Gene Expression and Crop Improvement in Tomato</h2>
 <p><a href="https://pubmed.ncbi.nlm.nih.gov/32553272/" class="uri">https://pubmed.ncbi.nlm.nih.gov/32553272/</a></p>
 <p>MAS2.0</p>
 </div>

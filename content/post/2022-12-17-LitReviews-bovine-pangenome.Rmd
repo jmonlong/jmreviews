@@ -5,7 +5,6 @@ tags: ['literature', 'pangenome', 'bovine']
 slug: litreviews-bovine-pangenome
 bibliography: [../../library-small.bib]
 link-citations: true
-draft: true
 output: blogdown::html_page
 ---
 
@@ -47,10 +46,7 @@ Others:
 
 ## Bovine breed-specific augmented reference graphs facilitate accurate sequence read mapping and unbiased variant discovery
 
-[Crysnanto & Pausch, Genome Biology 2020](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02105-0)
-
-
-They made a **pangenome from SNPs/INDELs catalogs** and showed that this pangenomic reference **helps with mapping short reads and genotyping**. 
+@Crysnanto2019a made a **pangenome from SNPs/INDELs catalogs** and showed that this pangenomic reference **helps with mapping short reads and genotyping**. 
 This is the first study that shows that in large genomes other than human.
 Similar to some previous studies, they see that it **helps to select variants based on their frequencies**, when deciding which ones to include in the pangenome.
 
@@ -72,9 +68,7 @@ Regarding variant-oriented analysis, the allelic support was closer to 0.5 for h
 
 ## Graph construction method impacts variation representation and analyses in a bovine super-pangenome
 
-[Leonard et al bioRxiv 2022](https://doi.org/10.1101/2022.09.17.508368)
-
-They experimented with different pangenome construction methods (pggb, cactus, minigraph) and observed differences in the variants represented by the pangenomes.
+@Leonard2022a experimented with different pangenome construction methods (pggb, cactus, minigraph) and observed differences in the variants represented by the pangenomes.
 
 There was much more variation/non-reference sequence in cactus/PGGB, both because it represents small variation and because it included centromeric repeats assembled by some of the assemblies.
 **96% of variants discovered from the assembly-based calling are found in the pangenomes.**
@@ -117,9 +111,7 @@ Interestingly, the discussion also calls out for more efficient downstream tools
 
 ## Structural variant-based pangenome construction has low sensitivity to variability of haplotype-resolved bovine assemblies
 
-[Leonard et al. Nature Communications 2022](https://doi.org/10.1038/s41467-022-30680-2)
-
-Could the type of **sequencing technology or assembly method affect the final pangenome constructed?**
+@Leonard2022 asked: could the type of **sequencing technology or assembly method affect the final pangenome constructed?**
 **Not a lot** according to this study.
 They constructed bovine pangenomes with ONT and HiFi, different read coverage?, and hifiasm/Shasta assemblers.
 For each configuration, the pangenome was similar: 92.1% of SVs in common, 0.39-1.8Mb of non-reference sequence unique to a pangenome.
@@ -145,3 +137,5 @@ Further reading: pangenome-based GWAS in crops
 1. Gupta, P. K. Quantitative genetics: pan-genomes, SVs, and k-mers for GWAS. Trends Genet. 37, 868–871 (2021).
 2.Hufford, M. B. et al. De novo assembly, annotation, and comparative analysis of 26 diverse maize genomes. Science 373, 655–662 (2021).
 3. Song, J.-M. et al. Eight high-quality genomes reveal pan-genome architecture and ecotype differentiation of Brassica napus. Nat. Plants 6, 34 (2020).
+
+## Bibliography

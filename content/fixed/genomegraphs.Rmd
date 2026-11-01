@@ -11,7 +11,6 @@ output:
 ---
 
 
-
 @Paten2017 wrote a review on genome graphs covering a large number of topics.
 @Marschall2018 review the emergent field of computational pan-genomics.
 

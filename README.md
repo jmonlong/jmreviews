@@ -29,3 +29,11 @@ Then I installed pandoc and pandoc-citeproc:
 ```sh
 sudo apt install pandoc pandoc-citeproc
 ```
+
+
+
+## Where is the content/configuration?
+
+- Home page: [`themes/lanyon-hugo/layouts/index.html`](themes/lanyon-hugo/layouts/index.html)
+- Pages: [`content/fixed/`](content/fixed/)
+- Posts: [`content/post/`](content/post/)

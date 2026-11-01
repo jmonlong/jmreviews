@@ -2,7 +2,7 @@
 date: 2022-04-30
 title: "Comparing SV: Viola, SV clustering, MARS and TT-MARS"
 tags: ['literature', 'sv']
-slug: litreviews-svsmethods
+slug: litreviews-svsmethods-comp
 bibliography: [../../library-small.bib]
 link-citations: true
 output: blogdown::html_page

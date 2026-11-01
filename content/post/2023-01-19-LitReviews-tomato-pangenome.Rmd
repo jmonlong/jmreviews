@@ -2,7 +2,7 @@
 date: 2023-01-19
 title: "Tomato pangenomes"
 tags: ['literature', 'pangenome', 'tomato', 'plant']
-slug: litreviews-bovine-pangenome
+slug: litreviews-tomato-pangenome
 bibliography: [../../library-small.bib]
 link-citations: true
 draft: true
@@ -26,23 +26,24 @@ The pangenome was used for mapping reads of more than 700 samples.
 Once projected to the linear reference, variants were called and used for heritability analysis and GWAS.
 
 **Methods summary**:
+
 1. 32 assemblies from HiFi reads using Flye/Hicanu/Hifiasm
-  - SL5.0 also scaffolded with HiC
+    - SL5.0 also scaffolded with HiC
 1. SNP/indels from HiFi reads using DeepVariant
 1. SVs from HiFi reads using NGLMR and Sniffles/SVIM/CuteSV/PBSV
-  - Also assembly-based SVs using Assemblytics.
+    - Also assembly-based SVs using Assemblytics.
 1. More SVs from 100 tomatoes (MAS2.0) lifted from SL4.0
 2. Gene annotation projected to a pangenome containing the assemblies made with minigraph.
    - Following scripts from [a bovine pangenome study](https://github.com/AnimalGenomicsETH/bovine-graphs).
 1. Pangenome using the vg SV-Giraffe pipeline
-  - Redundant SVs filtered and iteratively added to pangenome.
+   - Redundant SVs filtered and iteratively added to pangenome.
 1. Short reads for 706 tomatoes (>6x) mapped with giraffe and projected to SL5.0. Then:
-  1. DeepVariant to call SNVs/indels 
-  1. Paragraph to genotype SVs.
+   1. DeepVariant to call SNVs/indels 
+   1. Paragraph to genotype SVs.
 1. Heritability estimated by LDAK
 1. GWAS using two models
-  1. Single-locus testing with mixed linear model using GCTA
-  1. Multi-locus testing with LASSO from LDAK using lassopv.
+   1. Single-locus testing with mixed linear model using GCTA
+   1. Multi-locus testing with LASSO from LDAK using lassopv.
 1. Some heritability/association restricted to co-expression modules found using WGCNA
 
 One of the reason for this increased power is that **many SVs have a functional impact and are not "tagged" properly by SNVs/indels**.
@@ -87,7 +88,6 @@ I'm not yet completely clear on **mixed linear model association** (MLMA) as imp
 It seems to be **more powerful** by correcting for population and relatedness structure.
 I should read [Yang et al. 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3989144/).
 
-
 The second model used in this article can **test multiple variants at once** thanks to the integrated variable selection of the [**LASSO** approach](https://en.wikipedia.org/wiki/Lasso_(statistics)).
 The LASSO model seemed more powerful by handling what they call **"allele heterogeneity"**.
 For each gene, they tested the association of all nearby SVs in this "multilocus" model and could find many more genes with multiple cis-SV eQTLs than with the single-locus model.
@@ -100,13 +100,14 @@ Their co-expression network contains 99 modules that groups genes that might imp
 Each module contains only a small number of genes, ~178 on average, hence the LASSO model is still computationally practical.
 
 **Limitations** include:
+
 - No complex SVs analyzed, which could change if high quality assemblies were used to construct the pangenome directly.
 - LASSO approach cannot yet be applied genome-wide.
 - Only biallelic variants considered.
 
 Kudos for the the github repo for this paper which has a lot of the commands used and helped clarify some of my questions: https://github.com/YaoZhou89/TGG
 
-##  Major Impacts of W1idespread Structural Variation on Gene Expression and Crop Improvement in Tomato 
+##  Major Impacts of Widespread Structural Variation on Gene Expression and Crop Improvement in Tomato 
 
 https://pubmed.ncbi.nlm.nih.gov/32553272/
 

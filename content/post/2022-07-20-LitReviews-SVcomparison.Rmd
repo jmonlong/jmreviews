@@ -1,5 +1,5 @@
 ---
-date: 2022-07-20
+date: 2023-07-20
 title: "Comparing SV: Truvari, SURVIVOR, SVanalyser"
 tags: ['literature', 'sv']
 slug: litreviews-svcomparison
@@ -14,6 +14,7 @@ output: blogdown::html_page
 [English et al. bioRxiv 2022](https://doi.org/10.1101/2022.02.21.481353)
 
 Truvari ([https://github.com/ACEnglish/truvari](https://github.com/ACEnglish/truvari)) can take different sets of structural variants (SVs) and match them in order to:
+
 1. benchmark a callset with a truthset
 2. merge/collapse variant sets
    - multiple SVs sets from different methods on a sample 
@@ -26,6 +27,7 @@ Under-mergin would make variant association and functional annotation more diffi
 #### Methods
 
 SVs are matched is all of the following occurs:
+
 1. Same type.
 2. Sizes are similar. Reciprocally above 70%/95% of the other.
 2. Sequences are similar. 70%/95% similarity when aligning SV alleles.
@@ -65,6 +67,7 @@ Are there similar heterozygous SVs in the same sample that should be one homozyg
 
 Another application is merging SVs across samples.
 The SV merging mode was compared to:
+
 - BCFtools: exact matching
 - Jasmine: similar to truvari but more effort on clustering
 - Naive 50% reciprocal-overlap

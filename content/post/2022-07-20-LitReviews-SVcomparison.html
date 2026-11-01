@@ -1,5 +1,5 @@
 ---
-date: 2022-07-20
+date: 2023-07-20
 title: "Comparing SV: Truvari, SURVIVOR, SVanalyser"
 tags: ['literature', 'sv']
 slug: litreviews-svcomparison
@@ -14,21 +14,27 @@ output: blogdown::html_page
 <div id="truvari" class="section level2">
 <h2>Truvari</h2>
 <p><a href="https://doi.org/10.1101/2022.02.21.481353">English et al. bioRxiv 2022</a></p>
-<p>Truvari (<a href="https://github.com/ACEnglish/truvari">https://github.com/ACEnglish/truvari</a>) can take different sets of structural variants (SVs) and match them in order to:
-1. benchmark a callset with a truthset
-2. merge/collapse variant sets
-- multiple SVs sets from different methods on a sample
-- SVs across samples, merged into SV “sites”.</p>
+<p>Truvari (<a href="https://github.com/ACEnglish/truvari">https://github.com/ACEnglish/truvari</a>) can take different sets of structural variants (SVs) and match them in order to:</p>
+<ol style="list-style-type: decimal">
+<li>benchmark a callset with a truthset</li>
+<li>merge/collapse variant sets
+<ul>
+<li>multiple SVs sets from different methods on a sample</li>
+<li>SVs across samples, merged into SV “sites”.</li>
+</ul></li>
+</ol>
 <p>The authors warn about the <strong>dangers of over-merging and under-merging SVs</strong>.
 Over-merging can inflate allele frequency and lead to a loss of allele diversity.
 Under-mergin would make variant association and functional annotation more difficult.</p>
 <div id="methods" class="section level4">
 <h4>Methods</h4>
-<p>SVs are matched is all of the following occurs:
-1. Same type.
-2. Sizes are similar. Reciprocally above 70%/95% of the other.
-2. Sequences are similar. 70%/95% similarity when aligning SV alleles.
-3. Located not too far. If breakpoints at less than 500bp from each other</p>
+<p>SVs are matched is all of the following occurs:</p>
+<ol style="list-style-type: decimal">
+<li>Same type.</li>
+<li>Sizes are similar. Reciprocally above 70%/95% of the other.</li>
+<li>Sequences are similar. 70%/95% similarity when aligning SV alleles.</li>
+<li>Located not too far. If breakpoints at less than 500bp from each other</li>
+</ol>
 <p>The two default values above correspond to their benchmarking and collapsing modes.
 Collapsing is much more stringent.</p>
 <p><strong>Reciprocal overlap</strong> can also be used when calls are not sequence resolved.
@@ -56,11 +62,13 @@ It’s not mentionned in the text or methods.</p>
 Or if we should only use it to benchmark SV calling??
 Are there similar heterozygous SVs in the same sample that should be one homozygous record, for example.</p>
 <p>Another application is merging SVs across samples.
-The SV merging mode was compared to:
-- BCFtools: exact matching
-- Jasmine: similar to truvari but more effort on clustering
-- Naive 50% reciprocal-overlap
-- SURVIVOR: more of distance threshold between breakpoins I think??</p>
+The SV merging mode was compared to:</p>
+<ul>
+<li>BCFtools: exact matching</li>
+<li>Jasmine: similar to truvari but more effort on clustering</li>
+<li>Naive 50% reciprocal-overlap</li>
+<li>SURVIVOR: more of distance threshold between breakpoins I think??</li>
+</ul>
 <p>Overall, I think they demonstrated that <strong>stringency will affect the benchmarking/merging results</strong>.
 Truvari turns out to be by default more stringent than the other tools in their comparison.
 Hence, it looks like a good middle ground to avoid over-merging for example.

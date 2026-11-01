@@ -1,5 +1,5 @@
 ---
-date: 2022-08-29
+date: 2023-08-29
 title: "Pangenome application: transcriptome"
 tags: ['literature', 'pangenome']
 slug: litreviews-pangenome-apps
@@ -16,6 +16,7 @@ output: blogdown::html_page
 A pantranscriptome is a spliced variation graphs: typical pangenome with variants/haplotypes + splice junctions and transcript annotation.
 
 Applications:
+
 - better allele-specific expression (ASE) detection because no reference bias
 - identify haplotypes from RNA-seq
 - better read mapping, i.e. rescuing some reads that couldn't map, for example in highly variable regions
@@ -35,11 +36,11 @@ Then transcript quantification on this reduced set of haplotypes is performed us
     - lower mapping rate
     - higher correlation of exon expression with Iso-Seq (long-reads)
 - Slower (3-5x slower than HISAT2) and uses more memory (30-40 Gb)
-- rpvg has much higher precision than Kallisto, Salmon and RSEM
+- `rpvg` has much higher precision than Kallisto, Salmon and RSEM
 - The set of haplotypes in the pangenome doesn't affect the performance too much.
-- rpvg assigns better haplotypes, here NA12878 haplotypes for reads from this sample.
+- `rpvg` assigns better haplotypes, here NA12878 haplotypes for reads from this sample.
 - How are the other methods able to predict haplotypes?
-- The ASE experiment showed that rpvg could find more associations, and handle insertions and deletions.
+- The ASE experiment showed that `rpvg` could find more associations, and handle insertions and deletions.
 - The HLA typing experiment showed good preliminary results as in most predicted HLA HST were concordant between child and parents in the trio.
 - The concordance of alleles predicted across five tissue samples of the same individuals was also high, especially on transcript with >2 TPM
 - Imprinting can be detected as ASE. With HST, it's possible to look for differential imprinting strength across isoforms.
